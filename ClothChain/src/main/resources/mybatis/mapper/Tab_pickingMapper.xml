@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_pickingMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_picking" >
+    <id column="pickinid" property="pickinid" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+    <result column="pickingno" property="pickingno" jdbcType="VARCHAR" />
+    <result column="tasktype" property="tasktype" jdbcType="INTEGER" />
+    <result column="billstate" property="billstate" jdbcType="INTEGER" />
+    <result column="storage" property="storage" jdbcType="VARCHAR" />
+    <result column="purpose" property="purpose" jdbcType="VARCHAR" />
+    <result column="deliverydirection" property="deliverydirection" jdbcType="VARCHAR" />
+    <result column="materielno" property="materielno" jdbcType="VARCHAR" />
+    <result column="materielname" property="materielname" jdbcType="VARCHAR" />
+    <result column="specifications" property="specifications" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="colorno" property="colorno" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="stocknum" property="stocknum" jdbcType="Double" />
+    <result column="receivenum" property="receivenum" jdbcType="Double" />
+    <result column="materialno" property="materialno" jdbcType="VARCHAR" />
+    <result column="billdate" property="billdate" jdbcType="VARCHAR" />
+    <result column="applicant" property="applicant" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="Double" />
+    <result column="saleno" property="saleno" jdbcType="VARCHAR" />
+    <result column="sarehousingno" property="sarehousingno" jdbcType="VARCHAR" />
+    <result column="moneyno" property="moneyno" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="outtreasuryno" property="outtreasuryno" jdbcType="VARCHAR" />
+    <result column="outtreasurydate" property="outtreasurydate" jdbcType="VARCHAR" />
+    <result column="outtreasurynum" property="outtreasurynum" jdbcType="Double" />
+    <result column="pickingtype" property="pickingtype" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    pickinid, customerid, pickingno, tasktype, billstate, storage, purpose, deliverydirection, 
+    materielno, materielname, specifications, colour, colorno, company, stocknum, receivenum, 
+    materialno, billdate, applicant, price, saleno, sarehousingno, moneyno, quarter, 
+    remarks, outtreasuryno, outtreasurydate, outtreasurynum, pickingtype
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_pickingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_picking
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_picking
+    where pickinid = #{pickinid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_picking
+    where pickinid = #{pickinid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_pickingExample" >
+    delete from tab_picking
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_picking" >
+    insert into tab_picking (pickinid, customerid, pickingno, 
+      tasktype, billstate, storage, 
+      purpose, deliverydirection, materielno, 
+      materielname, specifications, colour, 
+      colorno, company, stocknum, 
+      receivenum, materialno, billdate, 
+      applicant, price, saleno, 
+      sarehousingno, moneyno, quarter, 
+      remarks, outtreasuryno, outtreasurydate, 
+      outtreasurynum, pickingtype)
+    values (#{pickinid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{pickingno,jdbcType=VARCHAR}, 
+      #{tasktype,jdbcType=INTEGER}, #{billstate,jdbcType=INTEGER}, #{storage,jdbcType=VARCHAR}, 
+      #{purpose,jdbcType=VARCHAR}, #{deliverydirection,jdbcType=VARCHAR}, #{materielno,jdbcType=VARCHAR}, 
+      #{materielname,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{colour,jdbcType=VARCHAR}, 
+      #{colorno,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{stocknum,jdbcType=Double},
+      #{receivenum,jdbcType=Double}, #{materialno,jdbcType=VARCHAR}, #{billdate,jdbcType=VARCHAR},
+      #{applicant,jdbcType=VARCHAR}, #{price,jdbcType=Double}, #{saleno,jdbcType=VARCHAR},
+      #{sarehousingno,jdbcType=VARCHAR}, #{moneyno,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{outtreasuryno,jdbcType=VARCHAR}, #{outtreasurydate,jdbcType=VARCHAR}, 
+      #{outtreasurynum,jdbcType=Double}, #{pickingtype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_picking" >
+    insert into tab_picking
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pickinid != null" >
+        pickinid,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+      <if test="pickingno != null" >
+        pickingno,
+      </if>
+      <if test="tasktype != null" >
+        tasktype,
+      </if>
+      <if test="billstate != null" >
+        billstate,
+      </if>
+      <if test="storage != null" >
+        storage,
+      </if>
+      <if test="purpose != null" >
+        purpose,
+      </if>
+      <if test="deliverydirection != null" >
+        deliverydirection,
+      </if>
+      <if test="materielno != null" >
+        materielno,
+      </if>
+      <if test="materielname != null" >
+        materielname,
+      </if>
+      <if test="specifications != null" >
+        specifications,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="colorno != null" >
+        colorno,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="stocknum != null" >
+        stocknum,
+      </if>
+      <if test="receivenum != null" >
+        receivenum,
+      </if>
+      <if test="materialno != null" >
+        materialno,
+      </if>
+      <if test="billdate != null" >
+        billdate,
+      </if>
+      <if test="applicant != null" >
+        applicant,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="saleno != null" >
+        saleno,
+      </if>
+      <if test="sarehousingno != null" >
+        sarehousingno,
+      </if>
+      <if test="moneyno != null" >
+        moneyno,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="outtreasuryno != null" >
+        outtreasuryno,
+      </if>
+      <if test="outtreasurydate != null" >
+        outtreasurydate,
+      </if>
+      <if test="outtreasurynum != null" >
+        outtreasurynum,
+      </if>
+      <if test="pickingtype != null" >
+        pickingtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pickinid != null" >
+        #{pickinid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="pickingno != null" >
+        #{pickingno,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="billstate != null" >
+        #{billstate,jdbcType=INTEGER},
+      </if>
+      <if test="storage != null" >
+        #{storage,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverydirection != null" >
+        #{deliverydirection,jdbcType=VARCHAR},
+      </if>
+      <if test="materielno != null" >
+        #{materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielname != null" >
+        #{materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null" >
+        #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null" >
+        #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="stocknum != null" >
+        #{stocknum,jdbcType=Double},
+      </if>
+      <if test="receivenum != null" >
+        #{receivenum,jdbcType=Double},
+      </if>
+      <if test="materialno != null" >
+        #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null" >
+        #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null" >
+        #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=Double},
+      </if>
+      <if test="saleno != null" >
+        #{saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="sarehousingno != null" >
+        #{sarehousingno,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyno != null" >
+        #{moneyno,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasuryno != null" >
+        #{outtreasuryno,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasurydate != null" >
+        #{outtreasurydate,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasurynum != null" >
+        #{outtreasurynum,jdbcType=Double},
+      </if>
+      <if test="pickingtype != null" >
+        #{pickingtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_pickingExample" resultType="java.lang.Integer" >
+    select count(*) from tab_picking
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_picking
+    <set >
+      <if test="record.pickinid != null" >
+        pickinid = #{record.pickinid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pickingno != null" >
+        pickingno = #{record.pickingno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tasktype != null" >
+        tasktype = #{record.tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="record.billstate != null" >
+        billstate = #{record.billstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.storage != null" >
+        storage = #{record.storage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purpose != null" >
+        purpose = #{record.purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliverydirection != null" >
+        deliverydirection = #{record.deliverydirection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materielno != null" >
+        materielno = #{record.materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materielname != null" >
+        materielname = #{record.materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specifications != null" >
+        specifications = #{record.specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="record.colour != null" >
+        colour = #{record.colour,jdbcType=VARCHAR},
+      </if>
+      <if test="record.colorno != null" >
+        colorno = #{record.colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.company != null" >
+        company = #{record.company,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stocknum != null" >
+        stocknum = #{record.stocknum,jdbcType=Double},
+      </if>
+      <if test="record.receivenum != null" >
+        receivenum = #{record.receivenum,jdbcType=Double},
+      </if>
+      <if test="record.materialno != null" >
+        materialno = #{record.materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billdate != null" >
+        billdate = #{record.billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applicant != null" >
+        applicant = #{record.applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=Double},
+      </if>
+      <if test="record.saleno != null" >
+        saleno = #{record.saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sarehousingno != null" >
+        sarehousingno = #{record.sarehousingno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moneyno != null" >
+        moneyno = #{record.moneyno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outtreasuryno != null" >
+        outtreasuryno = #{record.outtreasuryno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outtreasurydate != null" >
+        outtreasurydate = #{record.outtreasurydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outtreasurynum != null" >
+        outtreasurynum = #{record.outtreasurynum,jdbcType=Double},
+      </if>
+      <if test="record.pickingtype != null" >
+        pickingtype = #{record.pickingtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_picking
+    set pickinid = #{record.pickinid,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER},
+      pickingno = #{record.pickingno,jdbcType=VARCHAR},
+      tasktype = #{record.tasktype,jdbcType=INTEGER},
+      billstate = #{record.billstate,jdbcType=INTEGER},
+      storage = #{record.storage,jdbcType=VARCHAR},
+      purpose = #{record.purpose,jdbcType=VARCHAR},
+      deliverydirection = #{record.deliverydirection,jdbcType=VARCHAR},
+      materielno = #{record.materielno,jdbcType=VARCHAR},
+      materielname = #{record.materielname,jdbcType=VARCHAR},
+      specifications = #{record.specifications,jdbcType=VARCHAR},
+      colour = #{record.colour,jdbcType=VARCHAR},
+      colorno = #{record.colorno,jdbcType=VARCHAR},
+      company = #{record.company,jdbcType=VARCHAR},
+      stocknum = #{record.stocknum,jdbcType=Double},
+      receivenum = #{record.receivenum,jdbcType=Double},
+      materialno = #{record.materialno,jdbcType=VARCHAR},
+      billdate = #{record.billdate,jdbcType=VARCHAR},
+      applicant = #{record.applicant,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=Double},
+      saleno = #{record.saleno,jdbcType=VARCHAR},
+      sarehousingno = #{record.sarehousingno,jdbcType=VARCHAR},
+      moneyno = #{record.moneyno,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      outtreasuryno = #{record.outtreasuryno,jdbcType=VARCHAR},
+      outtreasurydate = #{record.outtreasurydate,jdbcType=VARCHAR},
+      outtreasurynum = #{record.outtreasurynum,jdbcType=Double},
+      pickingtype = #{record.pickingtype,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_picking" >
+    update tab_picking
+    <set >
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="pickingno != null" >
+        pickingno = #{pickingno,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        tasktype = #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="billstate != null" >
+        billstate = #{billstate,jdbcType=INTEGER},
+      </if>
+      <if test="storage != null" >
+        storage = #{storage,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        purpose = #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverydirection != null" >
+        deliverydirection = #{deliverydirection,jdbcType=VARCHAR},
+      </if>
+      <if test="materielno != null" >
+        materielno = #{materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielname != null" >
+        materielname = #{materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null" >
+        specifications = #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null" >
+        colorno = #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="stocknum != null" >
+        stocknum = #{stocknum,jdbcType=Double},
+      </if>
+      <if test="receivenum != null" >
+        receivenum = #{receivenum,jdbcType=Double},
+      </if>
+      <if test="materialno != null" >
+        materialno = #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null" >
+        billdate = #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null" >
+        applicant = #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=Double},
+      </if>
+      <if test="saleno != null" >
+        saleno = #{saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="sarehousingno != null" >
+        sarehousingno = #{sarehousingno,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyno != null" >
+        moneyno = #{moneyno,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasuryno != null" >
+        outtreasuryno = #{outtreasuryno,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasurydate != null" >
+        outtreasurydate = #{outtreasurydate,jdbcType=VARCHAR},
+      </if>
+      <if test="outtreasurynum != null" >
+        outtreasurynum = #{outtreasurynum,jdbcType=Double},
+      </if>
+      <if test="pickingtype != null" >
+        pickingtype = #{pickingtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pickinid = #{pickinid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_picking" >
+    update tab_picking
+    set customerid = #{customerid,jdbcType=INTEGER},
+      pickingno = #{pickingno,jdbcType=VARCHAR},
+      tasktype = #{tasktype,jdbcType=INTEGER},
+      billstate = #{billstate,jdbcType=INTEGER},
+      storage = #{storage,jdbcType=VARCHAR},
+      purpose = #{purpose,jdbcType=VARCHAR},
+      deliverydirection = #{deliverydirection,jdbcType=VARCHAR},
+      materielno = #{materielno,jdbcType=VARCHAR},
+      materielname = #{materielname,jdbcType=VARCHAR},
+      specifications = #{specifications,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      colorno = #{colorno,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      stocknum = #{stocknum,jdbcType=Double},
+      receivenum = #{receivenum,jdbcType=Double},
+      materialno = #{materialno,jdbcType=VARCHAR},
+      billdate = #{billdate,jdbcType=VARCHAR},
+      applicant = #{applicant,jdbcType=VARCHAR},
+      price = #{price,jdbcType=Double},
+      saleno = #{saleno,jdbcType=VARCHAR},
+      sarehousingno = #{sarehousingno,jdbcType=VARCHAR},
+      moneyno = #{moneyno,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      outtreasuryno = #{outtreasuryno,jdbcType=VARCHAR},
+      outtreasurydate = #{outtreasurydate,jdbcType=VARCHAR},
+      outtreasurynum = #{outtreasurynum,jdbcType=Double},
+      pickingtype = #{pickingtype,jdbcType=INTEGER}
+    where pickinid = #{pickinid,jdbcType=INTEGER}
+  </update>
+</mapper>

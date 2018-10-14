@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_orderinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_orderinfo" >
+    <id column="orderinfoid" property="orderinfoid" jdbcType="INTEGER" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="infoname" property="infoname" jdbcType="VARCHAR" />
+    <result column="infotype" property="infotype" jdbcType="INTEGER" />
+    <result column="entrydate" property="entrydate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderinfoid, orderno, infoname, infotype, entrydate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_orderinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_orderinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_orderinfo
+    where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_orderinfo
+    where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_orderinfoExample" >
+    delete from tab_orderinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_orderinfo" >
+    insert into tab_orderinfo (orderinfoid, orderno, infoname, 
+      infotype, entrydate)
+    values (#{orderinfoid,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, #{infoname,jdbcType=VARCHAR}, 
+      #{infotype,jdbcType=INTEGER}, #{entrydate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_orderinfo" >
+    insert into tab_orderinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderinfoid != null" >
+        orderinfoid,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="infoname != null" >
+        infoname,
+      </if>
+      <if test="infotype != null" >
+        infotype,
+      </if>
+      <if test="entrydate != null" >
+        entrydate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderinfoid != null" >
+        #{orderinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="infoname != null" >
+        #{infoname,jdbcType=VARCHAR},
+      </if>
+      <if test="infotype != null" >
+        #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="entrydate != null" >
+        #{entrydate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_orderinfoExample" resultType="java.lang.Integer" >
+    select count(*) from tab_orderinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_orderinfo
+    <set >
+      <if test="record.orderinfoid != null" >
+        orderinfoid = #{record.orderinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderno != null" >
+        orderno = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infoname != null" >
+        infoname = #{record.infoname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infotype != null" >
+        infotype = #{record.infotype,jdbcType=INTEGER},
+      </if>
+      <if test="record.entrydate != null" >
+        entrydate = #{record.entrydate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_orderinfo
+    set orderinfoid = #{record.orderinfoid,jdbcType=INTEGER},
+      orderno = #{record.orderno,jdbcType=VARCHAR},
+      infoname = #{record.infoname,jdbcType=VARCHAR},
+      infotype = #{record.infotype,jdbcType=INTEGER},
+      entrydate = #{record.entrydate,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_orderinfo" >
+    update tab_orderinfo
+    <set >
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="infoname != null" >
+        infoname = #{infoname,jdbcType=VARCHAR},
+      </if>
+      <if test="infotype != null" >
+        infotype = #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="entrydate != null" >
+        entrydate = #{entrydate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_orderinfo" >
+    update tab_orderinfo
+    set orderno = #{orderno,jdbcType=VARCHAR},
+      infoname = #{infoname,jdbcType=VARCHAR},
+      infotype = #{infotype,jdbcType=INTEGER},
+      entrydate = #{entrydate,jdbcType=VARCHAR}
+    where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_otherplanMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_otherplan" >
+    <id column="otherplanid" property="otherplanid" jdbcType="INTEGER" />
+    <result column="largetype" property="largetype" jdbcType="VARCHAR" />
+    <result column="thing" property="thing" jdbcType="VARCHAR" />
+    <result column="chargepeople" property="chargepeople" jdbcType="VARCHAR" />
+    <result column="plandate" property="plandate" jdbcType="VARCHAR" />
+    <result column="complatedate" property="complatedate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    otherplanid, largetype, thing, chargepeople, plandate, complatedate, remark, orderno
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_otherplanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_otherplan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_otherplan
+    where otherplanid = #{otherplanid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_otherplan
+    where otherplanid = #{otherplanid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_otherplanExample" >
+    delete from tab_otherplan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_otherplan" >
+    insert into tab_otherplan (otherplanid, largetype, thing, 
+      chargepeople, plandate, complatedate, 
+      remark, orderno)
+    values (#{otherplanid,jdbcType=INTEGER}, #{largetype,jdbcType=VARCHAR}, #{thing,jdbcType=VARCHAR}, 
+      #{chargepeople,jdbcType=VARCHAR}, #{plandate,jdbcType=VARCHAR}, #{complatedate,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_otherplan" >
+    insert into tab_otherplan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otherplanid != null" >
+        otherplanid,
+      </if>
+      <if test="largetype != null" >
+        largetype,
+      </if>
+      <if test="thing != null" >
+        thing,
+      </if>
+      <if test="chargepeople != null" >
+        chargepeople,
+      </if>
+      <if test="plandate != null" >
+        plandate,
+      </if>
+      <if test="complatedate != null" >
+        complatedate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otherplanid != null" >
+        #{otherplanid,jdbcType=INTEGER},
+      </if>
+      <if test="largetype != null" >
+        #{largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="thing != null" >
+        #{thing,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepeople != null" >
+        #{chargepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="plandate != null" >
+        #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="complatedate != null" >
+        #{complatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_otherplanExample" resultType="java.lang.Integer" >
+    select count(*) from tab_otherplan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_otherplan
+    <set >
+      <if test="record.otherplanid != null" >
+        otherplanid = #{record.otherplanid,jdbcType=INTEGER},
+      </if>
+      <if test="record.largetype != null" >
+        largetype = #{record.largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thing != null" >
+        thing = #{record.thing,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chargepeople != null" >
+        chargepeople = #{record.chargepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plandate != null" >
+        plandate = #{record.plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.complatedate != null" >
+        complatedate = #{record.complatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderno != null" >
+        orderno = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_otherplan
+    set otherplanid = #{record.otherplanid,jdbcType=INTEGER},
+      largetype = #{record.largetype,jdbcType=VARCHAR},
+      thing = #{record.thing,jdbcType=VARCHAR},
+      chargepeople = #{record.chargepeople,jdbcType=VARCHAR},
+      plandate = #{record.plandate,jdbcType=VARCHAR},
+      complatedate = #{record.complatedate,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      orderno = #{record.orderno,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_otherplan" >
+    update tab_otherplan
+    <set >
+      <if test="largetype != null" >
+        largetype = #{largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="thing != null" >
+        thing = #{thing,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepeople != null" >
+        chargepeople = #{chargepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="plandate != null" >
+        plandate = #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="complatedate != null" >
+        complatedate = #{complatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where otherplanid = #{otherplanid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_otherplan" >
+    update tab_otherplan
+    set largetype = #{largetype,jdbcType=VARCHAR},
+      thing = #{thing,jdbcType=VARCHAR},
+      chargepeople = #{chargepeople,jdbcType=VARCHAR},
+      plandate = #{plandate,jdbcType=VARCHAR},
+      complatedate = #{complatedate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR}
+    where otherplanid = #{otherplanid,jdbcType=INTEGER}
+  </update>
+</mapper>
