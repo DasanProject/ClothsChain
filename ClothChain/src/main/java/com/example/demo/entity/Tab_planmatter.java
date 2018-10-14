@@ -19,7 +19,7 @@ public class Tab_planmatter {
 
     private Integer warnstate;
 
-    private Integer import;
+    private Integer imports;
 
     private String materialnode;
 
@@ -97,12 +97,12 @@ public class Tab_planmatter {
         this.warnstate = warnstate;
     }
 
-    public Integer getImport() {
-        return import;
+    public Integer getImports() {
+        return imports;
     }
 
-    public void setImport(Integer import) {
-        this.import = import;
+    public void setImport(Integer imports) {
+        this.imports = imports;
     }
 
     public String getMaterialnode() {

@@ -11,7 +11,7 @@
     <result column="plandate" property="plandate" jdbcType="VARCHAR" />
     <result column="nodesday" property="nodesday" jdbcType="INTEGER" />
     <result column="warnstate" property="warnstate" jdbcType="INTEGER" />
-    <result column="import" property="import" jdbcType="INTEGER" />
+    <result column="imports" property="imports" jdbcType="INTEGER" />
     <result column="materialnode" property="materialnode" jdbcType="VARCHAR" />
     <result column="purchsingnode" property="purchsingnode" jdbcType="VARCHAR" />
   </resultMap>
