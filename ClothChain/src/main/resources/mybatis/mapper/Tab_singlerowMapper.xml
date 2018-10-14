@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_singlerowMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_singlerow" >
+    <id column="singleid" property="singleid" jdbcType="INTEGER" />
+    <result column="groups" property="groups" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="singlenumber" property="singlenumber" jdbcType="INTEGER" />
+    <result column="begindate" property="begindate" jdbcType="VARCHAR" />
+    <result column="enddate" property="enddate" jdbcType="VARCHAR" />
+    <result column="overdate" property="overdate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    singleid, groups, orderno, singlenumber, begindate, enddate, overdate, remark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_singlerowExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_singlerow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_singlerow
+    where singleid = #{singleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_singlerow
+    where singleid = #{singleid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_singlerowExample" >
+    delete from tab_singlerow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_singlerow" >
+    insert into tab_singlerow (singleid, groups, orderno, 
+      singlenumber, begindate, enddate, 
+      overdate, remark)
+    values (#{singleid,jdbcType=INTEGER}, #{groups,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, 
+      #{singlenumber,jdbcType=INTEGER}, #{begindate,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, 
+      #{overdate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_singlerow" >
+    insert into tab_singlerow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="singleid != null" >
+        singleid,
+      </if>
+      <if test="groups != null" >
+        groups,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="singlenumber != null" >
+        singlenumber,
+      </if>
+      <if test="begindate != null" >
+        begindate,
+      </if>
+      <if test="enddate != null" >
+        enddate,
+      </if>
+      <if test="overdate != null" >
+        overdate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="singleid != null" >
+        #{singleid,jdbcType=INTEGER},
+      </if>
+      <if test="groups != null" >
+        #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="singlenumber != null" >
+        #{singlenumber,jdbcType=INTEGER},
+      </if>
+      <if test="begindate != null" >
+        #{begindate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="overdate != null" >
+        #{overdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_singlerowExample" resultType="java.lang.Integer" >
+    select count(*) from tab_singlerow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_singlerow
+    <set >
+      <if test="record.singleid != null" >
+        singleid = #{record.singleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groups != null" >
+        groups = #{record.groups,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderno != null" >
+        orderno = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.singlenumber != null" >
+        singlenumber = #{record.singlenumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.begindate != null" >
+        begindate = #{record.begindate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enddate != null" >
+        enddate = #{record.enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overdate != null" >
+        overdate = #{record.overdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_singlerow
+    set singleid = #{record.singleid,jdbcType=INTEGER},
+      groups = #{record.groups,jdbcType=VARCHAR},
+      orderno = #{record.orderno,jdbcType=VARCHAR},
+      singlenumber = #{record.singlenumber,jdbcType=INTEGER},
+      begindate = #{record.begindate,jdbcType=VARCHAR},
+      enddate = #{record.enddate,jdbcType=VARCHAR},
+      overdate = #{record.overdate,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_singlerow" >
+    update tab_singlerow
+    <set >
+      <if test="groups != null" >
+        groups = #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="singlenumber != null" >
+        singlenumber = #{singlenumber,jdbcType=INTEGER},
+      </if>
+      <if test="begindate != null" >
+        begindate = #{begindate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        enddate = #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="overdate != null" >
+        overdate = #{overdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where singleid = #{singleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_singlerow" >
+    update tab_singlerow
+    set groups = #{groups,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      singlenumber = #{singlenumber,jdbcType=INTEGER},
+      begindate = #{begindate,jdbcType=VARCHAR},
+      enddate = #{enddate,jdbcType=VARCHAR},
+      overdate = #{overdate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where singleid = #{singleid,jdbcType=INTEGER}
+  </update>
+</mapper>

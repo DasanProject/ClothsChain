@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_samplesizeMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_samplesize" >
+    <id column="samplesizeid" property="samplesizeid" jdbcType="INTEGER" />
+    <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
+    <result column="customerlocation" property="customerlocation" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="metricmethod" property="metricmethod" jdbcType="VARCHAR" />
+    <result column="samplesize" property="samplesize" jdbcType="VARCHAR" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+    <result column="positive" property="positive" jdbcType="Double" />
+    <result column="negative" property="negative" jdbcType="Double" />
+    <result column="size" property="size" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    samplesizeid, sampleno, customerlocation, location, metricmethod, samplesize, describle, 
+    positive, negative, size
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_samplesizeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_samplesize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_samplesize
+    where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_samplesize
+    where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_samplesizeExample" >
+    delete from tab_samplesize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_samplesize" >
+    insert into tab_samplesize (samplesizeid, sampleno, customerlocation, 
+      location, metricmethod, samplesize, 
+      describle, positive, negative, 
+      size)
+    values (#{samplesizeid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, #{customerlocation,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{metricmethod,jdbcType=VARCHAR}, #{samplesize,jdbcType=VARCHAR}, 
+      #{describle,jdbcType=VARCHAR}, #{positive,jdbcType=Double}, #{negative,jdbcType=Double},
+      #{size,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_samplesize" >
+    insert into tab_samplesize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="samplesizeid != null" >
+        samplesizeid,
+      </if>
+      <if test="sampleno != null" >
+        sampleno,
+      </if>
+      <if test="customerlocation != null" >
+        customerlocation,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="metricmethod != null" >
+        metricmethod,
+      </if>
+      <if test="samplesize != null" >
+        samplesize,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+      <if test="positive != null" >
+        positive,
+      </if>
+      <if test="negative != null" >
+        negative,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="samplesizeid != null" >
+        #{samplesizeid,jdbcType=INTEGER},
+      </if>
+      <if test="sampleno != null" >
+        #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlocation != null" >
+        #{customerlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="metricmethod != null" >
+        #{metricmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="samplesize != null" >
+        #{samplesize,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="positive != null" >
+        #{positive,jdbcType=Double},
+      </if>
+      <if test="negative != null" >
+        #{negative,jdbcType=Double},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_samplesizeExample" resultType="java.lang.Integer" >
+    select count(*) from tab_samplesize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_samplesize
+    <set >
+      <if test="record.samplesizeid != null" >
+        samplesizeid = #{record.samplesizeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sampleno != null" >
+        sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerlocation != null" >
+        customerlocation = #{record.customerlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.location != null" >
+        location = #{record.location,jdbcType=VARCHAR},
+      </if>
+      <if test="record.metricmethod != null" >
+        metricmethod = #{record.metricmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.samplesize != null" >
+        samplesize = #{record.samplesize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.positive != null" >
+        positive = #{record.positive,jdbcType=Double},
+      </if>
+      <if test="record.negative != null" >
+        negative = #{record.negative,jdbcType=Double},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_samplesize
+    set samplesizeid = #{record.samplesizeid,jdbcType=INTEGER},
+      sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      customerlocation = #{record.customerlocation,jdbcType=VARCHAR},
+      location = #{record.location,jdbcType=VARCHAR},
+      metricmethod = #{record.metricmethod,jdbcType=VARCHAR},
+      samplesize = #{record.samplesize,jdbcType=VARCHAR},
+      describle = #{record.describle,jdbcType=VARCHAR},
+      positive = #{record.positive,jdbcType=Double},
+      negative = #{record.negative,jdbcType=Double},
+      size = #{record.size,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_samplesize" >
+    update tab_samplesize
+    <set >
+      <if test="sampleno != null" >
+        sampleno = #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlocation != null" >
+        customerlocation = #{customerlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="metricmethod != null" >
+        metricmethod = #{metricmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="samplesize != null" >
+        samplesize = #{samplesize,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="positive != null" >
+        positive = #{positive,jdbcType=Double},
+      </if>
+      <if test="negative != null" >
+        negative = #{negative,jdbcType=Double},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=INTEGER},
+      </if>
+    </set>
+    where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_samplesize" >
+    update tab_samplesize
+    set sampleno = #{sampleno,jdbcType=VARCHAR},
+      customerlocation = #{customerlocation,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      metricmethod = #{metricmethod,jdbcType=VARCHAR},
+      samplesize = #{samplesize,jdbcType=VARCHAR},
+      describle = #{describle,jdbcType=VARCHAR},
+      positive = #{positive,jdbcType=Double},
+      negative = #{negative,jdbcType=Double},
+      size = #{size,jdbcType=INTEGER}
+    where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
+  </update>
+</mapper>
