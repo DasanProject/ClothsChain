@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_timesetMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_timeset" >
+    <id column="setid" property="setid" jdbcType="INTEGER" />
+    <result column="groups" property="groups" jdbcType="VARCHAR" />
+    <result column="workdate" property="workdate" jdbcType="VARCHAR" />
+    <result column="workhours" property="workhours" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    setid, groups, workdate, workhours
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_timesetExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_timeset
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_timeset
+    where setid = #{setid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_timeset
+    where setid = #{setid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_timesetExample" >
+    delete from tab_timeset
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_timeset" >
+    insert into tab_timeset (setid, groups, workdate, 
+      workhours)
+    values (#{setid,jdbcType=INTEGER}, #{groups,jdbcType=VARCHAR}, #{workdate,jdbcType=VARCHAR}, 
+      #{workhours,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_timeset" >
+    insert into tab_timeset
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="setid != null" >
+        setid,
+      </if>
+      <if test="groups != null" >
+        groups,
+      </if>
+      <if test="workdate != null" >
+        workdate,
+      </if>
+      <if test="workhours != null" >
+        workhours,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="setid != null" >
+        #{setid,jdbcType=INTEGER},
+      </if>
+      <if test="groups != null" >
+        #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="workdate != null" >
+        #{workdate,jdbcType=VARCHAR},
+      </if>
+      <if test="workhours != null" >
+        #{workhours,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_timesetExample" resultType="java.lang.Integer" >
+    select count(*) from tab_timeset
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_timeset
+    <set >
+      <if test="record.setid != null" >
+        setid = #{record.setid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groups != null" >
+        groups = #{record.groups,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workdate != null" >
+        workdate = #{record.workdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workhours != null" >
+        workhours = #{record.workhours,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_timeset
+    set setid = #{record.setid,jdbcType=INTEGER},
+      groups = #{record.groups,jdbcType=VARCHAR},
+      workdate = #{record.workdate,jdbcType=VARCHAR},
+      workhours = #{record.workhours,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_timeset" >
+    update tab_timeset
+    <set >
+      <if test="groups != null" >
+        groups = #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="workdate != null" >
+        workdate = #{workdate,jdbcType=VARCHAR},
+      </if>
+      <if test="workhours != null" >
+        workhours = #{workhours,jdbcType=INTEGER},
+      </if>
+    </set>
+    where setid = #{setid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_timeset" >
+    update tab_timeset
+    set groups = #{groups,jdbcType=VARCHAR},
+      workdate = #{workdate,jdbcType=VARCHAR},
+      workhours = #{workhours,jdbcType=INTEGER}
+    where setid = #{setid,jdbcType=INTEGER}
+  </update>
+</mapper>

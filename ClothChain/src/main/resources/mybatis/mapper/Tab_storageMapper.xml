@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_storageMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_storage" >
+    <id column="storageid" property="storageid" jdbcType="INTEGER" />
+    <result column="storageno" property="storageno" jdbcType="VARCHAR" />
+    <result column="warehouse" property="warehouse" jdbcType="VARCHAR" />
+    <result column="storagedate" property="storagedate" jdbcType="VARCHAR" />
+    <result column="purchaser" property="purchaser" jdbcType="VARCHAR" />
+    <result column="deliveryno" property="deliveryno" jdbcType="VARCHAR" />
+    <result column="batchno" property="batchno" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    storageid, storageno, warehouse, storagedate, purchaser, deliveryno, batchno, quarter, 
+    remarks, superlierid, customerid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_storageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_storage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_storage
+    where storageid = #{storageid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_storage
+    where storageid = #{storageid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_storageExample" >
+    delete from tab_storage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_storage" >
+    insert into tab_storage (storageid, storageno, warehouse, 
+      storagedate, purchaser, deliveryno, 
+      batchno, quarter, remarks, 
+      superlierid, customerid)
+    values (#{storageid,jdbcType=INTEGER}, #{storageno,jdbcType=VARCHAR}, #{warehouse,jdbcType=VARCHAR}, 
+      #{storagedate,jdbcType=VARCHAR}, #{purchaser,jdbcType=VARCHAR}, #{deliveryno,jdbcType=VARCHAR}, 
+      #{batchno,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{superlierid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_storage" >
+    insert into tab_storage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="storageid != null" >
+        storageid,
+      </if>
+      <if test="storageno != null" >
+        storageno,
+      </if>
+      <if test="warehouse != null" >
+        warehouse,
+      </if>
+      <if test="storagedate != null" >
+        storagedate,
+      </if>
+      <if test="purchaser != null" >
+        purchaser,
+      </if>
+      <if test="deliveryno != null" >
+        deliveryno,
+      </if>
+      <if test="batchno != null" >
+        batchno,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="superlierid != null" >
+        superlierid,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="storageid != null" >
+        #{storageid,jdbcType=INTEGER},
+      </if>
+      <if test="storageno != null" >
+        #{storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouse != null" >
+        #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="storagedate != null" >
+        #{storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaser != null" >
+        #{purchaser,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryno != null" >
+        #{deliveryno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null" >
+        #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="superlierid != null" >
+        #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_storageExample" resultType="java.lang.Integer" >
+    select count(*) from tab_storage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_storage
+    <set >
+      <if test="record.storageid != null" >
+        storageid = #{record.storageid,jdbcType=INTEGER},
+      </if>
+      <if test="record.storageno != null" >
+        storageno = #{record.storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warehouse != null" >
+        warehouse = #{record.warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storagedate != null" >
+        storagedate = #{record.storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaser != null" >
+        purchaser = #{record.purchaser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliveryno != null" >
+        deliveryno = #{record.deliveryno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.batchno != null" >
+        batchno = #{record.batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.superlierid != null" >
+        superlierid = #{record.superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_storage
+    set storageid = #{record.storageid,jdbcType=INTEGER},
+      storageno = #{record.storageno,jdbcType=VARCHAR},
+      warehouse = #{record.warehouse,jdbcType=VARCHAR},
+      storagedate = #{record.storagedate,jdbcType=VARCHAR},
+      purchaser = #{record.purchaser,jdbcType=VARCHAR},
+      deliveryno = #{record.deliveryno,jdbcType=VARCHAR},
+      batchno = #{record.batchno,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      superlierid = #{record.superlierid,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_storage" >
+    update tab_storage
+    <set >
+      <if test="storageno != null" >
+        storageno = #{storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouse != null" >
+        warehouse = #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="storagedate != null" >
+        storagedate = #{storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaser != null" >
+        purchaser = #{purchaser,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryno != null" >
+        deliveryno = #{deliveryno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null" >
+        batchno = #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="superlierid != null" >
+        superlierid = #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where storageid = #{storageid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_storage" >
+    update tab_storage
+    set storageno = #{storageno,jdbcType=VARCHAR},
+      warehouse = #{warehouse,jdbcType=VARCHAR},
+      storagedate = #{storagedate,jdbcType=VARCHAR},
+      purchaser = #{purchaser,jdbcType=VARCHAR},
+      deliveryno = #{deliveryno,jdbcType=VARCHAR},
+      batchno = #{batchno,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      superlierid = #{superlierid,jdbcType=INTEGER},
+      customerid = #{customerid,jdbcType=INTEGER}
+    where storageid = #{storageid,jdbcType=INTEGER}
+  </update>
+</mapper>
