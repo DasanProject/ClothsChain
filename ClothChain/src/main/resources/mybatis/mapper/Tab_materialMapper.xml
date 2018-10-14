@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_materialMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_material" >
+    <id column="materialid" property="materialid" jdbcType="INTEGER" />
+    <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
+    <result column="categoryid" property="categoryid" jdbcType="INTEGER" />
+    <result column="materialnum" property="materialnum" jdbcType="VARCHAR" />
+    <result column="materialname" property="materialname" jdbcType="VARCHAR" />
+    <result column="modal" property="modal" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="auditstatu" property="auditstatu" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="basis" property="basis" jdbcType="VARCHAR" />
+    <result column="shrinkage" property="shrinkage" jdbcType="Double" />
+    <result column="weight" property="weight" jdbcType="Double" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="Double" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="startnum" property="startnum" jdbcType="INTEGER" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    materialid, superlierid, categoryid, materialnum, materialname, modal, state, auditstatu, 
+    remark, basis, shrinkage, weight, num, price, unit, startnum, color, size
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_materialExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_material
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_material
+    where materialid = #{materialid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_material
+    where materialid = #{materialid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_materialExample" >
+    delete from tab_material
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_material" >
+    insert into tab_material (materialid, superlierid, categoryid, 
+      materialnum, materialname, modal, 
+      state, auditstatu, remark, 
+      basis, shrinkage, weight, 
+      num, price, unit, startnum, 
+      color, size)
+    values (#{materialid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
+      #{materialnum,jdbcType=VARCHAR}, #{materialname,jdbcType=VARCHAR}, #{modal,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{auditstatu,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{basis,jdbcType=VARCHAR}, #{shrinkage,jdbcType=Double}, #{weight,jdbcType=Double},
+      #{num,jdbcType=INTEGER}, #{price,jdbcType=Double}, #{unit,jdbcType=VARCHAR}, #{startnum,jdbcType=INTEGER},
+      #{color,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_material" >
+    insert into tab_material
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="materialid != null" >
+        materialid,
+      </if>
+      <if test="superlierid != null" >
+        superlierid,
+      </if>
+      <if test="categoryid != null" >
+        categoryid,
+      </if>
+      <if test="materialnum != null" >
+        materialnum,
+      </if>
+      <if test="materialname != null" >
+        materialname,
+      </if>
+      <if test="modal != null" >
+        modal,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="auditstatu != null" >
+        auditstatu,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="basis != null" >
+        basis,
+      </if>
+      <if test="shrinkage != null" >
+        shrinkage,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="startnum != null" >
+        startnum,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="materialid != null" >
+        #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="superlierid != null" >
+        #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="materialnum != null" >
+        #{materialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null" >
+        #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="modal != null" >
+        #{modal,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="auditstatu != null" >
+        #{auditstatu,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="basis != null" >
+        #{basis,jdbcType=VARCHAR},
+      </if>
+      <if test="shrinkage != null" >
+        #{shrinkage,jdbcType=Double},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=Double},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=Double},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="startnum != null" >
+        #{startnum,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_materialExample" resultType="java.lang.Integer" >
+    select count(*) from tab_material
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_material
+    <set >
+      <if test="record.materialid != null" >
+        materialid = #{record.materialid,jdbcType=INTEGER},
+      </if>
+      <if test="record.superlierid != null" >
+        superlierid = #{record.superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="record.categoryid != null" >
+        categoryid = #{record.categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.materialnum != null" >
+        materialnum = #{record.materialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialname != null" >
+        materialname = #{record.materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modal != null" >
+        modal = #{record.modal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditstatu != null" >
+        auditstatu = #{record.auditstatu,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basis != null" >
+        basis = #{record.basis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shrinkage != null" >
+        shrinkage = #{record.shrinkage,jdbcType=Double},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=Double},
+      </if>
+      <if test="record.num != null" >
+        num = #{record.num,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=Double},
+      </if>
+      <if test="record.unit != null" >
+        unit = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startnum != null" >
+        startnum = #{record.startnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_material
+    set materialid = #{record.materialid,jdbcType=INTEGER},
+      superlierid = #{record.superlierid,jdbcType=INTEGER},
+      categoryid = #{record.categoryid,jdbcType=INTEGER},
+      materialnum = #{record.materialnum,jdbcType=VARCHAR},
+      materialname = #{record.materialname,jdbcType=VARCHAR},
+      modal = #{record.modal,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=INTEGER},
+      auditstatu = #{record.auditstatu,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      basis = #{record.basis,jdbcType=VARCHAR},
+      shrinkage = #{record.shrinkage,jdbcType=Double},
+      weight = #{record.weight,jdbcType=Double},
+      num = #{record.num,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=Double},
+      unit = #{record.unit,jdbcType=VARCHAR},
+      startnum = #{record.startnum,jdbcType=INTEGER},
+      color = #{record.color,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_material" >
+    update tab_material
+    <set >
+      <if test="superlierid != null" >
+        superlierid = #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        categoryid = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="materialnum != null" >
+        materialnum = #{materialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null" >
+        materialname = #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="modal != null" >
+        modal = #{modal,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="auditstatu != null" >
+        auditstatu = #{auditstatu,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="basis != null" >
+        basis = #{basis,jdbcType=VARCHAR},
+      </if>
+      <if test="shrinkage != null" >
+        shrinkage = #{shrinkage,jdbcType=Double},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=Double},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=Double},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="startnum != null" >
+        startnum = #{startnum,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where materialid = #{materialid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_material" >
+    update tab_material
+    set superlierid = #{superlierid,jdbcType=INTEGER},
+      categoryid = #{categoryid,jdbcType=INTEGER},
+      materialnum = #{materialnum,jdbcType=VARCHAR},
+      materialname = #{materialname,jdbcType=VARCHAR},
+      modal = #{modal,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      auditstatu = #{auditstatu,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      basis = #{basis,jdbcType=VARCHAR},
+      shrinkage = #{shrinkage,jdbcType=Double},
+      weight = #{weight,jdbcType=Double},
+      num = #{num,jdbcType=INTEGER},
+      price = #{price,jdbcType=Double},
+      unit = #{unit,jdbcType=VARCHAR},
+      startnum = #{startnum,jdbcType=INTEGER},
+      color = #{color,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR}
+    where materialid = #{materialid,jdbcType=INTEGER}
+  </update>
+</mapper>

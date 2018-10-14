@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_groupefficiencyMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_groupefficiency" >
+    <id column="setid" property="setid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="groupcoding" property="groupcoding" jdbcType="VARCHAR" />
+    <result column="groupname" property="groupname" jdbcType="VARCHAR" />
+    <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
+    <result column="teamefficiency" property="teamefficiency" jdbcType="Double" />
+    <result column="standardnum" property="standardnum" jdbcType="INTEGER" />
+    <result column="learningcoefficient" property="learningcoefficient" jdbcType="Double" />
+    <result column="ciency" property="ciency" jdbcType="Double" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    setid, styleid, groupcoding, groupname, stylenumber, teamefficiency, standardnum, 
+    learningcoefficient, ciency
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_groupefficiency
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_groupefficiency
+    where setid = #{setid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_groupefficiency
+    where setid = #{setid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" >
+    delete from tab_groupefficiency
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+    insert into tab_groupefficiency (setid, styleid, groupcoding, 
+      groupname, stylenumber, teamefficiency, 
+      standardnum, learningcoefficient, ciency
+      )
+    values (#{setid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{groupcoding,jdbcType=VARCHAR}, 
+      #{groupname,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, #{teamefficiency,jdbcType=Double},
+      #{standardnum,jdbcType=INTEGER}, #{learningcoefficient,jdbcType=Double}, #{ciency,jdbcType=Double}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+    insert into tab_groupefficiency
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="setid != null" >
+        setid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="groupcoding != null" >
+        groupcoding,
+      </if>
+      <if test="groupname != null" >
+        groupname,
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber,
+      </if>
+      <if test="teamefficiency != null" >
+        teamefficiency,
+      </if>
+      <if test="standardnum != null" >
+        standardnum,
+      </if>
+      <if test="learningcoefficient != null" >
+        learningcoefficient,
+      </if>
+      <if test="ciency != null" >
+        ciency,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="setid != null" >
+        #{setid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="groupcoding != null" >
+        #{groupcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="teamefficiency != null" >
+        #{teamefficiency,jdbcType=Double},
+      </if>
+      <if test="standardnum != null" >
+        #{standardnum,jdbcType=INTEGER},
+      </if>
+      <if test="learningcoefficient != null" >
+        #{learningcoefficient,jdbcType=Double},
+      </if>
+      <if test="ciency != null" >
+        #{ciency,jdbcType=Double},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" resultType="java.lang.Integer" >
+    select count(*) from tab_groupefficiency
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_groupefficiency
+    <set >
+      <if test="record.setid != null" >
+        setid = #{record.setid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupcoding != null" >
+        groupcoding = #{record.groupcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupname != null" >
+        groupname = #{record.groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylenumber != null" >
+        stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamefficiency != null" >
+        teamefficiency = #{record.teamefficiency,jdbcType=Double},
+      </if>
+      <if test="record.standardnum != null" >
+        standardnum = #{record.standardnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.learningcoefficient != null" >
+        learningcoefficient = #{record.learningcoefficient,jdbcType=Double},
+      </if>
+      <if test="record.ciency != null" >
+        ciency = #{record.ciency,jdbcType=Double},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_groupefficiency
+    set setid = #{record.setid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      groupcoding = #{record.groupcoding,jdbcType=VARCHAR},
+      groupname = #{record.groupname,jdbcType=VARCHAR},
+      stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      teamefficiency = #{record.teamefficiency,jdbcType=Double},
+      standardnum = #{record.standardnum,jdbcType=INTEGER},
+      learningcoefficient = #{record.learningcoefficient,jdbcType=Double},
+      ciency = #{record.ciency,jdbcType=Double}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+    update tab_groupefficiency
+    <set >
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="groupcoding != null" >
+        groupcoding = #{groupcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="groupname != null" >
+        groupname = #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="teamefficiency != null" >
+        teamefficiency = #{teamefficiency,jdbcType=Double},
+      </if>
+      <if test="standardnum != null" >
+        standardnum = #{standardnum,jdbcType=INTEGER},
+      </if>
+      <if test="learningcoefficient != null" >
+        learningcoefficient = #{learningcoefficient,jdbcType=Double},
+      </if>
+      <if test="ciency != null" >
+        ciency = #{ciency,jdbcType=Double},
+      </if>
+    </set>
+    where setid = #{setid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+    update tab_groupefficiency
+    set styleid = #{styleid,jdbcType=INTEGER},
+      groupcoding = #{groupcoding,jdbcType=VARCHAR},
+      groupname = #{groupname,jdbcType=VARCHAR},
+      stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      teamefficiency = #{teamefficiency,jdbcType=Double},
+      standardnum = #{standardnum,jdbcType=INTEGER},
+      learningcoefficient = #{learningcoefficient,jdbcType=Double},
+      ciency = #{ciency,jdbcType=Double}
+    where setid = #{setid,jdbcType=INTEGER}
+  </update>
+</mapper>

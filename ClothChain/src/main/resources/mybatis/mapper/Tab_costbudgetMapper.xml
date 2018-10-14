@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_costbudgetMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_costbudget" >
+    <id column="costbudgetid" property="costbudgetid" jdbcType="INTEGER" />
+    <result column="costbudgetno" property="costbudgetno" jdbcType="VARCHAR" />
+    <result column="costbudgetdate" property="costbudgetdate" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="versiontype" property="versiontype" jdbcType="VARCHAR" />
+    <result column="versiondate" property="versiondate" jdbcType="VARCHAR" />
+    <result column="styleno" property="styleno" jdbcType="VARCHAR" />
+    <result column="stylename" property="stylename" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+    <result column="quotedversion" property="quotedversion" jdbcType="VARCHAR" />
+    <result column="purchasemoney" property="purchasemoney" jdbcType="Double" />
+    <result column="materialprefit" property="materialprefit" jdbcType="Double" />
+    <result column="acturlwork" property="acturlwork" jdbcType="Double" />
+    <result column="quotedprice" property="quotedprice" jdbcType="Double" />
+    <result column="taxpoint" property="taxpoint" jdbcType="Double" />
+    <result column="taxation" property="taxation" jdbcType="Double" />
+    <result column="costratio" property="costratio" jdbcType="Double" />
+    <result column="cost" property="cost" jdbcType="Double" />
+    <result column="profitratio" property="profitratio" jdbcType="Double" />
+    <result column="clothrate" property="clothrate" jdbcType="Double" />
+    <result column="budgetaryprofit" property="budgetaryprofit" jdbcType="Double" />
+    <result column="quotedquotation" property="quotedquotation" jdbcType="Double" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    costbudgetid, costbudgetno, costbudgetdate, orderno, versiontype, versiondate, styleno, 
+    stylename, customer, quarter, brand, size, color, remark, describle, quotedversion, 
+    purchasemoney, materialprefit, acturlwork, quotedprice, taxpoint, taxation, costratio, 
+    cost, profitratio, clothrate, budgetaryprofit, quotedquotation
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_costbudgetExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_costbudget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_costbudget
+    where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_costbudget
+    where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_costbudgetExample" >
+    delete from tab_costbudget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_costbudget" >
+    insert into tab_costbudget (costbudgetid, costbudgetno, costbudgetdate, 
+      orderno, versiontype, versiondate, 
+      styleno, stylename, customer, 
+      quarter, brand, size, 
+      color, remark, describle, 
+      quotedversion, purchasemoney, materialprefit, 
+      acturlwork, quotedprice, taxpoint, 
+      taxation, costratio, cost, 
+      profitratio, clothrate, budgetaryprofit, 
+      quotedquotation)
+    values (#{costbudgetid,jdbcType=INTEGER}, #{costbudgetno,jdbcType=VARCHAR}, #{costbudgetdate,jdbcType=VARCHAR}, 
+      #{orderno,jdbcType=VARCHAR}, #{versiontype,jdbcType=VARCHAR}, #{versiondate,jdbcType=VARCHAR}, 
+      #{styleno,jdbcType=VARCHAR}, #{stylename,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, 
+      #{quarter,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{color,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{describle,jdbcType=VARCHAR}, 
+      #{quotedversion,jdbcType=VARCHAR}, #{purchasemoney,jdbcType=Double}, #{materialprefit,jdbcType=Double},
+      #{acturlwork,jdbcType=Double}, #{quotedprice,jdbcType=Double}, #{taxpoint,jdbcType=Double},
+      #{taxation,jdbcType=Double}, #{costratio,jdbcType=Double}, #{cost,jdbcType=Double},
+      #{profitratio,jdbcType=Double}, #{clothrate,jdbcType=Double}, #{budgetaryprofit,jdbcType=Double},
+      #{quotedquotation,jdbcType=Double})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_costbudget" >
+    insert into tab_costbudget
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="costbudgetid != null" >
+        costbudgetid,
+      </if>
+      <if test="costbudgetno != null" >
+        costbudgetno,
+      </if>
+      <if test="costbudgetdate != null" >
+        costbudgetdate,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="versiontype != null" >
+        versiontype,
+      </if>
+      <if test="versiondate != null" >
+        versiondate,
+      </if>
+      <if test="styleno != null" >
+        styleno,
+      </if>
+      <if test="stylename != null" >
+        stylename,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+      <if test="quotedversion != null" >
+        quotedversion,
+      </if>
+      <if test="purchasemoney != null" >
+        purchasemoney,
+      </if>
+      <if test="materialprefit != null" >
+        materialprefit,
+      </if>
+      <if test="acturlwork != null" >
+        acturlwork,
+      </if>
+      <if test="quotedprice != null" >
+        quotedprice,
+      </if>
+      <if test="taxpoint != null" >
+        taxpoint,
+      </if>
+      <if test="taxation != null" >
+        taxation,
+      </if>
+      <if test="costratio != null" >
+        costratio,
+      </if>
+      <if test="cost != null" >
+        cost,
+      </if>
+      <if test="profitratio != null" >
+        profitratio,
+      </if>
+      <if test="clothrate != null" >
+        clothrate,
+      </if>
+      <if test="budgetaryprofit != null" >
+        budgetaryprofit,
+      </if>
+      <if test="quotedquotation != null" >
+        quotedquotation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="costbudgetid != null" >
+        #{costbudgetid,jdbcType=INTEGER},
+      </if>
+      <if test="costbudgetno != null" >
+        #{costbudgetno,jdbcType=VARCHAR},
+      </if>
+      <if test="costbudgetdate != null" >
+        #{costbudgetdate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="versiontype != null" >
+        #{versiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="versiondate != null" >
+        #{versiondate,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedversion != null" >
+        #{quotedversion,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasemoney != null" >
+        #{purchasemoney,jdbcType=Double},
+      </if>
+      <if test="materialprefit != null" >
+        #{materialprefit,jdbcType=Double},
+      </if>
+      <if test="acturlwork != null" >
+        #{acturlwork,jdbcType=Double},
+      </if>
+      <if test="quotedprice != null" >
+        #{quotedprice,jdbcType=Double},
+      </if>
+      <if test="taxpoint != null" >
+        #{taxpoint,jdbcType=Double},
+      </if>
+      <if test="taxation != null" >
+        #{taxation,jdbcType=Double},
+      </if>
+      <if test="costratio != null" >
+        #{costratio,jdbcType=Double},
+      </if>
+      <if test="cost != null" >
+        #{cost,jdbcType=Double},
+      </if>
+      <if test="profitratio != null" >
+        #{profitratio,jdbcType=Double},
+      </if>
+      <if test="clothrate != null" >
+        #{clothrate,jdbcType=Double},
+      </if>
+      <if test="budgetaryprofit != null" >
+        #{budgetaryprofit,jdbcType=Double},
+      </if>
+      <if test="quotedquotation != null" >
+        #{quotedquotation,jdbcType=Double},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_costbudgetExample" resultType="java.lang.Integer" >
+    select count(*) from tab_costbudget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_costbudget
+    <set >
+      <if test="record.costbudgetid != null" >
+        costbudgetid = #{record.costbudgetid,jdbcType=INTEGER},
+      </if>
+      <if test="record.costbudgetno != null" >
+        costbudgetno = #{record.costbudgetno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costbudgetdate != null" >
+        costbudgetdate = #{record.costbudgetdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderno != null" >
+        orderno = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.versiontype != null" >
+        versiontype = #{record.versiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.versiondate != null" >
+        versiondate = #{record.versiondate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.styleno != null" >
+        styleno = #{record.styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylename != null" >
+        stylename = #{record.stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brand != null" >
+        brand = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quotedversion != null" >
+        quotedversion = #{record.quotedversion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchasemoney != null" >
+        purchasemoney = #{record.purchasemoney,jdbcType=Double},
+      </if>
+      <if test="record.materialprefit != null" >
+        materialprefit = #{record.materialprefit,jdbcType=Double},
+      </if>
+      <if test="record.acturlwork != null" >
+        acturlwork = #{record.acturlwork,jdbcType=Double},
+      </if>
+      <if test="record.quotedprice != null" >
+        quotedprice = #{record.quotedprice,jdbcType=Double},
+      </if>
+      <if test="record.taxpoint != null" >
+        taxpoint = #{record.taxpoint,jdbcType=Double},
+      </if>
+      <if test="record.taxation != null" >
+        taxation = #{record.taxation,jdbcType=Double},
+      </if>
+      <if test="record.costratio != null" >
+        costratio = #{record.costratio,jdbcType=Double},
+      </if>
+      <if test="record.cost != null" >
+        cost = #{record.cost,jdbcType=Double},
+      </if>
+      <if test="record.profitratio != null" >
+        profitratio = #{record.profitratio,jdbcType=Double},
+      </if>
+      <if test="record.clothrate != null" >
+        clothrate = #{record.clothrate,jdbcType=Double},
+      </if>
+      <if test="record.budgetaryprofit != null" >
+        budgetaryprofit = #{record.budgetaryprofit,jdbcType=Double},
+      </if>
+      <if test="record.quotedquotation != null" >
+        quotedquotation = #{record.quotedquotation,jdbcType=Double},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_costbudget
+    set costbudgetid = #{record.costbudgetid,jdbcType=INTEGER},
+      costbudgetno = #{record.costbudgetno,jdbcType=VARCHAR},
+      costbudgetdate = #{record.costbudgetdate,jdbcType=VARCHAR},
+      orderno = #{record.orderno,jdbcType=VARCHAR},
+      versiontype = #{record.versiontype,jdbcType=VARCHAR},
+      versiondate = #{record.versiondate,jdbcType=VARCHAR},
+      styleno = #{record.styleno,jdbcType=VARCHAR},
+      stylename = #{record.stylename,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      brand = #{record.brand,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      describle = #{record.describle,jdbcType=VARCHAR},
+      quotedversion = #{record.quotedversion,jdbcType=VARCHAR},
+      purchasemoney = #{record.purchasemoney,jdbcType=Double},
+      materialprefit = #{record.materialprefit,jdbcType=Double},
+      acturlwork = #{record.acturlwork,jdbcType=Double},
+      quotedprice = #{record.quotedprice,jdbcType=Double},
+      taxpoint = #{record.taxpoint,jdbcType=Double},
+      taxation = #{record.taxation,jdbcType=Double},
+      costratio = #{record.costratio,jdbcType=Double},
+      cost = #{record.cost,jdbcType=Double},
+      profitratio = #{record.profitratio,jdbcType=Double},
+      clothrate = #{record.clothrate,jdbcType=Double},
+      budgetaryprofit = #{record.budgetaryprofit,jdbcType=Double},
+      quotedquotation = #{record.quotedquotation,jdbcType=Double}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_costbudget" >
+    update tab_costbudget
+    <set >
+      <if test="costbudgetno != null" >
+        costbudgetno = #{costbudgetno,jdbcType=VARCHAR},
+      </if>
+      <if test="costbudgetdate != null" >
+        costbudgetdate = #{costbudgetdate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="versiontype != null" >
+        versiontype = #{versiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="versiondate != null" >
+        versiondate = #{versiondate,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        styleno = #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        stylename = #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedversion != null" >
+        quotedversion = #{quotedversion,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasemoney != null" >
+        purchasemoney = #{purchasemoney,jdbcType=Double},
+      </if>
+      <if test="materialprefit != null" >
+        materialprefit = #{materialprefit,jdbcType=Double},
+      </if>
+      <if test="acturlwork != null" >
+        acturlwork = #{acturlwork,jdbcType=Double},
+      </if>
+      <if test="quotedprice != null" >
+        quotedprice = #{quotedprice,jdbcType=Double},
+      </if>
+      <if test="taxpoint != null" >
+        taxpoint = #{taxpoint,jdbcType=Double},
+      </if>
+      <if test="taxation != null" >
+        taxation = #{taxation,jdbcType=Double},
+      </if>
+      <if test="costratio != null" >
+        costratio = #{costratio,jdbcType=Double},
+      </if>
+      <if test="cost != null" >
+        cost = #{cost,jdbcType=Double},
+      </if>
+      <if test="profitratio != null" >
+        profitratio = #{profitratio,jdbcType=Double},
+      </if>
+      <if test="clothrate != null" >
+        clothrate = #{clothrate,jdbcType=Double},
+      </if>
+      <if test="budgetaryprofit != null" >
+        budgetaryprofit = #{budgetaryprofit,jdbcType=Double},
+      </if>
+      <if test="quotedquotation != null" >
+        quotedquotation = #{quotedquotation,jdbcType=Double},
+      </if>
+    </set>
+    where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_costbudget" >
+    update tab_costbudget
+    set costbudgetno = #{costbudgetno,jdbcType=VARCHAR},
+      costbudgetdate = #{costbudgetdate,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      versiontype = #{versiontype,jdbcType=VARCHAR},
+      versiondate = #{versiondate,jdbcType=VARCHAR},
+      styleno = #{styleno,jdbcType=VARCHAR},
+      stylename = #{stylename,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      describle = #{describle,jdbcType=VARCHAR},
+      quotedversion = #{quotedversion,jdbcType=VARCHAR},
+      purchasemoney = #{purchasemoney,jdbcType=Double},
+      materialprefit = #{materialprefit,jdbcType=Double},
+      acturlwork = #{acturlwork,jdbcType=Double},
+      quotedprice = #{quotedprice,jdbcType=Double},
+      taxpoint = #{taxpoint,jdbcType=Double},
+      taxation = #{taxation,jdbcType=Double},
+      costratio = #{costratio,jdbcType=Double},
+      cost = #{cost,jdbcType=Double},
+      profitratio = #{profitratio,jdbcType=Double},
+      clothrate = #{clothrate,jdbcType=Double},
+      budgetaryprofit = #{budgetaryprofit,jdbcType=Double},
+      quotedquotation = #{quotedquotation,jdbcType=Double}
+    where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
+  </update>
+</mapper>

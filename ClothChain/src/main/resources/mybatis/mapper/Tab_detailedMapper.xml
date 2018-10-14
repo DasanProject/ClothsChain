@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_detailedMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_detailed" >
+    <id column="detailid" property="detailid" jdbcType="INTEGER" />
+    <result column="purchaseid" property="purchaseid" jdbcType="INTEGER" />
+    <result column="developmentno" property="developmentno" jdbcType="VARCHAR" />
+    <result column="purchaseno" property="purchaseno" jdbcType="VARCHAR" />
+    <result column="materielno" property="materielno" jdbcType="VARCHAR" />
+    <result column="materielname" property="materielname" jdbcType="VARCHAR" />
+    <result column="materialsno" property="materialsno" jdbcType="VARCHAR" />
+    <result column="specifications" property="specifications" jdbcType="VARCHAR" />
+    <result column="storagebatchno" property="storagebatchno" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="demandnum" property="demandnum" jdbcType="Double" />
+    <result column="purchasenum" property="purchasenum" jdbcType="Double" />
+    <result column="demanddate" property="demanddate" jdbcType="VARCHAR" />
+    <result column="approvalstate" property="approvalstate" jdbcType="INTEGER" />
+    <result column="approver" property="approver" jdbcType="VARCHAR" />
+    <result column="tasktype" property="tasktype" jdbcType="VARCHAR" />
+    <result column="purchasername" property="purchasername" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="materialid" property="materialid" jdbcType="INTEGER" />
+    <result column="po" property="po" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="parts" property="parts" jdbcType="VARCHAR" />
+    <result column="availablenum" property="availablenum" jdbcType="Double" />
+    <result column="usenum" property="usenum" jdbcType="Double" />
+    <result column="price" property="price" jdbcType="Double" />
+    <result column="money" property="money" jdbcType="Double" />
+    <result column="payment" property="payment" jdbcType="INTEGER" />
+    <result column="purchaselistno" property="purchaselistno" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="Issuedate" property="issuedate" jdbcType="VARCHAR" />
+    <result column="pendingdate" property="pendingdate" jdbcType="VARCHAR" />
+    <result column="pistage" property="pistage" jdbcType="VARCHAR" />
+    <result column="storagedate" property="storagedate" jdbcType="VARCHAR" />
+    <result column="purchasepeople" property="purchasepeople" jdbcType="VARCHAR" />
+    <result column="pino" property="pino" jdbcType="VARCHAR" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="auditordate" property="auditordate" jdbcType="VARCHAR" />
+    <result column="pinum" property="pinum" jdbcType="Double" />
+    <result column="applynum" property="applynum" jdbcType="Double" />
+    <result column="warehousing" property="warehousing" jdbcType="VARCHAR" />
+    <result column="storagenum" property="storagenum" jdbcType="Double" />
+    <result column="storageno" property="storageno" jdbcType="VARCHAR" />
+    <result column="settlementno" property="settlementno" jdbcType="VARCHAR" />
+    <result column="settlementnum" property="settlementnum" jdbcType="Double" />
+    <result column="settlementprice" property="settlementprice" jdbcType="Double" />
+    <result column="settlementmoney" property="settlementmoney" jdbcType="Double" />
+    <result column="reconciliationsno" property="reconciliationsno" jdbcType="VARCHAR" />
+    <result column="reconciliationstate" property="reconciliationstate" jdbcType="INTEGER" />
+    <result column="reconciliationsdate" property="reconciliationsdate" jdbcType="VARCHAR" />
+    <result column="outnum" property="outnum" jdbcType="Double" />
+    <result column="surplusnum" property="surplusnum" jdbcType="Double" />
+    <result column="unlockednum" property="unlockednum" jdbcType="Double" />
+    <result column="innum" property="innum" jdbcType="Double" />
+    <result column="lockingnum" property="lockingnum" jdbcType="Double" />
+    <result column="settlementstate" property="settlementstate" jdbcType="INTEGER" />
+    <result column="financepeople" property="financepeople" jdbcType="VARCHAR" />
+    <result column="financestate" property="financestate" jdbcType="INTEGER" />
+    <result column="fnancedate" property="fnancedate" jdbcType="VARCHAR" />
+    <result column="occupynum" property="occupynum" jdbcType="Double" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    detailid, purchaseid, developmentno, purchaseno, materielno, materielname, materialsno, 
+    specifications, storagebatchno, colour, demandnum, purchasenum, demanddate, approvalstate, 
+    approver, tasktype, purchasername, source, materialid, po, type, parts, availablenum, 
+    usenum, price, money, payment, purchaselistno, state, Issuedate, pendingdate, pistage, 
+    storagedate, purchasepeople, pino, auditor, auditordate, pinum, applynum, warehousing, 
+    storagenum, storageno, settlementno, settlementnum, settlementprice, settlementmoney, 
+    reconciliationsno, reconciliationstate, reconciliationsdate, outnum, surplusnum, 
+    unlockednum, innum, lockingnum, settlementstate, financepeople, financestate, fnancedate, 
+    occupynum
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_detailedExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_detailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_detailed
+    where detailid = #{detailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_detailed
+    where detailid = #{detailid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_detailedExample" >
+    delete from tab_detailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_detailed" >
+    insert into tab_detailed (detailid, purchaseid, developmentno, 
+      purchaseno, materielno, materielname, 
+      materialsno, specifications, storagebatchno, 
+      colour, demandnum, purchasenum, 
+      demanddate, approvalstate, approver, 
+      tasktype, purchasername, source, 
+      materialid, po, type, 
+      parts, availablenum, usenum, 
+      price, money, payment, 
+      purchaselistno, state, Issuedate, 
+      pendingdate, pistage, storagedate, 
+      purchasepeople, pino, auditor, 
+      auditordate, pinum, applynum, 
+      warehousing, storagenum, storageno, 
+      settlementno, settlementnum, settlementprice, 
+      settlementmoney, reconciliationsno, reconciliationstate, 
+      reconciliationsdate, outnum, surplusnum, 
+      unlockednum, innum, lockingnum, 
+      settlementstate, financepeople, financestate, 
+      fnancedate, occupynum)
+    values (#{detailid,jdbcType=INTEGER}, #{purchaseid,jdbcType=INTEGER}, #{developmentno,jdbcType=VARCHAR}, 
+      #{purchaseno,jdbcType=VARCHAR}, #{materielno,jdbcType=VARCHAR}, #{materielname,jdbcType=VARCHAR}, 
+      #{materialsno,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{storagebatchno,jdbcType=VARCHAR}, 
+      #{colour,jdbcType=VARCHAR}, #{demandnum,jdbcType=Double}, #{purchasenum,jdbcType=Double},
+      #{demanddate,jdbcType=VARCHAR}, #{approvalstate,jdbcType=INTEGER}, #{approver,jdbcType=VARCHAR}, 
+      #{tasktype,jdbcType=VARCHAR}, #{purchasername,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, 
+      #{materialid,jdbcType=INTEGER}, #{po,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{parts,jdbcType=VARCHAR}, #{availablenum,jdbcType=Double}, #{usenum,jdbcType=Double},
+      #{price,jdbcType=Double}, #{money,jdbcType=Double}, #{payment,jdbcType=INTEGER},
+      #{purchaselistno,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{issuedate,jdbcType=VARCHAR}, 
+      #{pendingdate,jdbcType=VARCHAR}, #{pistage,jdbcType=VARCHAR}, #{storagedate,jdbcType=VARCHAR}, 
+      #{purchasepeople,jdbcType=VARCHAR}, #{pino,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, 
+      #{auditordate,jdbcType=VARCHAR}, #{pinum,jdbcType=Double}, #{applynum,jdbcType=Double},
+      #{warehousing,jdbcType=VARCHAR}, #{storagenum,jdbcType=Double}, #{storageno,jdbcType=VARCHAR},
+      #{settlementno,jdbcType=VARCHAR}, #{settlementnum,jdbcType=Double}, #{settlementprice,jdbcType=Double},
+      #{settlementmoney,jdbcType=Double}, #{reconciliationsno,jdbcType=VARCHAR}, #{reconciliationstate,jdbcType=INTEGER},
+      #{reconciliationsdate,jdbcType=VARCHAR}, #{outnum,jdbcType=Double}, #{surplusnum,jdbcType=Double},
+      #{unlockednum,jdbcType=Double}, #{innum,jdbcType=Double}, #{lockingnum,jdbcType=Double},
+      #{settlementstate,jdbcType=INTEGER}, #{financepeople,jdbcType=VARCHAR}, #{financestate,jdbcType=INTEGER}, 
+      #{fnancedate,jdbcType=VARCHAR}, #{occupynum,jdbcType=Double})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_detailed" >
+    insert into tab_detailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailid != null" >
+        detailid,
+      </if>
+      <if test="purchaseid != null" >
+        purchaseid,
+      </if>
+      <if test="developmentno != null" >
+        developmentno,
+      </if>
+      <if test="purchaseno != null" >
+        purchaseno,
+      </if>
+      <if test="materielno != null" >
+        materielno,
+      </if>
+      <if test="materielname != null" >
+        materielname,
+      </if>
+      <if test="materialsno != null" >
+        materialsno,
+      </if>
+      <if test="specifications != null" >
+        specifications,
+      </if>
+      <if test="storagebatchno != null" >
+        storagebatchno,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="demandnum != null" >
+        demandnum,
+      </if>
+      <if test="purchasenum != null" >
+        purchasenum,
+      </if>
+      <if test="demanddate != null" >
+        demanddate,
+      </if>
+      <if test="approvalstate != null" >
+        approvalstate,
+      </if>
+      <if test="approver != null" >
+        approver,
+      </if>
+      <if test="tasktype != null" >
+        tasktype,
+      </if>
+      <if test="purchasername != null" >
+        purchasername,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="materialid != null" >
+        materialid,
+      </if>
+      <if test="po != null" >
+        po,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="parts != null" >
+        parts,
+      </if>
+      <if test="availablenum != null" >
+        availablenum,
+      </if>
+      <if test="usenum != null" >
+        usenum,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="purchaselistno != null" >
+        purchaselistno,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="issuedate != null" >
+        Issuedate,
+      </if>
+      <if test="pendingdate != null" >
+        pendingdate,
+      </if>
+      <if test="pistage != null" >
+        pistage,
+      </if>
+      <if test="storagedate != null" >
+        storagedate,
+      </if>
+      <if test="purchasepeople != null" >
+        purchasepeople,
+      </if>
+      <if test="pino != null" >
+        pino,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="auditordate != null" >
+        auditordate,
+      </if>
+      <if test="pinum != null" >
+        pinum,
+      </if>
+      <if test="applynum != null" >
+        applynum,
+      </if>
+      <if test="warehousing != null" >
+        warehousing,
+      </if>
+      <if test="storagenum != null" >
+        storagenum,
+      </if>
+      <if test="storageno != null" >
+        storageno,
+      </if>
+      <if test="settlementno != null" >
+        settlementno,
+      </if>
+      <if test="settlementnum != null" >
+        settlementnum,
+      </if>
+      <if test="settlementprice != null" >
+        settlementprice,
+      </if>
+      <if test="settlementmoney != null" >
+        settlementmoney,
+      </if>
+      <if test="reconciliationsno != null" >
+        reconciliationsno,
+      </if>
+      <if test="reconciliationstate != null" >
+        reconciliationstate,
+      </if>
+      <if test="reconciliationsdate != null" >
+        reconciliationsdate,
+      </if>
+      <if test="outnum != null" >
+        outnum,
+      </if>
+      <if test="surplusnum != null" >
+        surplusnum,
+      </if>
+      <if test="unlockednum != null" >
+        unlockednum,
+      </if>
+      <if test="innum != null" >
+        innum,
+      </if>
+      <if test="lockingnum != null" >
+        lockingnum,
+      </if>
+      <if test="settlementstate != null" >
+        settlementstate,
+      </if>
+      <if test="financepeople != null" >
+        financepeople,
+      </if>
+      <if test="financestate != null" >
+        financestate,
+      </if>
+      <if test="fnancedate != null" >
+        fnancedate,
+      </if>
+      <if test="occupynum != null" >
+        occupynum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailid != null" >
+        #{detailid,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseid != null" >
+        #{purchaseid,jdbcType=INTEGER},
+      </if>
+      <if test="developmentno != null" >
+        #{developmentno,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseno != null" >
+        #{purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielno != null" >
+        #{materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielname != null" >
+        #{materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="materialsno != null" >
+        #{materialsno,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null" >
+        #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="storagebatchno != null" >
+        #{storagebatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="demandnum != null" >
+        #{demandnum,jdbcType=Double},
+      </if>
+      <if test="purchasenum != null" >
+        #{purchasenum,jdbcType=Double},
+      </if>
+      <if test="demanddate != null" >
+        #{demanddate,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalstate != null" >
+        #{approvalstate,jdbcType=INTEGER},
+      </if>
+      <if test="approver != null" >
+        #{approver,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        #{tasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasername != null" >
+        #{purchasername,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="materialid != null" >
+        #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="po != null" >
+        #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null" >
+        #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="availablenum != null" >
+        #{availablenum,jdbcType=Double},
+      </if>
+      <if test="usenum != null" >
+        #{usenum,jdbcType=Double},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=Double},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=Double},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="purchaselistno != null" >
+        #{purchaselistno,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="issuedate != null" >
+        #{issuedate,jdbcType=VARCHAR},
+      </if>
+      <if test="pendingdate != null" >
+        #{pendingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="pistage != null" >
+        #{pistage,jdbcType=VARCHAR},
+      </if>
+      <if test="storagedate != null" >
+        #{storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasepeople != null" >
+        #{purchasepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="pino != null" >
+        #{pino,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditordate != null" >
+        #{auditordate,jdbcType=VARCHAR},
+      </if>
+      <if test="pinum != null" >
+        #{pinum,jdbcType=Double},
+      </if>
+      <if test="applynum != null" >
+        #{applynum,jdbcType=Double},
+      </if>
+      <if test="warehousing != null" >
+        #{warehousing,jdbcType=VARCHAR},
+      </if>
+      <if test="storagenum != null" >
+        #{storagenum,jdbcType=Double},
+      </if>
+      <if test="storageno != null" >
+        #{storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementno != null" >
+        #{settlementno,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementnum != null" >
+        #{settlementnum,jdbcType=Double},
+      </if>
+      <if test="settlementprice != null" >
+        #{settlementprice,jdbcType=Double},
+      </if>
+      <if test="settlementmoney != null" >
+        #{settlementmoney,jdbcType=Double},
+      </if>
+      <if test="reconciliationsno != null" >
+        #{reconciliationsno,jdbcType=VARCHAR},
+      </if>
+      <if test="reconciliationstate != null" >
+        #{reconciliationstate,jdbcType=INTEGER},
+      </if>
+      <if test="reconciliationsdate != null" >
+        #{reconciliationsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="outnum != null" >
+        #{outnum,jdbcType=Double},
+      </if>
+      <if test="surplusnum != null" >
+        #{surplusnum,jdbcType=Double},
+      </if>
+      <if test="unlockednum != null" >
+        #{unlockednum,jdbcType=Double},
+      </if>
+      <if test="innum != null" >
+        #{innum,jdbcType=Double},
+      </if>
+      <if test="lockingnum != null" >
+        #{lockingnum,jdbcType=Double},
+      </if>
+      <if test="settlementstate != null" >
+        #{settlementstate,jdbcType=INTEGER},
+      </if>
+      <if test="financepeople != null" >
+        #{financepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="financestate != null" >
+        #{financestate,jdbcType=INTEGER},
+      </if>
+      <if test="fnancedate != null" >
+        #{fnancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="occupynum != null" >
+        #{occupynum,jdbcType=Double},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_detailedExample" resultType="java.lang.Integer" >
+    select count(*) from tab_detailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_detailed
+    <set >
+      <if test="record.detailid != null" >
+        detailid = #{record.detailid,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaseid != null" >
+        purchaseid = #{record.purchaseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.developmentno != null" >
+        developmentno = #{record.developmentno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaseno != null" >
+        purchaseno = #{record.purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materielno != null" >
+        materielno = #{record.materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materielname != null" >
+        materielname = #{record.materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialsno != null" >
+        materialsno = #{record.materialsno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specifications != null" >
+        specifications = #{record.specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storagebatchno != null" >
+        storagebatchno = #{record.storagebatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.colour != null" >
+        colour = #{record.colour,jdbcType=VARCHAR},
+      </if>
+      <if test="record.demandnum != null" >
+        demandnum = #{record.demandnum,jdbcType=Double},
+      </if>
+      <if test="record.purchasenum != null" >
+        purchasenum = #{record.purchasenum,jdbcType=Double},
+      </if>
+      <if test="record.demanddate != null" >
+        demanddate = #{record.demanddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalstate != null" >
+        approvalstate = #{record.approvalstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.approver != null" >
+        approver = #{record.approver,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tasktype != null" >
+        tasktype = #{record.tasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchasername != null" >
+        purchasername = #{record.purchasername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=INTEGER},
+      </if>
+      <if test="record.materialid != null" >
+        materialid = #{record.materialid,jdbcType=INTEGER},
+      </if>
+      <if test="record.po != null" >
+        po = #{record.po,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parts != null" >
+        parts = #{record.parts,jdbcType=VARCHAR},
+      </if>
+      <if test="record.availablenum != null" >
+        availablenum = #{record.availablenum,jdbcType=Double},
+      </if>
+      <if test="record.usenum != null" >
+        usenum = #{record.usenum,jdbcType=Double},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=Double},
+      </if>
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=Double},
+      </if>
+      <if test="record.payment != null" >
+        payment = #{record.payment,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaselistno != null" >
+        purchaselistno = #{record.purchaselistno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.issuedate != null" >
+        Issuedate = #{record.issuedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pendingdate != null" >
+        pendingdate = #{record.pendingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pistage != null" >
+        pistage = #{record.pistage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storagedate != null" >
+        storagedate = #{record.storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchasepeople != null" >
+        purchasepeople = #{record.purchasepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pino != null" >
+        pino = #{record.pino,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditor != null" >
+        auditor = #{record.auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditordate != null" >
+        auditordate = #{record.auditordate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pinum != null" >
+        pinum = #{record.pinum,jdbcType=Double},
+      </if>
+      <if test="record.applynum != null" >
+        applynum = #{record.applynum,jdbcType=Double},
+      </if>
+      <if test="record.warehousing != null" >
+        warehousing = #{record.warehousing,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storagenum != null" >
+        storagenum = #{record.storagenum,jdbcType=Double},
+      </if>
+      <if test="record.storageno != null" >
+        storageno = #{record.storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementno != null" >
+        settlementno = #{record.settlementno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementnum != null" >
+        settlementnum = #{record.settlementnum,jdbcType=Double},
+      </if>
+      <if test="record.settlementprice != null" >
+        settlementprice = #{record.settlementprice,jdbcType=Double},
+      </if>
+      <if test="record.settlementmoney != null" >
+        settlementmoney = #{record.settlementmoney,jdbcType=Double},
+      </if>
+      <if test="record.reconciliationsno != null" >
+        reconciliationsno = #{record.reconciliationsno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reconciliationstate != null" >
+        reconciliationstate = #{record.reconciliationstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.reconciliationsdate != null" >
+        reconciliationsdate = #{record.reconciliationsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outnum != null" >
+        outnum = #{record.outnum,jdbcType=Double},
+      </if>
+      <if test="record.surplusnum != null" >
+        surplusnum = #{record.surplusnum,jdbcType=Double},
+      </if>
+      <if test="record.unlockednum != null" >
+        unlockednum = #{record.unlockednum,jdbcType=Double},
+      </if>
+      <if test="record.innum != null" >
+        innum = #{record.innum,jdbcType=Double},
+      </if>
+      <if test="record.lockingnum != null" >
+        lockingnum = #{record.lockingnum,jdbcType=Double},
+      </if>
+      <if test="record.settlementstate != null" >
+        settlementstate = #{record.settlementstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.financepeople != null" >
+        financepeople = #{record.financepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financestate != null" >
+        financestate = #{record.financestate,jdbcType=INTEGER},
+      </if>
+      <if test="record.fnancedate != null" >
+        fnancedate = #{record.fnancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occupynum != null" >
+        occupynum = #{record.occupynum,jdbcType=Double},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_detailed
+    set detailid = #{record.detailid,jdbcType=INTEGER},
+      purchaseid = #{record.purchaseid,jdbcType=INTEGER},
+      developmentno = #{record.developmentno,jdbcType=VARCHAR},
+      purchaseno = #{record.purchaseno,jdbcType=VARCHAR},
+      materielno = #{record.materielno,jdbcType=VARCHAR},
+      materielname = #{record.materielname,jdbcType=VARCHAR},
+      materialsno = #{record.materialsno,jdbcType=VARCHAR},
+      specifications = #{record.specifications,jdbcType=VARCHAR},
+      storagebatchno = #{record.storagebatchno,jdbcType=VARCHAR},
+      colour = #{record.colour,jdbcType=VARCHAR},
+      demandnum = #{record.demandnum,jdbcType=Double},
+      purchasenum = #{record.purchasenum,jdbcType=Double},
+      demanddate = #{record.demanddate,jdbcType=VARCHAR},
+      approvalstate = #{record.approvalstate,jdbcType=INTEGER},
+      approver = #{record.approver,jdbcType=VARCHAR},
+      tasktype = #{record.tasktype,jdbcType=VARCHAR},
+      purchasername = #{record.purchasername,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=INTEGER},
+      materialid = #{record.materialid,jdbcType=INTEGER},
+      po = #{record.po,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      parts = #{record.parts,jdbcType=VARCHAR},
+      availablenum = #{record.availablenum,jdbcType=Double},
+      usenum = #{record.usenum,jdbcType=Double},
+      price = #{record.price,jdbcType=Double},
+      money = #{record.money,jdbcType=Double},
+      payment = #{record.payment,jdbcType=INTEGER},
+      purchaselistno = #{record.purchaselistno,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=INTEGER},
+      Issuedate = #{record.issuedate,jdbcType=VARCHAR},
+      pendingdate = #{record.pendingdate,jdbcType=VARCHAR},
+      pistage = #{record.pistage,jdbcType=VARCHAR},
+      storagedate = #{record.storagedate,jdbcType=VARCHAR},
+      purchasepeople = #{record.purchasepeople,jdbcType=VARCHAR},
+      pino = #{record.pino,jdbcType=VARCHAR},
+      auditor = #{record.auditor,jdbcType=VARCHAR},
+      auditordate = #{record.auditordate,jdbcType=VARCHAR},
+      pinum = #{record.pinum,jdbcType=Double},
+      applynum = #{record.applynum,jdbcType=Double},
+      warehousing = #{record.warehousing,jdbcType=VARCHAR},
+      storagenum = #{record.storagenum,jdbcType=Double},
+      storageno = #{record.storageno,jdbcType=VARCHAR},
+      settlementno = #{record.settlementno,jdbcType=VARCHAR},
+      settlementnum = #{record.settlementnum,jdbcType=Double},
+      settlementprice = #{record.settlementprice,jdbcType=Double},
+      settlementmoney = #{record.settlementmoney,jdbcType=Double},
+      reconciliationsno = #{record.reconciliationsno,jdbcType=VARCHAR},
+      reconciliationstate = #{record.reconciliationstate,jdbcType=INTEGER},
+      reconciliationsdate = #{record.reconciliationsdate,jdbcType=VARCHAR},
+      outnum = #{record.outnum,jdbcType=Double},
+      surplusnum = #{record.surplusnum,jdbcType=Double},
+      unlockednum = #{record.unlockednum,jdbcType=Double},
+      innum = #{record.innum,jdbcType=Double},
+      lockingnum = #{record.lockingnum,jdbcType=Double},
+      settlementstate = #{record.settlementstate,jdbcType=INTEGER},
+      financepeople = #{record.financepeople,jdbcType=VARCHAR},
+      financestate = #{record.financestate,jdbcType=INTEGER},
+      fnancedate = #{record.fnancedate,jdbcType=VARCHAR},
+      occupynum = #{record.occupynum,jdbcType=Double}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_detailed" >
+    update tab_detailed
+    <set >
+      <if test="purchaseid != null" >
+        purchaseid = #{purchaseid,jdbcType=INTEGER},
+      </if>
+      <if test="developmentno != null" >
+        developmentno = #{developmentno,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseno != null" >
+        purchaseno = #{purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielno != null" >
+        materielno = #{materielno,jdbcType=VARCHAR},
+      </if>
+      <if test="materielname != null" >
+        materielname = #{materielname,jdbcType=VARCHAR},
+      </if>
+      <if test="materialsno != null" >
+        materialsno = #{materialsno,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null" >
+        specifications = #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="storagebatchno != null" >
+        storagebatchno = #{storagebatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="demandnum != null" >
+        demandnum = #{demandnum,jdbcType=Double},
+      </if>
+      <if test="purchasenum != null" >
+        purchasenum = #{purchasenum,jdbcType=Double},
+      </if>
+      <if test="demanddate != null" >
+        demanddate = #{demanddate,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalstate != null" >
+        approvalstate = #{approvalstate,jdbcType=INTEGER},
+      </if>
+      <if test="approver != null" >
+        approver = #{approver,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        tasktype = #{tasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasername != null" >
+        purchasername = #{purchasername,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="materialid != null" >
+        materialid = #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="po != null" >
+        po = #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null" >
+        parts = #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="availablenum != null" >
+        availablenum = #{availablenum,jdbcType=Double},
+      </if>
+      <if test="usenum != null" >
+        usenum = #{usenum,jdbcType=Double},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=Double},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=Double},
+      </if>
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="purchaselistno != null" >
+        purchaselistno = #{purchaselistno,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="issuedate != null" >
+        Issuedate = #{issuedate,jdbcType=VARCHAR},
+      </if>
+      <if test="pendingdate != null" >
+        pendingdate = #{pendingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="pistage != null" >
+        pistage = #{pistage,jdbcType=VARCHAR},
+      </if>
+      <if test="storagedate != null" >
+        storagedate = #{storagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasepeople != null" >
+        purchasepeople = #{purchasepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="pino != null" >
+        pino = #{pino,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditordate != null" >
+        auditordate = #{auditordate,jdbcType=VARCHAR},
+      </if>
+      <if test="pinum != null" >
+        pinum = #{pinum,jdbcType=Double},
+      </if>
+      <if test="applynum != null" >
+        applynum = #{applynum,jdbcType=Double},
+      </if>
+      <if test="warehousing != null" >
+        warehousing = #{warehousing,jdbcType=VARCHAR},
+      </if>
+      <if test="storagenum != null" >
+        storagenum = #{storagenum,jdbcType=Double},
+      </if>
+      <if test="storageno != null" >
+        storageno = #{storageno,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementno != null" >
+        settlementno = #{settlementno,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementnum != null" >
+        settlementnum = #{settlementnum,jdbcType=Double},
+      </if>
+      <if test="settlementprice != null" >
+        settlementprice = #{settlementprice,jdbcType=Double},
+      </if>
+      <if test="settlementmoney != null" >
+        settlementmoney = #{settlementmoney,jdbcType=Double},
+      </if>
+      <if test="reconciliationsno != null" >
+        reconciliationsno = #{reconciliationsno,jdbcType=VARCHAR},
+      </if>
+      <if test="reconciliationstate != null" >
+        reconciliationstate = #{reconciliationstate,jdbcType=INTEGER},
+      </if>
+      <if test="reconciliationsdate != null" >
+        reconciliationsdate = #{reconciliationsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="outnum != null" >
+        outnum = #{outnum,jdbcType=Double},
+      </if>
+      <if test="surplusnum != null" >
+        surplusnum = #{surplusnum,jdbcType=Double},
+      </if>
+      <if test="unlockednum != null" >
+        unlockednum = #{unlockednum,jdbcType=Double},
+      </if>
+      <if test="innum != null" >
+        innum = #{innum,jdbcType=Double},
+      </if>
+      <if test="lockingnum != null" >
+        lockingnum = #{lockingnum,jdbcType=Double},
+      </if>
+      <if test="settlementstate != null" >
+        settlementstate = #{settlementstate,jdbcType=INTEGER},
+      </if>
+      <if test="financepeople != null" >
+        financepeople = #{financepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="financestate != null" >
+        financestate = #{financestate,jdbcType=INTEGER},
+      </if>
+      <if test="fnancedate != null" >
+        fnancedate = #{fnancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="occupynum != null" >
+        occupynum = #{occupynum,jdbcType=Double},
+      </if>
+    </set>
+    where detailid = #{detailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_detailed" >
+    update tab_detailed
+    set purchaseid = #{purchaseid,jdbcType=INTEGER},
+      developmentno = #{developmentno,jdbcType=VARCHAR},
+      purchaseno = #{purchaseno,jdbcType=VARCHAR},
+      materielno = #{materielno,jdbcType=VARCHAR},
+      materielname = #{materielname,jdbcType=VARCHAR},
+      materialsno = #{materialsno,jdbcType=VARCHAR},
+      specifications = #{specifications,jdbcType=VARCHAR},
+      storagebatchno = #{storagebatchno,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      demandnum = #{demandnum,jdbcType=Double},
+      purchasenum = #{purchasenum,jdbcType=Double},
+      demanddate = #{demanddate,jdbcType=VARCHAR},
+      approvalstate = #{approvalstate,jdbcType=INTEGER},
+      approver = #{approver,jdbcType=VARCHAR},
+      tasktype = #{tasktype,jdbcType=VARCHAR},
+      purchasername = #{purchasername,jdbcType=VARCHAR},
+      source = #{source,jdbcType=INTEGER},
+      materialid = #{materialid,jdbcType=INTEGER},
+      po = #{po,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      parts = #{parts,jdbcType=VARCHAR},
+      availablenum = #{availablenum,jdbcType=Double},
+      usenum = #{usenum,jdbcType=Double},
+      price = #{price,jdbcType=Double},
+      money = #{money,jdbcType=Double},
+      payment = #{payment,jdbcType=INTEGER},
+      purchaselistno = #{purchaselistno,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      Issuedate = #{issuedate,jdbcType=VARCHAR},
+      pendingdate = #{pendingdate,jdbcType=VARCHAR},
+      pistage = #{pistage,jdbcType=VARCHAR},
+      storagedate = #{storagedate,jdbcType=VARCHAR},
+      purchasepeople = #{purchasepeople,jdbcType=VARCHAR},
+      pino = #{pino,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      auditordate = #{auditordate,jdbcType=VARCHAR},
+      pinum = #{pinum,jdbcType=Double},
+      applynum = #{applynum,jdbcType=Double},
+      warehousing = #{warehousing,jdbcType=VARCHAR},
+      storagenum = #{storagenum,jdbcType=Double},
+      storageno = #{storageno,jdbcType=VARCHAR},
+      settlementno = #{settlementno,jdbcType=VARCHAR},
+      settlementnum = #{settlementnum,jdbcType=Double},
+      settlementprice = #{settlementprice,jdbcType=Double},
+      settlementmoney = #{settlementmoney,jdbcType=Double},
+      reconciliationsno = #{reconciliationsno,jdbcType=VARCHAR},
+      reconciliationstate = #{reconciliationstate,jdbcType=INTEGER},
+      reconciliationsdate = #{reconciliationsdate,jdbcType=VARCHAR},
+      outnum = #{outnum,jdbcType=Double},
+      surplusnum = #{surplusnum,jdbcType=Double},
+      unlockednum = #{unlockednum,jdbcType=Double},
+      innum = #{innum,jdbcType=Double},
+      lockingnum = #{lockingnum,jdbcType=Double},
+      settlementstate = #{settlementstate,jdbcType=INTEGER},
+      financepeople = #{financepeople,jdbcType=VARCHAR},
+      financestate = #{financestate,jdbcType=INTEGER},
+      fnancedate = #{fnancedate,jdbcType=VARCHAR},
+      occupynum = #{occupynum,jdbcType=Double}
+    where detailid = #{detailid,jdbcType=INTEGER}
+  </update>
+</mapper>
