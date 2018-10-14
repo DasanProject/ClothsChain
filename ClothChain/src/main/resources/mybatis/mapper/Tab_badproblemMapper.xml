@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_badproblemMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_badproblem" >
+    <id column="typeinid" property="typeinid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="badname" property="badname" jdbcType="VARCHAR" />
+    <result column="defectlevels" property="defectlevels" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    typeinid, styleid, location, badname, defectlevels
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_badproblemExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_badproblem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_badproblem
+    where typeinid = #{typeinid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_badproblem
+    where typeinid = #{typeinid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_badproblemExample" >
+    delete from tab_badproblem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Tab_badproblem" >
+    insert into tab_badproblem (typeinid, styleid, location, 
+      badname, defectlevels)
+    values (#{typeinid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+      #{badname,jdbcType=VARCHAR}, #{defectlevels,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_badproblem" >
+    insert into tab_badproblem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="typeinid != null" >
+        typeinid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="badname != null" >
+        badname,
+      </if>
+      <if test="defectlevels != null" >
+        defectlevels,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="typeinid != null" >
+        #{typeinid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="badname != null" >
+        #{badname,jdbcType=VARCHAR},
+      </if>
+      <if test="defectlevels != null" >
+        #{defectlevels,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.Tab_badproblemExample" resultType="java.lang.Integer" >
+    select count(*) from tab_badproblem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_badproblem
+    <set >
+      <if test="record.typeinid != null" >
+        typeinid = #{record.typeinid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.location != null" >
+        location = #{record.location,jdbcType=VARCHAR},
+      </if>
+      <if test="record.badname != null" >
+        badname = #{record.badname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defectlevels != null" >
+        defectlevels = #{record.defectlevels,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_badproblem
+    set typeinid = #{record.typeinid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      location = #{record.location,jdbcType=VARCHAR},
+      badname = #{record.badname,jdbcType=VARCHAR},
+      defectlevels = #{record.defectlevels,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_badproblem" >
+    update tab_badproblem
+    <set >
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="badname != null" >
+        badname = #{badname,jdbcType=VARCHAR},
+      </if>
+      <if test="defectlevels != null" >
+        defectlevels = #{defectlevels,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where typeinid = #{typeinid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_badproblem" >
+    update tab_badproblem
+    set styleid = #{styleid,jdbcType=INTEGER},
+      location = #{location,jdbcType=VARCHAR},
+      badname = #{badname,jdbcType=VARCHAR},
+      defectlevels = #{defectlevels,jdbcType=VARCHAR}
+    where typeinid = #{typeinid,jdbcType=INTEGER}
+  </update>
+</mapper>
