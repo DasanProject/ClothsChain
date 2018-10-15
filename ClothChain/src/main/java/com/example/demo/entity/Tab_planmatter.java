@@ -101,7 +101,7 @@ public class Tab_planmatter {
         return imports;
     }
 
-    public void setImport(Integer imports) {
+    public void setImports(Integer imports) {
         this.imports = imports;
     }
 
