@@ -3,6 +3,9 @@ package com.example.demo.dao;
 import com.example.demo.entity.Tab_admission;
 import com.example.demo.entity.Tab_admissionExample;
 import java.util.List;
+import java.util.Map;
+
+
 import org.apache.ibatis.annotations.Param;
 
 public interface Tab_admissionMapper {
@@ -27,4 +30,6 @@ public interface Tab_admissionMapper {
     int updateByPrimaryKeySelective(Tab_admission record);
 
     int updateByPrimaryKey(Tab_admission record);
+    //陈梦月分页查询1
+        public List<Map> getAlladmission_cmy();
 }
