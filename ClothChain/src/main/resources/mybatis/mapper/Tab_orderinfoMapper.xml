@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_orderinfoMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_orderinfo" >
+  <resultMap id="BaseResultMap" type="Tab_orderinfo" >
     <id column="orderinfoid" property="orderinfoid" jdbcType="INTEGER" />
     <result column="orderno" property="orderno" jdbcType="VARCHAR" />
     <result column="infoname" property="infoname" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     orderinfoid, orderno, infoname, infotype, entrydate
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_orderinfoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_orderinfoExample" >
     select
     <if test="distinct" >
       distinct
@@ -94,19 +94,19 @@
     delete from tab_orderinfo
     where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_orderinfoExample" >
+  <delete id="deleteByExample" parameterType="Tab_orderinfoExample" >
     delete from tab_orderinfo
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_orderinfo" >
+  <insert id="insert" parameterType="Tab_orderinfo" >
     insert into tab_orderinfo (orderinfoid, orderno, infoname, 
       infotype, entrydate)
     values (#{orderinfoid,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, #{infoname,jdbcType=VARCHAR}, 
       #{infotype,jdbcType=INTEGER}, #{entrydate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_orderinfo" >
+  <insert id="insertSelective" parameterType="Tab_orderinfo" >
     insert into tab_orderinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderinfoid != null" >
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_orderinfoExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_orderinfoExample" resultType="java.lang.Integer" >
     select count(*) from tab_orderinfo
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -183,7 +183,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_orderinfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_orderinfo" >
     update tab_orderinfo
     <set >
       <if test="orderno != null" >
@@ -201,7 +201,7 @@
     </set>
     where orderinfoid = #{orderinfoid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_orderinfo" >
+  <update id="updateByPrimaryKey" parameterType="Tab_orderinfo" >
     update tab_orderinfo
     set orderno = #{orderno,jdbcType=VARCHAR},
       infoname = #{infoname,jdbcType=VARCHAR},

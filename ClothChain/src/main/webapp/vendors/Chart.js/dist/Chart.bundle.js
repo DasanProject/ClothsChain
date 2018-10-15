@@ -3683,7 +3683,7 @@ module.exports = {
     var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?\d*)?$/;
 
     // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
-    // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
+    // somewhat more in line with 4.4.3.2 2004 spec, but allows Double anywhere
     // and further modified to allow for strings containing both week and day
     var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
 
@@ -6109,11 +6109,11 @@ module.exports = function(Chart) {
 		},
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			helpers.each(this.getMeta().data, function(rectangle, index) {
 				var d = this.getDataset().data[index];
 				if (d !== null && d !== undefined && !isNaN(d)) {
-					rectangle.transition(easingDecimal).draw();
+					rectangle.transition(easingDouble).draw();
 				}
 			}, this);
 		},
@@ -6511,7 +6511,7 @@ module.exports = function(Chart) {
 
 				// Desired view properties
 				_model: {
-					x: reset ? xScale.getPixelForDecimal(0.5) : xScale.getPixelForValue(data, index, this.index, this.chart.isCombo),
+					x: reset ? xScale.getPixelForDouble(0.5) : xScale.getPixelForValue(data, index, this.index, this.chart.isCombo),
 					y: reset ? yScale.getBasePixel() : yScale.getPixelForValue(data, index, this.index),
 					// Appearance
 					radius: reset ? 0 : custom.radius ? custom.radius : this.getRadius(data),
@@ -7091,17 +7091,17 @@ module.exports = function(Chart) {
 		draw: function(ease) {
 			var meta = this.getMeta();
 			var points = meta.data || [];
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			var i, ilen;
 
 			// Transition Point Locations
 			for (i=0, ilen=points.length; i<ilen; ++i) {
-				points[i].transition(easingDecimal);
+				points[i].transition(easingDouble);
 			}
 
 			// Transition and Draw the line
 			if (this.chart.options.showLines) {
-				meta.dataset.transition(easingDecimal).draw();
+				meta.dataset.transition(easingDouble).draw();
 			}
 
 			// Draw the points
@@ -7518,15 +7518,15 @@ module.exports = function(Chart) {
 
 		draw: function(ease) {
 			var meta = this.getMeta();
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 
 			// Transition Point Locations
 			helpers.each(meta.data, function(point, index) {
-				point.transition(easingDecimal);
+				point.transition(easingDouble);
 			});
 
 			// Transition and Draw the line
-			meta.dataset.transition(easingDecimal).draw();
+			meta.dataset.transition(easingDouble).draw();
 
 			// Draw the points
 			helpers.each(meta.data, function(point) {
@@ -7972,10 +7972,10 @@ module.exports = function(Chart) {
 				// render function
 				animation.render = function(chartInstance, animationObject) {
 					var easingFunction = helpers.easingEffects[animationObject.easing];
-					var stepDecimal = animationObject.currentStep / animationObject.numSteps;
-					var easeDecimal = easingFunction(stepDecimal);
+					var stepDouble = animationObject.currentStep / animationObject.numSteps;
+					var easeDouble = easingFunction(stepDouble);
 
-					chartInstance.draw(easeDecimal, stepDecimal, animationObject.currentStep);
+					chartInstance.draw(easeDouble, stepDouble, animationObject.currentStep);
 				};
 
 				// user events
@@ -7993,10 +7993,10 @@ module.exports = function(Chart) {
 		},
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			this.clear();
 
-			Chart.pluginService.notifyPlugins('beforeDraw', [this, easingDecimal]);
+			Chart.pluginService.notifyPlugins('beforeDraw', [this, easingDouble]);
 
 			// Draw all the scales
 			helpers.each(this.boxes, function(box) {
@@ -8024,9 +8024,9 @@ module.exports = function(Chart) {
 			context.restore();
 
 			// Finally draw the tooltip
-			this.tooltip.transition(easingDecimal).draw();
+			this.tooltip.transition(easingDouble).draw();
 
-			Chart.pluginService.notifyPlugins('afterDraw', [this, easingDecimal]);
+			Chart.pluginService.notifyPlugins('afterDraw', [this, easingDouble]);
 		},
 
 		// Get the single element that was clicked on
@@ -8425,9 +8425,9 @@ module.exports = function(Chart) {
 		update: noop,
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			helpers.each(this.getMeta().data, function(element, index) {
-				element.transition(easingDecimal).draw();
+				element.transition(easingDouble).draw();
 			});
 		},
 
@@ -10825,16 +10825,16 @@ module.exports = function(Chart) {
 		},
 
 		// Utility for getting the pixel location of a percentage of scale
-		getPixelForDecimal: function(decimal /*, includeOffset*/ ) {
+		getPixelForDouble: function(Double /*, includeOffset*/ ) {
 			if (this.isHorizontal()) {
 				var innerWidth = this.width - (this.paddingLeft + this.paddingRight);
-				var valueOffset = (innerWidth * decimal) + this.paddingLeft;
+				var valueOffset = (innerWidth * Double) + this.paddingLeft;
 
 				var finalVal = this.left + Math.round(valueOffset);
 				finalVal += this.isFullWidth() ? this.margins.left : 0;
 				return finalVal;
 			} else {
-				return this.top + (decimal * this.height);
+				return this.top + (Double * this.height);
 			}
 		},
 
@@ -12583,7 +12583,7 @@ module.exports = function(Chart) {
 				// If we have lots of ticks, don't use the ones
 				var delta = ticks.length > 3 ? ticks[2] - ticks[1] : ticks[1] - ticks[0];
 
-				// If we have a number like 2.5 as the delta, figure out how many decimal places we need
+				// If we have a number like 2.5 as the delta, figure out how many Double places we need
 				if (Math.abs(delta) > 1) {
 					if (tickValue !== Math.floor(tickValue)) {
 						// not an integer
@@ -12595,11 +12595,11 @@ module.exports = function(Chart) {
 				var tickString = '';
 
 				if (tickValue !== 0) {
-					var numDecimal = -1 * Math.floor(logDelta);
-					numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
-					tickString = tickValue.toFixed(numDecimal);
+					var numDouble = -1 * Math.floor(logDelta);
+					numDouble = Math.max(Math.min(numDouble, 20), 0); // toFixed has a max of 20 Double places
+					tickString = tickValue.toFixed(numDouble);
 				} else {
-					tickString = '0'; // never show decimal places for 0
+					tickString = '0'; // never show Double places for 0
 				}
 
 				return tickString;
@@ -13889,18 +13889,18 @@ module.exports = function(Chart) {
 			if (labelMoment) {
 				var offset = labelMoment.diff(this.firstTick, this.tickUnit, true);
 
-				var decimal = offset / this.scaleSizeInUnits;
+				var Double = offset / this.scaleSizeInUnits;
 
 				if (this.isHorizontal()) {
 					var innerWidth = this.width - (this.paddingLeft + this.paddingRight);
 					var valueWidth = innerWidth / Math.max(this.ticks.length - 1, 1);
-					var valueOffset = (innerWidth * decimal) + this.paddingLeft;
+					var valueOffset = (innerWidth * Double) + this.paddingLeft;
 
 					return this.left + Math.round(valueOffset);
 				} else {
 					var innerHeight = this.height - (this.paddingTop + this.paddingBottom);
 					var valueHeight = innerHeight / Math.max(this.ticks.length - 1, 1);
-					var heightOffset = (innerHeight * decimal) + this.paddingTop;
+					var heightOffset = (innerHeight * Double) + this.paddingTop;
 
 					return this.top + Math.round(heightOffset);
 				}
