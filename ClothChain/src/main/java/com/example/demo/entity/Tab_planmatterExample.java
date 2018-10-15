@@ -664,63 +664,63 @@ public class Tab_planmatterExample {
             return (Criteria) this;
         }
 
-        public Criteria andImportIsNull() {
-            addCriterion("import is null");
+        public Criteria andImportsIsNull() {
+            addCriterion("imports is null");
             return (Criteria) this;
         }
 
-        public Criteria andImportIsNotNull() {
-            addCriterion("import is not null");
+        public Criteria andImportsIsNotNull() {
+            addCriterion("imports is not null");
             return (Criteria) this;
         }
 
-        public Criteria andImportEqualTo(Integer value) {
-            addCriterion("import =", value, "import");
+        public Criteria andImportsEqualTo(Integer value) {
+            addCriterion("imports =", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportNotEqualTo(Integer value) {
-            addCriterion("import <>", value, "import");
+        public Criteria andImportsNotEqualTo(Integer value) {
+            addCriterion("imports <>", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportGreaterThan(Integer value) {
-            addCriterion("import >", value, "import");
+        public Criteria andImportsGreaterThan(Integer value) {
+            addCriterion("imports >", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportGreaterThanOrEqualTo(Integer value) {
-            addCriterion("import >=", value, "import");
+        public Criteria andImportsGreaterThanOrEqualTo(Integer value) {
+            addCriterion("imports >=", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportLessThan(Integer value) {
-            addCriterion("import <", value, "import");
+        public Criteria andImportsLessThan(Integer value) {
+            addCriterion("imports <", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportLessThanOrEqualTo(Integer value) {
-            addCriterion("import <=", value, "import");
+        public Criteria andImportsLessThanOrEqualTo(Integer value) {
+            addCriterion("imports <=", value, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportIn(List<Integer> values) {
-            addCriterion("import in", values, "import");
+        public Criteria andImportsIn(List<Integer> values) {
+            addCriterion("imports in", values, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportNotIn(List<Integer> values) {
-            addCriterion("import not in", values, "import");
+        public Criteria andImportsNotIn(List<Integer> values) {
+            addCriterion("imports not in", values, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportBetween(Integer value1, Integer value2) {
-            addCriterion("import between", value1, value2, "import");
+        public Criteria andImportsBetween(Integer value1, Integer value2) {
+            addCriterion("imports between", value1, value2, "imports");
             return (Criteria) this;
         }
 
-        public Criteria andImportNotBetween(Integer value1, Integer value2) {
-            addCriterion("import not between", value1, value2, "import");
+        public Criteria andImportsNotBetween(Integer value1, Integer value2) {
+            addCriterion("imports not between", value1, value2, "imports");
             return (Criteria) this;
         }
 
