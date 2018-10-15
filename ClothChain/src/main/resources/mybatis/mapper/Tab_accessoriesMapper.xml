@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_accessoriesMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_accessories" >
+  <resultMap id="BaseResultMap" type="Tab_accessories" >
     <id column="accessoriesid" property="accessoriesid" jdbcType="INTEGER" />
     <result column="accessoriesnum" property="accessoriesnum" jdbcType="VARCHAR" />
     <result column="accessoriesname" property="accessoriesname" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     accessoriesid, accessoriesnum, accessoriesname, describle, type
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_accessoriesExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_accessoriesExample" >
     select
     <if test="distinct" >
       distinct
@@ -94,19 +94,19 @@
     delete from tab_accessories
     where accessoriesid = #{accessoriesid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_accessoriesExample" >
+  <delete id="deleteByExample" parameterType="Tab_accessoriesExample" >
     delete from tab_accessories
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_accessories" >
+  <insert id="insert" parameterType="Tab_accessories" >
     insert into tab_accessories (accessoriesid, accessoriesnum, accessoriesname, 
       describle, type)
     values (#{accessoriesid,jdbcType=INTEGER}, #{accessoriesnum,jdbcType=VARCHAR}, #{accessoriesname,jdbcType=VARCHAR}, 
       #{describle,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_accessories" >
+  <insert id="insertSelective" parameterType="Tab_accessories" >
     insert into tab_accessories
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="accessoriesid != null" >
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_accessoriesExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_accessoriesExample" resultType="java.lang.Integer" >
     select count(*) from tab_accessories
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -183,7 +183,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_accessories" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_accessories" >
     update tab_accessories
     <set >
       <if test="accessoriesnum != null" >
@@ -201,7 +201,7 @@
     </set>
     where accessoriesid = #{accessoriesid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_accessories" >
+  <update id="updateByPrimaryKey" parameterType="Tab_accessories" >
     update tab_accessories
     set accessoriesnum = #{accessoriesnum,jdbcType=VARCHAR},
       accessoriesname = #{accessoriesname,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_customerMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_customer" >
+  <resultMap id="BaseResultMap" type="Tab_customer" >
     <id column="customerid" property="customerid" jdbcType="INTEGER" />
     <result column="customername" property="customername" jdbcType="VARCHAR" />
     <result column="abbreviation" property="abbreviation" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     customerid, customername, abbreviation, state, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_customerExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_customerExample" >
     select
     <if test="distinct" >
       distinct
@@ -94,19 +94,19 @@
     delete from tab_customer
     where customerid = #{customerid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_customerExample" >
+  <delete id="deleteByExample" parameterType="Tab_customerExample" >
     delete from tab_customer
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_customer" >
+  <insert id="insert" parameterType="Tab_customer" >
     insert into tab_customer (customerid, customername, abbreviation, 
       state, remark)
     values (#{customerid,jdbcType=INTEGER}, #{customername,jdbcType=VARCHAR}, #{abbreviation,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_customer" >
+  <insert id="insertSelective" parameterType="Tab_customer" >
     insert into tab_customer
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="customerid != null" >
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_customerExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_customerExample" resultType="java.lang.Integer" >
     select count(*) from tab_customer
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -183,7 +183,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_customer" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_customer" >
     update tab_customer
     <set >
       <if test="customername != null" >
@@ -201,7 +201,7 @@
     </set>
     where customerid = #{customerid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_customer" >
+  <update id="updateByPrimaryKey" parameterType="Tab_customer" >
     update tab_customer
     set customername = #{customername,jdbcType=VARCHAR},
       abbreviation = #{abbreviation,jdbcType=VARCHAR},

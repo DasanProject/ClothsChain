@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_brandMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_brand" >
+  <resultMap id="BaseResultMap" type="Tab_brand" >
     <id column="brandid" property="brandid" jdbcType="INTEGER" />
     <result column="customerid" property="customerid" jdbcType="INTEGER" />
     <result column="brandnum" property="brandnum" jdbcType="VARCHAR" />
     <result column="brandname" property="brandname" jdbcType="VARCHAR" />
     <result column="brandfullname" property="brandfullname" jdbcType="VARCHAR" />
-    <result column="samplemultiple" property="samplemultiple" jdbcType="Double" />
+    <result column="samplemultiple" property="samplemultiple" jdbcType="DECIMAL" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     brandid, customerid, brandnum, brandname, brandfullname, samplemultiple, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_brandExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_brandExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,21 +96,21 @@
     delete from tab_brand
     where brandid = #{brandid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_brandExample" >
+  <delete id="deleteByExample" parameterType="Tab_brandExample" >
     delete from tab_brand
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_brand" >
+  <insert id="insert" parameterType="Tab_brand" >
     insert into tab_brand (brandid, customerid, brandnum, 
       brandname, brandfullname, samplemultiple, 
       remark)
     values (#{brandid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{brandnum,jdbcType=VARCHAR}, 
-      #{brandname,jdbcType=VARCHAR}, #{brandfullname,jdbcType=VARCHAR}, #{samplemultiple,jdbcType=Double},
+      #{brandname,jdbcType=VARCHAR}, #{brandfullname,jdbcType=VARCHAR}, #{samplemultiple,jdbcType=DECIMAL}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_brand" >
+  <insert id="insertSelective" parameterType="Tab_brand" >
     insert into tab_brand
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="brandid != null" >
@@ -152,14 +152,14 @@
         #{brandfullname,jdbcType=VARCHAR},
       </if>
       <if test="samplemultiple != null" >
-        #{samplemultiple,jdbcType=Double},
+        #{samplemultiple,jdbcType=DECIMAL},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_brandExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_brandExample" resultType="java.lang.Integer" >
     select count(*) from tab_brand
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -184,7 +184,7 @@
         brandfullname = #{record.brandfullname,jdbcType=VARCHAR},
       </if>
       <if test="record.samplemultiple != null" >
-        samplemultiple = #{record.samplemultiple,jdbcType=Double},
+        samplemultiple = #{record.samplemultiple,jdbcType=DECIMAL},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -201,13 +201,13 @@
       brandnum = #{record.brandnum,jdbcType=VARCHAR},
       brandname = #{record.brandname,jdbcType=VARCHAR},
       brandfullname = #{record.brandfullname,jdbcType=VARCHAR},
-      samplemultiple = #{record.samplemultiple,jdbcType=Double},
+      samplemultiple = #{record.samplemultiple,jdbcType=DECIMAL},
       remark = #{record.remark,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_brand" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_brand" >
     update tab_brand
     <set >
       <if test="customerid != null" >
@@ -223,7 +223,7 @@
         brandfullname = #{brandfullname,jdbcType=VARCHAR},
       </if>
       <if test="samplemultiple != null" >
-        samplemultiple = #{samplemultiple,jdbcType=Double},
+        samplemultiple = #{samplemultiple,jdbcType=DECIMAL},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -231,13 +231,13 @@
     </set>
     where brandid = #{brandid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_brand" >
+  <update id="updateByPrimaryKey" parameterType="Tab_brand" >
     update tab_brand
     set customerid = #{customerid,jdbcType=INTEGER},
       brandnum = #{brandnum,jdbcType=VARCHAR},
       brandname = #{brandname,jdbcType=VARCHAR},
       brandfullname = #{brandfullname,jdbcType=VARCHAR},
-      samplemultiple = #{samplemultiple,jdbcType=Double},
+      samplemultiple = #{samplemultiple,jdbcType=DECIMAL},
       remark = #{remark,jdbcType=VARCHAR}
     where brandid = #{brandid,jdbcType=INTEGER}
   </update>

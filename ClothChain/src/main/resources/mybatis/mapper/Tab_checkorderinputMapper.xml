@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_checkorderinputMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_checkorderinput" >
+  <resultMap id="BaseResultMap" type="Tab_checkorderinput" >
     <id column="checkmessageid" property="checkmessageid" jdbcType="INTEGER" />
     <result column="typeinid" property="typeinid" jdbcType="INTEGER" />
     <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
     <result column="color" property="color" jdbcType="VARCHAR" />
-    <result column="size" property="size" jdbcType="Double" />
+    <result column="size" property="size" jdbcType="DECIMAL" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="checkpeople" property="checkpeople" jdbcType="VARCHAR" />
     <result column="checkdate" property="checkdate" jdbcType="VARCHAR" />
@@ -82,7 +82,7 @@
     checkmessageid, typeinid, stylenumber, color, size, status, checkpeople, checkdate, 
     salesorder, clipid, depetname, po, clothid, goodstatus, grouptype, oddnumbers, packingno
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_checkorderinputExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_checkorderinputExample" >
     select
     <if test="distinct" >
       distinct
@@ -107,13 +107,13 @@
     delete from tab_checkorderinput
     where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_checkorderinputExample" >
+  <delete id="deleteByExample" parameterType="Tab_checkorderinputExample" >
     delete from tab_checkorderinput
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_checkorderinput" >
+  <insert id="insert" parameterType="Tab_checkorderinput" >
     insert into tab_checkorderinput (checkmessageid, typeinid, stylenumber, 
       color, size, status, 
       checkpeople, checkdate, salesorder, 
@@ -121,13 +121,13 @@
       clothid, goodstatus, grouptype, 
       oddnumbers, packingno)
     values (#{checkmessageid,jdbcType=INTEGER}, #{typeinid,jdbcType=INTEGER}, #{stylenumber,jdbcType=VARCHAR}, 
-      #{color,jdbcType=VARCHAR}, #{size,jdbcType=Double}, #{status,jdbcType=INTEGER},
+      #{color,jdbcType=VARCHAR}, #{size,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
       #{checkpeople,jdbcType=VARCHAR}, #{checkdate,jdbcType=VARCHAR}, #{salesorder,jdbcType=VARCHAR}, 
       #{clipid,jdbcType=INTEGER}, #{depetname,jdbcType=VARCHAR}, #{po,jdbcType=VARCHAR}, 
       #{clothid,jdbcType=VARCHAR}, #{goodstatus,jdbcType=INTEGER}, #{grouptype,jdbcType=VARCHAR}, 
       #{oddnumbers,jdbcType=VARCHAR}, #{packingno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_checkorderinput" >
+  <insert id="insertSelective" parameterType="Tab_checkorderinput" >
     insert into tab_checkorderinput
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="checkmessageid != null" >
@@ -196,7 +196,7 @@
         #{color,jdbcType=VARCHAR},
       </if>
       <if test="size != null" >
-        #{size,jdbcType=Double},
+        #{size,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
@@ -236,7 +236,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_checkorderinputExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_checkorderinputExample" resultType="java.lang.Integer" >
     select count(*) from tab_checkorderinput
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -258,7 +258,7 @@
         color = #{record.color,jdbcType=VARCHAR},
       </if>
       <if test="record.size != null" >
-        size = #{record.size,jdbcType=Double},
+        size = #{record.size,jdbcType=DECIMAL},
       </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
@@ -307,7 +307,7 @@
       typeinid = #{record.typeinid,jdbcType=INTEGER},
       stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
       color = #{record.color,jdbcType=VARCHAR},
-      size = #{record.size,jdbcType=Double},
+      size = #{record.size,jdbcType=DECIMAL},
       status = #{record.status,jdbcType=INTEGER},
       checkpeople = #{record.checkpeople,jdbcType=VARCHAR},
       checkdate = #{record.checkdate,jdbcType=VARCHAR},
@@ -324,7 +324,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_checkorderinput" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_checkorderinput" >
     update tab_checkorderinput
     <set >
       <if test="typeinid != null" >
@@ -337,7 +337,7 @@
         color = #{color,jdbcType=VARCHAR},
       </if>
       <if test="size != null" >
-        size = #{size,jdbcType=Double},
+        size = #{size,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
@@ -378,12 +378,12 @@
     </set>
     where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_checkorderinput" >
+  <update id="updateByPrimaryKey" parameterType="Tab_checkorderinput" >
     update tab_checkorderinput
     set typeinid = #{typeinid,jdbcType=INTEGER},
       stylenumber = #{stylenumber,jdbcType=VARCHAR},
       color = #{color,jdbcType=VARCHAR},
-      size = #{size,jdbcType=Double},
+      size = #{size,jdbcType=DECIMAL},
       status = #{status,jdbcType=INTEGER},
       checkpeople = #{checkpeople,jdbcType=VARCHAR},
       checkdate = #{checkdate,jdbcType=VARCHAR},

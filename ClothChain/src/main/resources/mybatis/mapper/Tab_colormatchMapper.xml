@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_colormatchMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_colormatch" >
+  <resultMap id="BaseResultMap" type="Tab_colormatch" >
     <id column="colormatchid" property="colormatchid" jdbcType="INTEGER" />
     <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
     <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
@@ -10,13 +10,13 @@
     <result column="aaa" property="aaa" jdbcType="VARCHAR" />
     <result column="modal" property="modal" jdbcType="VARCHAR" />
     <result column="unit" property="unit" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="Double" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
     <result column="size" property="size" jdbcType="VARCHAR" />
     <result column="color" property="color" jdbcType="VARCHAR" />
     <result column="colorno" property="colorno" jdbcType="VARCHAR" />
     <result column="parts" property="parts" jdbcType="VARCHAR" />
-    <result column="dosage" property="dosage" jdbcType="Double" />
-    <result column="loss" property="loss" jdbcType="Double" />
+    <result column="dosage" property="dosage" jdbcType="DECIMAL" />
+    <result column="loss" property="loss" jdbcType="DECIMAL" />
     <result column="materialcategory" property="materialcategory" jdbcType="VARCHAR" />
     <result column="spec" property="spec" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -89,7 +89,7 @@
     price, size, color, colorno, parts, dosage, loss, materialcategory, spec, remark, 
     clothtype, largetype, smalltype, auditingstate, pono
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_colormatchExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_colormatchExample" >
     select
     <if test="distinct" >
       distinct
@@ -114,13 +114,13 @@
     delete from tab_colormatch
     where colormatchid = #{colormatchid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_colormatchExample" >
+  <delete id="deleteByExample" parameterType="Tab_colormatchExample" >
     delete from tab_colormatch
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_colormatch" >
+  <insert id="insert" parameterType="Tab_colormatch" >
     insert into tab_colormatch (colormatchid, superlierid, sampleno, 
       materialno, materialname, aaa, 
       modal, unit, price, 
@@ -131,14 +131,14 @@
       auditingstate, pono)
     values (#{colormatchid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, 
       #{materialno,jdbcType=VARCHAR}, #{materialname,jdbcType=VARCHAR}, #{aaa,jdbcType=VARCHAR}, 
-      #{modal,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=Double},
+      #{modal,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
       #{size,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{colorno,jdbcType=VARCHAR}, 
-      #{parts,jdbcType=VARCHAR}, #{dosage,jdbcType=Double}, #{loss,jdbcType=Double},
+      #{parts,jdbcType=VARCHAR}, #{dosage,jdbcType=DECIMAL}, #{loss,jdbcType=DECIMAL}, 
       #{materialcategory,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{clothtype,jdbcType=VARCHAR}, #{largetype,jdbcType=VARCHAR}, #{smalltype,jdbcType=VARCHAR}, 
       #{auditingstate,jdbcType=INTEGER}, #{pono,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_colormatch" >
+  <insert id="insertSelective" parameterType="Tab_colormatch" >
     insert into tab_colormatch
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="colormatchid != null" >
@@ -237,7 +237,7 @@
         #{unit,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="size != null" >
         #{size,jdbcType=VARCHAR},
@@ -252,10 +252,10 @@
         #{parts,jdbcType=VARCHAR},
       </if>
       <if test="dosage != null" >
-        #{dosage,jdbcType=Double},
+        #{dosage,jdbcType=DECIMAL},
       </if>
       <if test="loss != null" >
-        #{loss,jdbcType=Double},
+        #{loss,jdbcType=DECIMAL},
       </if>
       <if test="materialcategory != null" >
         #{materialcategory,jdbcType=VARCHAR},
@@ -283,7 +283,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_colormatchExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_colormatchExample" resultType="java.lang.Integer" >
     select count(*) from tab_colormatch
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -317,7 +317,7 @@
         unit = #{record.unit,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.size != null" >
         size = #{record.size,jdbcType=VARCHAR},
@@ -332,10 +332,10 @@
         parts = #{record.parts,jdbcType=VARCHAR},
       </if>
       <if test="record.dosage != null" >
-        dosage = #{record.dosage,jdbcType=Double},
+        dosage = #{record.dosage,jdbcType=DECIMAL},
       </if>
       <if test="record.loss != null" >
-        loss = #{record.loss,jdbcType=Double},
+        loss = #{record.loss,jdbcType=DECIMAL},
       </if>
       <if test="record.materialcategory != null" >
         materialcategory = #{record.materialcategory,jdbcType=VARCHAR},
@@ -376,13 +376,13 @@
       aaa = #{record.aaa,jdbcType=VARCHAR},
       modal = #{record.modal,jdbcType=VARCHAR},
       unit = #{record.unit,jdbcType=VARCHAR},
-      price = #{record.price,jdbcType=Double},
+      price = #{record.price,jdbcType=DECIMAL},
       size = #{record.size,jdbcType=VARCHAR},
       color = #{record.color,jdbcType=VARCHAR},
       colorno = #{record.colorno,jdbcType=VARCHAR},
       parts = #{record.parts,jdbcType=VARCHAR},
-      dosage = #{record.dosage,jdbcType=Double},
-      loss = #{record.loss,jdbcType=Double},
+      dosage = #{record.dosage,jdbcType=DECIMAL},
+      loss = #{record.loss,jdbcType=DECIMAL},
       materialcategory = #{record.materialcategory,jdbcType=VARCHAR},
       spec = #{record.spec,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
@@ -395,7 +395,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_colormatch" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_colormatch" >
     update tab_colormatch
     <set >
       <if test="superlierid != null" >
@@ -420,7 +420,7 @@
         unit = #{unit,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="size != null" >
         size = #{size,jdbcType=VARCHAR},
@@ -435,10 +435,10 @@
         parts = #{parts,jdbcType=VARCHAR},
       </if>
       <if test="dosage != null" >
-        dosage = #{dosage,jdbcType=Double},
+        dosage = #{dosage,jdbcType=DECIMAL},
       </if>
       <if test="loss != null" >
-        loss = #{loss,jdbcType=Double},
+        loss = #{loss,jdbcType=DECIMAL},
       </if>
       <if test="materialcategory != null" >
         materialcategory = #{materialcategory,jdbcType=VARCHAR},
@@ -467,7 +467,7 @@
     </set>
     where colormatchid = #{colormatchid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_colormatch" >
+  <update id="updateByPrimaryKey" parameterType="Tab_colormatch" >
     update tab_colormatch
     set superlierid = #{superlierid,jdbcType=INTEGER},
       sampleno = #{sampleno,jdbcType=VARCHAR},
@@ -476,13 +476,13 @@
       aaa = #{aaa,jdbcType=VARCHAR},
       modal = #{modal,jdbcType=VARCHAR},
       unit = #{unit,jdbcType=VARCHAR},
-      price = #{price,jdbcType=Double},
+      price = #{price,jdbcType=DECIMAL},
       size = #{size,jdbcType=VARCHAR},
       color = #{color,jdbcType=VARCHAR},
       colorno = #{colorno,jdbcType=VARCHAR},
       parts = #{parts,jdbcType=VARCHAR},
-      dosage = #{dosage,jdbcType=Double},
-      loss = #{loss,jdbcType=Double},
+      dosage = #{dosage,jdbcType=DECIMAL},
+      loss = #{loss,jdbcType=DECIMAL},
       materialcategory = #{materialcategory,jdbcType=VARCHAR},
       spec = #{spec,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

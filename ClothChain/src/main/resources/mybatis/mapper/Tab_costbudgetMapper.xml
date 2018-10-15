@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_costbudgetMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_costbudget" >
+  <resultMap id="BaseResultMap" type="Tab_costbudget" >
     <id column="costbudgetid" property="costbudgetid" jdbcType="INTEGER" />
     <result column="costbudgetno" property="costbudgetno" jdbcType="VARCHAR" />
     <result column="costbudgetdate" property="costbudgetdate" jdbcType="VARCHAR" />
@@ -18,18 +18,18 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
     <result column="quotedversion" property="quotedversion" jdbcType="VARCHAR" />
-    <result column="purchasemoney" property="purchasemoney" jdbcType="Double" />
-    <result column="materialprefit" property="materialprefit" jdbcType="Double" />
-    <result column="acturlwork" property="acturlwork" jdbcType="Double" />
-    <result column="quotedprice" property="quotedprice" jdbcType="Double" />
-    <result column="taxpoint" property="taxpoint" jdbcType="Double" />
-    <result column="taxation" property="taxation" jdbcType="Double" />
-    <result column="costratio" property="costratio" jdbcType="Double" />
-    <result column="cost" property="cost" jdbcType="Double" />
-    <result column="profitratio" property="profitratio" jdbcType="Double" />
-    <result column="clothrate" property="clothrate" jdbcType="Double" />
-    <result column="budgetaryprofit" property="budgetaryprofit" jdbcType="Double" />
-    <result column="quotedquotation" property="quotedquotation" jdbcType="Double" />
+    <result column="purchasemoney" property="purchasemoney" jdbcType="DECIMAL" />
+    <result column="materialprefit" property="materialprefit" jdbcType="DECIMAL" />
+    <result column="acturlwork" property="acturlwork" jdbcType="DECIMAL" />
+    <result column="quotedprice" property="quotedprice" jdbcType="DECIMAL" />
+    <result column="taxpoint" property="taxpoint" jdbcType="DECIMAL" />
+    <result column="taxation" property="taxation" jdbcType="DECIMAL" />
+    <result column="costratio" property="costratio" jdbcType="DECIMAL" />
+    <result column="cost" property="cost" jdbcType="DECIMAL" />
+    <result column="profitratio" property="profitratio" jdbcType="DECIMAL" />
+    <result column="clothrate" property="clothrate" jdbcType="DECIMAL" />
+    <result column="budgetaryprofit" property="budgetaryprofit" jdbcType="DECIMAL" />
+    <result column="quotedquotation" property="quotedquotation" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -95,7 +95,7 @@
     purchasemoney, materialprefit, acturlwork, quotedprice, taxpoint, taxation, costratio, 
     cost, profitratio, clothrate, budgetaryprofit, quotedquotation
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_costbudgetExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_costbudgetExample" >
     select
     <if test="distinct" >
       distinct
@@ -120,13 +120,13 @@
     delete from tab_costbudget
     where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_costbudgetExample" >
+  <delete id="deleteByExample" parameterType="Tab_costbudgetExample" >
     delete from tab_costbudget
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_costbudget" >
+  <insert id="insert" parameterType="Tab_costbudget" >
     insert into tab_costbudget (costbudgetid, costbudgetno, costbudgetdate, 
       orderno, versiontype, versiondate, 
       styleno, stylename, customer, 
@@ -142,13 +142,13 @@
       #{styleno,jdbcType=VARCHAR}, #{stylename,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, 
       #{quarter,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
       #{color,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{describle,jdbcType=VARCHAR}, 
-      #{quotedversion,jdbcType=VARCHAR}, #{purchasemoney,jdbcType=Double}, #{materialprefit,jdbcType=Double},
-      #{acturlwork,jdbcType=Double}, #{quotedprice,jdbcType=Double}, #{taxpoint,jdbcType=Double},
-      #{taxation,jdbcType=Double}, #{costratio,jdbcType=Double}, #{cost,jdbcType=Double},
-      #{profitratio,jdbcType=Double}, #{clothrate,jdbcType=Double}, #{budgetaryprofit,jdbcType=Double},
-      #{quotedquotation,jdbcType=Double})
+      #{quotedversion,jdbcType=VARCHAR}, #{purchasemoney,jdbcType=DECIMAL}, #{materialprefit,jdbcType=DECIMAL}, 
+      #{acturlwork,jdbcType=DECIMAL}, #{quotedprice,jdbcType=DECIMAL}, #{taxpoint,jdbcType=DECIMAL}, 
+      #{taxation,jdbcType=DECIMAL}, #{costratio,jdbcType=DECIMAL}, #{cost,jdbcType=DECIMAL}, 
+      #{profitratio,jdbcType=DECIMAL}, #{clothrate,jdbcType=DECIMAL}, #{budgetaryprofit,jdbcType=DECIMAL}, 
+      #{quotedquotation,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_costbudget" >
+  <insert id="insertSelective" parameterType="Tab_costbudget" >
     insert into tab_costbudget
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="costbudgetid != null" >
@@ -286,44 +286,44 @@
         #{quotedversion,jdbcType=VARCHAR},
       </if>
       <if test="purchasemoney != null" >
-        #{purchasemoney,jdbcType=Double},
+        #{purchasemoney,jdbcType=DECIMAL},
       </if>
       <if test="materialprefit != null" >
-        #{materialprefit,jdbcType=Double},
+        #{materialprefit,jdbcType=DECIMAL},
       </if>
       <if test="acturlwork != null" >
-        #{acturlwork,jdbcType=Double},
+        #{acturlwork,jdbcType=DECIMAL},
       </if>
       <if test="quotedprice != null" >
-        #{quotedprice,jdbcType=Double},
+        #{quotedprice,jdbcType=DECIMAL},
       </if>
       <if test="taxpoint != null" >
-        #{taxpoint,jdbcType=Double},
+        #{taxpoint,jdbcType=DECIMAL},
       </if>
       <if test="taxation != null" >
-        #{taxation,jdbcType=Double},
+        #{taxation,jdbcType=DECIMAL},
       </if>
       <if test="costratio != null" >
-        #{costratio,jdbcType=Double},
+        #{costratio,jdbcType=DECIMAL},
       </if>
       <if test="cost != null" >
-        #{cost,jdbcType=Double},
+        #{cost,jdbcType=DECIMAL},
       </if>
       <if test="profitratio != null" >
-        #{profitratio,jdbcType=Double},
+        #{profitratio,jdbcType=DECIMAL},
       </if>
       <if test="clothrate != null" >
-        #{clothrate,jdbcType=Double},
+        #{clothrate,jdbcType=DECIMAL},
       </if>
       <if test="budgetaryprofit != null" >
-        #{budgetaryprofit,jdbcType=Double},
+        #{budgetaryprofit,jdbcType=DECIMAL},
       </if>
       <if test="quotedquotation != null" >
-        #{quotedquotation,jdbcType=Double},
+        #{quotedquotation,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_costbudgetExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_costbudgetExample" resultType="java.lang.Integer" >
     select count(*) from tab_costbudget
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -381,40 +381,40 @@
         quotedversion = #{record.quotedversion,jdbcType=VARCHAR},
       </if>
       <if test="record.purchasemoney != null" >
-        purchasemoney = #{record.purchasemoney,jdbcType=Double},
+        purchasemoney = #{record.purchasemoney,jdbcType=DECIMAL},
       </if>
       <if test="record.materialprefit != null" >
-        materialprefit = #{record.materialprefit,jdbcType=Double},
+        materialprefit = #{record.materialprefit,jdbcType=DECIMAL},
       </if>
       <if test="record.acturlwork != null" >
-        acturlwork = #{record.acturlwork,jdbcType=Double},
+        acturlwork = #{record.acturlwork,jdbcType=DECIMAL},
       </if>
       <if test="record.quotedprice != null" >
-        quotedprice = #{record.quotedprice,jdbcType=Double},
+        quotedprice = #{record.quotedprice,jdbcType=DECIMAL},
       </if>
       <if test="record.taxpoint != null" >
-        taxpoint = #{record.taxpoint,jdbcType=Double},
+        taxpoint = #{record.taxpoint,jdbcType=DECIMAL},
       </if>
       <if test="record.taxation != null" >
-        taxation = #{record.taxation,jdbcType=Double},
+        taxation = #{record.taxation,jdbcType=DECIMAL},
       </if>
       <if test="record.costratio != null" >
-        costratio = #{record.costratio,jdbcType=Double},
+        costratio = #{record.costratio,jdbcType=DECIMAL},
       </if>
       <if test="record.cost != null" >
-        cost = #{record.cost,jdbcType=Double},
+        cost = #{record.cost,jdbcType=DECIMAL},
       </if>
       <if test="record.profitratio != null" >
-        profitratio = #{record.profitratio,jdbcType=Double},
+        profitratio = #{record.profitratio,jdbcType=DECIMAL},
       </if>
       <if test="record.clothrate != null" >
-        clothrate = #{record.clothrate,jdbcType=Double},
+        clothrate = #{record.clothrate,jdbcType=DECIMAL},
       </if>
       <if test="record.budgetaryprofit != null" >
-        budgetaryprofit = #{record.budgetaryprofit,jdbcType=Double},
+        budgetaryprofit = #{record.budgetaryprofit,jdbcType=DECIMAL},
       </if>
       <if test="record.quotedquotation != null" >
-        quotedquotation = #{record.quotedquotation,jdbcType=Double},
+        quotedquotation = #{record.quotedquotation,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -439,23 +439,23 @@
       remark = #{record.remark,jdbcType=VARCHAR},
       describle = #{record.describle,jdbcType=VARCHAR},
       quotedversion = #{record.quotedversion,jdbcType=VARCHAR},
-      purchasemoney = #{record.purchasemoney,jdbcType=Double},
-      materialprefit = #{record.materialprefit,jdbcType=Double},
-      acturlwork = #{record.acturlwork,jdbcType=Double},
-      quotedprice = #{record.quotedprice,jdbcType=Double},
-      taxpoint = #{record.taxpoint,jdbcType=Double},
-      taxation = #{record.taxation,jdbcType=Double},
-      costratio = #{record.costratio,jdbcType=Double},
-      cost = #{record.cost,jdbcType=Double},
-      profitratio = #{record.profitratio,jdbcType=Double},
-      clothrate = #{record.clothrate,jdbcType=Double},
-      budgetaryprofit = #{record.budgetaryprofit,jdbcType=Double},
-      quotedquotation = #{record.quotedquotation,jdbcType=Double}
+      purchasemoney = #{record.purchasemoney,jdbcType=DECIMAL},
+      materialprefit = #{record.materialprefit,jdbcType=DECIMAL},
+      acturlwork = #{record.acturlwork,jdbcType=DECIMAL},
+      quotedprice = #{record.quotedprice,jdbcType=DECIMAL},
+      taxpoint = #{record.taxpoint,jdbcType=DECIMAL},
+      taxation = #{record.taxation,jdbcType=DECIMAL},
+      costratio = #{record.costratio,jdbcType=DECIMAL},
+      cost = #{record.cost,jdbcType=DECIMAL},
+      profitratio = #{record.profitratio,jdbcType=DECIMAL},
+      clothrate = #{record.clothrate,jdbcType=DECIMAL},
+      budgetaryprofit = #{record.budgetaryprofit,jdbcType=DECIMAL},
+      quotedquotation = #{record.quotedquotation,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_costbudget" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_costbudget" >
     update tab_costbudget
     <set >
       <if test="costbudgetno != null" >
@@ -504,45 +504,45 @@
         quotedversion = #{quotedversion,jdbcType=VARCHAR},
       </if>
       <if test="purchasemoney != null" >
-        purchasemoney = #{purchasemoney,jdbcType=Double},
+        purchasemoney = #{purchasemoney,jdbcType=DECIMAL},
       </if>
       <if test="materialprefit != null" >
-        materialprefit = #{materialprefit,jdbcType=Double},
+        materialprefit = #{materialprefit,jdbcType=DECIMAL},
       </if>
       <if test="acturlwork != null" >
-        acturlwork = #{acturlwork,jdbcType=Double},
+        acturlwork = #{acturlwork,jdbcType=DECIMAL},
       </if>
       <if test="quotedprice != null" >
-        quotedprice = #{quotedprice,jdbcType=Double},
+        quotedprice = #{quotedprice,jdbcType=DECIMAL},
       </if>
       <if test="taxpoint != null" >
-        taxpoint = #{taxpoint,jdbcType=Double},
+        taxpoint = #{taxpoint,jdbcType=DECIMAL},
       </if>
       <if test="taxation != null" >
-        taxation = #{taxation,jdbcType=Double},
+        taxation = #{taxation,jdbcType=DECIMAL},
       </if>
       <if test="costratio != null" >
-        costratio = #{costratio,jdbcType=Double},
+        costratio = #{costratio,jdbcType=DECIMAL},
       </if>
       <if test="cost != null" >
-        cost = #{cost,jdbcType=Double},
+        cost = #{cost,jdbcType=DECIMAL},
       </if>
       <if test="profitratio != null" >
-        profitratio = #{profitratio,jdbcType=Double},
+        profitratio = #{profitratio,jdbcType=DECIMAL},
       </if>
       <if test="clothrate != null" >
-        clothrate = #{clothrate,jdbcType=Double},
+        clothrate = #{clothrate,jdbcType=DECIMAL},
       </if>
       <if test="budgetaryprofit != null" >
-        budgetaryprofit = #{budgetaryprofit,jdbcType=Double},
+        budgetaryprofit = #{budgetaryprofit,jdbcType=DECIMAL},
       </if>
       <if test="quotedquotation != null" >
-        quotedquotation = #{quotedquotation,jdbcType=Double},
+        quotedquotation = #{quotedquotation,jdbcType=DECIMAL},
       </if>
     </set>
     where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_costbudget" >
+  <update id="updateByPrimaryKey" parameterType="Tab_costbudget" >
     update tab_costbudget
     set costbudgetno = #{costbudgetno,jdbcType=VARCHAR},
       costbudgetdate = #{costbudgetdate,jdbcType=VARCHAR},
@@ -559,18 +559,18 @@
       remark = #{remark,jdbcType=VARCHAR},
       describle = #{describle,jdbcType=VARCHAR},
       quotedversion = #{quotedversion,jdbcType=VARCHAR},
-      purchasemoney = #{purchasemoney,jdbcType=Double},
-      materialprefit = #{materialprefit,jdbcType=Double},
-      acturlwork = #{acturlwork,jdbcType=Double},
-      quotedprice = #{quotedprice,jdbcType=Double},
-      taxpoint = #{taxpoint,jdbcType=Double},
-      taxation = #{taxation,jdbcType=Double},
-      costratio = #{costratio,jdbcType=Double},
-      cost = #{cost,jdbcType=Double},
-      profitratio = #{profitratio,jdbcType=Double},
-      clothrate = #{clothrate,jdbcType=Double},
-      budgetaryprofit = #{budgetaryprofit,jdbcType=Double},
-      quotedquotation = #{quotedquotation,jdbcType=Double}
+      purchasemoney = #{purchasemoney,jdbcType=DECIMAL},
+      materialprefit = #{materialprefit,jdbcType=DECIMAL},
+      acturlwork = #{acturlwork,jdbcType=DECIMAL},
+      quotedprice = #{quotedprice,jdbcType=DECIMAL},
+      taxpoint = #{taxpoint,jdbcType=DECIMAL},
+      taxation = #{taxation,jdbcType=DECIMAL},
+      costratio = #{costratio,jdbcType=DECIMAL},
+      cost = #{cost,jdbcType=DECIMAL},
+      profitratio = #{profitratio,jdbcType=DECIMAL},
+      clothrate = #{clothrate,jdbcType=DECIMAL},
+      budgetaryprofit = #{budgetaryprofit,jdbcType=DECIMAL},
+      quotedquotation = #{quotedquotation,jdbcType=DECIMAL}
     where costbudgetid = #{costbudgetid,jdbcType=INTEGER}
   </update>
 </mapper>

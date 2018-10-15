@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_clothcompontentMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_clothcompontent" >
+  <resultMap id="BaseResultMap" type="Tab_clothcompontent" >
     <id column="compontentid" property="compontentid" jdbcType="INTEGER" />
     <result column="styleid" property="styleid" jdbcType="INTEGER" />
     <result column="compontentname" property="compontentname" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     compontentid, styleid, compontentname, describle
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_clothcompontentExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_clothcompontentExample" >
     select
     <if test="distinct" >
       distinct
@@ -93,19 +93,19 @@
     delete from tab_clothcompontent
     where compontentid = #{compontentid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_clothcompontentExample" >
+  <delete id="deleteByExample" parameterType="Tab_clothcompontentExample" >
     delete from tab_clothcompontent
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_clothcompontent" >
+  <insert id="insert" parameterType="Tab_clothcompontent" >
     insert into tab_clothcompontent (compontentid, styleid, compontentname, 
       describle)
     values (#{compontentid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{compontentname,jdbcType=VARCHAR}, 
       #{describle,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_clothcompontent" >
+  <insert id="insertSelective" parameterType="Tab_clothcompontent" >
     insert into tab_clothcompontent
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="compontentid != null" >
@@ -136,7 +136,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_clothcompontentExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_clothcompontentExample" resultType="java.lang.Integer" >
     select count(*) from tab_clothcompontent
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -172,7 +172,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_clothcompontent" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_clothcompontent" >
     update tab_clothcompontent
     <set >
       <if test="styleid != null" >
@@ -187,7 +187,7 @@
     </set>
     where compontentid = #{compontentid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_clothcompontent" >
+  <update id="updateByPrimaryKey" parameterType="Tab_clothcompontent" >
     update tab_clothcompontent
     set styleid = #{styleid,jdbcType=INTEGER},
       compontentname = #{compontentname,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_chekorderdetailMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_chekorderdetail" >
+  <resultMap id="BaseResultMap" type="Tab_chekorderdetail" >
     <id column="ordercheckid" property="ordercheckid" jdbcType="INTEGER" />
     <result column="styleid" property="styleid" jdbcType="INTEGER" />
     <result column="accountingnumber" property="accountingnumber" jdbcType="VARCHAR" />
@@ -18,19 +18,19 @@
     <result column="documentarypeople" property="documentarypeople" jdbcType="VARCHAR" />
     <result column="normalhours" property="normalhours" jdbcType="INTEGER" />
     <result column="totalnumer" property="totalnumer" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="Double" />
-    <result column="amount" property="amount" jdbcType="Double" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
     <result column="jisuanmodel" property="jisuanmodel" jdbcType="VARCHAR" />
-    <result column="amounttotal" property="amounttotal" jdbcType="Double" />
+    <result column="amounttotal" property="amounttotal" jdbcType="DECIMAL" />
     <result column="usekucun" property="usekucun" jdbcType="INTEGER" />
     <result column="materialcombined" property="materialcombined" jdbcType="INTEGER" />
-    <result column="labourcost" property="labourcost" jdbcType="Double" />
-    <result column="allcost" property="allcost" jdbcType="Double" />
-    <result column="forecastprofits" property="forecastprofits" jdbcType="Double" />
-    <result column="oredermoney" property="oredermoney" jdbcType="Double" />
-    <result column="inputmoney" property="inputmoney" jdbcType="Double" />
-    <result column="outmoney" property="outmoney" jdbcType="Double" />
-    <result column="accpetmoney" property="accpetmoney" jdbcType="Double" />
+    <result column="labourcost" property="labourcost" jdbcType="DECIMAL" />
+    <result column="allcost" property="allcost" jdbcType="DECIMAL" />
+    <result column="forecastprofits" property="forecastprofits" jdbcType="DECIMAL" />
+    <result column="oredermoney" property="oredermoney" jdbcType="DECIMAL" />
+    <result column="inputmoney" property="inputmoney" jdbcType="DECIMAL" />
+    <result column="outmoney" property="outmoney" jdbcType="DECIMAL" />
+    <result column="accpetmoney" property="accpetmoney" jdbcType="DECIMAL" />
     <result column="accpetstatus" property="accpetstatus" jdbcType="INTEGER" />
     <result column="paydate" property="paydate" jdbcType="VARCHAR" />
     <result column="accpetbeforedate" property="accpetbeforedate" jdbcType="VARCHAR" />
@@ -101,7 +101,7 @@
     labourcost, allcost, forecastprofits, oredermoney, inputmoney, outmoney, accpetmoney, 
     accpetstatus, paydate, accpetbeforedate, accpetafterdate
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_chekorderdetailExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_chekorderdetailExample" >
     select
     <if test="distinct" >
       distinct
@@ -126,13 +126,13 @@
     delete from tab_chekorderdetail
     where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_chekorderdetailExample" >
+  <delete id="deleteByExample" parameterType="Tab_chekorderdetailExample" >
     delete from tab_chekorderdetail
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_chekorderdetail" >
+  <insert id="insert" parameterType="Tab_chekorderdetail" >
     insert into tab_chekorderdetail (ordercheckid, styleid, accountingnumber, 
       oddnumbers, accountingdate, modelnumber, 
       customerno, orderdate, stylenumber, 
@@ -150,15 +150,15 @@
       #{customerno,jdbcType=VARCHAR}, #{orderdate,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, 
       #{stylename,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
       #{brand,jdbcType=VARCHAR}, #{documentarypeople,jdbcType=VARCHAR}, #{normalhours,jdbcType=INTEGER}, 
-      #{totalnumer,jdbcType=INTEGER}, #{price,jdbcType=Double}, #{amount,jdbcType=Double},
-      #{jisuanmodel,jdbcType=VARCHAR}, #{amounttotal,jdbcType=Double}, #{usekucun,jdbcType=INTEGER},
-      #{materialcombined,jdbcType=INTEGER}, #{labourcost,jdbcType=Double}, #{allcost,jdbcType=Double},
-      #{forecastprofits,jdbcType=Double}, #{oredermoney,jdbcType=Double}, #{inputmoney,jdbcType=Double},
-      #{outmoney,jdbcType=Double}, #{accpetmoney,jdbcType=Double}, #{accpetstatus,jdbcType=INTEGER},
+      #{totalnumer,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{jisuanmodel,jdbcType=VARCHAR}, #{amounttotal,jdbcType=DECIMAL}, #{usekucun,jdbcType=INTEGER}, 
+      #{materialcombined,jdbcType=INTEGER}, #{labourcost,jdbcType=DECIMAL}, #{allcost,jdbcType=DECIMAL}, 
+      #{forecastprofits,jdbcType=DECIMAL}, #{oredermoney,jdbcType=DECIMAL}, #{inputmoney,jdbcType=DECIMAL}, 
+      #{outmoney,jdbcType=DECIMAL}, #{accpetmoney,jdbcType=DECIMAL}, #{accpetstatus,jdbcType=INTEGER}, 
       #{paydate,jdbcType=VARCHAR}, #{accpetbeforedate,jdbcType=VARCHAR}, #{accpetafterdate,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_chekorderdetail" >
+  <insert id="insertSelective" parameterType="Tab_chekorderdetail" >
     insert into tab_chekorderdetail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="ordercheckid != null" >
@@ -311,16 +311,16 @@
         #{totalnumer,jdbcType=INTEGER},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="amount != null" >
-        #{amount,jdbcType=Double},
+        #{amount,jdbcType=DECIMAL},
       </if>
       <if test="jisuanmodel != null" >
         #{jisuanmodel,jdbcType=VARCHAR},
       </if>
       <if test="amounttotal != null" >
-        #{amounttotal,jdbcType=Double},
+        #{amounttotal,jdbcType=DECIMAL},
       </if>
       <if test="usekucun != null" >
         #{usekucun,jdbcType=INTEGER},
@@ -329,25 +329,25 @@
         #{materialcombined,jdbcType=INTEGER},
       </if>
       <if test="labourcost != null" >
-        #{labourcost,jdbcType=Double},
+        #{labourcost,jdbcType=DECIMAL},
       </if>
       <if test="allcost != null" >
-        #{allcost,jdbcType=Double},
+        #{allcost,jdbcType=DECIMAL},
       </if>
       <if test="forecastprofits != null" >
-        #{forecastprofits,jdbcType=Double},
+        #{forecastprofits,jdbcType=DECIMAL},
       </if>
       <if test="oredermoney != null" >
-        #{oredermoney,jdbcType=Double},
+        #{oredermoney,jdbcType=DECIMAL},
       </if>
       <if test="inputmoney != null" >
-        #{inputmoney,jdbcType=Double},
+        #{inputmoney,jdbcType=DECIMAL},
       </if>
       <if test="outmoney != null" >
-        #{outmoney,jdbcType=Double},
+        #{outmoney,jdbcType=DECIMAL},
       </if>
       <if test="accpetmoney != null" >
-        #{accpetmoney,jdbcType=Double},
+        #{accpetmoney,jdbcType=DECIMAL},
       </if>
       <if test="accpetstatus != null" >
         #{accpetstatus,jdbcType=INTEGER},
@@ -363,7 +363,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_chekorderdetailExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_chekorderdetailExample" resultType="java.lang.Integer" >
     select count(*) from tab_chekorderdetail
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -421,16 +421,16 @@
         totalnumer = #{record.totalnumer,jdbcType=INTEGER},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.amount != null" >
-        amount = #{record.amount,jdbcType=Double},
+        amount = #{record.amount,jdbcType=DECIMAL},
       </if>
       <if test="record.jisuanmodel != null" >
         jisuanmodel = #{record.jisuanmodel,jdbcType=VARCHAR},
       </if>
       <if test="record.amounttotal != null" >
-        amounttotal = #{record.amounttotal,jdbcType=Double},
+        amounttotal = #{record.amounttotal,jdbcType=DECIMAL},
       </if>
       <if test="record.usekucun != null" >
         usekucun = #{record.usekucun,jdbcType=INTEGER},
@@ -439,25 +439,25 @@
         materialcombined = #{record.materialcombined,jdbcType=INTEGER},
       </if>
       <if test="record.labourcost != null" >
-        labourcost = #{record.labourcost,jdbcType=Double},
+        labourcost = #{record.labourcost,jdbcType=DECIMAL},
       </if>
       <if test="record.allcost != null" >
-        allcost = #{record.allcost,jdbcType=Double},
+        allcost = #{record.allcost,jdbcType=DECIMAL},
       </if>
       <if test="record.forecastprofits != null" >
-        forecastprofits = #{record.forecastprofits,jdbcType=Double},
+        forecastprofits = #{record.forecastprofits,jdbcType=DECIMAL},
       </if>
       <if test="record.oredermoney != null" >
-        oredermoney = #{record.oredermoney,jdbcType=Double},
+        oredermoney = #{record.oredermoney,jdbcType=DECIMAL},
       </if>
       <if test="record.inputmoney != null" >
-        inputmoney = #{record.inputmoney,jdbcType=Double},
+        inputmoney = #{record.inputmoney,jdbcType=DECIMAL},
       </if>
       <if test="record.outmoney != null" >
-        outmoney = #{record.outmoney,jdbcType=Double},
+        outmoney = #{record.outmoney,jdbcType=DECIMAL},
       </if>
       <if test="record.accpetmoney != null" >
-        accpetmoney = #{record.accpetmoney,jdbcType=Double},
+        accpetmoney = #{record.accpetmoney,jdbcType=DECIMAL},
       </if>
       <if test="record.accpetstatus != null" >
         accpetstatus = #{record.accpetstatus,jdbcType=INTEGER},
@@ -494,19 +494,19 @@
       documentarypeople = #{record.documentarypeople,jdbcType=VARCHAR},
       normalhours = #{record.normalhours,jdbcType=INTEGER},
       totalnumer = #{record.totalnumer,jdbcType=INTEGER},
-      price = #{record.price,jdbcType=Double},
-      amount = #{record.amount,jdbcType=Double},
+      price = #{record.price,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=DECIMAL},
       jisuanmodel = #{record.jisuanmodel,jdbcType=VARCHAR},
-      amounttotal = #{record.amounttotal,jdbcType=Double},
+      amounttotal = #{record.amounttotal,jdbcType=DECIMAL},
       usekucun = #{record.usekucun,jdbcType=INTEGER},
       materialcombined = #{record.materialcombined,jdbcType=INTEGER},
-      labourcost = #{record.labourcost,jdbcType=Double},
-      allcost = #{record.allcost,jdbcType=Double},
-      forecastprofits = #{record.forecastprofits,jdbcType=Double},
-      oredermoney = #{record.oredermoney,jdbcType=Double},
-      inputmoney = #{record.inputmoney,jdbcType=Double},
-      outmoney = #{record.outmoney,jdbcType=Double},
-      accpetmoney = #{record.accpetmoney,jdbcType=Double},
+      labourcost = #{record.labourcost,jdbcType=DECIMAL},
+      allcost = #{record.allcost,jdbcType=DECIMAL},
+      forecastprofits = #{record.forecastprofits,jdbcType=DECIMAL},
+      oredermoney = #{record.oredermoney,jdbcType=DECIMAL},
+      inputmoney = #{record.inputmoney,jdbcType=DECIMAL},
+      outmoney = #{record.outmoney,jdbcType=DECIMAL},
+      accpetmoney = #{record.accpetmoney,jdbcType=DECIMAL},
       accpetstatus = #{record.accpetstatus,jdbcType=INTEGER},
       paydate = #{record.paydate,jdbcType=VARCHAR},
       accpetbeforedate = #{record.accpetbeforedate,jdbcType=VARCHAR},
@@ -515,7 +515,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_chekorderdetail" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_chekorderdetail" >
     update tab_chekorderdetail
     <set >
       <if test="styleid != null" >
@@ -564,16 +564,16 @@
         totalnumer = #{totalnumer,jdbcType=INTEGER},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="amount != null" >
-        amount = #{amount,jdbcType=Double},
+        amount = #{amount,jdbcType=DECIMAL},
       </if>
       <if test="jisuanmodel != null" >
         jisuanmodel = #{jisuanmodel,jdbcType=VARCHAR},
       </if>
       <if test="amounttotal != null" >
-        amounttotal = #{amounttotal,jdbcType=Double},
+        amounttotal = #{amounttotal,jdbcType=DECIMAL},
       </if>
       <if test="usekucun != null" >
         usekucun = #{usekucun,jdbcType=INTEGER},
@@ -582,25 +582,25 @@
         materialcombined = #{materialcombined,jdbcType=INTEGER},
       </if>
       <if test="labourcost != null" >
-        labourcost = #{labourcost,jdbcType=Double},
+        labourcost = #{labourcost,jdbcType=DECIMAL},
       </if>
       <if test="allcost != null" >
-        allcost = #{allcost,jdbcType=Double},
+        allcost = #{allcost,jdbcType=DECIMAL},
       </if>
       <if test="forecastprofits != null" >
-        forecastprofits = #{forecastprofits,jdbcType=Double},
+        forecastprofits = #{forecastprofits,jdbcType=DECIMAL},
       </if>
       <if test="oredermoney != null" >
-        oredermoney = #{oredermoney,jdbcType=Double},
+        oredermoney = #{oredermoney,jdbcType=DECIMAL},
       </if>
       <if test="inputmoney != null" >
-        inputmoney = #{inputmoney,jdbcType=Double},
+        inputmoney = #{inputmoney,jdbcType=DECIMAL},
       </if>
       <if test="outmoney != null" >
-        outmoney = #{outmoney,jdbcType=Double},
+        outmoney = #{outmoney,jdbcType=DECIMAL},
       </if>
       <if test="accpetmoney != null" >
-        accpetmoney = #{accpetmoney,jdbcType=Double},
+        accpetmoney = #{accpetmoney,jdbcType=DECIMAL},
       </if>
       <if test="accpetstatus != null" >
         accpetstatus = #{accpetstatus,jdbcType=INTEGER},
@@ -617,7 +617,7 @@
     </set>
     where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_chekorderdetail" >
+  <update id="updateByPrimaryKey" parameterType="Tab_chekorderdetail" >
     update tab_chekorderdetail
     set styleid = #{styleid,jdbcType=INTEGER},
       accountingnumber = #{accountingnumber,jdbcType=VARCHAR},
@@ -634,19 +634,19 @@
       documentarypeople = #{documentarypeople,jdbcType=VARCHAR},
       normalhours = #{normalhours,jdbcType=INTEGER},
       totalnumer = #{totalnumer,jdbcType=INTEGER},
-      price = #{price,jdbcType=Double},
-      amount = #{amount,jdbcType=Double},
+      price = #{price,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
       jisuanmodel = #{jisuanmodel,jdbcType=VARCHAR},
-      amounttotal = #{amounttotal,jdbcType=Double},
+      amounttotal = #{amounttotal,jdbcType=DECIMAL},
       usekucun = #{usekucun,jdbcType=INTEGER},
       materialcombined = #{materialcombined,jdbcType=INTEGER},
-      labourcost = #{labourcost,jdbcType=Double},
-      allcost = #{allcost,jdbcType=Double},
-      forecastprofits = #{forecastprofits,jdbcType=Double},
-      oredermoney = #{oredermoney,jdbcType=Double},
-      inputmoney = #{inputmoney,jdbcType=Double},
-      outmoney = #{outmoney,jdbcType=Double},
-      accpetmoney = #{accpetmoney,jdbcType=Double},
+      labourcost = #{labourcost,jdbcType=DECIMAL},
+      allcost = #{allcost,jdbcType=DECIMAL},
+      forecastprofits = #{forecastprofits,jdbcType=DECIMAL},
+      oredermoney = #{oredermoney,jdbcType=DECIMAL},
+      inputmoney = #{inputmoney,jdbcType=DECIMAL},
+      outmoney = #{outmoney,jdbcType=DECIMAL},
+      accpetmoney = #{accpetmoney,jdbcType=DECIMAL},
       accpetstatus = #{accpetstatus,jdbcType=INTEGER},
       paydate = #{paydate,jdbcType=VARCHAR},
       accpetbeforedate = #{accpetbeforedate,jdbcType=VARCHAR},
