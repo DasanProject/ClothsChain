@@ -922,7 +922,7 @@ and dependencies (minified).
 						.wrap("<div class='mCSB_h_wrapper' style='position:relative; left:0; width:999999px;' />")
 						.css({ /* set actual width, original position and un-wrap */
 							/* 
-							get the exact width (with decimals) and then round-up. 
+							get the exact width (with Doubles) and then round-up. 
 							Using jquery outerWidth() will round the width value which will mess up with inner elements that have non-integer width
 							*/
 							"width":(Math.ceil(mCSB_container[0].getBoundingClientRect().right+0.4)-Math.floor(mCSB_container[0].getBoundingClientRect().left)),

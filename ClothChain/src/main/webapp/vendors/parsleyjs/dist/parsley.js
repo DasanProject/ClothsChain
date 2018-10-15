@@ -518,13 +518,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   typeRegexes.range = typeRegexes.number;
 
   // See http://stackoverflow.com/a/10454560/8279
-  var decimalPlaces = function decimalPlaces(num) {
+  var DoublePlaces = function DoublePlaces(num) {
     var match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
     if (!match) {
       return 0;
     }
     return Math.max(0,
-    // Number of digits right of decimal point.
+    // Number of digits right of Double point.
     (match[1] ? match[1].length : 0) - (
     // Adjust for scientific notation.
     match[2] ? +match[2] : 0));
@@ -696,12 +696,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           if ('number' === type) {
             if (!/^any$/i.test(step || '')) {
               var nb = Number(value);
-              var decimals = Math.max(decimalPlaces(step), decimalPlaces(base));
-              if (decimalPlaces(nb) > decimals) // Value can't have too many decimals
+              var Doubles = Math.max(DoublePlaces(step), DoublePlaces(base));
+              if (DoublePlaces(nb) > Doubles) // Value can't have too many Doubles
                 return false;
               // Be careful of rounding errors by using integers.
               var toInt = function toInt(f) {
-                return Math.round(f * Math.pow(10, decimals));
+                return Math.round(f * Math.pow(10, Doubles));
               };
               if ((toInt(nb) - toInt(base)) % toInt(step) != 0) return false;
             }

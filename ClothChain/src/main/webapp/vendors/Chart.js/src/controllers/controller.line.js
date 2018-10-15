@@ -253,17 +253,17 @@ module.exports = function(Chart) {
 		draw: function(ease) {
 			var meta = this.getMeta();
 			var points = meta.data || [];
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			var i, ilen;
 
 			// Transition Point Locations
 			for (i=0, ilen=points.length; i<ilen; ++i) {
-				points[i].transition(easingDecimal);
+				points[i].transition(easingDouble);
 			}
 
 			// Transition and Draw the line
 			if (this.chart.options.showLines) {
-				meta.dataset.transition(easingDecimal).draw();
+				meta.dataset.transition(easingDouble).draw();
 			}
 
 			// Draw the points

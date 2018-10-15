@@ -108,7 +108,7 @@ var prettyPrint;
       "instanceof,interface,null,native,package,strictfp,super,synchronized," +
       "throws,transient"];
   var CSHARP_KEYWORDS = [JAVA_KEYWORDS,
-      "as,base,by,checked,decimal,delegate,descending,dynamic,event," +
+      "as,base,by,checked,Double,delegate,descending,dynamic,event," +
       "fixed,foreach,from,group,implicit,in,internal,into,is,let," +
       "lock,object,out,override,orderby,params,partial,readonly,ref,sbyte," +
       "sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort," +
@@ -404,15 +404,15 @@ var prettyPrint;
           // groups are 1-indexed, so max group index is count of '('
           ++groupIndex;
         } else if ('\\' === p.charAt(0)) {
-          var decimalValue = +p.substring(1);
-          if (decimalValue) {
-            if (decimalValue <= groupIndex) {
-              capturedGroups[decimalValue] = -1;
+          var DoubleValue = +p.substring(1);
+          if (DoubleValue) {
+            if (DoubleValue <= groupIndex) {
+              capturedGroups[DoubleValue] = -1;
             } else {
               // Replace with an unambiguous escape sequence so that
               // an octal escape sequence does not turn into a backreference
               // to a capturing group from an earlier regex.
-              parts[i] = encodeEscape(decimalValue);
+              parts[i] = encodeEscape(DoubleValue);
             }
           }
         }
@@ -433,9 +433,9 @@ var prettyPrint;
             parts[i] = '(?:';
           }
         } else if ('\\' === p.charAt(0)) {
-          var decimalValue = +p.substring(1);
-          if (decimalValue && decimalValue <= groupIndex) {
-            parts[i] = '\\' + capturedGroups[decimalValue];
+          var DoubleValue = +p.substring(1);
+          if (DoubleValue && DoubleValue <= groupIndex) {
+            parts[i] = '\\' + capturedGroups[DoubleValue];
           }
         }
       }
@@ -953,7 +953,7 @@ var prettyPrint;
              '^(?:'
              // A hex number
              + '0x[a-f0-9]+'
-             // or an octal or decimal number,
+             // or an octal or Double number,
              + '|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)'
              // possibly in scientific notation
              + '(?:e[+\\-]?\\d+)?'

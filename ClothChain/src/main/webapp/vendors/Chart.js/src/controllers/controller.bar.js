@@ -239,11 +239,11 @@ module.exports = function(Chart) {
 		},
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			helpers.each(this.getMeta().data, function(rectangle, index) {
 				var d = this.getDataset().data[index];
 				if (d !== null && d !== undefined && !isNaN(d)) {
-					rectangle.transition(easingDecimal).draw();
+					rectangle.transition(easingDouble).draw();
 				}
 			}, this);
 		},

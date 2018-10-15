@@ -688,7 +688,7 @@ V. General Format of a .ZIP file
           the central directory and general purpose bit flag 13 is set 
           indicating masking, the file name stored in the Local Header 
           will not be the actual file name.  A masking value consisting 
-          of a unique hexadecimal value will be stored.  This value will 
+          of a unique hexaDouble value will be stored.  This value will
           be sequentially incremented for each file in the archive. See
           the section on the Strong Encryption Specification for details 
           on retrieving the encrypted file name. 
@@ -1445,7 +1445,7 @@ V. General Format of a .ZIP file
           Sequence ordering for DOS spanned archives uses the DOS 
           volume label to determine segment numbers.  Volume labels
           for each segment are written using the form PKBACK#xxx, 
-          where xxx is the segment number written as a decimal 
+          where xxx is the segment number written as a Double
           value from 001 - nnn.
 
           Split ZIP files are typically written to the same location
@@ -1460,7 +1460,7 @@ V. General Format of a .ZIP file
 
           The .ZIP extension is used on the last segment to support
           quickly reading the central directory.  The segment number
-          n should be a decimal value.
+          n should be a Double value.
 
           Spanned ZIP files may be PKSFX Self-extracting ZIP files.
           PKSFX files may also be split, however, in this case
@@ -1546,7 +1546,7 @@ respects:
     automatically increased when codes larger than the current
     code size are created (but not necessarily used).  When
     the decompressor encounters the code sequence 256
-    (decimal) followed by 1, it should increase the code size
+    (Double) followed by 1, it should increase the code size
     read from the input stream to the next bit size.  No
     blocking of the codes is performed, so the next code at
     the increased size should be read from the input stream
@@ -1557,7 +1557,7 @@ respects:
 
 2)  When the table becomes full, total clearing is not
     performed.  Rather, when the compressor emits the code
-    sequence 256,2 (decimal), the decompressor should clear
+    sequence 256,2 (Double), the decompressor should clear
     all leaf nodes from the Ziv-Lempel tree, and continue to
     use the current code size.  The nodes that are cleared
     from the Ziv-Lempel tree are then re-used, with the lowest
@@ -1625,7 +1625,7 @@ let State <- 0.
 loop until done
     read 8 bits from the input stream into C.
     case State of
-        0:  if C is not equal to DLE (144 decimal) then
+        0:  if C is not equal to DLE (144 Double) then
                 copy C to the output stream.
             otherwise if C is equal to DLE then
                 let State <- 1.
@@ -1635,7 +1635,7 @@ loop until done
                 let Len <- L(V)
                 let State <- F(Len).
             otherwise if C is zero then
-                copy the value 144 (decimal) to the output stream.
+                copy the value 144 (Double) to the output stream.
                 let State <- 0
 
         2:  let Len <- Len + C

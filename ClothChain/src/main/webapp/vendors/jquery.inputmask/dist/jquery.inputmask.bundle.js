@@ -1441,7 +1441,7 @@
         LEFT: 37,
         MENU: 93,
         NUMPAD_ADD: 107,
-        NUMPAD_DECIMAL: 110,
+        NUMPAD_Double: 110,
         NUMPAD_DIVIDE: 111,
         NUMPAD_ENTER: 108,
         NUMPAD_MULTIPLY: 106,
@@ -2119,11 +2119,11 @@
                 opts.radixFocus = opts.radixFocus && "" !== opts.placeholder && opts.integerOptional === !0, 
                 opts.definitions[";"] = opts.definitions["~"], opts.definitions[";"].definitionSymbol = "~", 
                 opts.numericInput === !0 && (opts.radixFocus = !1, opts.digitsOptional = !1, isNaN(opts.digits) && (opts.digits = 2), 
-                opts.decimalProtect = !1);
+                opts.DoubleProtect = !1);
                 var mask = autoEscape(opts.prefix);
                 return mask += "[+]", mask += opts.integerOptional === !0 ? "~{1," + opts.integerDigits + "}" : "~{" + opts.integerDigits + "}", 
-                void 0 !== opts.digits && (isNaN(opts.digits) || parseInt(opts.digits) > 0) && (opts.decimalProtect && (opts.radixPointDefinitionSymbol = ":"), 
-                mask += opts.digitsOptional ? "[" + (opts.decimalProtect ? ":" : opts.radixPoint) + ";{1," + opts.digits + "}]" : (opts.decimalProtect ? ":" : opts.radixPoint) + ";{" + opts.digits + "}"), 
+                void 0 !== opts.digits && (isNaN(opts.digits) || parseInt(opts.digits) > 0) && (opts.DoubleProtect && (opts.radixPointDefinitionSymbol = ":"), 
+                mask += opts.digitsOptional ? "[" + (opts.DoubleProtect ? ":" : opts.radixPoint) + ";{1," + opts.digits + "}]" : (opts.DoubleProtect ? ":" : opts.radixPoint) + ";{" + opts.digits + "}"), 
                 mask += "[-]", mask += autoEscape(opts.suffix), opts.greedy = !1, null !== opts.min && (opts.min = opts.min.toString().replace(new RegExp(Inputmask.escapeRegex(opts.groupSeparator), "g"), ""), 
                 "," === opts.radixPoint && (opts.min = opts.min.replace(opts.radixPoint, "."))), 
                 null !== opts.max && (opts.max = opts.max.toString().replace(new RegExp(Inputmask.escapeRegex(opts.groupSeparator), "g"), ""), 
@@ -2150,7 +2150,7 @@
             prefix: "",
             suffix: "",
             rightAlign: !0,
-            decimalProtect: !0,
+            DoubleProtect: !0,
             min: null,
             max: null,
             step: 1,
@@ -2308,8 +2308,8 @@
                 } else {
                     var radixPosition = $.inArray(opts.radixPoint, maskset.buffer), matchRslt = maskset.buffer.slice(0, -1 !== radixPosition ? radixPosition : void 0).join("").match(opts.regex.integerNPart(opts));
                     if (matchRslt && (-1 === radixPosition || radixPosition >= pos)) {
-                        var decimalPart = -1 === radixPosition ? 0 : parseInt(maskset.buffer.slice(radixPosition + 1).join(""));
-                        if (0 === matchRslt[0].indexOf("" !== opts.placeholder ? opts.placeholder.charAt(0) : "0") && (matchRslt.index + 1 === pos || isSelection !== !0 && 0 === decimalPart)) return maskset.buffer.splice(matchRslt.index, 1), 
+                        var DoublePart = -1 === radixPosition ? 0 : parseInt(maskset.buffer.slice(radixPosition + 1).join(""));
+                        if (0 === matchRslt[0].indexOf("" !== opts.placeholder ? opts.placeholder.charAt(0) : "0") && (matchRslt.index + 1 === pos || isSelection !== !0 && 0 === DoublePart)) return maskset.buffer.splice(matchRslt.index, 1), 
                         {
                             pos: matchRslt.index,
                             remove: matchRslt.index
@@ -2421,7 +2421,7 @@
                 return initialValue.toString();
             },
             canClearPosition: function(maskset, position, lvp, strict, opts) {
-                var positionInput = maskset.validPositions[position].input, canClear = positionInput !== opts.radixPoint || null !== maskset.validPositions[position].match.fn && opts.decimalProtect === !1 || isFinite(positionInput) || position === lvp || positionInput === opts.groupSeparator || positionInput === opts.negationSymbol.front || positionInput === opts.negationSymbol.back;
+                var positionInput = maskset.validPositions[position].input, canClear = positionInput !== opts.radixPoint || null !== maskset.validPositions[position].match.fn && opts.DoubleProtect === !1 || isFinite(positionInput) || position === lvp || positionInput === opts.groupSeparator || positionInput === opts.negationSymbol.front || positionInput === opts.negationSymbol.back;
                 return canClear;
             },
             onKeyDown: function(e, buffer, caretPos, opts) {
@@ -2446,7 +2446,7 @@
             digitsOptional: !1,
             clearMaskOnLostFocus: !1
         },
-        decimal: {
+        Double: {
             alias: "numeric"
         },
         integer: {

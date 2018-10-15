@@ -70,7 +70,7 @@ module.exports = function(Chart) {
 
 				// Desired view properties
 				_model: {
-					x: reset ? xScale.getPixelForDecimal(0.5) : xScale.getPixelForValue(data, index, this.index, this.chart.isCombo),
+					x: reset ? xScale.getPixelForDouble(0.5) : xScale.getPixelForValue(data, index, this.index, this.chart.isCombo),
 					y: reset ? yScale.getBasePixel() : yScale.getPixelForValue(data, index, this.index),
 					// Appearance
 					radius: reset ? 0 : custom.radius ? custom.radius : this.getRadius(data),

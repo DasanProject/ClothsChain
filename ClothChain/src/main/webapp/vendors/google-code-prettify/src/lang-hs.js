@@ -49,22 +49,22 @@ PR['registerLangHandler'](
          // Single line double and single-quoted strings.
          // char         ->    ' (graphic<' | \> | space | escape<\&>) '
          // string       ->    " {graphic<" | \> | space | escape | gap}"
-         // escape       ->    \ ( charesc | ascii | decimal | o octal
-         //                        | x hexadecimal )
+         // escape       ->    \ ( charesc | ascii | Double | o octal
+         //                        | x hexaDouble )
          // charesc      ->    a | b | f | n | r | t | v | \ | " | ' | &
          [PR['PR_STRING'],      /^\"(?:[^\"\\\n\x0C\r]|\\[\s\S])*(?:\"|$)/,
           null, '"'],
          [PR['PR_STRING'],      /^\'(?:[^\'\\\n\x0C\r]|\\[^&])\'?/,
           null, "'"],
-         // decimal      ->    digit{digit}
+         // Double      ->    digit{digit}
          // octal        ->    octit{octit}
-         // hexadecimal  ->    hexit{hexit}
-         // integer      ->    decimal
+         // hexaDouble  ->    hexit{hexit}
+         // integer      ->    Double
          //               |    0o octal | 0O octal
-         //               |    0x hexadecimal | 0X hexadecimal
-         // float        ->    decimal . decimal [exponent]
-         //               |    decimal exponent
-         // exponent     ->    (e | E) [+ | -] decimal
+         //               |    0x hexaDouble | 0X hexaDouble
+         // float        ->    Double . Double [exponent]
+         //               |    Double exponent
+         // exponent     ->    (e | E) [+ | -] Double
          [PR['PR_LITERAL'],
           /^(?:0o[0-7]+|0x[\da-f]+|\d+(?:\.\d+)?(?:e[+\-]?\d+)?)/i,
           null, '0123456789']

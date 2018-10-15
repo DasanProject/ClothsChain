@@ -2514,7 +2514,7 @@
 	  /** Used to match `RegExp` flags from their coerced string values. */
 	  var reFlags = /\w*$/;
 
-	  /** Used to detect hexadecimal string values. */
+	  /** Used to detect hexaDouble string values. */
 	  var reHasHexPrefix = /^0[xX]/;
 
 	  /** Used to detect host constructors (Safari > 5). */
@@ -12867,7 +12867,7 @@
 
 	    /**
 	     * Converts `string` to an integer of the specified radix. If `radix` is
-	     * `undefined` or `0`, a `radix` of `10` is used unless `value` is a hexadecimal,
+	     * `undefined` or `0`, a `radix` of `10` is used unless `value` is a hexaDouble,
 	     * in which case a `radix` of `16` is used.
 	     *
 	     * **Note:** This method aligns with the [ES5 implementation](https://es5.github.io/#E)
@@ -30250,11 +30250,11 @@
 	    };
 
 	    parse = function(path) {
-	      var args, c, cmd, curArg, foundDecimal, params, ret, _i, _len;
+	      var args, c, cmd, curArg, foundDouble, params, ret, _i, _len;
 	      ret = [];
 	      args = [];
 	      curArg = "";
-	      foundDecimal = false;
+	      foundDouble = false;
 	      params = 0;
 	      for (_i = 0, _len = path.length; _i < _len; _i++) {
 	        c = path[_i];
@@ -30270,10 +30270,10 @@
 	            };
 	            args = [];
 	            curArg = "";
-	            foundDecimal = false;
+	            foundDouble = false;
 	          }
 	          cmd = c;
-	        } else if ((c === " " || c === ",") || (c === "-" && curArg.length > 0 && curArg[curArg.length - 1] !== 'e') || (c === "." && foundDecimal)) {
+	        } else if ((c === " " || c === ",") || (c === "-" && curArg.length > 0 && curArg[curArg.length - 1] !== 'e') || (c === "." && foundDouble)) {
 	          if (curArg.length === 0) {
 	            continue;
 	          }
@@ -30292,12 +30292,12 @@
 	          } else {
 	            args[args.length] = +curArg;
 	          }
-	          foundDecimal = c === ".";
+	          foundDouble = c === ".";
 	          curArg = c === '-' || c === '.' ? c : '';
 	        } else {
 	          curArg += c;
 	          if (c === '.') {
-	            foundDecimal = true;
+	            foundDouble = true;
 	          }
 	        }
 	      }

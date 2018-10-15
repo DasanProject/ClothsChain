@@ -847,7 +847,7 @@ ZipObject.prototype = {
 };
 
 /**
- * Transform an integer into a string in hexadecimal.
+ * Transform an integer into a string in hexaDouble.
  * @private
  * @param {number} dec the number to convert.
  * @param {number} bytes the number of bytes to generate.

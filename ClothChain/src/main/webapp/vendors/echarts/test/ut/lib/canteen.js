@@ -48,19 +48,19 @@
     }
   }
 
-  function round(val, decimalPoints) {
-    var power = Math.pow(10, decimalPoints);
+  function round(val, DoublePoints) {
+    var power = Math.pow(10, DoublePoints);
     return Math.round(val * power) / power; 
   }
 
-  function roundArr(arr, decimalPoints) {
+  function roundArr(arr, DoublePoints) {
     var len = arr.length,
         ret = [],
         n;
 
     for (n=0; n<len; n++) {
       if (isNumber(arr[n])) {
-        ret.push(round(arr[n], decimalPoints));
+        ret.push(round(arr[n], DoublePoints));
       }
       else {
         ret.push(arr[n]);
@@ -112,7 +112,7 @@
      * @param {Object} config
      * @param {String} [config.loose=false] - strict mode returns method calls with arguments and property names 
      *  with values.  loose mode only returns method calls and property names
-     * @param {Number} [config.decimalPoints=3] - number of decimal points to round numeric values to.  The default is 
+     * @param {Number} [config.DoublePoints=3] - number of Double points to round numeric values to.  The default is 
      *  3, i.e. 1.23456 will round to 1.234
      * @returns {Array}
      * @public
@@ -120,7 +120,7 @@
     stack: function(config) {
       var config = config || {},
           loose = config.loose,
-          decimalPoints = config.decimalPoints === undefined ? 3 : config.decimalPoints,
+          DoublePoints = config.DoublePoints === undefined ? 3 : config.DoublePoints,
           ret = [];
 
       if (loose) {
@@ -134,14 +134,14 @@
           if (el.method) {
             ret.push({
               method: el.method,
-              arguments: roundArr(el.arguments, decimalPoints)
+              arguments: roundArr(el.arguments, DoublePoints)
             });
           }
           // if attr
           else if (el.attr) {
             ret.push({
               attr: el.attr,
-              val: isNumber(el.val) ? round(el.val, decimalPoints) : el.val
+              val: isNumber(el.val) ? round(el.val, DoublePoints) : el.val
             });
           }
         });
@@ -155,7 +155,7 @@
      * @param {Object} config
      * @param {String} [config.loose=false] - strict mode returns method calls with arguments and property names 
      *  with values.  loose mode only returns method calls and property names
-     * @param {Number} [config.decimalPoints=3] - number of decimal points to round numeric values to.  The default is 
+     * @param {Number} [config.DoublePoints=3] - number of Double points to round numeric values to.  The default is 
      *  3, i.e. 1.23456 will round to 1.234
      * @returns {String}
      * @public
@@ -169,7 +169,7 @@
      * @param {Object} config
      * @param {String} [config.loose=false] - strict mode returns method calls with arguments and property names 
      *  with values.  loose mode only returns method calls and property names
-     * @param {Number} [config.decimalPoints=3] - number of decimal points to round numeric values to.  The default is 
+     * @param {Number} [config.DoublePoints=3] - number of Double points to round numeric values to.  The default is 
      *  3, i.e. 1.23456 will round to 1.234
      * @public
      * @returns {String}

@@ -78,7 +78,7 @@ PR['registerLangHandler'](
       // Hex numbers.
       [PR['PR_LITERAL'], /^\b0x[0-9a-f]+/i],
 
-      // Decimal numbers.
+      // Double numbers.
       [PR['PR_LITERAL'], /^\b\d+(?:\.\d*)?(?:e[+-]?\d+)?/i],
       [PR['PR_LITERAL'], /^\b\.\d+(?:e[+-]?\d+)?/i],
 

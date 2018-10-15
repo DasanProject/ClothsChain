@@ -24,7 +24,7 @@
                 numberFormatter: false,
                 numberDigitGroupCount: 3,
                 numberDigitGroupSep: ',',
-                numberDecimalMark: '.',
+                numberDoubleMark: '.',
                 disableTooltips: false,
                 disableInteraction: false
             },

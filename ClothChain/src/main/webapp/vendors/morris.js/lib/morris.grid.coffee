@@ -261,7 +261,7 @@ class Morris.Grid extends Morris.EventEmitter
       gmin = Math.floor(ymin / step) * step
       gmax = Math.ceil(ymax / step) * step
 
-    # special case for decimal numbers
+    # special case for Double numbers
     if step < 1
       smag = Math.floor(Math.log(step) / Math.log(10))
       grid = for y in [gmin..gmax] by step

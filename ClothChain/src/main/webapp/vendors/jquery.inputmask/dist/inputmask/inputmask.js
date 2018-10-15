@@ -1443,7 +1443,7 @@
         LEFT: 37,
         MENU: 93,
         NUMPAD_ADD: 107,
-        NUMPAD_DECIMAL: 110,
+        NUMPAD_Double: 110,
         NUMPAD_DIVIDE: 111,
         NUMPAD_ENTER: 108,
         NUMPAD_MULTIPLY: 106,

@@ -4138,42 +4138,42 @@ Date.CultureStrings.lang = "es-CO";
 	 * %B		full month name according to the current locale								"January" through "December"
 	 * %c		preferred date and time representation for the current locale				"4/13/2008 12:33 PM"
 	 * %C		century number (the year divided by 100 and truncated to an integer)		"00" to "99"
-	 * %d		day of the month as a decimal number										"01" to "31"
+	 * %d		day of the month as a Double number										"01" to "31"
 	 * %D		same as %m/%d/%y															"04/13/08"
-	 * %e		day of the month as a decimal number, a single digit is preceded by a space	"1" to "31"
+	 * %e		day of the month as a Double number, a single digit is preceded by a space	"1" to "31"
 	 * %g		like %G, but without the century											"08"
 	 * %G		The 4-digit year corresponding to the ISO week number (see %V).				"2008"
 	 *		This has the same format and value as %Y, except that if the ISO week number
 	 *		belongs to the previous or next year, that year is used instead.
 	 * %h		same as %b																	"Jan" through "Dec"
-	 * %H		hour as a decimal number using a 24-hour clock.								"00" to "23"
-	 * %I		hour as a decimal number using a 12-hour clock.								"01" to "12"
-	 * %j		day of the year as a decimal number.										"001" to "366"
-	 * %m		month as a decimal number.													"01" to "12"
-	 * %M		minute as a decimal number.													"00" to "59"
+	 * %H		hour as a Double number using a 24-hour clock.								"00" to "23"
+	 * %I		hour as a Double number using a 12-hour clock.								"01" to "12"
+	 * %j		day of the year as a Double number.										"001" to "366"
+	 * %m		month as a Double number.													"01" to "12"
+	 * %M		minute as a Double number.													"00" to "59"
 	 * %n		newline character		"\n"
 	 * %p		either "am" or "pm" according to the given time value, or the				"am" or "pm"
 	 *		corresponding strings for the current locale.
 	 * %r		time in a.m. and p.m. notation												"8:44 PM"
 	 * %R		time in 24 hour notation													"20:44"
-	 * %S		second as a decimal number													"00" to "59"
+	 * %S		second as a Double number													"00" to "59"
 	 * %t		tab character																"\t"
 	 * %T		current time, equal to %H:%M:%S												"12:49:11"
-	 * %u		weekday as a decimal number ["1", "7"], with "1" representing Monday		"1" to "7"
-	 * %U		week number of the current year as a decimal number, starting with the		"0" to ("52" or "53")
+	 * %u		weekday as a Double number ["1", "7"], with "1" representing Monday		"1" to "7"
+	 * %U		week number of the current year as a Double number, starting with the		"0" to ("52" or "53")
 	 *		first Sunday as the first day of the first week
-	 * %V		The ISO 8601:1988 week number of the current year as a decimal number,		"00" to ("52" or "53")
+	 * %V		The ISO 8601:1988 week number of the current year as a Double number,		"00" to ("52" or "53")
 	 *		range 01 to 53, where week 1 is the first week that has at least 4 days
 	 *		in the current year, and with Monday as the first day of the week.
 	 *		(Use %G or %g for the year component that corresponds to the week number
 	 *		for the specified timestamp.)
-	 * %W		week number of the current year as a decimal number, starting with the		"00" to ("52" or "53")
+	 * %W		week number of the current year as a Double number, starting with the		"00" to ("52" or "53")
 	 *		first Monday as the first day of the first week
-	 * %w		day of the week as a decimal, Sunday being "0"								"0" to "6"
+	 * %w		day of the week as a Double, Sunday being "0"								"0" to "6"
 	 * %x		preferred date representation for the current locale without the time		"4/13/2008"
 	 * %X		preferred time representation for the current locale without the date		"12:53:05"
-	 * %y		year as a decimal number without a century									"00" "99"
-	 * %Y		year as a decimal number including the century								"2008"
+	 * %y		year as a Double number without a century									"00" "99"
+	 * %Y		year as a Double number including the century								"2008"
 	 * %Z		time zone or name or abbreviation											"UTC", "EST", "PST"
 	 * %z		same as %Z
 	 * %%		a literal "%" characters													"%"

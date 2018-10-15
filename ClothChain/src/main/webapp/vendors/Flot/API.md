@@ -262,7 +262,7 @@ xaxis, yaxis: {
     tickSize: number or array
     minTickSize: number or array
     tickFormatter: (fn: number, object -> string) or string
-    tickDecimals: null or number
+    tickDoubles: null or number
 
     labelWidth: null or number
     labelHeight: null or number
@@ -285,7 +285,7 @@ false.
 
 The "position" option specifies where the axis is placed, bottom or
 top for x axes, left or right for y axes. The "mode" option determines
-how the data is interpreted, the default of null means as decimal
+how the data is interpreted, the default of null means as Double
 numbers. Use "time" for time series data; see the time series data
 section. The time plugin (jquery.flot.time.js) is required for time
 series support.
@@ -434,8 +434,8 @@ function piTickGenerator(axis) {
 }
 ```
 
-You can control how the ticks look like with "tickDecimals", the
-number of decimals to display (default is auto-detected).
+You can control how the ticks look like with "tickDoubles", the
+number of Doubles to display (default is auto-detected).
 
 Alternatively, for ultimate control over how ticks are formatted you can
 provide a function to "tickFormatter". The function is passed two
@@ -444,12 +444,12 @@ should return a string. The default formatter looks like this:
 
 ```js
 function formatter(val, axis) {
-    return val.toFixed(axis.tickDecimals);
+    return val.toFixed(axis.tickDoubles);
 }
 ```
 
 The axis object has "min" and "max" with the range of the axis,
-"tickDecimals" with the number of decimals to round the value to and
+"tickDoubles" with the number of Doubles to round the value to and
 "tickSize" with the size of the interval between ticks as calculated
 by the automatic axis scaling algorithm (or specified by you). Here's
 an example of a custom formatter:
@@ -457,11 +457,11 @@ an example of a custom formatter:
 ```js
 function suffixFormatter(val, axis) {
     if (val > 1000000)
-        return (val / 1000000).toFixed(axis.tickDecimals) + " MB";
+        return (val / 1000000).toFixed(axis.tickDoubles) + " MB";
     else if (val > 1000)
-        return (val / 1000).toFixed(axis.tickDecimals) + " kB";
+        return (val / 1000).toFixed(axis.tickDoubles) + " kB";
     else
-        return val.toFixed(axis.tickDecimals) + " B";
+        return val.toFixed(axis.tickDoubles) + " B";
 }
 ```
 

@@ -82,7 +82,7 @@ for controlling mouseover highligiting
 Adds options: tooltipContainer, tooltipOffsetX, tooltipOffsetY, tooltipFormatter,
 tooltipChartTitle, tooltipFormat, tooltipPrefix, tooltipSuffix, 
 tooltipSkipNull, tooltipValueLookups, highlightLighten, numberFormatter, 
-numberDigitGroupSep, numberDecimalMark, numberDigitGroupCount
+numberDigitGroupSep, numberDoubleMark, numberDigitGroupCount
 
 + Fix error when all null values are fed to a line chart
 Thanks Ton Voon

@@ -30,7 +30,7 @@ Plus 3 new locales and locale fixes.
 * [#2774](https://github.com/moment/moment/pull/2774) Implement locale inheritance and locale updating
 
 ## Bugfixes:
-* [#2970](https://github.com/moment/moment/pull/2970) change add subtract to handle decimal values by rounding
+* [#2970](https://github.com/moment/moment/pull/2970) change add subtract to handle Double values by rounding
 * [#2887](https://github.com/moment/moment/pull/2887) Fix toJSON casting of invalid moment
 * [#2897](https://github.com/moment/moment/pull/2897) parse string arguments for month() correctly, closes #2884
 * [#2946](https://github.com/moment/moment/pull/2946) Fix usage suggestions for min and max

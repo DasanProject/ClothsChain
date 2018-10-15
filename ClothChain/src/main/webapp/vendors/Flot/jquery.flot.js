@@ -546,7 +546,7 @@ Licensed under the MIT license.
                     reserveSpace: null, // whether to reserve space even if axis isn't shown
                     tickLength: null, // size in pixels of ticks, or "full" for whole line
                     alignTicksWithAxis: null, // axis number or null for no sync
-                    tickDecimals: null, // no. of decimals, null means auto
+                    tickDoubles: null, // no. of Doubles, null means auto
                     tickSize: null, // number or [number, "unit"]
                     minTickSize: null // number or [number, "unit"]
                 },
@@ -1694,7 +1694,7 @@ Licensed under the MIT license.
 
             var delta = (axis.max - axis.min) / noTicks,
                 dec = -Math.floor(Math.log(delta) / Math.LN10),
-                maxDec = opts.tickDecimals;
+                maxDec = opts.tickDoubles;
 
             if (maxDec != null && dec > maxDec) {
                 dec = maxDec;
@@ -1708,7 +1708,7 @@ Licensed under the MIT license.
                 size = 1;
             } else if (norm < 3) {
                 size = 2;
-                // special case for 2.5, requires an extra decimal
+                // special case for 2.5, requires an extra Double
                 if (norm > 2.25 && (maxDec == null || dec + 1 <= maxDec)) {
                     size = 2.5;
                     ++dec;
@@ -1726,7 +1726,7 @@ Licensed under the MIT license.
             }
 
             axis.delta = delta;
-            axis.tickDecimals = Math.max(0, maxDec != null ? maxDec : dec);
+            axis.tickDoubles = Math.max(0, maxDec != null ? maxDec : dec);
             axis.tickSize = opts.tickSize || size;
 
             // Time mode was moved to a plug-in in 0.8, and since so many people use it
@@ -1760,17 +1760,17 @@ Licensed under the MIT license.
 
 				axis.tickFormatter = function (value, axis) {
 
-					var factor = axis.tickDecimals ? Math.pow(10, axis.tickDecimals) : 1;
+					var factor = axis.tickDoubles ? Math.pow(10, axis.tickDoubles) : 1;
 					var formatted = "" + Math.round(value * factor) / factor;
 
-					// If tickDecimals was specified, ensure that we have exactly that
+					// If tickDoubles was specified, ensure that we have exactly that
 					// much precision; otherwise default to the value's own precision.
 
-					if (axis.tickDecimals != null) {
-						var decimal = formatted.indexOf(".");
-						var precision = decimal == -1 ? 0 : formatted.length - decimal - 1;
-						if (precision < axis.tickDecimals) {
-							return (precision ? formatted : formatted + ".") + ("" + factor).substr(1, axis.tickDecimals - precision);
+					if (axis.tickDoubles != null) {
+						var Double = formatted.indexOf(".");
+						var precision = Double == -1 ? 0 : formatted.length - Double - 1;
+						if (precision < axis.tickDoubles) {
+							return (precision ? formatted : formatted + ".") + ("" + factor).substr(1, axis.tickDoubles - precision);
 						}
 					}
 
@@ -1804,17 +1804,17 @@ Licensed under the MIT license.
                         return ticks;
                     };
 
-                    // we might need an extra decimal since forced
+                    // we might need an extra Double since forced
                     // ticks don't necessarily fit naturally
-                    if (!axis.mode && opts.tickDecimals == null) {
+                    if (!axis.mode && opts.tickDoubles == null) {
                         var extraDec = Math.max(0, -Math.floor(Math.log(axis.delta) / Math.LN10) + 1),
                             ts = axis.tickGenerator(axis);
 
                         // only proceed if the tick interval rounded
-                        // with an extra decimal doesn't give us a
+                        // with an extra Double doesn't give us a
                         // zero at end
                         if (!(ts.length > 1 && /\..*0$/.test((ts[1] - ts[0]).toFixed(extraDec))))
-                            axis.tickDecimals = extraDec;
+                            axis.tickDoubles = extraDec;
                     }
                 }
             }

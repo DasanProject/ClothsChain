@@ -561,7 +561,7 @@ describe('Linear Scale', function() {
 		expect(chartInstance.scales.yScale0.end).toBe(0);
 	});
 
-	it('should use the correct number of decimal places in the default format function', function() {
+	it('should use the correct number of Double places in the default format function', function() {
 		chartInstance = window.acquireChart({
 			type: 'bar',
 			data: {

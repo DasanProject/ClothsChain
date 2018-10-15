@@ -125,9 +125,9 @@ module.exports = function(Chart) {
 		update: noop,
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			helpers.each(this.getMeta().data, function(element, index) {
-				element.transition(easingDecimal).draw();
+				element.transition(easingDouble).draw();
 			});
 		},
 

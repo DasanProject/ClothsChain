@@ -3451,7 +3451,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // "Nice Numbers for Graph Labels" of Graphic Gems
 	    /**
 	     * find a “nice” number approximately equal to x. Round the number if round = true, take ceiling if round = false
-	     * The primary observation is that the “nicest” numbers in decimal are 1, 2, and 5, and all power-of-ten multiples of these numbers.
+	     * The primary observation is that the “nicest” numbers in Double are 1, 2, and 5, and all power-of-ten multiples of these numbers.
 	     * @param  {number} val
 	     * @param  {boolean} round
 	     * @return {number}

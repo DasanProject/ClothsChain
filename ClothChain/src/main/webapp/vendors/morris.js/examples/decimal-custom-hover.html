@@ -10,19 +10,19 @@
   <link rel="stylesheet" href="../morris.css">
 </head>
 <body>
-<h1>Decimal Data</h1>
+<h1>Double Data</h1>
 <div id="graph"></div>
 <pre id="code" class="prettyprint linenums">
-var decimal_data = [];
+var Double_data = [];
 for (var x = 0; x <= 360; x += 10) {
-  decimal_data.push({
+  Double_data.push({
     x: x,
     y: 1.5 + 1.5 * Math.sin(Math.PI * x / 180).toFixed(4)
   });
 }
 window.m = Morris.Line({
   element: 'graph',
-  data: decimal_data,
+  data: Double_data,
   xkey: 'x',
   ykeys: ['y'],
   labels: ['sin(x)'],

@@ -43,7 +43,7 @@
         [PR['PR_COMMENT'], /^\/\/[^\r\n]*/, null],
         [PR['PR_COMMENT'], /^\/\*[\s\S]*?(?:\*\/|$)/, null],
         [PR['PR_KEYWORD'], new RegExp('^(?:' + keywords + ')\\b'), null],
-        [PR['PR_TYPE'], /^(?:array|bool|byte|char|decimal|double|float|int|list|long|object|sbyte|short|string|ulong|uint|ufloat|ulong|ushort|void)\b/, null],
+        [PR['PR_TYPE'], /^(?:array|bool|byte|char|Double|double|float|int|list|long|object|sbyte|short|string|ulong|uint|ufloat|ulong|ushort|void)\b/, null],
         [PR['PR_LITERAL'], /^@[a-z_$][a-z_$@0-9]*/i, null],
         [PR['PR_TYPE'], /^@[A-Z]+[a-z][A-Za-z_$@0-9]*/, null],
         [PR['PR_PLAIN'], /^'?[A-Za-z_$][a-z_$@0-9]*/i, null],
@@ -51,7 +51,7 @@
              '^(?:'
   // A hex number
              + '0x[a-f0-9]+'
-  // or an octal or decimal number,
+  // or an octal or Double number,
              + '|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)'
   // possibly in scientific notation
              + '(?:e[+\\-]?\\d+)?'

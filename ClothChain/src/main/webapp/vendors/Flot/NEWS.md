@@ -348,7 +348,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
  - Updated the navigate plugin's inline copy of jquery.mousewheel to fix
    Webkit zoom problems. (reported by Hau Nguyen, issue 685)
 
- - Axis labels no longer appear as decimals rather than integers in certain
+ - Axis labels no longer appear as Doubles rather than integers in certain
    cases. (patch by Clemens Stolle, issue 541)
 
  - Automatic color generation no longer produces only whites and blacks when
@@ -413,7 +413,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
  - Fixed inconsistencies between the highlight and unhighlight functions.
    (reported by djamshed, issue #987)
 
- - Fixed recalculation of tickSize and tickDecimals on calls to setupGrid.
+ - Fixed recalculation of tickSize and tickDoubles on calls to setupGrid.
    (patch by thecountofzero, pull request #861, issues #860, #1000)
 
 
@@ -952,7 +952,7 @@ by mainstreetmark, another reported by timothytoe).
 
 The option axis.tickFormatter now takes a function with two parameters, the
 second parameter is an optional object with information about the axis. It has
-min, max, tickDecimals, tickSize.
+min, max, tickDoubles, tickSize.
 
 ## Changes ##
 

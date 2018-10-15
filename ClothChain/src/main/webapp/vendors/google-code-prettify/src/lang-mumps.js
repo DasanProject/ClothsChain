@@ -126,7 +126,7 @@ var fallthroughStylePatterns = [
          [PR['PR_DECLARATION'], new RegExp('^(?:\\$(?:' + intrinsic + '))\\b', 'i'), null],
          // Add commands as keywords
          [PR['PR_KEYWORD'], new RegExp('^(?:[^\\$]' + commands + ')\\b', 'i'), null],
-         // A number is a decimal real literal or in scientific notation. 
+         // A number is a Double real literal or in scientific notation. 
          [PR['PR_LITERAL'],
           /^[+-]?(?:(?:\.\d+|\d+(?:\.\d*)?)(?:E[+\-]?\d+)?)/i], 
          // An identifier

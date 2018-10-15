@@ -74,7 +74,7 @@
                     alignTicksWithAxis: null, // axis number or null for no sync
 
                     // mode specific options
-                    tickDecimals: null, // no. of decimals, null means auto
+                    tickDoubles: null, // no. of Doubles, null means auto
                     tickSize: null, // number or [number, "unit"]
                     minTickSize: null, // number or [number, "unit"]
                     monthNames: null, // list of names of months
@@ -1279,7 +1279,7 @@
             }
             else {
                 // pretty rounding of base-10 numbers
-                var maxDec = opts.tickDecimals;
+                var maxDec = opts.tickDoubles;
                 var dec = -Math.floor(Math.log(delta) / Math.LN10);
                 if (maxDec != null && dec > maxDec)
                     dec = maxDec;
@@ -1291,7 +1291,7 @@
                     size = 1;
                 else if (norm < 3) {
                     size = 2;
-                    // special case for 2.5, requires an extra decimal
+                    // special case for 2.5, requires an extra Double
                     if (norm > 2.25 && (maxDec == null || dec + 1 <= maxDec)) {
                         size = 2.5;
                         ++dec;
@@ -1307,7 +1307,7 @@
                 if (opts.minTickSize != null && size < opts.minTickSize)
                     size = opts.minTickSize;
 
-                axis.tickDecimals = Math.max(0, maxDec != null ? maxDec : dec);
+                axis.tickDoubles = Math.max(0, maxDec != null ? maxDec : dec);
                 axis.tickSize = opts.tickSize || size;
 
                 generator = function (axis) {
@@ -1326,7 +1326,7 @@
                 };
 
                 formatter = function (v, axis) {
-                    return v.toFixed(axis.tickDecimals);
+                    return v.toFixed(axis.tickDoubles);
                 };
             }
 
@@ -1353,17 +1353,17 @@
                         return ticks;
                     };
 
-                    // we might need an extra decimal since forced
+                    // we might need an extra Double since forced
                     // ticks don't necessarily fit naturally
-                    if (axis.mode != "time" && opts.tickDecimals == null) {
+                    if (axis.mode != "time" && opts.tickDoubles == null) {
                         var extraDec = Math.max(0, -Math.floor(Math.log(delta) / Math.LN10) + 1),
                             ts = generator(axis);
 
                         // only proceed if the tick interval rounded
-                        // with an extra decimal doesn't give us a
+                        // with an extra Double doesn't give us a
                         // zero at end
                         if (!(ts.length > 1 && /\..*0$/.test((ts[1] - ts[0]).toFixed(extraDec))))
-                            axis.tickDecimals = extraDec;
+                            axis.tickDoubles = extraDec;
                     }
                 }
             }

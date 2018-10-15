@@ -47,7 +47,7 @@ PR['registerLangHandler'](
          // A long bracketed block not preceded by -- is a string.
          [PR['PR_STRING'],  /^\[(=*)\[[\s\S]*?(?:\]\1\]|$)/],
          [PR['PR_KEYWORD'], /^(?:and|break|do|else|elseif|end|false|for|function|if|in|local|nil|not|or|repeat|return|then|true|until|while)\b/, null],
-         // A number is a hex integer literal, a decimal real literal, or in
+         // A number is a hex integer literal, a Double real literal, or in
          // scientific notation.
          [PR['PR_LITERAL'],
           /^[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?))/i],

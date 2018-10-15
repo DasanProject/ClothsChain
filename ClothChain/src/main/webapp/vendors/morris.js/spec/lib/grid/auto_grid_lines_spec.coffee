@@ -17,7 +17,7 @@ describe 'Morris.Grid#autoGridLines', ->
     @subject(100, 500, 5).should.deep.equal [100, 200, 300, 400, 500]
     @subject(-500, -100, 5).should.deep.equal [-500, -400, -300, -200, -100]
 
-  it 'should generate decimal labels to 2 significant figures', ->
+  it 'should generate Double labels to 2 significant figures', ->
     @subject(0, 1, 5).should.deep.equal [0, 0.25, 0.5, 0.75, 1]
     @subject(0.1, 0.5, 5).should.deep.equal [0.1, 0.2, 0.3, 0.4, 0.5]
 

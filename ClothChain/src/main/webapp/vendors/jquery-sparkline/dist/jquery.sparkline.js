@@ -112,7 +112,7 @@
 *       (eg. to map -1 to "Lost", 0 to "Draw", and 1 to "Win")
 *   numberFormatter - Optional callback for formatting numbers in tooltips
 *   numberDigitGroupSep - Character to use for group separator in numbers "1,234" - Defaults to ","
-*   numberDecimalMark - Character to use for the decimal point when formatting numbers - Defaults to "."
+*   numberDoubleMark - Character to use for the Double point when formatting numbers - Defaults to "."
 *   numberDigitGroupCount - Number of digits between group separator - Defaults to 3
 *
 * There are 7 types of sparkline, selected by supplying a "type" option of 'line' (default),
@@ -246,7 +246,7 @@
                 numberFormatter: false,
                 numberDigitGroupCount: 3,
                 numberDigitGroupSep: ',',
-                numberDecimalMark: '.',
+                numberDoubleMark: '.',
                 disableTooltips: false,
                 disableInteraction: false
             },
@@ -453,7 +453,7 @@
                         fieldvalue = formatNumber(fieldvalue, prec,
                             options.get('numberDigitGroupCount'),
                             options.get('numberDigitGroupSep'),
-                            options.get('numberDecimalMark'));
+                            options.get('numberDoubleMark'));
                     }
                 }
                 return fieldvalue;

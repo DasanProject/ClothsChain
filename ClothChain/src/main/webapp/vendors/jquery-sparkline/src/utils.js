@@ -75,7 +75,7 @@
                         fieldvalue = formatNumber(fieldvalue, prec,
                             options.get('numberDigitGroupCount'),
                             options.get('numberDigitGroupSep'),
-                            options.get('numberDecimalMark'));
+                            options.get('numberDoubleMark'));
                     }
                 }
                 return fieldvalue;

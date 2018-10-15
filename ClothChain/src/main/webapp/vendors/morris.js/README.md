@@ -147,7 +147,7 @@ tests currently *only* pass on OS X.
 
 ### 0.2.10 - 26th June 2012
 
-- Support for decimal labels on y-axis [#58](https://github.com/morrisjs/morris.js/issues/58).
+- Support for Double labels on y-axis [#58](https://github.com/morrisjs/morris.js/issues/58).
 - Better axis label clipping [#63](https://github.com/morrisjs/morris.js/issues/63).
 - Redraw graphs with updated data using `setData` method [#64](https://github.com/morrisjs/morris.js/issues/64).
 - Bugfix: series with zero or one non-null values [#65](https://github.com/morrisjs/morris.js/issues/65).
@@ -181,7 +181,7 @@ tests currently *only* pass on OS X.
 
 - Raw millisecond timestamp support (with `dateFormat` option)
 - YYYY-MM-DD HH:MM[:SS[.SSS]] date support
-- Decimal number labels
+- Double number labels
 
 ### 0.2.4 - 8th March 2012
 

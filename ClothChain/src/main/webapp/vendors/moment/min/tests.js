@@ -50995,7 +50995,7 @@
         assert.equal(e.hours(), 5, 'adding quarters over DST difference should result in the same hour');
     });
 
-    test('add decimal values of days and months', function (assert) {
+    test('add Double values of days and months', function (assert) {
         assert.equal(moment([2016,3,3]).add(1.5, 'days').date(), 5, 'adding 1.5 days is rounded to adding 2 day');
         assert.equal(moment([2016,3,3]).add(-1.5, 'days').date(), 1, 'adding -1.5 days is rounded to adding -2 day');
         assert.equal(moment([2016,3,1]).add(-1.5, 'days').date(), 30, 'adding -1.5 days on first of month wraps around');
@@ -54726,9 +54726,9 @@
         assert.equal(moment.duration('PT').asSeconds(), 0, 'just P and T');
         assert.equal(moment.duration('P1H').asSeconds(), 0, 'missing T');
         assert.equal(moment.duration('P1D1Y').asSeconds(), 0, 'out of order');
-        assert.equal(moment.duration('PT.5S').asSeconds(), 0.5, 'accept no leading zero for decimal');
-        assert.equal(moment.duration('PT1,S').asSeconds(), 1, 'accept trailing decimal separator');
-        assert.equal(moment.duration('PT1M0,,5S').asSeconds(), 60, 'extra decimal separators are ignored as 0');
+        assert.equal(moment.duration('PT.5S').asSeconds(), 0.5, 'accept no leading zero for Double');
+        assert.equal(moment.duration('PT1,S').asSeconds(), 1, 'accept trailing Double separator');
+        assert.equal(moment.duration('PT1M0,,5S').asSeconds(), 60, 'extra Double separators are ignored as 0');
     });
 
     test('humanize', function (assert) {

@@ -277,10 +277,10 @@ module.exports = function(Chart) {
 				// render function
 				animation.render = function(chartInstance, animationObject) {
 					var easingFunction = helpers.easingEffects[animationObject.easing];
-					var stepDecimal = animationObject.currentStep / animationObject.numSteps;
-					var easeDecimal = easingFunction(stepDecimal);
+					var stepDouble = animationObject.currentStep / animationObject.numSteps;
+					var easeDouble = easingFunction(stepDouble);
 
-					chartInstance.draw(easeDecimal, stepDecimal, animationObject.currentStep);
+					chartInstance.draw(easeDouble, stepDouble, animationObject.currentStep);
 				};
 
 				// user events
@@ -298,10 +298,10 @@ module.exports = function(Chart) {
 		},
 
 		draw: function(ease) {
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 			this.clear();
 
-			Chart.pluginService.notifyPlugins('beforeDraw', [this, easingDecimal]);
+			Chart.pluginService.notifyPlugins('beforeDraw', [this, easingDouble]);
 
 			// Draw all the scales
 			helpers.each(this.boxes, function(box) {
@@ -329,9 +329,9 @@ module.exports = function(Chart) {
 			context.restore();
 
 			// Finally draw the tooltip
-			this.tooltip.transition(easingDecimal).draw();
+			this.tooltip.transition(easingDouble).draw();
 
-			Chart.pluginService.notifyPlugins('afterDraw', [this, easingDecimal]);
+			Chart.pluginService.notifyPlugins('afterDraw', [this, easingDouble]);
 		},
 
 		// Get the single element that was clicked on

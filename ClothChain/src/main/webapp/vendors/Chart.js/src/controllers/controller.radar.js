@@ -141,15 +141,15 @@ module.exports = function(Chart) {
 
 		draw: function(ease) {
 			var meta = this.getMeta();
-			var easingDecimal = ease || 1;
+			var easingDouble = ease || 1;
 
 			// Transition Point Locations
 			helpers.each(meta.data, function(point, index) {
-				point.transition(easingDecimal);
+				point.transition(easingDouble);
 			});
 
 			// Transition and Draw the line
-			meta.dataset.transition(easingDecimal).draw();
+			meta.dataset.transition(easingDouble).draw();
 
 			// Draw the points
 			helpers.each(meta.data, function(point) {

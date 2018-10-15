@@ -438,16 +438,16 @@ module.exports = function(Chart) {
 		},
 
 		// Utility for getting the pixel location of a percentage of scale
-		getPixelForDecimal: function(decimal /*, includeOffset*/ ) {
+		getPixelForDouble: function(Double /*, includeOffset*/ ) {
 			if (this.isHorizontal()) {
 				var innerWidth = this.width - (this.paddingLeft + this.paddingRight);
-				var valueOffset = (innerWidth * decimal) + this.paddingLeft;
+				var valueOffset = (innerWidth * Double) + this.paddingLeft;
 
 				var finalVal = this.left + Math.round(valueOffset);
 				finalVal += this.isFullWidth() ? this.margins.left : 0;
 				return finalVal;
 			} else {
-				return this.top + (decimal * this.height);
+				return this.top + (Double * this.height);
 			}
 		},
 

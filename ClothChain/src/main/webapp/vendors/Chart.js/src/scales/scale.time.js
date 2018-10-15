@@ -326,18 +326,18 @@ module.exports = function(Chart) {
 			if (labelMoment) {
 				var offset = labelMoment.diff(this.firstTick, this.tickUnit, true);
 
-				var decimal = offset / this.scaleSizeInUnits;
+				var Double = offset / this.scaleSizeInUnits;
 
 				if (this.isHorizontal()) {
 					var innerWidth = this.width - (this.paddingLeft + this.paddingRight);
 					var valueWidth = innerWidth / Math.max(this.ticks.length - 1, 1);
-					var valueOffset = (innerWidth * decimal) + this.paddingLeft;
+					var valueOffset = (innerWidth * Double) + this.paddingLeft;
 
 					return this.left + Math.round(valueOffset);
 				} else {
 					var innerHeight = this.height - (this.paddingTop + this.paddingBottom);
 					var valueHeight = innerHeight / Math.max(this.ticks.length - 1, 1);
-					var heightOffset = (innerHeight * decimal) + this.paddingTop;
+					var heightOffset = (innerHeight * Double) + this.paddingTop;
 
 					return this.top + Math.round(heightOffset);
 				}
