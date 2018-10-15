@@ -62,4 +62,28 @@ public class Tab_admission {
     public void setDuepeople(String duepeople) {
         this.duepeople = duepeople == null ? null : duepeople.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Tab_admission{" +
+                "admissionid=" + admissionid +
+                ", orderno='" + orderno + '\'' +
+                ", admissionmoney=" + admissionmoney +
+                ", duenum=" + duenum +
+                ", duedate='" + duedate + '\'' +
+                ", duepeople='" + duepeople + '\'' +
+                '}';
+    }
+
+    public Tab_admission(Integer admissionid, String orderno, Double admissionmoney, Integer duenum, String duedate, String duepeople) {
+        this.admissionid = admissionid;
+        this.orderno = orderno;
+        this.admissionmoney = admissionmoney;
+        this.duenum = duenum;
+        this.duedate = duedate;
+        this.duepeople = duepeople;
+    }
+
+    public Tab_admission() {
+    }
 }
