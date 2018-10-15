@@ -3,6 +3,8 @@ package com.example.demo.dao;
 import com.example.demo.entity.Tab_customer;
 import com.example.demo.entity.Tab_customerExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface Tab_customerMapper {
@@ -27,4 +29,6 @@ public interface Tab_customerMapper {
     int updateByPrimaryKeySelective(Tab_customer record);
 
     int updateByPrimaryKey(Tab_customer record);
+
+    List<Map> queryCustomer();
 }

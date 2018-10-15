@@ -127,7 +127,7 @@
                             </li>
                             <li><a><i class="fa fa-clone"></i>基础数据<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="fixed_sidebar.html" target="aaa">客户管理</a></li>
+                                    <li><a href="lxy_queryCustomer.jsp" target="aaa">客户管理</a></li>
                                     <li><a href="fixed_footer.html" target="aaa">品牌管理</a></li>
                                     <li><a href="fixed_footer.html" target="aaa">供应商管理</a></li>
                                     <li><a href="fixed_footer.html" target="aaa">辅料设置</a></li>
