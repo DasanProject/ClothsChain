@@ -2,11 +2,8 @@ package com.example.demo.dao;
 
 import com.example.demo.entity.Tab_admission;
 import com.example.demo.entity.Tab_admissionExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
-
-;
+import org.apache.ibatis.annotations.Param;
 
 public interface Tab_admissionMapper {
     int countByExample(Tab_admissionExample example);
