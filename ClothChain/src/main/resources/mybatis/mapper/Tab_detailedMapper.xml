@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_detailedMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_detailed" >
+  <resultMap id="BaseResultMap" type="Tab_detailed" >
     <id column="detailid" property="detailid" jdbcType="INTEGER" />
     <result column="purchaseid" property="purchaseid" jdbcType="INTEGER" />
     <result column="developmentno" property="developmentno" jdbcType="VARCHAR" />
@@ -12,8 +12,8 @@
     <result column="specifications" property="specifications" jdbcType="VARCHAR" />
     <result column="storagebatchno" property="storagebatchno" jdbcType="VARCHAR" />
     <result column="colour" property="colour" jdbcType="VARCHAR" />
-    <result column="demandnum" property="demandnum" jdbcType="Double" />
-    <result column="purchasenum" property="purchasenum" jdbcType="Double" />
+    <result column="demandnum" property="demandnum" jdbcType="DECIMAL" />
+    <result column="purchasenum" property="purchasenum" jdbcType="DECIMAL" />
     <result column="demanddate" property="demanddate" jdbcType="VARCHAR" />
     <result column="approvalstate" property="approvalstate" jdbcType="INTEGER" />
     <result column="approver" property="approver" jdbcType="VARCHAR" />
@@ -24,10 +24,10 @@
     <result column="po" property="po" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="parts" property="parts" jdbcType="VARCHAR" />
-    <result column="availablenum" property="availablenum" jdbcType="Double" />
-    <result column="usenum" property="usenum" jdbcType="Double" />
-    <result column="price" property="price" jdbcType="Double" />
-    <result column="money" property="money" jdbcType="Double" />
+    <result column="availablenum" property="availablenum" jdbcType="DECIMAL" />
+    <result column="usenum" property="usenum" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
     <result column="payment" property="payment" jdbcType="INTEGER" />
     <result column="purchaselistno" property="purchaselistno" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
@@ -39,28 +39,28 @@
     <result column="pino" property="pino" jdbcType="VARCHAR" />
     <result column="auditor" property="auditor" jdbcType="VARCHAR" />
     <result column="auditordate" property="auditordate" jdbcType="VARCHAR" />
-    <result column="pinum" property="pinum" jdbcType="Double" />
-    <result column="applynum" property="applynum" jdbcType="Double" />
+    <result column="pinum" property="pinum" jdbcType="DECIMAL" />
+    <result column="applynum" property="applynum" jdbcType="DECIMAL" />
     <result column="warehousing" property="warehousing" jdbcType="VARCHAR" />
-    <result column="storagenum" property="storagenum" jdbcType="Double" />
+    <result column="storagenum" property="storagenum" jdbcType="DECIMAL" />
     <result column="storageno" property="storageno" jdbcType="VARCHAR" />
     <result column="settlementno" property="settlementno" jdbcType="VARCHAR" />
-    <result column="settlementnum" property="settlementnum" jdbcType="Double" />
-    <result column="settlementprice" property="settlementprice" jdbcType="Double" />
-    <result column="settlementmoney" property="settlementmoney" jdbcType="Double" />
+    <result column="settlementnum" property="settlementnum" jdbcType="DECIMAL" />
+    <result column="settlementprice" property="settlementprice" jdbcType="DECIMAL" />
+    <result column="settlementmoney" property="settlementmoney" jdbcType="DECIMAL" />
     <result column="reconciliationsno" property="reconciliationsno" jdbcType="VARCHAR" />
     <result column="reconciliationstate" property="reconciliationstate" jdbcType="INTEGER" />
     <result column="reconciliationsdate" property="reconciliationsdate" jdbcType="VARCHAR" />
-    <result column="outnum" property="outnum" jdbcType="Double" />
-    <result column="surplusnum" property="surplusnum" jdbcType="Double" />
-    <result column="unlockednum" property="unlockednum" jdbcType="Double" />
-    <result column="innum" property="innum" jdbcType="Double" />
-    <result column="lockingnum" property="lockingnum" jdbcType="Double" />
+    <result column="outnum" property="outnum" jdbcType="DECIMAL" />
+    <result column="surplusnum" property="surplusnum" jdbcType="DECIMAL" />
+    <result column="unlockednum" property="unlockednum" jdbcType="DECIMAL" />
+    <result column="innum" property="innum" jdbcType="DECIMAL" />
+    <result column="lockingnum" property="lockingnum" jdbcType="DECIMAL" />
     <result column="settlementstate" property="settlementstate" jdbcType="INTEGER" />
     <result column="financepeople" property="financepeople" jdbcType="VARCHAR" />
     <result column="financestate" property="financestate" jdbcType="INTEGER" />
     <result column="fnancedate" property="fnancedate" jdbcType="VARCHAR" />
-    <result column="occupynum" property="occupynum" jdbcType="Double" />
+    <result column="occupynum" property="occupynum" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -131,7 +131,7 @@
     unlockednum, innum, lockingnum, settlementstate, financepeople, financestate, fnancedate, 
     occupynum
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_detailedExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_detailedExample" >
     select
     <if test="distinct" >
       distinct
@@ -156,13 +156,13 @@
     delete from tab_detailed
     where detailid = #{detailid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_detailedExample" >
+  <delete id="deleteByExample" parameterType="Tab_detailedExample" >
     delete from tab_detailed
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_detailed" >
+  <insert id="insert" parameterType="Tab_detailed" >
     insert into tab_detailed (detailid, purchaseid, developmentno, 
       purchaseno, materielno, materielname, 
       materialsno, specifications, storagebatchno, 
@@ -186,25 +186,25 @@
     values (#{detailid,jdbcType=INTEGER}, #{purchaseid,jdbcType=INTEGER}, #{developmentno,jdbcType=VARCHAR}, 
       #{purchaseno,jdbcType=VARCHAR}, #{materielno,jdbcType=VARCHAR}, #{materielname,jdbcType=VARCHAR}, 
       #{materialsno,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{storagebatchno,jdbcType=VARCHAR}, 
-      #{colour,jdbcType=VARCHAR}, #{demandnum,jdbcType=Double}, #{purchasenum,jdbcType=Double},
+      #{colour,jdbcType=VARCHAR}, #{demandnum,jdbcType=DECIMAL}, #{purchasenum,jdbcType=DECIMAL}, 
       #{demanddate,jdbcType=VARCHAR}, #{approvalstate,jdbcType=INTEGER}, #{approver,jdbcType=VARCHAR}, 
       #{tasktype,jdbcType=VARCHAR}, #{purchasername,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, 
       #{materialid,jdbcType=INTEGER}, #{po,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{parts,jdbcType=VARCHAR}, #{availablenum,jdbcType=Double}, #{usenum,jdbcType=Double},
-      #{price,jdbcType=Double}, #{money,jdbcType=Double}, #{payment,jdbcType=INTEGER},
+      #{parts,jdbcType=VARCHAR}, #{availablenum,jdbcType=DECIMAL}, #{usenum,jdbcType=DECIMAL}, 
+      #{price,jdbcType=DECIMAL}, #{money,jdbcType=DECIMAL}, #{payment,jdbcType=INTEGER}, 
       #{purchaselistno,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{issuedate,jdbcType=VARCHAR}, 
       #{pendingdate,jdbcType=VARCHAR}, #{pistage,jdbcType=VARCHAR}, #{storagedate,jdbcType=VARCHAR}, 
       #{purchasepeople,jdbcType=VARCHAR}, #{pino,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, 
-      #{auditordate,jdbcType=VARCHAR}, #{pinum,jdbcType=Double}, #{applynum,jdbcType=Double},
-      #{warehousing,jdbcType=VARCHAR}, #{storagenum,jdbcType=Double}, #{storageno,jdbcType=VARCHAR},
-      #{settlementno,jdbcType=VARCHAR}, #{settlementnum,jdbcType=Double}, #{settlementprice,jdbcType=Double},
-      #{settlementmoney,jdbcType=Double}, #{reconciliationsno,jdbcType=VARCHAR}, #{reconciliationstate,jdbcType=INTEGER},
-      #{reconciliationsdate,jdbcType=VARCHAR}, #{outnum,jdbcType=Double}, #{surplusnum,jdbcType=Double},
-      #{unlockednum,jdbcType=Double}, #{innum,jdbcType=Double}, #{lockingnum,jdbcType=Double},
+      #{auditordate,jdbcType=VARCHAR}, #{pinum,jdbcType=DECIMAL}, #{applynum,jdbcType=DECIMAL}, 
+      #{warehousing,jdbcType=VARCHAR}, #{storagenum,jdbcType=DECIMAL}, #{storageno,jdbcType=VARCHAR}, 
+      #{settlementno,jdbcType=VARCHAR}, #{settlementnum,jdbcType=DECIMAL}, #{settlementprice,jdbcType=DECIMAL}, 
+      #{settlementmoney,jdbcType=DECIMAL}, #{reconciliationsno,jdbcType=VARCHAR}, #{reconciliationstate,jdbcType=INTEGER}, 
+      #{reconciliationsdate,jdbcType=VARCHAR}, #{outnum,jdbcType=DECIMAL}, #{surplusnum,jdbcType=DECIMAL}, 
+      #{unlockednum,jdbcType=DECIMAL}, #{innum,jdbcType=DECIMAL}, #{lockingnum,jdbcType=DECIMAL}, 
       #{settlementstate,jdbcType=INTEGER}, #{financepeople,jdbcType=VARCHAR}, #{financestate,jdbcType=INTEGER}, 
-      #{fnancedate,jdbcType=VARCHAR}, #{occupynum,jdbcType=Double})
+      #{fnancedate,jdbcType=VARCHAR}, #{occupynum,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_detailed" >
+  <insert id="insertSelective" parameterType="Tab_detailed" >
     insert into tab_detailed
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="detailid != null" >
@@ -417,10 +417,10 @@
         #{colour,jdbcType=VARCHAR},
       </if>
       <if test="demandnum != null" >
-        #{demandnum,jdbcType=Double},
+        #{demandnum,jdbcType=DECIMAL},
       </if>
       <if test="purchasenum != null" >
-        #{purchasenum,jdbcType=Double},
+        #{purchasenum,jdbcType=DECIMAL},
       </if>
       <if test="demanddate != null" >
         #{demanddate,jdbcType=VARCHAR},
@@ -453,16 +453,16 @@
         #{parts,jdbcType=VARCHAR},
       </if>
       <if test="availablenum != null" >
-        #{availablenum,jdbcType=Double},
+        #{availablenum,jdbcType=DECIMAL},
       </if>
       <if test="usenum != null" >
-        #{usenum,jdbcType=Double},
+        #{usenum,jdbcType=DECIMAL},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="money != null" >
-        #{money,jdbcType=Double},
+        #{money,jdbcType=DECIMAL},
       </if>
       <if test="payment != null" >
         #{payment,jdbcType=INTEGER},
@@ -498,16 +498,16 @@
         #{auditordate,jdbcType=VARCHAR},
       </if>
       <if test="pinum != null" >
-        #{pinum,jdbcType=Double},
+        #{pinum,jdbcType=DECIMAL},
       </if>
       <if test="applynum != null" >
-        #{applynum,jdbcType=Double},
+        #{applynum,jdbcType=DECIMAL},
       </if>
       <if test="warehousing != null" >
         #{warehousing,jdbcType=VARCHAR},
       </if>
       <if test="storagenum != null" >
-        #{storagenum,jdbcType=Double},
+        #{storagenum,jdbcType=DECIMAL},
       </if>
       <if test="storageno != null" >
         #{storageno,jdbcType=VARCHAR},
@@ -516,13 +516,13 @@
         #{settlementno,jdbcType=VARCHAR},
       </if>
       <if test="settlementnum != null" >
-        #{settlementnum,jdbcType=Double},
+        #{settlementnum,jdbcType=DECIMAL},
       </if>
       <if test="settlementprice != null" >
-        #{settlementprice,jdbcType=Double},
+        #{settlementprice,jdbcType=DECIMAL},
       </if>
       <if test="settlementmoney != null" >
-        #{settlementmoney,jdbcType=Double},
+        #{settlementmoney,jdbcType=DECIMAL},
       </if>
       <if test="reconciliationsno != null" >
         #{reconciliationsno,jdbcType=VARCHAR},
@@ -534,19 +534,19 @@
         #{reconciliationsdate,jdbcType=VARCHAR},
       </if>
       <if test="outnum != null" >
-        #{outnum,jdbcType=Double},
+        #{outnum,jdbcType=DECIMAL},
       </if>
       <if test="surplusnum != null" >
-        #{surplusnum,jdbcType=Double},
+        #{surplusnum,jdbcType=DECIMAL},
       </if>
       <if test="unlockednum != null" >
-        #{unlockednum,jdbcType=Double},
+        #{unlockednum,jdbcType=DECIMAL},
       </if>
       <if test="innum != null" >
-        #{innum,jdbcType=Double},
+        #{innum,jdbcType=DECIMAL},
       </if>
       <if test="lockingnum != null" >
-        #{lockingnum,jdbcType=Double},
+        #{lockingnum,jdbcType=DECIMAL},
       </if>
       <if test="settlementstate != null" >
         #{settlementstate,jdbcType=INTEGER},
@@ -561,11 +561,11 @@
         #{fnancedate,jdbcType=VARCHAR},
       </if>
       <if test="occupynum != null" >
-        #{occupynum,jdbcType=Double},
+        #{occupynum,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_detailedExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_detailedExample" resultType="java.lang.Integer" >
     select count(*) from tab_detailed
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -605,10 +605,10 @@
         colour = #{record.colour,jdbcType=VARCHAR},
       </if>
       <if test="record.demandnum != null" >
-        demandnum = #{record.demandnum,jdbcType=Double},
+        demandnum = #{record.demandnum,jdbcType=DECIMAL},
       </if>
       <if test="record.purchasenum != null" >
-        purchasenum = #{record.purchasenum,jdbcType=Double},
+        purchasenum = #{record.purchasenum,jdbcType=DECIMAL},
       </if>
       <if test="record.demanddate != null" >
         demanddate = #{record.demanddate,jdbcType=VARCHAR},
@@ -641,16 +641,16 @@
         parts = #{record.parts,jdbcType=VARCHAR},
       </if>
       <if test="record.availablenum != null" >
-        availablenum = #{record.availablenum,jdbcType=Double},
+        availablenum = #{record.availablenum,jdbcType=DECIMAL},
       </if>
       <if test="record.usenum != null" >
-        usenum = #{record.usenum,jdbcType=Double},
+        usenum = #{record.usenum,jdbcType=DECIMAL},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.money != null" >
-        money = #{record.money,jdbcType=Double},
+        money = #{record.money,jdbcType=DECIMAL},
       </if>
       <if test="record.payment != null" >
         payment = #{record.payment,jdbcType=INTEGER},
@@ -686,16 +686,16 @@
         auditordate = #{record.auditordate,jdbcType=VARCHAR},
       </if>
       <if test="record.pinum != null" >
-        pinum = #{record.pinum,jdbcType=Double},
+        pinum = #{record.pinum,jdbcType=DECIMAL},
       </if>
       <if test="record.applynum != null" >
-        applynum = #{record.applynum,jdbcType=Double},
+        applynum = #{record.applynum,jdbcType=DECIMAL},
       </if>
       <if test="record.warehousing != null" >
         warehousing = #{record.warehousing,jdbcType=VARCHAR},
       </if>
       <if test="record.storagenum != null" >
-        storagenum = #{record.storagenum,jdbcType=Double},
+        storagenum = #{record.storagenum,jdbcType=DECIMAL},
       </if>
       <if test="record.storageno != null" >
         storageno = #{record.storageno,jdbcType=VARCHAR},
@@ -704,13 +704,13 @@
         settlementno = #{record.settlementno,jdbcType=VARCHAR},
       </if>
       <if test="record.settlementnum != null" >
-        settlementnum = #{record.settlementnum,jdbcType=Double},
+        settlementnum = #{record.settlementnum,jdbcType=DECIMAL},
       </if>
       <if test="record.settlementprice != null" >
-        settlementprice = #{record.settlementprice,jdbcType=Double},
+        settlementprice = #{record.settlementprice,jdbcType=DECIMAL},
       </if>
       <if test="record.settlementmoney != null" >
-        settlementmoney = #{record.settlementmoney,jdbcType=Double},
+        settlementmoney = #{record.settlementmoney,jdbcType=DECIMAL},
       </if>
       <if test="record.reconciliationsno != null" >
         reconciliationsno = #{record.reconciliationsno,jdbcType=VARCHAR},
@@ -722,19 +722,19 @@
         reconciliationsdate = #{record.reconciliationsdate,jdbcType=VARCHAR},
       </if>
       <if test="record.outnum != null" >
-        outnum = #{record.outnum,jdbcType=Double},
+        outnum = #{record.outnum,jdbcType=DECIMAL},
       </if>
       <if test="record.surplusnum != null" >
-        surplusnum = #{record.surplusnum,jdbcType=Double},
+        surplusnum = #{record.surplusnum,jdbcType=DECIMAL},
       </if>
       <if test="record.unlockednum != null" >
-        unlockednum = #{record.unlockednum,jdbcType=Double},
+        unlockednum = #{record.unlockednum,jdbcType=DECIMAL},
       </if>
       <if test="record.innum != null" >
-        innum = #{record.innum,jdbcType=Double},
+        innum = #{record.innum,jdbcType=DECIMAL},
       </if>
       <if test="record.lockingnum != null" >
-        lockingnum = #{record.lockingnum,jdbcType=Double},
+        lockingnum = #{record.lockingnum,jdbcType=DECIMAL},
       </if>
       <if test="record.settlementstate != null" >
         settlementstate = #{record.settlementstate,jdbcType=INTEGER},
@@ -749,7 +749,7 @@
         fnancedate = #{record.fnancedate,jdbcType=VARCHAR},
       </if>
       <if test="record.occupynum != null" >
-        occupynum = #{record.occupynum,jdbcType=Double},
+        occupynum = #{record.occupynum,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -768,8 +768,8 @@
       specifications = #{record.specifications,jdbcType=VARCHAR},
       storagebatchno = #{record.storagebatchno,jdbcType=VARCHAR},
       colour = #{record.colour,jdbcType=VARCHAR},
-      demandnum = #{record.demandnum,jdbcType=Double},
-      purchasenum = #{record.purchasenum,jdbcType=Double},
+      demandnum = #{record.demandnum,jdbcType=DECIMAL},
+      purchasenum = #{record.purchasenum,jdbcType=DECIMAL},
       demanddate = #{record.demanddate,jdbcType=VARCHAR},
       approvalstate = #{record.approvalstate,jdbcType=INTEGER},
       approver = #{record.approver,jdbcType=VARCHAR},
@@ -780,10 +780,10 @@
       po = #{record.po,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
       parts = #{record.parts,jdbcType=VARCHAR},
-      availablenum = #{record.availablenum,jdbcType=Double},
-      usenum = #{record.usenum,jdbcType=Double},
-      price = #{record.price,jdbcType=Double},
-      money = #{record.money,jdbcType=Double},
+      availablenum = #{record.availablenum,jdbcType=DECIMAL},
+      usenum = #{record.usenum,jdbcType=DECIMAL},
+      price = #{record.price,jdbcType=DECIMAL},
+      money = #{record.money,jdbcType=DECIMAL},
       payment = #{record.payment,jdbcType=INTEGER},
       purchaselistno = #{record.purchaselistno,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER},
@@ -795,33 +795,33 @@
       pino = #{record.pino,jdbcType=VARCHAR},
       auditor = #{record.auditor,jdbcType=VARCHAR},
       auditordate = #{record.auditordate,jdbcType=VARCHAR},
-      pinum = #{record.pinum,jdbcType=Double},
-      applynum = #{record.applynum,jdbcType=Double},
+      pinum = #{record.pinum,jdbcType=DECIMAL},
+      applynum = #{record.applynum,jdbcType=DECIMAL},
       warehousing = #{record.warehousing,jdbcType=VARCHAR},
-      storagenum = #{record.storagenum,jdbcType=Double},
+      storagenum = #{record.storagenum,jdbcType=DECIMAL},
       storageno = #{record.storageno,jdbcType=VARCHAR},
       settlementno = #{record.settlementno,jdbcType=VARCHAR},
-      settlementnum = #{record.settlementnum,jdbcType=Double},
-      settlementprice = #{record.settlementprice,jdbcType=Double},
-      settlementmoney = #{record.settlementmoney,jdbcType=Double},
+      settlementnum = #{record.settlementnum,jdbcType=DECIMAL},
+      settlementprice = #{record.settlementprice,jdbcType=DECIMAL},
+      settlementmoney = #{record.settlementmoney,jdbcType=DECIMAL},
       reconciliationsno = #{record.reconciliationsno,jdbcType=VARCHAR},
       reconciliationstate = #{record.reconciliationstate,jdbcType=INTEGER},
       reconciliationsdate = #{record.reconciliationsdate,jdbcType=VARCHAR},
-      outnum = #{record.outnum,jdbcType=Double},
-      surplusnum = #{record.surplusnum,jdbcType=Double},
-      unlockednum = #{record.unlockednum,jdbcType=Double},
-      innum = #{record.innum,jdbcType=Double},
-      lockingnum = #{record.lockingnum,jdbcType=Double},
+      outnum = #{record.outnum,jdbcType=DECIMAL},
+      surplusnum = #{record.surplusnum,jdbcType=DECIMAL},
+      unlockednum = #{record.unlockednum,jdbcType=DECIMAL},
+      innum = #{record.innum,jdbcType=DECIMAL},
+      lockingnum = #{record.lockingnum,jdbcType=DECIMAL},
       settlementstate = #{record.settlementstate,jdbcType=INTEGER},
       financepeople = #{record.financepeople,jdbcType=VARCHAR},
       financestate = #{record.financestate,jdbcType=INTEGER},
       fnancedate = #{record.fnancedate,jdbcType=VARCHAR},
-      occupynum = #{record.occupynum,jdbcType=Double}
+      occupynum = #{record.occupynum,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_detailed" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_detailed" >
     update tab_detailed
     <set >
       <if test="purchaseid != null" >
@@ -852,10 +852,10 @@
         colour = #{colour,jdbcType=VARCHAR},
       </if>
       <if test="demandnum != null" >
-        demandnum = #{demandnum,jdbcType=Double},
+        demandnum = #{demandnum,jdbcType=DECIMAL},
       </if>
       <if test="purchasenum != null" >
-        purchasenum = #{purchasenum,jdbcType=Double},
+        purchasenum = #{purchasenum,jdbcType=DECIMAL},
       </if>
       <if test="demanddate != null" >
         demanddate = #{demanddate,jdbcType=VARCHAR},
@@ -888,16 +888,16 @@
         parts = #{parts,jdbcType=VARCHAR},
       </if>
       <if test="availablenum != null" >
-        availablenum = #{availablenum,jdbcType=Double},
+        availablenum = #{availablenum,jdbcType=DECIMAL},
       </if>
       <if test="usenum != null" >
-        usenum = #{usenum,jdbcType=Double},
+        usenum = #{usenum,jdbcType=DECIMAL},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="money != null" >
-        money = #{money,jdbcType=Double},
+        money = #{money,jdbcType=DECIMAL},
       </if>
       <if test="payment != null" >
         payment = #{payment,jdbcType=INTEGER},
@@ -933,16 +933,16 @@
         auditordate = #{auditordate,jdbcType=VARCHAR},
       </if>
       <if test="pinum != null" >
-        pinum = #{pinum,jdbcType=Double},
+        pinum = #{pinum,jdbcType=DECIMAL},
       </if>
       <if test="applynum != null" >
-        applynum = #{applynum,jdbcType=Double},
+        applynum = #{applynum,jdbcType=DECIMAL},
       </if>
       <if test="warehousing != null" >
         warehousing = #{warehousing,jdbcType=VARCHAR},
       </if>
       <if test="storagenum != null" >
-        storagenum = #{storagenum,jdbcType=Double},
+        storagenum = #{storagenum,jdbcType=DECIMAL},
       </if>
       <if test="storageno != null" >
         storageno = #{storageno,jdbcType=VARCHAR},
@@ -951,13 +951,13 @@
         settlementno = #{settlementno,jdbcType=VARCHAR},
       </if>
       <if test="settlementnum != null" >
-        settlementnum = #{settlementnum,jdbcType=Double},
+        settlementnum = #{settlementnum,jdbcType=DECIMAL},
       </if>
       <if test="settlementprice != null" >
-        settlementprice = #{settlementprice,jdbcType=Double},
+        settlementprice = #{settlementprice,jdbcType=DECIMAL},
       </if>
       <if test="settlementmoney != null" >
-        settlementmoney = #{settlementmoney,jdbcType=Double},
+        settlementmoney = #{settlementmoney,jdbcType=DECIMAL},
       </if>
       <if test="reconciliationsno != null" >
         reconciliationsno = #{reconciliationsno,jdbcType=VARCHAR},
@@ -969,19 +969,19 @@
         reconciliationsdate = #{reconciliationsdate,jdbcType=VARCHAR},
       </if>
       <if test="outnum != null" >
-        outnum = #{outnum,jdbcType=Double},
+        outnum = #{outnum,jdbcType=DECIMAL},
       </if>
       <if test="surplusnum != null" >
-        surplusnum = #{surplusnum,jdbcType=Double},
+        surplusnum = #{surplusnum,jdbcType=DECIMAL},
       </if>
       <if test="unlockednum != null" >
-        unlockednum = #{unlockednum,jdbcType=Double},
+        unlockednum = #{unlockednum,jdbcType=DECIMAL},
       </if>
       <if test="innum != null" >
-        innum = #{innum,jdbcType=Double},
+        innum = #{innum,jdbcType=DECIMAL},
       </if>
       <if test="lockingnum != null" >
-        lockingnum = #{lockingnum,jdbcType=Double},
+        lockingnum = #{lockingnum,jdbcType=DECIMAL},
       </if>
       <if test="settlementstate != null" >
         settlementstate = #{settlementstate,jdbcType=INTEGER},
@@ -996,12 +996,12 @@
         fnancedate = #{fnancedate,jdbcType=VARCHAR},
       </if>
       <if test="occupynum != null" >
-        occupynum = #{occupynum,jdbcType=Double},
+        occupynum = #{occupynum,jdbcType=DECIMAL},
       </if>
     </set>
     where detailid = #{detailid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_detailed" >
+  <update id="updateByPrimaryKey" parameterType="Tab_detailed" >
     update tab_detailed
     set purchaseid = #{purchaseid,jdbcType=INTEGER},
       developmentno = #{developmentno,jdbcType=VARCHAR},
@@ -1012,8 +1012,8 @@
       specifications = #{specifications,jdbcType=VARCHAR},
       storagebatchno = #{storagebatchno,jdbcType=VARCHAR},
       colour = #{colour,jdbcType=VARCHAR},
-      demandnum = #{demandnum,jdbcType=Double},
-      purchasenum = #{purchasenum,jdbcType=Double},
+      demandnum = #{demandnum,jdbcType=DECIMAL},
+      purchasenum = #{purchasenum,jdbcType=DECIMAL},
       demanddate = #{demanddate,jdbcType=VARCHAR},
       approvalstate = #{approvalstate,jdbcType=INTEGER},
       approver = #{approver,jdbcType=VARCHAR},
@@ -1024,10 +1024,10 @@
       po = #{po,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       parts = #{parts,jdbcType=VARCHAR},
-      availablenum = #{availablenum,jdbcType=Double},
-      usenum = #{usenum,jdbcType=Double},
-      price = #{price,jdbcType=Double},
-      money = #{money,jdbcType=Double},
+      availablenum = #{availablenum,jdbcType=DECIMAL},
+      usenum = #{usenum,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      money = #{money,jdbcType=DECIMAL},
       payment = #{payment,jdbcType=INTEGER},
       purchaselistno = #{purchaselistno,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
@@ -1039,28 +1039,28 @@
       pino = #{pino,jdbcType=VARCHAR},
       auditor = #{auditor,jdbcType=VARCHAR},
       auditordate = #{auditordate,jdbcType=VARCHAR},
-      pinum = #{pinum,jdbcType=Double},
-      applynum = #{applynum,jdbcType=Double},
+      pinum = #{pinum,jdbcType=DECIMAL},
+      applynum = #{applynum,jdbcType=DECIMAL},
       warehousing = #{warehousing,jdbcType=VARCHAR},
-      storagenum = #{storagenum,jdbcType=Double},
+      storagenum = #{storagenum,jdbcType=DECIMAL},
       storageno = #{storageno,jdbcType=VARCHAR},
       settlementno = #{settlementno,jdbcType=VARCHAR},
-      settlementnum = #{settlementnum,jdbcType=Double},
-      settlementprice = #{settlementprice,jdbcType=Double},
-      settlementmoney = #{settlementmoney,jdbcType=Double},
+      settlementnum = #{settlementnum,jdbcType=DECIMAL},
+      settlementprice = #{settlementprice,jdbcType=DECIMAL},
+      settlementmoney = #{settlementmoney,jdbcType=DECIMAL},
       reconciliationsno = #{reconciliationsno,jdbcType=VARCHAR},
       reconciliationstate = #{reconciliationstate,jdbcType=INTEGER},
       reconciliationsdate = #{reconciliationsdate,jdbcType=VARCHAR},
-      outnum = #{outnum,jdbcType=Double},
-      surplusnum = #{surplusnum,jdbcType=Double},
-      unlockednum = #{unlockednum,jdbcType=Double},
-      innum = #{innum,jdbcType=Double},
-      lockingnum = #{lockingnum,jdbcType=Double},
+      outnum = #{outnum,jdbcType=DECIMAL},
+      surplusnum = #{surplusnum,jdbcType=DECIMAL},
+      unlockednum = #{unlockednum,jdbcType=DECIMAL},
+      innum = #{innum,jdbcType=DECIMAL},
+      lockingnum = #{lockingnum,jdbcType=DECIMAL},
       settlementstate = #{settlementstate,jdbcType=INTEGER},
       financepeople = #{financepeople,jdbcType=VARCHAR},
       financestate = #{financestate,jdbcType=INTEGER},
       fnancedate = #{fnancedate,jdbcType=VARCHAR},
-      occupynum = #{occupynum,jdbcType=Double}
+      occupynum = #{occupynum,jdbcType=DECIMAL}
     where detailid = #{detailid,jdbcType=INTEGER}
   </update>
 </mapper>

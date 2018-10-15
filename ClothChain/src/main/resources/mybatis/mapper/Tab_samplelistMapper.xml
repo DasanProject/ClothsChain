@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_samplelistMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_samplelist" >
+  <resultMap id="BaseResultMap" type="Tab_samplelist" >
     <id column="sampleid" property="sampleid" jdbcType="INTEGER" />
     <result column="styleid" property="styleid" jdbcType="INTEGER" />
     <result column="customerid" property="customerid" jdbcType="INTEGER" />
@@ -15,7 +15,7 @@
     <result column="styleno" property="styleno" jdbcType="VARCHAR" />
     <result column="opendate" property="opendate" jdbcType="VARCHAR" />
     <result column="edationdate" property="edationdate" jdbcType="VARCHAR" />
-    <result column="samplemul" property="samplemul" jdbcType="Double" />
+    <result column="samplemul" property="samplemul" jdbcType="DECIMAL" />
     <result column="auditor" property="auditor" jdbcType="VARCHAR" />
     <result column="auditdate" property="auditdate" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -88,7 +88,7 @@
     customerno, stylename, styleno, opendate, edationdate, samplemul, auditor, auditdate, 
     remark, receptnum, describle, prostate, ensurestate, worktime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_samplelistExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_samplelistExample" >
     select
     <if test="distinct" >
       distinct
@@ -113,13 +113,13 @@
     delete from tab_samplelist
     where sampleid = #{sampleid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_samplelistExample" >
+  <delete id="deleteByExample" parameterType="Tab_samplelistExample" >
     delete from tab_samplelist
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_samplelist" >
+  <insert id="insert" parameterType="Tab_samplelist" >
     insert into tab_samplelist (sampleid, styleid, customerid, 
       brandid, sampletypeid, quarterlyid, 
       userid, sampleno, customerno, 
@@ -132,12 +132,12 @@
       #{brandid,jdbcType=INTEGER}, #{sampletypeid,jdbcType=INTEGER}, #{quarterlyid,jdbcType=INTEGER}, 
       #{userid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, #{customerno,jdbcType=VARCHAR}, 
       #{stylename,jdbcType=VARCHAR}, #{styleno,jdbcType=VARCHAR}, #{opendate,jdbcType=VARCHAR}, 
-      #{edationdate,jdbcType=VARCHAR}, #{samplemul,jdbcType=Double}, #{auditor,jdbcType=VARCHAR},
+      #{edationdate,jdbcType=VARCHAR}, #{samplemul,jdbcType=DECIMAL}, #{auditor,jdbcType=VARCHAR}, 
       #{auditdate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{receptnum,jdbcType=INTEGER}, 
       #{describle,jdbcType=VARCHAR}, #{prostate,jdbcType=INTEGER}, #{ensurestate,jdbcType=INTEGER}, 
       #{worktime,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_samplelist" >
+  <insert id="insertSelective" parameterType="Tab_samplelist" >
     insert into tab_samplelist
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sampleid != null" >
@@ -248,7 +248,7 @@
         #{edationdate,jdbcType=VARCHAR},
       </if>
       <if test="samplemul != null" >
-        #{samplemul,jdbcType=Double},
+        #{samplemul,jdbcType=DECIMAL},
       </if>
       <if test="auditor != null" >
         #{auditor,jdbcType=VARCHAR},
@@ -276,7 +276,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_samplelistExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_samplelistExample" resultType="java.lang.Integer" >
     select count(*) from tab_samplelist
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -325,7 +325,7 @@
         edationdate = #{record.edationdate,jdbcType=VARCHAR},
       </if>
       <if test="record.samplemul != null" >
-        samplemul = #{record.samplemul,jdbcType=Double},
+        samplemul = #{record.samplemul,jdbcType=DECIMAL},
       </if>
       <if test="record.auditor != null" >
         auditor = #{record.auditor,jdbcType=VARCHAR},
@@ -371,7 +371,7 @@
       styleno = #{record.styleno,jdbcType=VARCHAR},
       opendate = #{record.opendate,jdbcType=VARCHAR},
       edationdate = #{record.edationdate,jdbcType=VARCHAR},
-      samplemul = #{record.samplemul,jdbcType=Double},
+      samplemul = #{record.samplemul,jdbcType=DECIMAL},
       auditor = #{record.auditor,jdbcType=VARCHAR},
       auditdate = #{record.auditdate,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
@@ -384,7 +384,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_samplelist" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_samplelist" >
     update tab_samplelist
     <set >
       <if test="styleid != null" >
@@ -424,7 +424,7 @@
         edationdate = #{edationdate,jdbcType=VARCHAR},
       </if>
       <if test="samplemul != null" >
-        samplemul = #{samplemul,jdbcType=Double},
+        samplemul = #{samplemul,jdbcType=DECIMAL},
       </if>
       <if test="auditor != null" >
         auditor = #{auditor,jdbcType=VARCHAR},
@@ -453,7 +453,7 @@
     </set>
     where sampleid = #{sampleid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_samplelist" >
+  <update id="updateByPrimaryKey" parameterType="Tab_samplelist" >
     update tab_samplelist
     set styleid = #{styleid,jdbcType=INTEGER},
       customerid = #{customerid,jdbcType=INTEGER},
@@ -467,7 +467,7 @@
       styleno = #{styleno,jdbcType=VARCHAR},
       opendate = #{opendate,jdbcType=VARCHAR},
       edationdate = #{edationdate,jdbcType=VARCHAR},
-      samplemul = #{samplemul,jdbcType=Double},
+      samplemul = #{samplemul,jdbcType=DECIMAL},
       auditor = #{auditor,jdbcType=VARCHAR},
       auditdate = #{auditdate,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

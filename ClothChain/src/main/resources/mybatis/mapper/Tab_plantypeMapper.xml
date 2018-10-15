@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_plantypeMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_plantype" >
+  <resultMap id="BaseResultMap" type="Tab_plantype" >
     <id column="plantypeid" property="plantypeid" jdbcType="INTEGER" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
     <result column="setdate" property="setdate" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     plantypeid, describle, setdate, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_plantypeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_plantypeExample" >
     select
     <if test="distinct" >
       distinct
@@ -93,19 +93,19 @@
     delete from tab_plantype
     where plantypeid = #{plantypeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_plantypeExample" >
+  <delete id="deleteByExample" parameterType="Tab_plantypeExample" >
     delete from tab_plantype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_plantype" >
+  <insert id="insert" parameterType="Tab_plantype" >
     insert into tab_plantype (plantypeid, describle, setdate, 
       remark)
     values (#{plantypeid,jdbcType=INTEGER}, #{describle,jdbcType=VARCHAR}, #{setdate,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_plantype" >
+  <insert id="insertSelective" parameterType="Tab_plantype" >
     insert into tab_plantype
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="plantypeid != null" >
@@ -136,7 +136,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_plantypeExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_plantypeExample" resultType="java.lang.Integer" >
     select count(*) from tab_plantype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -172,7 +172,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_plantype" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_plantype" >
     update tab_plantype
     <set >
       <if test="describle != null" >
@@ -187,7 +187,7 @@
     </set>
     where plantypeid = #{plantypeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_plantype" >
+  <update id="updateByPrimaryKey" parameterType="Tab_plantype" >
     update tab_plantype
     set describle = #{describle,jdbcType=VARCHAR},
       setdate = #{setdate,jdbcType=VARCHAR},

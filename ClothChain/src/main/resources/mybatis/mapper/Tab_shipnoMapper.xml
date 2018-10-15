@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_shipnoMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_shipno" >
+  <resultMap id="BaseResultMap" type="Tab_shipno" >
     <id column="spid" property="spid" jdbcType="INTEGER" />
     <result column="customerid" property="customerid" jdbcType="INTEGER" />
     <result column="noticno" property="noticno" jdbcType="VARCHAR" />
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List" >
     spid, customerid, noticno, expecteddate, outgodate, managers, relation, deli, orderno
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_shipnoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_shipnoExample" >
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
     delete from tab_shipno
     where spid = #{spid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_shipnoExample" >
+  <delete id="deleteByExample" parameterType="Tab_shipnoExample" >
     delete from tab_shipno
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_shipno" >
+  <insert id="insert" parameterType="Tab_shipno" >
     insert into tab_shipno (spid, customerid, noticno, 
       expecteddate, outgodate, managers, 
       relation, deli, orderno
@@ -114,7 +114,7 @@
       #{relation,jdbcType=VARCHAR}, #{deli,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_shipno" >
+  <insert id="insertSelective" parameterType="Tab_shipno" >
     insert into tab_shipno
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="spid != null" >
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_shipnoExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_shipnoExample" resultType="java.lang.Integer" >
     select count(*) from tab_shipno
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -231,7 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_shipno" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_shipno" >
     update tab_shipno
     <set >
       <if test="customerid != null" >
@@ -261,7 +261,7 @@
     </set>
     where spid = #{spid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_shipno" >
+  <update id="updateByPrimaryKey" parameterType="Tab_shipno" >
     update tab_shipno
     set customerid = #{customerid,jdbcType=INTEGER},
       noticno = #{noticno,jdbcType=VARCHAR},

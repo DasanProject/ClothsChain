@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_groupefficiencyMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_groupefficiency" >
+  <resultMap id="BaseResultMap" type="Tab_groupefficiency" >
     <id column="setid" property="setid" jdbcType="INTEGER" />
     <result column="styleid" property="styleid" jdbcType="INTEGER" />
     <result column="groupcoding" property="groupcoding" jdbcType="VARCHAR" />
     <result column="groupname" property="groupname" jdbcType="VARCHAR" />
     <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
-    <result column="teamefficiency" property="teamefficiency" jdbcType="Double" />
+    <result column="teamefficiency" property="teamefficiency" jdbcType="DECIMAL" />
     <result column="standardnum" property="standardnum" jdbcType="INTEGER" />
-    <result column="learningcoefficient" property="learningcoefficient" jdbcType="Double" />
-    <result column="ciency" property="ciency" jdbcType="Double" />
+    <result column="learningcoefficient" property="learningcoefficient" jdbcType="DECIMAL" />
+    <result column="ciency" property="ciency" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,7 +74,7 @@
     setid, styleid, groupcoding, groupname, stylenumber, teamefficiency, standardnum, 
     learningcoefficient, ciency
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_groupefficiencyExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,23 +99,23 @@
     delete from tab_groupefficiency
     where setid = #{setid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" >
+  <delete id="deleteByExample" parameterType="Tab_groupefficiencyExample" >
     delete from tab_groupefficiency
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+  <insert id="insert" parameterType="Tab_groupefficiency" >
     insert into tab_groupefficiency (setid, styleid, groupcoding, 
       groupname, stylenumber, teamefficiency, 
       standardnum, learningcoefficient, ciency
       )
     values (#{setid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{groupcoding,jdbcType=VARCHAR}, 
-      #{groupname,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, #{teamefficiency,jdbcType=Double},
-      #{standardnum,jdbcType=INTEGER}, #{learningcoefficient,jdbcType=Double}, #{ciency,jdbcType=Double}
+      #{groupname,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, #{teamefficiency,jdbcType=DECIMAL}, 
+      #{standardnum,jdbcType=INTEGER}, #{learningcoefficient,jdbcType=DECIMAL}, #{ciency,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+  <insert id="insertSelective" parameterType="Tab_groupefficiency" >
     insert into tab_groupefficiency
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="setid != null" >
@@ -163,20 +163,20 @@
         #{stylenumber,jdbcType=VARCHAR},
       </if>
       <if test="teamefficiency != null" >
-        #{teamefficiency,jdbcType=Double},
+        #{teamefficiency,jdbcType=DECIMAL},
       </if>
       <if test="standardnum != null" >
         #{standardnum,jdbcType=INTEGER},
       </if>
       <if test="learningcoefficient != null" >
-        #{learningcoefficient,jdbcType=Double},
+        #{learningcoefficient,jdbcType=DECIMAL},
       </if>
       <if test="ciency != null" >
-        #{ciency,jdbcType=Double},
+        #{ciency,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_groupefficiencyExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_groupefficiencyExample" resultType="java.lang.Integer" >
     select count(*) from tab_groupefficiency
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -201,16 +201,16 @@
         stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
       </if>
       <if test="record.teamefficiency != null" >
-        teamefficiency = #{record.teamefficiency,jdbcType=Double},
+        teamefficiency = #{record.teamefficiency,jdbcType=DECIMAL},
       </if>
       <if test="record.standardnum != null" >
         standardnum = #{record.standardnum,jdbcType=INTEGER},
       </if>
       <if test="record.learningcoefficient != null" >
-        learningcoefficient = #{record.learningcoefficient,jdbcType=Double},
+        learningcoefficient = #{record.learningcoefficient,jdbcType=DECIMAL},
       </if>
       <if test="record.ciency != null" >
-        ciency = #{record.ciency,jdbcType=Double},
+        ciency = #{record.ciency,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -224,15 +224,15 @@
       groupcoding = #{record.groupcoding,jdbcType=VARCHAR},
       groupname = #{record.groupname,jdbcType=VARCHAR},
       stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
-      teamefficiency = #{record.teamefficiency,jdbcType=Double},
+      teamefficiency = #{record.teamefficiency,jdbcType=DECIMAL},
       standardnum = #{record.standardnum,jdbcType=INTEGER},
-      learningcoefficient = #{record.learningcoefficient,jdbcType=Double},
-      ciency = #{record.ciency,jdbcType=Double}
+      learningcoefficient = #{record.learningcoefficient,jdbcType=DECIMAL},
+      ciency = #{record.ciency,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_groupefficiency" >
     update tab_groupefficiency
     <set >
       <if test="styleid != null" >
@@ -248,30 +248,30 @@
         stylenumber = #{stylenumber,jdbcType=VARCHAR},
       </if>
       <if test="teamefficiency != null" >
-        teamefficiency = #{teamefficiency,jdbcType=Double},
+        teamefficiency = #{teamefficiency,jdbcType=DECIMAL},
       </if>
       <if test="standardnum != null" >
         standardnum = #{standardnum,jdbcType=INTEGER},
       </if>
       <if test="learningcoefficient != null" >
-        learningcoefficient = #{learningcoefficient,jdbcType=Double},
+        learningcoefficient = #{learningcoefficient,jdbcType=DECIMAL},
       </if>
       <if test="ciency != null" >
-        ciency = #{ciency,jdbcType=Double},
+        ciency = #{ciency,jdbcType=DECIMAL},
       </if>
     </set>
     where setid = #{setid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_groupefficiency" >
+  <update id="updateByPrimaryKey" parameterType="Tab_groupefficiency" >
     update tab_groupefficiency
     set styleid = #{styleid,jdbcType=INTEGER},
       groupcoding = #{groupcoding,jdbcType=VARCHAR},
       groupname = #{groupname,jdbcType=VARCHAR},
       stylenumber = #{stylenumber,jdbcType=VARCHAR},
-      teamefficiency = #{teamefficiency,jdbcType=Double},
+      teamefficiency = #{teamefficiency,jdbcType=DECIMAL},
       standardnum = #{standardnum,jdbcType=INTEGER},
-      learningcoefficient = #{learningcoefficient,jdbcType=Double},
-      ciency = #{ciency,jdbcType=Double}
+      learningcoefficient = #{learningcoefficient,jdbcType=DECIMAL},
+      ciency = #{ciency,jdbcType=DECIMAL}
     where setid = #{setid,jdbcType=INTEGER}
   </update>
 </mapper>

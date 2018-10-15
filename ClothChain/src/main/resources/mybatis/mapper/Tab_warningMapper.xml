@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_warningMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_warning" >
+  <resultMap id="BaseResultMap" type="Tab_warning" >
     <id column="setupid" property="setupid" jdbcType="INTEGER" />
     <result column="materielno" property="materielno" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="materielname" property="materielname" jdbcType="VARCHAR" />
-    <result column="higheststock" property="higheststock" jdbcType="Double" />
-    <result column="lowststock" property="lowststock" jdbcType="Double" />
+    <result column="higheststock" property="higheststock" jdbcType="DECIMAL" />
+    <result column="lowststock" property="lowststock" jdbcType="DECIMAL" />
     <result column="cloer" property="cloer" jdbcType="VARCHAR" />
     <result column="specifications" property="specifications" jdbcType="VARCHAR" />
     <result column="company" property="company" jdbcType="VARCHAR" />
@@ -74,7 +74,7 @@
     setupid, materielno, type, materielname, higheststock, lowststock, cloer, specifications, 
     company
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_warningExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_warningExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,23 +99,23 @@
     delete from tab_warning
     where setupid = #{setupid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_warningExample" >
+  <delete id="deleteByExample" parameterType="Tab_warningExample" >
     delete from tab_warning
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_warning" >
+  <insert id="insert" parameterType="Tab_warning" >
     insert into tab_warning (setupid, materielno, type, 
       materielname, higheststock, lowststock, 
       cloer, specifications, company
       )
     values (#{setupid,jdbcType=INTEGER}, #{materielno,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{materielname,jdbcType=VARCHAR}, #{higheststock,jdbcType=Double}, #{lowststock,jdbcType=Double},
+      #{materielname,jdbcType=VARCHAR}, #{higheststock,jdbcType=DECIMAL}, #{lowststock,jdbcType=DECIMAL}, 
       #{cloer,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_warning" >
+  <insert id="insertSelective" parameterType="Tab_warning" >
     insert into tab_warning
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="setupid != null" >
@@ -160,10 +160,10 @@
         #{materielname,jdbcType=VARCHAR},
       </if>
       <if test="higheststock != null" >
-        #{higheststock,jdbcType=Double},
+        #{higheststock,jdbcType=DECIMAL},
       </if>
       <if test="lowststock != null" >
-        #{lowststock,jdbcType=Double},
+        #{lowststock,jdbcType=DECIMAL},
       </if>
       <if test="cloer != null" >
         #{cloer,jdbcType=VARCHAR},
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_warningExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_warningExample" resultType="java.lang.Integer" >
     select count(*) from tab_warning
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -198,10 +198,10 @@
         materielname = #{record.materielname,jdbcType=VARCHAR},
       </if>
       <if test="record.higheststock != null" >
-        higheststock = #{record.higheststock,jdbcType=Double},
+        higheststock = #{record.higheststock,jdbcType=DECIMAL},
       </if>
       <if test="record.lowststock != null" >
-        lowststock = #{record.lowststock,jdbcType=Double},
+        lowststock = #{record.lowststock,jdbcType=DECIMAL},
       </if>
       <if test="record.cloer != null" >
         cloer = #{record.cloer,jdbcType=VARCHAR},
@@ -223,8 +223,8 @@
       materielno = #{record.materielno,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
       materielname = #{record.materielname,jdbcType=VARCHAR},
-      higheststock = #{record.higheststock,jdbcType=Double},
-      lowststock = #{record.lowststock,jdbcType=Double},
+      higheststock = #{record.higheststock,jdbcType=DECIMAL},
+      lowststock = #{record.lowststock,jdbcType=DECIMAL},
       cloer = #{record.cloer,jdbcType=VARCHAR},
       specifications = #{record.specifications,jdbcType=VARCHAR},
       company = #{record.company,jdbcType=VARCHAR}
@@ -232,7 +232,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_warning" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_warning" >
     update tab_warning
     <set >
       <if test="materielno != null" >
@@ -245,10 +245,10 @@
         materielname = #{materielname,jdbcType=VARCHAR},
       </if>
       <if test="higheststock != null" >
-        higheststock = #{higheststock,jdbcType=Double},
+        higheststock = #{higheststock,jdbcType=DECIMAL},
       </if>
       <if test="lowststock != null" >
-        lowststock = #{lowststock,jdbcType=Double},
+        lowststock = #{lowststock,jdbcType=DECIMAL},
       </if>
       <if test="cloer != null" >
         cloer = #{cloer,jdbcType=VARCHAR},
@@ -262,13 +262,13 @@
     </set>
     where setupid = #{setupid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_warning" >
+  <update id="updateByPrimaryKey" parameterType="Tab_warning" >
     update tab_warning
     set materielno = #{materielno,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       materielname = #{materielname,jdbcType=VARCHAR},
-      higheststock = #{higheststock,jdbcType=Double},
-      lowststock = #{lowststock,jdbcType=Double},
+      higheststock = #{higheststock,jdbcType=DECIMAL},
+      lowststock = #{lowststock,jdbcType=DECIMAL},
       cloer = #{cloer,jdbcType=VARCHAR},
       specifications = #{specifications,jdbcType=VARCHAR},
       company = #{company,jdbcType=VARCHAR}

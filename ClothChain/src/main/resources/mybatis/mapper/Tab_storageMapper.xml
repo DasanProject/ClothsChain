@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_storageMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_storage" >
+  <resultMap id="BaseResultMap" type="Tab_storage" >
     <id column="storageid" property="storageid" jdbcType="INTEGER" />
     <result column="storageno" property="storageno" jdbcType="VARCHAR" />
     <result column="warehouse" property="warehouse" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
     storageid, storageno, warehouse, storagedate, purchaser, deliveryno, batchno, quarter, 
     remarks, superlierid, customerid
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_storageExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_storageExample" >
     select
     <if test="distinct" >
       distinct
@@ -101,13 +101,13 @@
     delete from tab_storage
     where storageid = #{storageid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_storageExample" >
+  <delete id="deleteByExample" parameterType="Tab_storageExample" >
     delete from tab_storage
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_storage" >
+  <insert id="insert" parameterType="Tab_storage" >
     insert into tab_storage (storageid, storageno, warehouse, 
       storagedate, purchaser, deliveryno, 
       batchno, quarter, remarks, 
@@ -117,7 +117,7 @@
       #{batchno,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
       #{superlierid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_storage" >
+  <insert id="insertSelective" parameterType="Tab_storage" >
     insert into tab_storage
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="storageid != null" >
@@ -190,7 +190,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_storageExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_storageExample" resultType="java.lang.Integer" >
     select count(*) from tab_storage
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -254,7 +254,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_storage" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_storage" >
     update tab_storage
     <set >
       <if test="storageno != null" >
@@ -290,7 +290,7 @@
     </set>
     where storageid = #{storageid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_storage" >
+  <update id="updateByPrimaryKey" parameterType="Tab_storage" >
     update tab_storage
     set storageno = #{storageno,jdbcType=VARCHAR},
       warehouse = #{warehouse,jdbcType=VARCHAR},

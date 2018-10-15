@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_pickingMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_picking" >
+  <resultMap id="BaseResultMap" type="Tab_picking" >
     <id column="pickinid" property="pickinid" jdbcType="INTEGER" />
     <result column="customerid" property="customerid" jdbcType="INTEGER" />
     <result column="pickingno" property="pickingno" jdbcType="VARCHAR" />
@@ -16,12 +16,12 @@
     <result column="colour" property="colour" jdbcType="VARCHAR" />
     <result column="colorno" property="colorno" jdbcType="VARCHAR" />
     <result column="company" property="company" jdbcType="VARCHAR" />
-    <result column="stocknum" property="stocknum" jdbcType="Double" />
-    <result column="receivenum" property="receivenum" jdbcType="Double" />
+    <result column="stocknum" property="stocknum" jdbcType="DECIMAL" />
+    <result column="receivenum" property="receivenum" jdbcType="DECIMAL" />
     <result column="materialno" property="materialno" jdbcType="VARCHAR" />
     <result column="billdate" property="billdate" jdbcType="VARCHAR" />
     <result column="applicant" property="applicant" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="Double" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
     <result column="saleno" property="saleno" jdbcType="VARCHAR" />
     <result column="sarehousingno" property="sarehousingno" jdbcType="VARCHAR" />
     <result column="moneyno" property="moneyno" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="outtreasuryno" property="outtreasuryno" jdbcType="VARCHAR" />
     <result column="outtreasurydate" property="outtreasurydate" jdbcType="VARCHAR" />
-    <result column="outtreasurynum" property="outtreasurynum" jdbcType="Double" />
+    <result column="outtreasurynum" property="outtreasurynum" jdbcType="DECIMAL" />
     <result column="pickingtype" property="pickingtype" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -96,7 +96,7 @@
     materialno, billdate, applicant, price, saleno, sarehousingno, moneyno, quarter, 
     remarks, outtreasuryno, outtreasurydate, outtreasurynum, pickingtype
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_pickingExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_pickingExample" >
     select
     <if test="distinct" >
       distinct
@@ -121,13 +121,13 @@
     delete from tab_picking
     where pickinid = #{pickinid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_pickingExample" >
+  <delete id="deleteByExample" parameterType="Tab_pickingExample" >
     delete from tab_picking
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_picking" >
+  <insert id="insert" parameterType="Tab_picking" >
     insert into tab_picking (pickinid, customerid, pickingno, 
       tasktype, billstate, storage, 
       purpose, deliverydirection, materielno, 
@@ -142,14 +142,14 @@
       #{tasktype,jdbcType=INTEGER}, #{billstate,jdbcType=INTEGER}, #{storage,jdbcType=VARCHAR}, 
       #{purpose,jdbcType=VARCHAR}, #{deliverydirection,jdbcType=VARCHAR}, #{materielno,jdbcType=VARCHAR}, 
       #{materielname,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{colour,jdbcType=VARCHAR}, 
-      #{colorno,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{stocknum,jdbcType=Double},
-      #{receivenum,jdbcType=Double}, #{materialno,jdbcType=VARCHAR}, #{billdate,jdbcType=VARCHAR},
-      #{applicant,jdbcType=VARCHAR}, #{price,jdbcType=Double}, #{saleno,jdbcType=VARCHAR},
+      #{colorno,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{stocknum,jdbcType=DECIMAL}, 
+      #{receivenum,jdbcType=DECIMAL}, #{materialno,jdbcType=VARCHAR}, #{billdate,jdbcType=VARCHAR}, 
+      #{applicant,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{saleno,jdbcType=VARCHAR}, 
       #{sarehousingno,jdbcType=VARCHAR}, #{moneyno,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
       #{remarks,jdbcType=VARCHAR}, #{outtreasuryno,jdbcType=VARCHAR}, #{outtreasurydate,jdbcType=VARCHAR}, 
-      #{outtreasurynum,jdbcType=Double}, #{pickingtype,jdbcType=INTEGER})
+      #{outtreasurynum,jdbcType=DECIMAL}, #{pickingtype,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_picking" >
+  <insert id="insertSelective" parameterType="Tab_picking" >
     insert into tab_picking
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pickinid != null" >
@@ -284,10 +284,10 @@
         #{company,jdbcType=VARCHAR},
       </if>
       <if test="stocknum != null" >
-        #{stocknum,jdbcType=Double},
+        #{stocknum,jdbcType=DECIMAL},
       </if>
       <if test="receivenum != null" >
-        #{receivenum,jdbcType=Double},
+        #{receivenum,jdbcType=DECIMAL},
       </if>
       <if test="materialno != null" >
         #{materialno,jdbcType=VARCHAR},
@@ -299,7 +299,7 @@
         #{applicant,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="saleno != null" >
         #{saleno,jdbcType=VARCHAR},
@@ -323,14 +323,14 @@
         #{outtreasurydate,jdbcType=VARCHAR},
       </if>
       <if test="outtreasurynum != null" >
-        #{outtreasurynum,jdbcType=Double},
+        #{outtreasurynum,jdbcType=DECIMAL},
       </if>
       <if test="pickingtype != null" >
         #{pickingtype,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_pickingExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_pickingExample" resultType="java.lang.Integer" >
     select count(*) from tab_picking
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -382,10 +382,10 @@
         company = #{record.company,jdbcType=VARCHAR},
       </if>
       <if test="record.stocknum != null" >
-        stocknum = #{record.stocknum,jdbcType=Double},
+        stocknum = #{record.stocknum,jdbcType=DECIMAL},
       </if>
       <if test="record.receivenum != null" >
-        receivenum = #{record.receivenum,jdbcType=Double},
+        receivenum = #{record.receivenum,jdbcType=DECIMAL},
       </if>
       <if test="record.materialno != null" >
         materialno = #{record.materialno,jdbcType=VARCHAR},
@@ -397,7 +397,7 @@
         applicant = #{record.applicant,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.saleno != null" >
         saleno = #{record.saleno,jdbcType=VARCHAR},
@@ -421,7 +421,7 @@
         outtreasurydate = #{record.outtreasurydate,jdbcType=VARCHAR},
       </if>
       <if test="record.outtreasurynum != null" >
-        outtreasurynum = #{record.outtreasurynum,jdbcType=Double},
+        outtreasurynum = #{record.outtreasurynum,jdbcType=DECIMAL},
       </if>
       <if test="record.pickingtype != null" >
         pickingtype = #{record.pickingtype,jdbcType=INTEGER},
@@ -447,12 +447,12 @@
       colour = #{record.colour,jdbcType=VARCHAR},
       colorno = #{record.colorno,jdbcType=VARCHAR},
       company = #{record.company,jdbcType=VARCHAR},
-      stocknum = #{record.stocknum,jdbcType=Double},
-      receivenum = #{record.receivenum,jdbcType=Double},
+      stocknum = #{record.stocknum,jdbcType=DECIMAL},
+      receivenum = #{record.receivenum,jdbcType=DECIMAL},
       materialno = #{record.materialno,jdbcType=VARCHAR},
       billdate = #{record.billdate,jdbcType=VARCHAR},
       applicant = #{record.applicant,jdbcType=VARCHAR},
-      price = #{record.price,jdbcType=Double},
+      price = #{record.price,jdbcType=DECIMAL},
       saleno = #{record.saleno,jdbcType=VARCHAR},
       sarehousingno = #{record.sarehousingno,jdbcType=VARCHAR},
       moneyno = #{record.moneyno,jdbcType=VARCHAR},
@@ -460,13 +460,13 @@
       remarks = #{record.remarks,jdbcType=VARCHAR},
       outtreasuryno = #{record.outtreasuryno,jdbcType=VARCHAR},
       outtreasurydate = #{record.outtreasurydate,jdbcType=VARCHAR},
-      outtreasurynum = #{record.outtreasurynum,jdbcType=Double},
+      outtreasurynum = #{record.outtreasurynum,jdbcType=DECIMAL},
       pickingtype = #{record.pickingtype,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_picking" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_picking" >
     update tab_picking
     <set >
       <if test="customerid != null" >
@@ -509,10 +509,10 @@
         company = #{company,jdbcType=VARCHAR},
       </if>
       <if test="stocknum != null" >
-        stocknum = #{stocknum,jdbcType=Double},
+        stocknum = #{stocknum,jdbcType=DECIMAL},
       </if>
       <if test="receivenum != null" >
-        receivenum = #{receivenum,jdbcType=Double},
+        receivenum = #{receivenum,jdbcType=DECIMAL},
       </if>
       <if test="materialno != null" >
         materialno = #{materialno,jdbcType=VARCHAR},
@@ -524,7 +524,7 @@
         applicant = #{applicant,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="saleno != null" >
         saleno = #{saleno,jdbcType=VARCHAR},
@@ -548,7 +548,7 @@
         outtreasurydate = #{outtreasurydate,jdbcType=VARCHAR},
       </if>
       <if test="outtreasurynum != null" >
-        outtreasurynum = #{outtreasurynum,jdbcType=Double},
+        outtreasurynum = #{outtreasurynum,jdbcType=DECIMAL},
       </if>
       <if test="pickingtype != null" >
         pickingtype = #{pickingtype,jdbcType=INTEGER},
@@ -556,7 +556,7 @@
     </set>
     where pickinid = #{pickinid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_picking" >
+  <update id="updateByPrimaryKey" parameterType="Tab_picking" >
     update tab_picking
     set customerid = #{customerid,jdbcType=INTEGER},
       pickingno = #{pickingno,jdbcType=VARCHAR},
@@ -571,12 +571,12 @@
       colour = #{colour,jdbcType=VARCHAR},
       colorno = #{colorno,jdbcType=VARCHAR},
       company = #{company,jdbcType=VARCHAR},
-      stocknum = #{stocknum,jdbcType=Double},
-      receivenum = #{receivenum,jdbcType=Double},
+      stocknum = #{stocknum,jdbcType=DECIMAL},
+      receivenum = #{receivenum,jdbcType=DECIMAL},
       materialno = #{materialno,jdbcType=VARCHAR},
       billdate = #{billdate,jdbcType=VARCHAR},
       applicant = #{applicant,jdbcType=VARCHAR},
-      price = #{price,jdbcType=Double},
+      price = #{price,jdbcType=DECIMAL},
       saleno = #{saleno,jdbcType=VARCHAR},
       sarehousingno = #{sarehousingno,jdbcType=VARCHAR},
       moneyno = #{moneyno,jdbcType=VARCHAR},
@@ -584,7 +584,7 @@
       remarks = #{remarks,jdbcType=VARCHAR},
       outtreasuryno = #{outtreasuryno,jdbcType=VARCHAR},
       outtreasurydate = #{outtreasurydate,jdbcType=VARCHAR},
-      outtreasurynum = #{outtreasurynum,jdbcType=Double},
+      outtreasurynum = #{outtreasurynum,jdbcType=DECIMAL},
       pickingtype = #{pickingtype,jdbcType=INTEGER}
     where pickinid = #{pickinid,jdbcType=INTEGER}
   </update>

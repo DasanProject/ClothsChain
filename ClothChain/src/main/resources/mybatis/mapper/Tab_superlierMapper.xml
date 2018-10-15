@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_superlierMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_superlier" >
+  <resultMap id="BaseResultMap" type="Tab_superlier" >
     <id column="superlierid" property="superlierid" jdbcType="INTEGER" />
     <result column="superliername" property="superliername" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
@@ -80,7 +80,7 @@
     superlierid, superliername, state, remark, people, phone, address, websute, day, 
     bank, bankaccount, contecttitle, fax, postalcode, email
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_superlierExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_superlierExample" >
     select
     <if test="distinct" >
       distinct
@@ -105,13 +105,13 @@
     delete from tab_superlier
     where superlierid = #{superlierid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_superlierExample" >
+  <delete id="deleteByExample" parameterType="Tab_superlierExample" >
     delete from tab_superlier
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_superlier" >
+  <insert id="insert" parameterType="Tab_superlier" >
     insert into tab_superlier (superlierid, superliername, state, 
       remark, people, phone, 
       address, websute, day, 
@@ -125,7 +125,7 @@
       #{fax,jdbcType=VARCHAR}, #{postalcode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_superlier" >
+  <insert id="insertSelective" parameterType="Tab_superlier" >
     insert into tab_superlier
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="superlierid != null" >
@@ -222,7 +222,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_superlierExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_superlierExample" resultType="java.lang.Integer" >
     select count(*) from tab_superlier
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -302,7 +302,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_superlier" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_superlier" >
     update tab_superlier
     <set >
       <if test="superliername != null" >
@@ -350,7 +350,7 @@
     </set>
     where superlierid = #{superlierid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_superlier" >
+  <update id="updateByPrimaryKey" parameterType="Tab_superlier" >
     update tab_superlier
     set superliername = #{superliername,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},

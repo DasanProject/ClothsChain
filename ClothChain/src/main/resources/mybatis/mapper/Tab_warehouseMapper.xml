@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_warehouseMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_warehouse" >
+  <resultMap id="BaseResultMap" type="Tab_warehouse" >
     <id column="warehouseid" property="warehouseid" jdbcType="INTEGER" />
     <result column="warehousename" property="warehousename" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     warehouseid, warehousename, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_warehouseExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_warehouseExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from tab_warehouse
     where warehouseid = #{warehouseid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_warehouseExample" >
+  <delete id="deleteByExample" parameterType="Tab_warehouseExample" >
     delete from tab_warehouse
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_warehouse" >
+  <insert id="insert" parameterType="Tab_warehouse" >
     insert into tab_warehouse (warehouseid, warehousename, remark
       )
     values (#{warehouseid,jdbcType=INTEGER}, #{warehousename,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_warehouse" >
+  <insert id="insertSelective" parameterType="Tab_warehouse" >
     insert into tab_warehouse
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="warehouseid != null" >
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_warehouseExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_warehouseExample" resultType="java.lang.Integer" >
     select count(*) from tab_warehouse
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_warehouse" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_warehouse" >
     update tab_warehouse
     <set >
       <if test="warehousename != null" >
@@ -173,7 +173,7 @@
     </set>
     where warehouseid = #{warehouseid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_warehouse" >
+  <update id="updateByPrimaryKey" parameterType="Tab_warehouse" >
     update tab_warehouse
     set warehousename = #{warehousename,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR}

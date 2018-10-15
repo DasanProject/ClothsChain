@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_usematerialMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_usematerial" >
+  <resultMap id="BaseResultMap" type="Tab_usematerial" >
     <id column="usematerialid" property="usematerialid" jdbcType="INTEGER" />
     <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
     <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
@@ -13,16 +13,16 @@
     <result column="colorno" property="colorno" jdbcType="VARCHAR" />
     <result column="spec" property="spec" jdbcType="VARCHAR" />
     <result column="unit" property="unit" jdbcType="VARCHAR" />
-    <result column="madenum" property="madenum" jdbcType="Double" />
-    <result column="singlenum" property="singlenum" jdbcType="Double" />
-    <result column="loss" property="loss" jdbcType="Double" />
-    <result column="totalconsumption" property="totalconsumption" jdbcType="Double" />
-    <result column="price" property="price" jdbcType="Double" />
-    <result column="submitnum" property="submitnum" jdbcType="Double" />
-    <result column="uncomittednum" property="uncomittednum" jdbcType="Double" />
+    <result column="madenum" property="madenum" jdbcType="DECIMAL" />
+    <result column="singlenum" property="singlenum" jdbcType="DECIMAL" />
+    <result column="loss" property="loss" jdbcType="DECIMAL" />
+    <result column="totalconsumption" property="totalconsumption" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="submitnum" property="submitnum" jdbcType="DECIMAL" />
+    <result column="uncomittednum" property="uncomittednum" jdbcType="DECIMAL" />
     <result column="autidionstate" property="autidionstate" jdbcType="INTEGER" />
     <result column="pono" property="pono" jdbcType="VARCHAR" />
-    <result column="innum" property="innum" jdbcType="Double" />
+    <result column="innum" property="innum" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -87,7 +87,7 @@
     color, colorno, spec, unit, madenum, singlenum, loss, totalconsumption, price, submitnum, 
     uncomittednum, autidionstate, pono, innum
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_usematerialExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_usematerialExample" >
     select
     <if test="distinct" >
       distinct
@@ -112,13 +112,13 @@
     delete from tab_usematerial
     where usematerialid = #{usematerialid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_usematerialExample" >
+  <delete id="deleteByExample" parameterType="Tab_usematerialExample" >
     delete from tab_usematerial
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_usematerial" >
+  <insert id="insert" parameterType="Tab_usematerial" >
     insert into tab_usematerial (usematerialid, superlierid, sampleno, 
       materialtype, garmentparts, materialno, 
       materialname, color, colorno, 
@@ -130,13 +130,13 @@
     values (#{usematerialid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, 
       #{materialtype,jdbcType=VARCHAR}, #{garmentparts,jdbcType=VARCHAR}, #{materialno,jdbcType=VARCHAR}, 
       #{materialname,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{colorno,jdbcType=VARCHAR}, 
-      #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{madenum,jdbcType=Double},
-      #{singlenum,jdbcType=Double}, #{loss,jdbcType=Double}, #{totalconsumption,jdbcType=Double},
-      #{price,jdbcType=Double}, #{submitnum,jdbcType=Double}, #{uncomittednum,jdbcType=Double},
-      #{autidionstate,jdbcType=INTEGER}, #{pono,jdbcType=VARCHAR}, #{innum,jdbcType=Double}
+      #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{madenum,jdbcType=DECIMAL}, 
+      #{singlenum,jdbcType=DECIMAL}, #{loss,jdbcType=DECIMAL}, #{totalconsumption,jdbcType=DECIMAL}, 
+      #{price,jdbcType=DECIMAL}, #{submitnum,jdbcType=DECIMAL}, #{uncomittednum,jdbcType=DECIMAL}, 
+      #{autidionstate,jdbcType=INTEGER}, #{pono,jdbcType=VARCHAR}, #{innum,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_usematerial" >
+  <insert id="insertSelective" parameterType="Tab_usematerial" >
     insert into tab_usematerial
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="usematerialid != null" >
@@ -238,25 +238,25 @@
         #{unit,jdbcType=VARCHAR},
       </if>
       <if test="madenum != null" >
-        #{madenum,jdbcType=Double},
+        #{madenum,jdbcType=DECIMAL},
       </if>
       <if test="singlenum != null" >
-        #{singlenum,jdbcType=Double},
+        #{singlenum,jdbcType=DECIMAL},
       </if>
       <if test="loss != null" >
-        #{loss,jdbcType=Double},
+        #{loss,jdbcType=DECIMAL},
       </if>
       <if test="totalconsumption != null" >
-        #{totalconsumption,jdbcType=Double},
+        #{totalconsumption,jdbcType=DECIMAL},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="submitnum != null" >
-        #{submitnum,jdbcType=Double},
+        #{submitnum,jdbcType=DECIMAL},
       </if>
       <if test="uncomittednum != null" >
-        #{uncomittednum,jdbcType=Double},
+        #{uncomittednum,jdbcType=DECIMAL},
       </if>
       <if test="autidionstate != null" >
         #{autidionstate,jdbcType=INTEGER},
@@ -265,11 +265,11 @@
         #{pono,jdbcType=VARCHAR},
       </if>
       <if test="innum != null" >
-        #{innum,jdbcType=Double},
+        #{innum,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_usematerialExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_usematerialExample" resultType="java.lang.Integer" >
     select count(*) from tab_usematerial
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -312,25 +312,25 @@
         unit = #{record.unit,jdbcType=VARCHAR},
       </if>
       <if test="record.madenum != null" >
-        madenum = #{record.madenum,jdbcType=Double},
+        madenum = #{record.madenum,jdbcType=DECIMAL},
       </if>
       <if test="record.singlenum != null" >
-        singlenum = #{record.singlenum,jdbcType=Double},
+        singlenum = #{record.singlenum,jdbcType=DECIMAL},
       </if>
       <if test="record.loss != null" >
-        loss = #{record.loss,jdbcType=Double},
+        loss = #{record.loss,jdbcType=DECIMAL},
       </if>
       <if test="record.totalconsumption != null" >
-        totalconsumption = #{record.totalconsumption,jdbcType=Double},
+        totalconsumption = #{record.totalconsumption,jdbcType=DECIMAL},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.submitnum != null" >
-        submitnum = #{record.submitnum,jdbcType=Double},
+        submitnum = #{record.submitnum,jdbcType=DECIMAL},
       </if>
       <if test="record.uncomittednum != null" >
-        uncomittednum = #{record.uncomittednum,jdbcType=Double},
+        uncomittednum = #{record.uncomittednum,jdbcType=DECIMAL},
       </if>
       <if test="record.autidionstate != null" >
         autidionstate = #{record.autidionstate,jdbcType=INTEGER},
@@ -339,7 +339,7 @@
         pono = #{record.pono,jdbcType=VARCHAR},
       </if>
       <if test="record.innum != null" >
-        innum = #{record.innum,jdbcType=Double},
+        innum = #{record.innum,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -359,21 +359,21 @@
       colorno = #{record.colorno,jdbcType=VARCHAR},
       spec = #{record.spec,jdbcType=VARCHAR},
       unit = #{record.unit,jdbcType=VARCHAR},
-      madenum = #{record.madenum,jdbcType=Double},
-      singlenum = #{record.singlenum,jdbcType=Double},
-      loss = #{record.loss,jdbcType=Double},
-      totalconsumption = #{record.totalconsumption,jdbcType=Double},
-      price = #{record.price,jdbcType=Double},
-      submitnum = #{record.submitnum,jdbcType=Double},
-      uncomittednum = #{record.uncomittednum,jdbcType=Double},
+      madenum = #{record.madenum,jdbcType=DECIMAL},
+      singlenum = #{record.singlenum,jdbcType=DECIMAL},
+      loss = #{record.loss,jdbcType=DECIMAL},
+      totalconsumption = #{record.totalconsumption,jdbcType=DECIMAL},
+      price = #{record.price,jdbcType=DECIMAL},
+      submitnum = #{record.submitnum,jdbcType=DECIMAL},
+      uncomittednum = #{record.uncomittednum,jdbcType=DECIMAL},
       autidionstate = #{record.autidionstate,jdbcType=INTEGER},
       pono = #{record.pono,jdbcType=VARCHAR},
-      innum = #{record.innum,jdbcType=Double}
+      innum = #{record.innum,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_usematerial" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_usematerial" >
     update tab_usematerial
     <set >
       <if test="superlierid != null" >
@@ -407,25 +407,25 @@
         unit = #{unit,jdbcType=VARCHAR},
       </if>
       <if test="madenum != null" >
-        madenum = #{madenum,jdbcType=Double},
+        madenum = #{madenum,jdbcType=DECIMAL},
       </if>
       <if test="singlenum != null" >
-        singlenum = #{singlenum,jdbcType=Double},
+        singlenum = #{singlenum,jdbcType=DECIMAL},
       </if>
       <if test="loss != null" >
-        loss = #{loss,jdbcType=Double},
+        loss = #{loss,jdbcType=DECIMAL},
       </if>
       <if test="totalconsumption != null" >
-        totalconsumption = #{totalconsumption,jdbcType=Double},
+        totalconsumption = #{totalconsumption,jdbcType=DECIMAL},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="submitnum != null" >
-        submitnum = #{submitnum,jdbcType=Double},
+        submitnum = #{submitnum,jdbcType=DECIMAL},
       </if>
       <if test="uncomittednum != null" >
-        uncomittednum = #{uncomittednum,jdbcType=Double},
+        uncomittednum = #{uncomittednum,jdbcType=DECIMAL},
       </if>
       <if test="autidionstate != null" >
         autidionstate = #{autidionstate,jdbcType=INTEGER},
@@ -434,12 +434,12 @@
         pono = #{pono,jdbcType=VARCHAR},
       </if>
       <if test="innum != null" >
-        innum = #{innum,jdbcType=Double},
+        innum = #{innum,jdbcType=DECIMAL},
       </if>
     </set>
     where usematerialid = #{usematerialid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_usematerial" >
+  <update id="updateByPrimaryKey" parameterType="Tab_usematerial" >
     update tab_usematerial
     set superlierid = #{superlierid,jdbcType=INTEGER},
       sampleno = #{sampleno,jdbcType=VARCHAR},
@@ -451,16 +451,16 @@
       colorno = #{colorno,jdbcType=VARCHAR},
       spec = #{spec,jdbcType=VARCHAR},
       unit = #{unit,jdbcType=VARCHAR},
-      madenum = #{madenum,jdbcType=Double},
-      singlenum = #{singlenum,jdbcType=Double},
-      loss = #{loss,jdbcType=Double},
-      totalconsumption = #{totalconsumption,jdbcType=Double},
-      price = #{price,jdbcType=Double},
-      submitnum = #{submitnum,jdbcType=Double},
-      uncomittednum = #{uncomittednum,jdbcType=Double},
+      madenum = #{madenum,jdbcType=DECIMAL},
+      singlenum = #{singlenum,jdbcType=DECIMAL},
+      loss = #{loss,jdbcType=DECIMAL},
+      totalconsumption = #{totalconsumption,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      submitnum = #{submitnum,jdbcType=DECIMAL},
+      uncomittednum = #{uncomittednum,jdbcType=DECIMAL},
       autidionstate = #{autidionstate,jdbcType=INTEGER},
       pono = #{pono,jdbcType=VARCHAR},
-      innum = #{innum,jdbcType=Double}
+      innum = #{innum,jdbcType=DECIMAL}
     where usematerialid = #{usematerialid,jdbcType=INTEGER}
   </update>
 </mapper>

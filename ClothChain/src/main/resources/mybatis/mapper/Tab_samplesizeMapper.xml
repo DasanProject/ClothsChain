@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_samplesizeMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_samplesize" >
+  <resultMap id="BaseResultMap" type="Tab_samplesize" >
     <id column="samplesizeid" property="samplesizeid" jdbcType="INTEGER" />
     <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
     <result column="customerlocation" property="customerlocation" jdbcType="VARCHAR" />
@@ -9,8 +9,8 @@
     <result column="metricmethod" property="metricmethod" jdbcType="VARCHAR" />
     <result column="samplesize" property="samplesize" jdbcType="VARCHAR" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
-    <result column="positive" property="positive" jdbcType="Double" />
-    <result column="negative" property="negative" jdbcType="Double" />
+    <result column="positive" property="positive" jdbcType="DECIMAL" />
+    <result column="negative" property="negative" jdbcType="DECIMAL" />
     <result column="size" property="size" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -75,7 +75,7 @@
     samplesizeid, sampleno, customerlocation, location, metricmethod, samplesize, describle, 
     positive, negative, size
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_samplesizeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_samplesizeExample" >
     select
     <if test="distinct" >
       distinct
@@ -100,23 +100,23 @@
     delete from tab_samplesize
     where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_samplesizeExample" >
+  <delete id="deleteByExample" parameterType="Tab_samplesizeExample" >
     delete from tab_samplesize
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_samplesize" >
+  <insert id="insert" parameterType="Tab_samplesize" >
     insert into tab_samplesize (samplesizeid, sampleno, customerlocation, 
       location, metricmethod, samplesize, 
       describle, positive, negative, 
       size)
     values (#{samplesizeid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, #{customerlocation,jdbcType=VARCHAR}, 
       #{location,jdbcType=VARCHAR}, #{metricmethod,jdbcType=VARCHAR}, #{samplesize,jdbcType=VARCHAR}, 
-      #{describle,jdbcType=VARCHAR}, #{positive,jdbcType=Double}, #{negative,jdbcType=Double},
+      #{describle,jdbcType=VARCHAR}, #{positive,jdbcType=DECIMAL}, #{negative,jdbcType=DECIMAL}, 
       #{size,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_samplesize" >
+  <insert id="insertSelective" parameterType="Tab_samplesize" >
     insert into tab_samplesize
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="samplesizeid != null" >
@@ -173,17 +173,17 @@
         #{describle,jdbcType=VARCHAR},
       </if>
       <if test="positive != null" >
-        #{positive,jdbcType=Double},
+        #{positive,jdbcType=DECIMAL},
       </if>
       <if test="negative != null" >
-        #{negative,jdbcType=Double},
+        #{negative,jdbcType=DECIMAL},
       </if>
       <if test="size != null" >
         #{size,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_samplesizeExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_samplesizeExample" resultType="java.lang.Integer" >
     select count(*) from tab_samplesize
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -214,10 +214,10 @@
         describle = #{record.describle,jdbcType=VARCHAR},
       </if>
       <if test="record.positive != null" >
-        positive = #{record.positive,jdbcType=Double},
+        positive = #{record.positive,jdbcType=DECIMAL},
       </if>
       <if test="record.negative != null" >
-        negative = #{record.negative,jdbcType=Double},
+        negative = #{record.negative,jdbcType=DECIMAL},
       </if>
       <if test="record.size != null" >
         size = #{record.size,jdbcType=INTEGER},
@@ -236,14 +236,14 @@
       metricmethod = #{record.metricmethod,jdbcType=VARCHAR},
       samplesize = #{record.samplesize,jdbcType=VARCHAR},
       describle = #{record.describle,jdbcType=VARCHAR},
-      positive = #{record.positive,jdbcType=Double},
-      negative = #{record.negative,jdbcType=Double},
+      positive = #{record.positive,jdbcType=DECIMAL},
+      negative = #{record.negative,jdbcType=DECIMAL},
       size = #{record.size,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_samplesize" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_samplesize" >
     update tab_samplesize
     <set >
       <if test="sampleno != null" >
@@ -265,10 +265,10 @@
         describle = #{describle,jdbcType=VARCHAR},
       </if>
       <if test="positive != null" >
-        positive = #{positive,jdbcType=Double},
+        positive = #{positive,jdbcType=DECIMAL},
       </if>
       <if test="negative != null" >
-        negative = #{negative,jdbcType=Double},
+        negative = #{negative,jdbcType=DECIMAL},
       </if>
       <if test="size != null" >
         size = #{size,jdbcType=INTEGER},
@@ -276,7 +276,7 @@
     </set>
     where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_samplesize" >
+  <update id="updateByPrimaryKey" parameterType="Tab_samplesize" >
     update tab_samplesize
     set sampleno = #{sampleno,jdbcType=VARCHAR},
       customerlocation = #{customerlocation,jdbcType=VARCHAR},
@@ -284,8 +284,8 @@
       metricmethod = #{metricmethod,jdbcType=VARCHAR},
       samplesize = #{samplesize,jdbcType=VARCHAR},
       describle = #{describle,jdbcType=VARCHAR},
-      positive = #{positive,jdbcType=Double},
-      negative = #{negative,jdbcType=Double},
+      positive = #{positive,jdbcType=DECIMAL},
+      negative = #{negative,jdbcType=DECIMAL},
       size = #{size,jdbcType=INTEGER}
     where samplesizeid = #{samplesizeid,jdbcType=INTEGER}
   </update>

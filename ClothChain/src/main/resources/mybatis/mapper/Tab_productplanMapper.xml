@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_productplanMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_productplan" >
+  <resultMap id="BaseResultMap" type="Tab_productplan" >
     <id column="productplanid" property="productplanid" jdbcType="INTEGER" />
     <result column="planthing" property="planthing" jdbcType="VARCHAR" />
     <result column="plandate" property="plandate" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     productplanid, planthing, plandate, complatedate, progroup, chargepaople, orderno
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_productplanExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_productplanExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,13 +96,13 @@
     delete from tab_productplan
     where productplanid = #{productplanid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_productplanExample" >
+  <delete id="deleteByExample" parameterType="Tab_productplanExample" >
     delete from tab_productplan
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_productplan" >
+  <insert id="insert" parameterType="Tab_productplan" >
     insert into tab_productplan (productplanid, planthing, plandate, 
       complatedate, progroup, chargepaople, 
       orderno)
@@ -110,7 +110,7 @@
       #{complatedate,jdbcType=VARCHAR}, #{progroup,jdbcType=VARCHAR}, #{chargepaople,jdbcType=VARCHAR}, 
       #{orderno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_productplan" >
+  <insert id="insertSelective" parameterType="Tab_productplan" >
     insert into tab_productplan
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="productplanid != null" >
@@ -159,7 +159,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_productplanExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_productplanExample" resultType="java.lang.Integer" >
     select count(*) from tab_productplan
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -207,7 +207,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_productplan" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_productplan" >
     update tab_productplan
     <set >
       <if test="planthing != null" >
@@ -231,7 +231,7 @@
     </set>
     where productplanid = #{productplanid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_productplan" >
+  <update id="updateByPrimaryKey" parameterType="Tab_productplan" >
     update tab_productplan
     set planthing = #{planthing,jdbcType=VARCHAR},
       plandate = #{plandate,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_planmatterMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_planmatter" >
+  <resultMap id="BaseResultMap" type="Tab_planmatter" >
     <id column="planmatterid" property="planmatterid" jdbcType="INTEGER" />
     <result column="plantypeid" property="plantypeid" jdbcType="INTEGER" />
     <result column="planmatter" property="planmatter" jdbcType="VARCHAR" />
@@ -75,9 +75,9 @@
   </sql>
   <sql id="Base_Column_List" >
     planmatterid, plantypeid, planmatter, plantype, warnday, transday, plandate, nodesday, 
-    warnstate, import, materialnode, purchsingnode
+    warnstate, imports, materialnode, purchsingnode
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_planmatterExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_planmatterExample" >
     select
     <if test="distinct" >
       distinct
@@ -102,25 +102,25 @@
     delete from tab_planmatter
     where planmatterid = #{planmatterid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_planmatterExample" >
+  <delete id="deleteByExample" parameterType="Tab_planmatterExample" >
     delete from tab_planmatter
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_planmatter" >
+  <insert id="insert" parameterType="Tab_planmatter" >
     insert into tab_planmatter (planmatterid, plantypeid, planmatter, 
       plantype, warnday, transday, 
       plandate, nodesday, warnstate, 
-      import, materialnode, purchsingnode
+      imports, materialnode, purchsingnode
       )
     values (#{planmatterid,jdbcType=INTEGER}, #{plantypeid,jdbcType=INTEGER}, #{planmatter,jdbcType=VARCHAR}, 
       #{plantype,jdbcType=INTEGER}, #{warnday,jdbcType=INTEGER}, #{transday,jdbcType=INTEGER}, 
       #{plandate,jdbcType=VARCHAR}, #{nodesday,jdbcType=INTEGER}, #{warnstate,jdbcType=INTEGER}, 
-      #{import,jdbcType=INTEGER}, #{materialnode,jdbcType=VARCHAR}, #{purchsingnode,jdbcType=VARCHAR}
+      #{imports,jdbcType=INTEGER}, #{materialnode,jdbcType=VARCHAR}, #{purchsingnode,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_planmatter" >
+  <insert id="insertSelective" parameterType="Tab_planmatter" >
     insert into tab_planmatter
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="planmatterid != null" >
@@ -150,8 +150,8 @@
       <if test="warnstate != null" >
         warnstate,
       </if>
-      <if test="import != null" >
-        import,
+      <if test="imports != null" >
+        imports,
       </if>
       <if test="materialnode != null" >
         materialnode,
@@ -188,8 +188,8 @@
       <if test="warnstate != null" >
         #{warnstate,jdbcType=INTEGER},
       </if>
-      <if test="import != null" >
-        #{import,jdbcType=INTEGER},
+      <if test="imports != null" >
+        #{imports,jdbcType=INTEGER},
       </if>
       <if test="materialnode != null" >
         #{materialnode,jdbcType=VARCHAR},
@@ -199,7 +199,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_planmatterExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_planmatterExample" resultType="java.lang.Integer" >
     select count(*) from tab_planmatter
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -235,8 +235,8 @@
       <if test="record.warnstate != null" >
         warnstate = #{record.warnstate,jdbcType=INTEGER},
       </if>
-      <if test="record.import != null" >
-        import = #{record.import,jdbcType=INTEGER},
+      <if test="record.imports != null" >
+        imports = #{record.imports,jdbcType=INTEGER},
       </if>
       <if test="record.materialnode != null" >
         materialnode = #{record.materialnode,jdbcType=VARCHAR},
@@ -260,14 +260,14 @@
       plandate = #{record.plandate,jdbcType=VARCHAR},
       nodesday = #{record.nodesday,jdbcType=INTEGER},
       warnstate = #{record.warnstate,jdbcType=INTEGER},
-      import = #{record.import,jdbcType=INTEGER},
+      imports = #{record.imports,jdbcType=INTEGER},
       materialnode = #{record.materialnode,jdbcType=VARCHAR},
       purchsingnode = #{record.purchsingnode,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_planmatter" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_planmatter" >
     update tab_planmatter
     <set >
       <if test="plantypeid != null" >
@@ -294,8 +294,8 @@
       <if test="warnstate != null" >
         warnstate = #{warnstate,jdbcType=INTEGER},
       </if>
-      <if test="import != null" >
-        import = #{import,jdbcType=INTEGER},
+      <if test="imports != null" >
+        imports = #{imports,jdbcType=INTEGER},
       </if>
       <if test="materialnode != null" >
         materialnode = #{materialnode,jdbcType=VARCHAR},
@@ -306,7 +306,7 @@
     </set>
     where planmatterid = #{planmatterid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_planmatter" >
+  <update id="updateByPrimaryKey" parameterType="Tab_planmatter" >
     update tab_planmatter
     set plantypeid = #{plantypeid,jdbcType=INTEGER},
       planmatter = #{planmatter,jdbcType=VARCHAR},
@@ -316,7 +316,7 @@
       plandate = #{plandate,jdbcType=VARCHAR},
       nodesday = #{nodesday,jdbcType=INTEGER},
       warnstate = #{warnstate,jdbcType=INTEGER},
-      import = #{import,jdbcType=INTEGER},
+      imports = #{imports,jdbcType=INTEGER},
       materialnode = #{materialnode,jdbcType=VARCHAR},
       purchsingnode = #{purchsingnode,jdbcType=VARCHAR}
     where planmatterid = #{planmatterid,jdbcType=INTEGER}

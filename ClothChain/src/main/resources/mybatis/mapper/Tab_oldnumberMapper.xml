@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_oldnumberMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_oldnumber" >
+  <resultMap id="BaseResultMap" type="Tab_oldnumber" >
     <id column="oldnumber" property="oldnumber" jdbcType="INTEGER" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
     <result column="prefix" property="prefix" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     oldnumber, describle, prefix, number, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_oldnumberExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_oldnumberExample" >
     select
     <if test="distinct" >
       distinct
@@ -94,19 +94,19 @@
     delete from tab_oldnumber
     where oldnumber = #{oldnumber,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_oldnumberExample" >
+  <delete id="deleteByExample" parameterType="Tab_oldnumberExample" >
     delete from tab_oldnumber
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_oldnumber" >
+  <insert id="insert" parameterType="Tab_oldnumber" >
     insert into tab_oldnumber (oldnumber, describle, prefix, 
       number, remark)
     values (#{oldnumber,jdbcType=INTEGER}, #{describle,jdbcType=VARCHAR}, #{prefix,jdbcType=VARCHAR}, 
       #{number,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_oldnumber" >
+  <insert id="insertSelective" parameterType="Tab_oldnumber" >
     insert into tab_oldnumber
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="oldnumber != null" >
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_oldnumberExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_oldnumberExample" resultType="java.lang.Integer" >
     select count(*) from tab_oldnumber
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -183,7 +183,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_oldnumber" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_oldnumber" >
     update tab_oldnumber
     <set >
       <if test="describle != null" >
@@ -201,7 +201,7 @@
     </set>
     where oldnumber = #{oldnumber,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_oldnumber" >
+  <update id="updateByPrimaryKey" parameterType="Tab_oldnumber" >
     update tab_oldnumber
     set describle = #{describle,jdbcType=VARCHAR},
       prefix = #{prefix,jdbcType=VARCHAR},

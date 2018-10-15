@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_sizeMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_size" >
+  <resultMap id="BaseResultMap" type="Tab_size" >
     <id column="sizeid" property="sizeid" jdbcType="INTEGER" />
     <result column="sizename" property="sizename" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     sizeid, sizename
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_sizeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_sizeExample" >
     select
     <if test="distinct" >
       distinct
@@ -91,17 +91,17 @@
     delete from tab_size
     where sizeid = #{sizeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_sizeExample" >
+  <delete id="deleteByExample" parameterType="Tab_sizeExample" >
     delete from tab_size
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_size" >
+  <insert id="insert" parameterType="Tab_size" >
     insert into tab_size (sizeid, sizename)
     values (#{sizeid,jdbcType=INTEGER}, #{sizename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_size" >
+  <insert id="insertSelective" parameterType="Tab_size" >
     insert into tab_size
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sizeid != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_sizeExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_sizeExample" resultType="java.lang.Integer" >
     select count(*) from tab_size
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -148,7 +148,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_size" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_size" >
     update tab_size
     <set >
       <if test="sizename != null" >
@@ -157,7 +157,7 @@
     </set>
     where sizeid = #{sizeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_size" >
+  <update id="updateByPrimaryKey" parameterType="Tab_size" >
     update tab_size
     set sizename = #{sizename,jdbcType=VARCHAR}
     where sizeid = #{sizeid,jdbcType=INTEGER}

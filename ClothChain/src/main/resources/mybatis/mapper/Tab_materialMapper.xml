@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_materialMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_material" >
+  <resultMap id="BaseResultMap" type="Tab_material" >
     <id column="materialid" property="materialid" jdbcType="INTEGER" />
     <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
     <result column="categoryid" property="categoryid" jdbcType="INTEGER" />
@@ -12,10 +12,10 @@
     <result column="auditstatu" property="auditstatu" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="basis" property="basis" jdbcType="VARCHAR" />
-    <result column="shrinkage" property="shrinkage" jdbcType="Double" />
-    <result column="weight" property="weight" jdbcType="Double" />
+    <result column="shrinkage" property="shrinkage" jdbcType="DECIMAL" />
+    <result column="weight" property="weight" jdbcType="DECIMAL" />
     <result column="num" property="num" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="Double" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
     <result column="unit" property="unit" jdbcType="VARCHAR" />
     <result column="startnum" property="startnum" jdbcType="INTEGER" />
     <result column="color" property="color" jdbcType="VARCHAR" />
@@ -83,7 +83,7 @@
     materialid, superlierid, categoryid, materialnum, materialname, modal, state, auditstatu, 
     remark, basis, shrinkage, weight, num, price, unit, startnum, color, size
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_materialExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_materialExample" >
     select
     <if test="distinct" >
       distinct
@@ -108,13 +108,13 @@
     delete from tab_material
     where materialid = #{materialid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_materialExample" >
+  <delete id="deleteByExample" parameterType="Tab_materialExample" >
     delete from tab_material
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_material" >
+  <insert id="insert" parameterType="Tab_material" >
     insert into tab_material (materialid, superlierid, categoryid, 
       materialnum, materialname, modal, 
       state, auditstatu, remark, 
@@ -124,11 +124,11 @@
     values (#{materialid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
       #{materialnum,jdbcType=VARCHAR}, #{materialname,jdbcType=VARCHAR}, #{modal,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{auditstatu,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      #{basis,jdbcType=VARCHAR}, #{shrinkage,jdbcType=Double}, #{weight,jdbcType=Double},
-      #{num,jdbcType=INTEGER}, #{price,jdbcType=Double}, #{unit,jdbcType=VARCHAR}, #{startnum,jdbcType=INTEGER},
+      #{basis,jdbcType=VARCHAR}, #{shrinkage,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, 
+      #{num,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{unit,jdbcType=VARCHAR}, #{startnum,jdbcType=INTEGER}, 
       #{color,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_material" >
+  <insert id="insertSelective" parameterType="Tab_material" >
     insert into tab_material
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="materialid != null" >
@@ -218,16 +218,16 @@
         #{basis,jdbcType=VARCHAR},
       </if>
       <if test="shrinkage != null" >
-        #{shrinkage,jdbcType=Double},
+        #{shrinkage,jdbcType=DECIMAL},
       </if>
       <if test="weight != null" >
-        #{weight,jdbcType=Double},
+        #{weight,jdbcType=DECIMAL},
       </if>
       <if test="num != null" >
         #{num,jdbcType=INTEGER},
       </if>
       <if test="price != null" >
-        #{price,jdbcType=Double},
+        #{price,jdbcType=DECIMAL},
       </if>
       <if test="unit != null" >
         #{unit,jdbcType=VARCHAR},
@@ -243,7 +243,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_materialExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_materialExample" resultType="java.lang.Integer" >
     select count(*) from tab_material
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -283,16 +283,16 @@
         basis = #{record.basis,jdbcType=VARCHAR},
       </if>
       <if test="record.shrinkage != null" >
-        shrinkage = #{record.shrinkage,jdbcType=Double},
+        shrinkage = #{record.shrinkage,jdbcType=DECIMAL},
       </if>
       <if test="record.weight != null" >
-        weight = #{record.weight,jdbcType=Double},
+        weight = #{record.weight,jdbcType=DECIMAL},
       </if>
       <if test="record.num != null" >
         num = #{record.num,jdbcType=INTEGER},
       </if>
       <if test="record.price != null" >
-        price = #{record.price,jdbcType=Double},
+        price = #{record.price,jdbcType=DECIMAL},
       </if>
       <if test="record.unit != null" >
         unit = #{record.unit,jdbcType=VARCHAR},
@@ -323,10 +323,10 @@
       auditstatu = #{record.auditstatu,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
       basis = #{record.basis,jdbcType=VARCHAR},
-      shrinkage = #{record.shrinkage,jdbcType=Double},
-      weight = #{record.weight,jdbcType=Double},
+      shrinkage = #{record.shrinkage,jdbcType=DECIMAL},
+      weight = #{record.weight,jdbcType=DECIMAL},
       num = #{record.num,jdbcType=INTEGER},
-      price = #{record.price,jdbcType=Double},
+      price = #{record.price,jdbcType=DECIMAL},
       unit = #{record.unit,jdbcType=VARCHAR},
       startnum = #{record.startnum,jdbcType=INTEGER},
       color = #{record.color,jdbcType=VARCHAR},
@@ -335,7 +335,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_material" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_material" >
     update tab_material
     <set >
       <if test="superlierid != null" >
@@ -366,16 +366,16 @@
         basis = #{basis,jdbcType=VARCHAR},
       </if>
       <if test="shrinkage != null" >
-        shrinkage = #{shrinkage,jdbcType=Double},
+        shrinkage = #{shrinkage,jdbcType=DECIMAL},
       </if>
       <if test="weight != null" >
-        weight = #{weight,jdbcType=Double},
+        weight = #{weight,jdbcType=DECIMAL},
       </if>
       <if test="num != null" >
         num = #{num,jdbcType=INTEGER},
       </if>
       <if test="price != null" >
-        price = #{price,jdbcType=Double},
+        price = #{price,jdbcType=DECIMAL},
       </if>
       <if test="unit != null" >
         unit = #{unit,jdbcType=VARCHAR},
@@ -392,7 +392,7 @@
     </set>
     where materialid = #{materialid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_material" >
+  <update id="updateByPrimaryKey" parameterType="Tab_material" >
     update tab_material
     set superlierid = #{superlierid,jdbcType=INTEGER},
       categoryid = #{categoryid,jdbcType=INTEGER},
@@ -403,10 +403,10 @@
       auditstatu = #{auditstatu,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       basis = #{basis,jdbcType=VARCHAR},
-      shrinkage = #{shrinkage,jdbcType=Double},
-      weight = #{weight,jdbcType=Double},
+      shrinkage = #{shrinkage,jdbcType=DECIMAL},
+      weight = #{weight,jdbcType=DECIMAL},
       num = #{num,jdbcType=INTEGER},
-      price = #{price,jdbcType=Double},
+      price = #{price,jdbcType=DECIMAL},
       unit = #{unit,jdbcType=VARCHAR},
       startnum = #{startnum,jdbcType=INTEGER},
       color = #{color,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_proMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_pro" >
+  <resultMap id="BaseResultMap" type="Tab_pro" >
     <id column="progressid" property="progressid" jdbcType="INTEGER" />
     <result column="salesorder" property="salesorder" jdbcType="VARCHAR" />
     <result column="cutnumber" property="cutnumber" jdbcType="INTEGER" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     progressid, salesorder, cutnumber, worknumber, intputnumber, outnumber, accepetnumber
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_proExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_proExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,13 +96,13 @@
     delete from tab_pro
     where progressid = #{progressid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_proExample" >
+  <delete id="deleteByExample" parameterType="Tab_proExample" >
     delete from tab_pro
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_pro" >
+  <insert id="insert" parameterType="Tab_pro" >
     insert into tab_pro (progressid, salesorder, cutnumber, 
       worknumber, intputnumber, outnumber, 
       accepetnumber)
@@ -110,7 +110,7 @@
       #{worknumber,jdbcType=INTEGER}, #{intputnumber,jdbcType=INTEGER}, #{outnumber,jdbcType=INTEGER}, 
       #{accepetnumber,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_pro" >
+  <insert id="insertSelective" parameterType="Tab_pro" >
     insert into tab_pro
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="progressid != null" >
@@ -159,7 +159,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_proExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_proExample" resultType="java.lang.Integer" >
     select count(*) from tab_pro
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -207,7 +207,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_pro" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_pro" >
     update tab_pro
     <set >
       <if test="salesorder != null" >
@@ -231,7 +231,7 @@
     </set>
     where progressid = #{progressid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_pro" >
+  <update id="updateByPrimaryKey" parameterType="Tab_pro" >
     update tab_pro
     set salesorder = #{salesorder,jdbcType=VARCHAR},
       cutnumber = #{cutnumber,jdbcType=INTEGER},

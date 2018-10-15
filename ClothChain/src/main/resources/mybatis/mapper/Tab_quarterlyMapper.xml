@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_quarterlyMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_quarterly" >
+  <resultMap id="BaseResultMap" type="Tab_quarterly" >
     <id column="quarterlyid" property="quarterlyid" jdbcType="INTEGER" />
     <result column="quarterlyno" property="quarterlyno" jdbcType="VARCHAR" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     quarterlyid, quarterlyno, describle
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_quarterlyExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_quarterlyExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from tab_quarterly
     where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_quarterlyExample" >
+  <delete id="deleteByExample" parameterType="Tab_quarterlyExample" >
     delete from tab_quarterly
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_quarterly" >
+  <insert id="insert" parameterType="Tab_quarterly" >
     insert into tab_quarterly (quarterlyid, quarterlyno, describle
       )
     values (#{quarterlyid,jdbcType=INTEGER}, #{quarterlyno,jdbcType=VARCHAR}, #{describle,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_quarterly" >
+  <insert id="insertSelective" parameterType="Tab_quarterly" >
     insert into tab_quarterly
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="quarterlyid != null" >
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_quarterlyExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_quarterlyExample" resultType="java.lang.Integer" >
     select count(*) from tab_quarterly
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_quarterly" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_quarterly" >
     update tab_quarterly
     <set >
       <if test="quarterlyno != null" >
@@ -173,7 +173,7 @@
     </set>
     where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_quarterly" >
+  <update id="updateByPrimaryKey" parameterType="Tab_quarterly" >
     update tab_quarterly
     set quarterlyno = #{quarterlyno,jdbcType=VARCHAR},
       describle = #{describle,jdbcType=VARCHAR}

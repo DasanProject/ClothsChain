@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_settlementMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_settlement" >
+  <resultMap id="BaseResultMap" type="Tab_settlement" >
     <id column="settlementid" property="settlementid" jdbcType="INTEGER" />
     <result column="settlementno" property="settlementno" jdbcType="VARCHAR" />
     <result column="storageno" property="storageno" jdbcType="VARCHAR" />
@@ -9,13 +9,13 @@
     <result column="requisitiondate" property="requisitiondate" jdbcType="VARCHAR" />
     <result column="financestate" property="financestate" jdbcType="VARCHAR" />
     <result column="auditordate" property="auditordate" jdbcType="VARCHAR" />
-    <result column="applymoney" property="applymoney" jdbcType="Double" />
-    <result column="paymentmoney" property="paymentmoney" jdbcType="Double" />
+    <result column="applymoney" property="applymoney" jdbcType="DECIMAL" />
+    <result column="paymentmoney" property="paymentmoney" jdbcType="DECIMAL" />
     <result column="applytype" property="applytype" jdbcType="VARCHAR" />
     <result column="applystate" property="applystate" jdbcType="INTEGER" />
-    <result column="dyeingfee" property="dyeingfee" jdbcType="Double" />
-    <result column="smallfee" property="smallfee" jdbcType="Double" />
-    <result column="othermoney" property="othermoney" jdbcType="Double" />
+    <result column="dyeingfee" property="dyeingfee" jdbcType="DECIMAL" />
+    <result column="smallfee" property="smallfee" jdbcType="DECIMAL" />
+    <result column="othermoney" property="othermoney" jdbcType="DECIMAL" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="ruditor" property="ruditor" jdbcType="VARCHAR" />
     <result column="leaderapprover" property="leaderapprover" jdbcType="VARCHAR" />
@@ -85,7 +85,7 @@
     auditordate, applymoney, paymentmoney, applytype, applystate, dyeingfee, smallfee, 
     othermoney, remarks, ruditor, leaderapprover, batchdate, superlierid
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_settlementExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_settlementExample" >
     select
     <if test="distinct" >
       distinct
@@ -110,13 +110,13 @@
     delete from tab_settlement
     where settlementid = #{settlementid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_settlementExample" >
+  <delete id="deleteByExample" parameterType="Tab_settlementExample" >
     delete from tab_settlement
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_settlement" >
+  <insert id="insert" parameterType="Tab_settlement" >
     insert into tab_settlement (settlementid, settlementno, storageno, 
       reconciliationsno, requisitiondate, financestate, 
       auditordate, applymoney, paymentmoney, 
@@ -126,13 +126,13 @@
       superlierid)
     values (#{settlementid,jdbcType=INTEGER}, #{settlementno,jdbcType=VARCHAR}, #{storageno,jdbcType=VARCHAR}, 
       #{reconciliationsno,jdbcType=VARCHAR}, #{requisitiondate,jdbcType=VARCHAR}, #{financestate,jdbcType=VARCHAR}, 
-      #{auditordate,jdbcType=VARCHAR}, #{applymoney,jdbcType=Double}, #{paymentmoney,jdbcType=Double},
-      #{applytype,jdbcType=VARCHAR}, #{applystate,jdbcType=INTEGER}, #{dyeingfee,jdbcType=Double},
-      #{smallfee,jdbcType=Double}, #{othermoney,jdbcType=Double}, #{remarks,jdbcType=VARCHAR},
+      #{auditordate,jdbcType=VARCHAR}, #{applymoney,jdbcType=DECIMAL}, #{paymentmoney,jdbcType=DECIMAL}, 
+      #{applytype,jdbcType=VARCHAR}, #{applystate,jdbcType=INTEGER}, #{dyeingfee,jdbcType=DECIMAL}, 
+      #{smallfee,jdbcType=DECIMAL}, #{othermoney,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
       #{ruditor,jdbcType=VARCHAR}, #{leaderapprover,jdbcType=VARCHAR}, #{batchdate,jdbcType=VARCHAR}, 
       #{superlierid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_settlement" >
+  <insert id="insertSelective" parameterType="Tab_settlement" >
     insert into tab_settlement
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="settlementid != null" >
@@ -216,10 +216,10 @@
         #{auditordate,jdbcType=VARCHAR},
       </if>
       <if test="applymoney != null" >
-        #{applymoney,jdbcType=Double},
+        #{applymoney,jdbcType=DECIMAL},
       </if>
       <if test="paymentmoney != null" >
-        #{paymentmoney,jdbcType=Double},
+        #{paymentmoney,jdbcType=DECIMAL},
       </if>
       <if test="applytype != null" >
         #{applytype,jdbcType=VARCHAR},
@@ -228,13 +228,13 @@
         #{applystate,jdbcType=INTEGER},
       </if>
       <if test="dyeingfee != null" >
-        #{dyeingfee,jdbcType=Double},
+        #{dyeingfee,jdbcType=DECIMAL},
       </if>
       <if test="smallfee != null" >
-        #{smallfee,jdbcType=Double},
+        #{smallfee,jdbcType=DECIMAL},
       </if>
       <if test="othermoney != null" >
-        #{othermoney,jdbcType=Double},
+        #{othermoney,jdbcType=DECIMAL},
       </if>
       <if test="remarks != null" >
         #{remarks,jdbcType=VARCHAR},
@@ -253,7 +253,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_settlementExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_settlementExample" resultType="java.lang.Integer" >
     select count(*) from tab_settlement
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -284,10 +284,10 @@
         auditordate = #{record.auditordate,jdbcType=VARCHAR},
       </if>
       <if test="record.applymoney != null" >
-        applymoney = #{record.applymoney,jdbcType=Double},
+        applymoney = #{record.applymoney,jdbcType=DECIMAL},
       </if>
       <if test="record.paymentmoney != null" >
-        paymentmoney = #{record.paymentmoney,jdbcType=Double},
+        paymentmoney = #{record.paymentmoney,jdbcType=DECIMAL},
       </if>
       <if test="record.applytype != null" >
         applytype = #{record.applytype,jdbcType=VARCHAR},
@@ -296,13 +296,13 @@
         applystate = #{record.applystate,jdbcType=INTEGER},
       </if>
       <if test="record.dyeingfee != null" >
-        dyeingfee = #{record.dyeingfee,jdbcType=Double},
+        dyeingfee = #{record.dyeingfee,jdbcType=DECIMAL},
       </if>
       <if test="record.smallfee != null" >
-        smallfee = #{record.smallfee,jdbcType=Double},
+        smallfee = #{record.smallfee,jdbcType=DECIMAL},
       </if>
       <if test="record.othermoney != null" >
-        othermoney = #{record.othermoney,jdbcType=Double},
+        othermoney = #{record.othermoney,jdbcType=DECIMAL},
       </if>
       <if test="record.remarks != null" >
         remarks = #{record.remarks,jdbcType=VARCHAR},
@@ -333,13 +333,13 @@
       requisitiondate = #{record.requisitiondate,jdbcType=VARCHAR},
       financestate = #{record.financestate,jdbcType=VARCHAR},
       auditordate = #{record.auditordate,jdbcType=VARCHAR},
-      applymoney = #{record.applymoney,jdbcType=Double},
-      paymentmoney = #{record.paymentmoney,jdbcType=Double},
+      applymoney = #{record.applymoney,jdbcType=DECIMAL},
+      paymentmoney = #{record.paymentmoney,jdbcType=DECIMAL},
       applytype = #{record.applytype,jdbcType=VARCHAR},
       applystate = #{record.applystate,jdbcType=INTEGER},
-      dyeingfee = #{record.dyeingfee,jdbcType=Double},
-      smallfee = #{record.smallfee,jdbcType=Double},
-      othermoney = #{record.othermoney,jdbcType=Double},
+      dyeingfee = #{record.dyeingfee,jdbcType=DECIMAL},
+      smallfee = #{record.smallfee,jdbcType=DECIMAL},
+      othermoney = #{record.othermoney,jdbcType=DECIMAL},
       remarks = #{record.remarks,jdbcType=VARCHAR},
       ruditor = #{record.ruditor,jdbcType=VARCHAR},
       leaderapprover = #{record.leaderapprover,jdbcType=VARCHAR},
@@ -349,7 +349,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_settlement" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_settlement" >
     update tab_settlement
     <set >
       <if test="settlementno != null" >
@@ -371,10 +371,10 @@
         auditordate = #{auditordate,jdbcType=VARCHAR},
       </if>
       <if test="applymoney != null" >
-        applymoney = #{applymoney,jdbcType=Double},
+        applymoney = #{applymoney,jdbcType=DECIMAL},
       </if>
       <if test="paymentmoney != null" >
-        paymentmoney = #{paymentmoney,jdbcType=Double},
+        paymentmoney = #{paymentmoney,jdbcType=DECIMAL},
       </if>
       <if test="applytype != null" >
         applytype = #{applytype,jdbcType=VARCHAR},
@@ -383,13 +383,13 @@
         applystate = #{applystate,jdbcType=INTEGER},
       </if>
       <if test="dyeingfee != null" >
-        dyeingfee = #{dyeingfee,jdbcType=Double},
+        dyeingfee = #{dyeingfee,jdbcType=DECIMAL},
       </if>
       <if test="smallfee != null" >
-        smallfee = #{smallfee,jdbcType=Double},
+        smallfee = #{smallfee,jdbcType=DECIMAL},
       </if>
       <if test="othermoney != null" >
-        othermoney = #{othermoney,jdbcType=Double},
+        othermoney = #{othermoney,jdbcType=DECIMAL},
       </if>
       <if test="remarks != null" >
         remarks = #{remarks,jdbcType=VARCHAR},
@@ -409,7 +409,7 @@
     </set>
     where settlementid = #{settlementid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_settlement" >
+  <update id="updateByPrimaryKey" parameterType="Tab_settlement" >
     update tab_settlement
     set settlementno = #{settlementno,jdbcType=VARCHAR},
       storageno = #{storageno,jdbcType=VARCHAR},
@@ -417,13 +417,13 @@
       requisitiondate = #{requisitiondate,jdbcType=VARCHAR},
       financestate = #{financestate,jdbcType=VARCHAR},
       auditordate = #{auditordate,jdbcType=VARCHAR},
-      applymoney = #{applymoney,jdbcType=Double},
-      paymentmoney = #{paymentmoney,jdbcType=Double},
+      applymoney = #{applymoney,jdbcType=DECIMAL},
+      paymentmoney = #{paymentmoney,jdbcType=DECIMAL},
       applytype = #{applytype,jdbcType=VARCHAR},
       applystate = #{applystate,jdbcType=INTEGER},
-      dyeingfee = #{dyeingfee,jdbcType=Double},
-      smallfee = #{smallfee,jdbcType=Double},
-      othermoney = #{othermoney,jdbcType=Double},
+      dyeingfee = #{dyeingfee,jdbcType=DECIMAL},
+      smallfee = #{smallfee,jdbcType=DECIMAL},
+      othermoney = #{othermoney,jdbcType=DECIMAL},
       remarks = #{remarks,jdbcType=VARCHAR},
       ruditor = #{ruditor,jdbcType=VARCHAR},
       leaderapprover = #{leaderapprover,jdbcType=VARCHAR},

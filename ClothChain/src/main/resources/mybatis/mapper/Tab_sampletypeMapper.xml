@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_sampletypeMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_sampletype" >
+  <resultMap id="BaseResultMap" type="Tab_sampletype" >
     <id column="sampletypeid" property="sampletypeid" jdbcType="INTEGER" />
     <result column="sampletypename" property="sampletypename" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     sampletypeid, sampletypename, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_sampletypeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_sampletypeExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from tab_sampletype
     where sampletypeid = #{sampletypeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_sampletypeExample" >
+  <delete id="deleteByExample" parameterType="Tab_sampletypeExample" >
     delete from tab_sampletype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_sampletype" >
+  <insert id="insert" parameterType="Tab_sampletype" >
     insert into tab_sampletype (sampletypeid, sampletypename, remark
       )
     values (#{sampletypeid,jdbcType=INTEGER}, #{sampletypename,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_sampletype" >
+  <insert id="insertSelective" parameterType="Tab_sampletype" >
     insert into tab_sampletype
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sampletypeid != null" >
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_sampletypeExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_sampletypeExample" resultType="java.lang.Integer" >
     select count(*) from tab_sampletype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_sampletype" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_sampletype" >
     update tab_sampletype
     <set >
       <if test="sampletypename != null" >
@@ -173,7 +173,7 @@
     </set>
     where sampletypeid = #{sampletypeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_sampletype" >
+  <update id="updateByPrimaryKey" parameterType="Tab_sampletype" >
     update tab_sampletype
     set sampletypename = #{sampletypename,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR}

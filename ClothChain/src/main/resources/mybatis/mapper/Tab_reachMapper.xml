@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_reachMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_reach" >
+  <resultMap id="BaseResultMap" type="Tab_reach" >
     <id column="reachid" property="reachid" jdbcType="INTEGER" />
     <result column="materialno" property="materialno" jdbcType="VARCHAR" />
     <result column="materialname" property="materialname" jdbcType="VARCHAR" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List" >
     reachid, materialno, materialname, plandate, complatedate, supperliar, saleno, opendate
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_reachExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_reachExample" >
     select
     <if test="distinct" >
       distinct
@@ -97,13 +97,13 @@
     delete from tab_reach
     where reachid = #{reachid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_reachExample" >
+  <delete id="deleteByExample" parameterType="Tab_reachExample" >
     delete from tab_reach
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_reach" >
+  <insert id="insert" parameterType="Tab_reach" >
     insert into tab_reach (reachid, materialno, materialname, 
       plandate, complatedate, supperliar, 
       saleno, opendate)
@@ -111,7 +111,7 @@
       #{plandate,jdbcType=VARCHAR}, #{complatedate,jdbcType=VARCHAR}, #{supperliar,jdbcType=VARCHAR}, 
       #{saleno,jdbcType=VARCHAR}, #{opendate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_reach" >
+  <insert id="insertSelective" parameterType="Tab_reach" >
     insert into tab_reach
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="reachid != null" >
@@ -166,7 +166,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_reachExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_reachExample" resultType="java.lang.Integer" >
     select count(*) from tab_reach
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -218,7 +218,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_reach" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_reach" >
     update tab_reach
     <set >
       <if test="materialno != null" >
@@ -245,7 +245,7 @@
     </set>
     where reachid = #{reachid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_reach" >
+  <update id="updateByPrimaryKey" parameterType="Tab_reach" >
     update tab_reach
     set materialno = #{materialno,jdbcType=VARCHAR},
       materialname = #{materialname,jdbcType=VARCHAR},

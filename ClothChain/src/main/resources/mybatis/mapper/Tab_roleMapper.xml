@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.Tab_roleMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Tab_role" >
+  <resultMap id="BaseResultMap" type="Tab_role" >
     <id column="roleid" property="roleid" jdbcType="INTEGER" />
     <result column="rolename" property="rolename" jdbcType="VARCHAR" />
     <result column="describle" property="describle" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     roleid, rolename, describle, state
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.Tab_roleExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_roleExample" >
     select
     <if test="distinct" >
       distinct
@@ -93,19 +93,19 @@
     delete from tab_role
     where roleid = #{roleid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.entity.Tab_roleExample" >
+  <delete id="deleteByExample" parameterType="Tab_roleExample" >
     delete from tab_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Tab_role" >
+  <insert id="insert" parameterType="Tab_role" >
     insert into tab_role (roleid, rolename, describle, 
       state)
     values (#{roleid,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, #{describle,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Tab_role" >
+  <insert id="insertSelective" parameterType="Tab_role" >
     insert into tab_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="roleid != null" >
@@ -136,7 +136,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.entity.Tab_roleExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="Tab_roleExample" resultType="java.lang.Integer" >
     select count(*) from tab_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -172,7 +172,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Tab_role" >
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_role" >
     update tab_role
     <set >
       <if test="rolename != null" >
@@ -187,7 +187,7 @@
     </set>
     where roleid = #{roleid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Tab_role" >
+  <update id="updateByPrimaryKey" parameterType="Tab_role" >
     update tab_role
     set rolename = #{rolename,jdbcType=VARCHAR},
       describle = #{describle,jdbcType=VARCHAR},
