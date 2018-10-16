@@ -20,10 +20,12 @@ import java.util.Map;
 public class Tab_admissionController {
     @Resource
    private Tab_admissoonBiz biz;
-@RequestMapping("getAdmissionAll_cmy")
+@RequestMapping("/getAdmissionAll_cmy")
 @ResponseBody
 public PageInfo<Map> getAdmissionAll_cmy(PageEntity pageEntity){
+    System.out.println(pageEntity.getPageNum());
     System.out.println(biz.getAlladmission_cmy(pageEntity).getSize());
+
     return biz.getAlladmission_cmy(pageEntity);
 }
 }
