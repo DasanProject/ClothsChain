@@ -22,4 +22,11 @@ public class Tab_customerController {
          List<Map> list=biz.queryCustomer();
          return list;
     }
+    //陈梦月查询客户
+    @RequestMapping("/getCustomer_cmy")
+    @ResponseBody
+    public List<Map> getCustomer_cmy(){
+
+        return biz.getCustomer_cmy();
+    }
 }

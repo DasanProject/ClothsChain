@@ -27,4 +27,5 @@ public interface Tab_oldnumberMapper {
     int updateByPrimaryKeySelective(Tab_oldnumber record);
 
     int updateByPrimaryKey(Tab_oldnumber record);
+
 }

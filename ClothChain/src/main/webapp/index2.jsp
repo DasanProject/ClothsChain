@@ -48,13 +48,13 @@
 
                 <!-- sidebar menu -->
                 <!-- sidebar menu -->
-                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
                     <div class="menu_section">
                         <h3>导航菜单</h3>
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-clone"></i>样板管理<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="fixed_sidebar.html" target="aaa">开发订单</a></li>
+                                    <li><a href="cmy_addSamplelist.jsp" target="aaa">开发订单</a></li>
                                     <li><a href="fixed_footer.html" target="aaa">成本预算</a></li>
                                 </ul>
                             </li>

@@ -209,4 +209,7 @@
       remark = #{remark,jdbcType=VARCHAR}
     where customerid = #{customerid,jdbcType=INTEGER}
   </update>
+  <select id="getCustomer_cmy" resultType="java.util.Map">
+           select * from tab_customer
+  </select>
 </mapper>

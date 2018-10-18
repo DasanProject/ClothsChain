@@ -209,4 +209,5 @@
       remark = #{remark,jdbcType=VARCHAR}
     where oldnumber = #{oldnumber,jdbcType=INTEGER}
   </update>
+
 </mapper>
