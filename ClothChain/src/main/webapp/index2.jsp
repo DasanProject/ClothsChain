@@ -55,7 +55,8 @@
                             <li><a><i class="fa fa-clone"></i>样板管理<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="cmy_addSamplelist.jsp" target="aaa">开发订单</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">成本预算</a></li>
+                                    <li><a href="cmy_selectSamplelist.jsp" target="aaa">订单明细</a></li>
+                                    <li><a href="my_selectSamplelist.html" target="aaa">成本预算</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>

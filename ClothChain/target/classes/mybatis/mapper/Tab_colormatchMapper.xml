@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_colormatchMapper" >
+  <resultMap id="BaseResultMap" type="Tab_colormatch" >
+    <id column="colormatchid" property="colormatchid" jdbcType="INTEGER" />
+    <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
+    <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
+    <result column="materialno" property="materialno" jdbcType="VARCHAR" />
+    <result column="materialname" property="materialname" jdbcType="VARCHAR" />
+    <result column="aaa" property="aaa" jdbcType="VARCHAR" />
+    <result column="modal" property="modal" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="colorno" property="colorno" jdbcType="VARCHAR" />
+    <result column="parts" property="parts" jdbcType="VARCHAR" />
+    <result column="dosage" property="dosage" jdbcType="DECIMAL" />
+    <result column="loss" property="loss" jdbcType="DECIMAL" />
+    <result column="materialcategory" property="materialcategory" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="clothtype" property="clothtype" jdbcType="VARCHAR" />
+    <result column="largetype" property="largetype" jdbcType="VARCHAR" />
+    <result column="smalltype" property="smalltype" jdbcType="VARCHAR" />
+    <result column="auditingstate" property="auditingstate" jdbcType="INTEGER" />
+    <result column="pono" property="pono" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    colormatchid, superlierid, sampleno, materialno, materialname, aaa, modal, unit, 
+    price, size, color, colorno, parts, dosage, loss, materialcategory, spec, remark, 
+    clothtype, largetype, smalltype, auditingstate, pono
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_colormatchExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_colormatch
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_colormatch
+    where colormatchid = #{colormatchid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_colormatch
+    where colormatchid = #{colormatchid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_colormatchExample" >
+    delete from tab_colormatch
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_colormatch" >
+    insert into tab_colormatch (colormatchid, superlierid, sampleno, 
+      materialno, materialname, aaa, 
+      modal, unit, price, 
+      size, color, colorno, 
+      parts, dosage, loss, 
+      materialcategory, spec, remark, 
+      clothtype, largetype, smalltype, 
+      auditingstate, pono)
+    values (#{colormatchid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, 
+      #{materialno,jdbcType=VARCHAR}, #{materialname,jdbcType=VARCHAR}, #{aaa,jdbcType=VARCHAR}, 
+      #{modal,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{size,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{colorno,jdbcType=VARCHAR}, 
+      #{parts,jdbcType=VARCHAR}, #{dosage,jdbcType=DECIMAL}, #{loss,jdbcType=DECIMAL}, 
+      #{materialcategory,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{clothtype,jdbcType=VARCHAR}, #{largetype,jdbcType=VARCHAR}, #{smalltype,jdbcType=VARCHAR}, 
+      #{auditingstate,jdbcType=INTEGER}, #{pono,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_colormatch" >
+    insert into tab_colormatch
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="colormatchid != null" >
+        colormatchid,
+      </if>
+      <if test="superlierid != null" >
+        superlierid,
+      </if>
+      <if test="sampleno != null" >
+        sampleno,
+      </if>
+      <if test="materialno != null" >
+        materialno,
+      </if>
+      <if test="materialname != null" >
+        materialname,
+      </if>
+      <if test="aaa != null" >
+        aaa,
+      </if>
+      <if test="modal != null" >
+        modal,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="colorno != null" >
+        colorno,
+      </if>
+      <if test="parts != null" >
+        parts,
+      </if>
+      <if test="dosage != null" >
+        dosage,
+      </if>
+      <if test="loss != null" >
+        loss,
+      </if>
+      <if test="materialcategory != null" >
+        materialcategory,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="clothtype != null" >
+        clothtype,
+      </if>
+      <if test="largetype != null" >
+        largetype,
+      </if>
+      <if test="smalltype != null" >
+        smalltype,
+      </if>
+      <if test="auditingstate != null" >
+        auditingstate,
+      </if>
+      <if test="pono != null" >
+        pono,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="colormatchid != null" >
+        #{colormatchid,jdbcType=INTEGER},
+      </if>
+      <if test="superlierid != null" >
+        #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="sampleno != null" >
+        #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialno != null" >
+        #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null" >
+        #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa != null" >
+        #{aaa,jdbcType=VARCHAR},
+      </if>
+      <if test="modal != null" >
+        #{modal,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null" >
+        #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null" >
+        #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        #{dosage,jdbcType=DECIMAL},
+      </if>
+      <if test="loss != null" >
+        #{loss,jdbcType=DECIMAL},
+      </if>
+      <if test="materialcategory != null" >
+        #{materialcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="clothtype != null" >
+        #{clothtype,jdbcType=VARCHAR},
+      </if>
+      <if test="largetype != null" >
+        #{largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltype != null" >
+        #{smalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="auditingstate != null" >
+        #{auditingstate,jdbcType=INTEGER},
+      </if>
+      <if test="pono != null" >
+        #{pono,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_colormatchExample" resultType="java.lang.Integer" >
+    select count(*) from tab_colormatch
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_colormatch
+    <set >
+      <if test="record.colormatchid != null" >
+        colormatchid = #{record.colormatchid,jdbcType=INTEGER},
+      </if>
+      <if test="record.superlierid != null" >
+        superlierid = #{record.superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sampleno != null" >
+        sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialno != null" >
+        materialno = #{record.materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialname != null" >
+        materialname = #{record.materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aaa != null" >
+        aaa = #{record.aaa,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modal != null" >
+        modal = #{record.modal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit != null" >
+        unit = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.colorno != null" >
+        colorno = #{record.colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parts != null" >
+        parts = #{record.parts,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dosage != null" >
+        dosage = #{record.dosage,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loss != null" >
+        loss = #{record.loss,jdbcType=DECIMAL},
+      </if>
+      <if test="record.materialcategory != null" >
+        materialcategory = #{record.materialcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spec != null" >
+        spec = #{record.spec,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clothtype != null" >
+        clothtype = #{record.clothtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.largetype != null" >
+        largetype = #{record.largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smalltype != null" >
+        smalltype = #{record.smalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditingstate != null" >
+        auditingstate = #{record.auditingstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.pono != null" >
+        pono = #{record.pono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_colormatch
+    set colormatchid = #{record.colormatchid,jdbcType=INTEGER},
+      superlierid = #{record.superlierid,jdbcType=INTEGER},
+      sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      materialno = #{record.materialno,jdbcType=VARCHAR},
+      materialname = #{record.materialname,jdbcType=VARCHAR},
+      aaa = #{record.aaa,jdbcType=VARCHAR},
+      modal = #{record.modal,jdbcType=VARCHAR},
+      unit = #{record.unit,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      size = #{record.size,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      colorno = #{record.colorno,jdbcType=VARCHAR},
+      parts = #{record.parts,jdbcType=VARCHAR},
+      dosage = #{record.dosage,jdbcType=DECIMAL},
+      loss = #{record.loss,jdbcType=DECIMAL},
+      materialcategory = #{record.materialcategory,jdbcType=VARCHAR},
+      spec = #{record.spec,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      clothtype = #{record.clothtype,jdbcType=VARCHAR},
+      largetype = #{record.largetype,jdbcType=VARCHAR},
+      smalltype = #{record.smalltype,jdbcType=VARCHAR},
+      auditingstate = #{record.auditingstate,jdbcType=INTEGER},
+      pono = #{record.pono,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_colormatch" >
+    update tab_colormatch
+    <set >
+      <if test="superlierid != null" >
+        superlierid = #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="sampleno != null" >
+        sampleno = #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialno != null" >
+        materialno = #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null" >
+        materialname = #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa != null" >
+        aaa = #{aaa,jdbcType=VARCHAR},
+      </if>
+      <if test="modal != null" >
+        modal = #{modal,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null" >
+        colorno = #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null" >
+        parts = #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        dosage = #{dosage,jdbcType=DECIMAL},
+      </if>
+      <if test="loss != null" >
+        loss = #{loss,jdbcType=DECIMAL},
+      </if>
+      <if test="materialcategory != null" >
+        materialcategory = #{materialcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="clothtype != null" >
+        clothtype = #{clothtype,jdbcType=VARCHAR},
+      </if>
+      <if test="largetype != null" >
+        largetype = #{largetype,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltype != null" >
+        smalltype = #{smalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="auditingstate != null" >
+        auditingstate = #{auditingstate,jdbcType=INTEGER},
+      </if>
+      <if test="pono != null" >
+        pono = #{pono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where colormatchid = #{colormatchid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_colormatch" >
+    update tab_colormatch
+    set superlierid = #{superlierid,jdbcType=INTEGER},
+      sampleno = #{sampleno,jdbcType=VARCHAR},
+      materialno = #{materialno,jdbcType=VARCHAR},
+      materialname = #{materialname,jdbcType=VARCHAR},
+      aaa = #{aaa,jdbcType=VARCHAR},
+      modal = #{modal,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      size = #{size,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      colorno = #{colorno,jdbcType=VARCHAR},
+      parts = #{parts,jdbcType=VARCHAR},
+      dosage = #{dosage,jdbcType=DECIMAL},
+      loss = #{loss,jdbcType=DECIMAL},
+      materialcategory = #{materialcategory,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      clothtype = #{clothtype,jdbcType=VARCHAR},
+      largetype = #{largetype,jdbcType=VARCHAR},
+      smalltype = #{smalltype,jdbcType=VARCHAR},
+      auditingstate = #{auditingstate,jdbcType=INTEGER},
+      pono = #{pono,jdbcType=VARCHAR}
+    where colormatchid = #{colormatchid,jdbcType=INTEGER}
+  </update>
+</mapper>

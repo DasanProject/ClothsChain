@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_clothcompontentMapper" >
+  <resultMap id="BaseResultMap" type="Tab_clothcompontent" >
+    <id column="compontentid" property="compontentid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="compontentname" property="compontentname" jdbcType="VARCHAR" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    compontentid, styleid, compontentname, describle
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_clothcompontentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_clothcompontent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_clothcompontent
+    where compontentid = #{compontentid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_clothcompontent
+    where compontentid = #{compontentid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_clothcompontentExample" >
+    delete from tab_clothcompontent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_clothcompontent" >
+    insert into tab_clothcompontent (compontentid, styleid, compontentname, 
+      describle)
+    values (#{compontentid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{compontentname,jdbcType=VARCHAR}, 
+      #{describle,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_clothcompontent" >
+    insert into tab_clothcompontent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compontentid != null" >
+        compontentid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="compontentname != null" >
+        compontentname,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compontentid != null" >
+        #{compontentid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="compontentname != null" >
+        #{compontentname,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_clothcompontentExample" resultType="java.lang.Integer" >
+    select count(*) from tab_clothcompontent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_clothcompontent
+    <set >
+      <if test="record.compontentid != null" >
+        compontentid = #{record.compontentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.compontentname != null" >
+        compontentname = #{record.compontentname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_clothcompontent
+    set compontentid = #{record.compontentid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      compontentname = #{record.compontentname,jdbcType=VARCHAR},
+      describle = #{record.describle,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_clothcompontent" >
+    update tab_clothcompontent
+    <set >
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="compontentname != null" >
+        compontentname = #{compontentname,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where compontentid = #{compontentid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_clothcompontent" >
+    update tab_clothcompontent
+    set styleid = #{styleid,jdbcType=INTEGER},
+      compontentname = #{compontentname,jdbcType=VARCHAR},
+      describle = #{describle,jdbcType=VARCHAR}
+    where compontentid = #{compontentid,jdbcType=INTEGER}
+  </update>
+</mapper>

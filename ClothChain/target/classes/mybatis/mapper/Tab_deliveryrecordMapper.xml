@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_deliveryrecordMapper" >
+  <resultMap id="BaseResultMap" type="Tab_deliveryrecord" >
+    <id column="deliveryid" property="deliveryid" jdbcType="INTEGER" />
+    <result column="deliverydate" property="deliverydate" jdbcType="VARCHAR" />
+    <result column="grouptype" property="grouptype" jdbcType="VARCHAR" />
+    <result column="salesorder" property="salesorder" jdbcType="VARCHAR" />
+    <result column="outnumber" property="outnumber" jdbcType="INTEGER" />
+    <result column="productiontotal" property="productiontotal" jdbcType="INTEGER" />
+    <result column="outtotal" property="outtotal" jdbcType="DECIMAL" />
+    <result column="po" property="po" jdbcType="VARCHAR" />
+    <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="DECIMAL" />
+    <result column="customerorder" property="customerorder" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="customerdelivery" property="customerdelivery" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="isstatus" property="isstatus" jdbcType="INTEGER" />
+    <result column="productionorder" property="productionorder" jdbcType="VARCHAR" />
+    <result column="accpetnumber" property="accpetnumber" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    deliveryid, deliverydate, grouptype, salesorder, outnumber, productiontotal, outtotal, 
+    po, stylenumber, color, size, customerorder, customer, customerdelivery, quarter, 
+    isstatus, productionorder, accpetnumber
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_deliveryrecordExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_deliveryrecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_deliveryrecord
+    where deliveryid = #{deliveryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_deliveryrecord
+    where deliveryid = #{deliveryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_deliveryrecordExample" >
+    delete from tab_deliveryrecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_deliveryrecord" >
+    insert into tab_deliveryrecord (deliveryid, deliverydate, grouptype, 
+      salesorder, outnumber, productiontotal, 
+      outtotal, po, stylenumber, 
+      color, size, customerorder, 
+      customer, customerdelivery, quarter, 
+      isstatus, productionorder, accpetnumber
+      )
+    values (#{deliveryid,jdbcType=INTEGER}, #{deliverydate,jdbcType=VARCHAR}, #{grouptype,jdbcType=VARCHAR}, 
+      #{salesorder,jdbcType=VARCHAR}, #{outnumber,jdbcType=INTEGER}, #{productiontotal,jdbcType=INTEGER}, 
+      #{outtotal,jdbcType=DECIMAL}, #{po,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, 
+      #{color,jdbcType=VARCHAR}, #{size,jdbcType=DECIMAL}, #{customerorder,jdbcType=VARCHAR}, 
+      #{customer,jdbcType=VARCHAR}, #{customerdelivery,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
+      #{isstatus,jdbcType=INTEGER}, #{productionorder,jdbcType=VARCHAR}, #{accpetnumber,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_deliveryrecord" >
+    insert into tab_deliveryrecord
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deliveryid != null" >
+        deliveryid,
+      </if>
+      <if test="deliverydate != null" >
+        deliverydate,
+      </if>
+      <if test="grouptype != null" >
+        grouptype,
+      </if>
+      <if test="salesorder != null" >
+        salesorder,
+      </if>
+      <if test="outnumber != null" >
+        outnumber,
+      </if>
+      <if test="productiontotal != null" >
+        productiontotal,
+      </if>
+      <if test="outtotal != null" >
+        outtotal,
+      </if>
+      <if test="po != null" >
+        po,
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="customerorder != null" >
+        customerorder,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="customerdelivery != null" >
+        customerdelivery,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="isstatus != null" >
+        isstatus,
+      </if>
+      <if test="productionorder != null" >
+        productionorder,
+      </if>
+      <if test="accpetnumber != null" >
+        accpetnumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deliveryid != null" >
+        #{deliveryid,jdbcType=INTEGER},
+      </if>
+      <if test="deliverydate != null" >
+        #{deliverydate,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptype != null" >
+        #{grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="salesorder != null" >
+        #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="outnumber != null" >
+        #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="productiontotal != null" >
+        #{productiontotal,jdbcType=INTEGER},
+      </if>
+      <if test="outtotal != null" >
+        #{outtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="po != null" >
+        #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=DECIMAL},
+      </if>
+      <if test="customerorder != null" >
+        #{customerorder,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerdelivery != null" >
+        #{customerdelivery,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="isstatus != null" >
+        #{isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="productionorder != null" >
+        #{productionorder,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetnumber != null" >
+        #{accpetnumber,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_deliveryrecordExample" resultType="java.lang.Integer" >
+    select count(*) from tab_deliveryrecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_deliveryrecord
+    <set >
+      <if test="record.deliveryid != null" >
+        deliveryid = #{record.deliveryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliverydate != null" >
+        deliverydate = #{record.deliverydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grouptype != null" >
+        grouptype = #{record.grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesorder != null" >
+        salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outnumber != null" >
+        outnumber = #{record.outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.productiontotal != null" >
+        productiontotal = #{record.productiontotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.outtotal != null" >
+        outtotal = #{record.outtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.po != null" >
+        po = #{record.po,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylenumber != null" >
+        stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=DECIMAL},
+      </if>
+      <if test="record.customerorder != null" >
+        customerorder = #{record.customerorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerdelivery != null" >
+        customerdelivery = #{record.customerdelivery,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isstatus != null" >
+        isstatus = #{record.isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.productionorder != null" >
+        productionorder = #{record.productionorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accpetnumber != null" >
+        accpetnumber = #{record.accpetnumber,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_deliveryrecord
+    set deliveryid = #{record.deliveryid,jdbcType=INTEGER},
+      deliverydate = #{record.deliverydate,jdbcType=VARCHAR},
+      grouptype = #{record.grouptype,jdbcType=VARCHAR},
+      salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      outnumber = #{record.outnumber,jdbcType=INTEGER},
+      productiontotal = #{record.productiontotal,jdbcType=INTEGER},
+      outtotal = #{record.outtotal,jdbcType=DECIMAL},
+      po = #{record.po,jdbcType=VARCHAR},
+      stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=DECIMAL},
+      customerorder = #{record.customerorder,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      customerdelivery = #{record.customerdelivery,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      isstatus = #{record.isstatus,jdbcType=INTEGER},
+      productionorder = #{record.productionorder,jdbcType=VARCHAR},
+      accpetnumber = #{record.accpetnumber,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_deliveryrecord" >
+    update tab_deliveryrecord
+    <set >
+      <if test="deliverydate != null" >
+        deliverydate = #{deliverydate,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptype != null" >
+        grouptype = #{grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="salesorder != null" >
+        salesorder = #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="outnumber != null" >
+        outnumber = #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="productiontotal != null" >
+        productiontotal = #{productiontotal,jdbcType=INTEGER},
+      </if>
+      <if test="outtotal != null" >
+        outtotal = #{outtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="po != null" >
+        po = #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=DECIMAL},
+      </if>
+      <if test="customerorder != null" >
+        customerorder = #{customerorder,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerdelivery != null" >
+        customerdelivery = #{customerdelivery,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="isstatus != null" >
+        isstatus = #{isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="productionorder != null" >
+        productionorder = #{productionorder,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetnumber != null" >
+        accpetnumber = #{accpetnumber,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where deliveryid = #{deliveryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_deliveryrecord" >
+    update tab_deliveryrecord
+    set deliverydate = #{deliverydate,jdbcType=VARCHAR},
+      grouptype = #{grouptype,jdbcType=VARCHAR},
+      salesorder = #{salesorder,jdbcType=VARCHAR},
+      outnumber = #{outnumber,jdbcType=INTEGER},
+      productiontotal = #{productiontotal,jdbcType=INTEGER},
+      outtotal = #{outtotal,jdbcType=DECIMAL},
+      po = #{po,jdbcType=VARCHAR},
+      stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      size = #{size,jdbcType=DECIMAL},
+      customerorder = #{customerorder,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      customerdelivery = #{customerdelivery,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      isstatus = #{isstatus,jdbcType=INTEGER},
+      productionorder = #{productionorder,jdbcType=VARCHAR},
+      accpetnumber = #{accpetnumber,jdbcType=DECIMAL}
+    where deliveryid = #{deliveryid,jdbcType=INTEGER}
+  </update>
+</mapper>

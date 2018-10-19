@@ -30,6 +30,5 @@ public interface Tab_customerMapper {
 
     int updateByPrimaryKey(Tab_customer record);
 
-    List<Map> queryCustomer();
-    public List<Map> getCustomer_cmy();
+
 }
