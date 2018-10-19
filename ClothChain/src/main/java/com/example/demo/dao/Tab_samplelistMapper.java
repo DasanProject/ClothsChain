@@ -3,6 +3,8 @@ package com.example.demo.dao;
 import com.example.demo.entity.Tab_samplelist;
 import com.example.demo.entity.Tab_samplelistExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface Tab_samplelistMapper {
@@ -27,4 +29,5 @@ public interface Tab_samplelistMapper {
     int updateByPrimaryKeySelective(Tab_samplelist record);
 
     int updateByPrimaryKey(Tab_samplelist record);
+
 }

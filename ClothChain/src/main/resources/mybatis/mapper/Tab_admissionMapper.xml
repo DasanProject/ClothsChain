@@ -227,8 +227,5 @@
     where admissionid = #{admissionid,jdbcType=INTEGER}
   </update>
 
-  <select id="getAlladmission_cmy" resultType="java.util.Map">
-            select * from tab_admission
-  </select>
 
 </mapper>
