@@ -16,7 +16,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/cmy")
 public class CmyController {
-    //pull一下试试
     @Resource
     private CmyBiz biz;
 //查询尺寸表

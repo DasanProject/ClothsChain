@@ -24,7 +24,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colorMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colormatchMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_costbudgetMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_deliveryrecordMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_detailedMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_finecodeMapper.java" afterDir="false" />
@@ -4544,6 +4543,11 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/validator/validator.jquery.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/validator/validator.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/CmyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/CmyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_admissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_admissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_customerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_customerMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -4555,178 +4559,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-<<<<<<< HEAD
-      <file leaf-file-name="DemoApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="index2.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index2.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="125" column="11" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
-=======
-      <file leaf-file-name="DemoApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Tab_admissionMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_admissionMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="PageEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/util/PageEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-=======
-      <file leaf-file-name="Tab_admissionMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_admissionMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Tab_colorMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colorMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="DemoApplication.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-=======
-      <file leaf-file-name="Tab_brandMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_brandMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
-              <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tab_checkorderinputMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_checkorderinputMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Tab_customerMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-=======
-      <file leaf-file-name="Tab_colorMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colorMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
->>>>>>> lxy
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="cmy_selecttest.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="307" column="14" selection-start-line="307" selection-start-column="14" selection-end-line="307" selection-end-column="14" />
-=======
-      <file leaf-file-name="Tab_customerMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
       <file leaf-file-name="Tab_admissionMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="228" selection-start-line="228" selection-end-line="228" />
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="cmy_addSamplelist.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="297" column="24" selection-start-line="297" selection-start-column="24" selection-end-line="297" selection-end-column="24" />
-=======
-      <file leaf-file-name="Tab_admissionMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="228" selection-start-line="228" selection-end-line="228" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+            <state relative-caret-position="7520">
+              <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="Tab_badproblemMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-622">
-              <caret line="187" column="10" selection-start-line="187" selection-start-column="10" selection-end-line="187" selection-end-column="10" />
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="cmy_selectSamplelist.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-=======
-      <file leaf-file-name="Tab_badproblemMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-622">
-              <caret line="187" column="10" lean-forward="true" selection-start-line="187" selection-start-column="10" selection-end-line="187" selection-end-column="10" />
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+            <state relative-caret-position="527">
+              <caret line="211" column="9" lean-forward="true" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Tab_customerMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml">
+      <file leaf-file-name="CmyMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
-              <caret line="191" column="39" selection-start-line="191" selection-start-column="39" selection-end-line="191" selection-end-column="39" />
+              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -4734,38 +4589,63 @@
       <file leaf-file-name="CmyMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-319">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="433">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cmy_addSamplelist.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CmyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cmy_addSamplelist.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
-              <caret line="294" column="23" selection-start-line="294" selection-start-column="23" selection-end-line="294" selection-end-column="23" />
-=======
-      <file leaf-file-name="Tab_customerMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1446">
-              <caret line="211" column="1" lean-forward="true" selection-start-line="211" selection-start-column="1" selection-end-line="211" selection-end-column="1" />
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+            <state relative-caret-position="715">
+              <caret line="278" column="30" selection-start-line="278" selection-start-column="30" selection-end-line="278" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tab_finecodeMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_finecodeMapper.java">
+      <file leaf-file-name="cmy_selectSamplelist.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="cmy_selecttest.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-<<<<<<< HEAD
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-=======
-              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+            <state relative-caret-position="207">
+              <caret line="307" column="14" selection-start-line="307" selection-start-column="14" selection-end-line="307" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tab_customerMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17943">
+              <caret line="5386" column="10" lean-forward="true" selection-start-line="5386" selection-start-column="10" selection-end-line="5386" selection-end-column="10" />
+              <folding>
+                <element signature="e#549516#549522#0" expanded="true" />
+                <element signature="e#550280#550286#0" expanded="true" />
+                <element signature="e#550317#550323#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -4832,7 +4712,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/build/css/custom.min.css" />
         <option value="$PROJECT_DIR$/../../generator/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_colorMapper.xml" />
         <option value="F:/generator/generatorConfig.xml" />
@@ -4874,18 +4753,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp" />
-=======
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_admissionMapper.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml" />
->>>>>>> lxy
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
       </list>
     </option>
   </component>
@@ -4931,12 +4808,6 @@
       <path value="$PROJECT_DIR$/src/main/webapp/vendors/transitionize/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="261" />
-    <option name="y" value="10" />
-    <option name="width" value="1400" />
-    <option name="height" value="984" />
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -4961,40 +4832,6 @@
               <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-=======
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
             </path>
             <path>
               <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
@@ -5129,15 +4966,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="196703000" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="196503000" />
-=======
-    <option name="totallyTimeSpent" value="195884000" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+    <option name="totallyTimeSpent" value="197889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
@@ -5154,7 +4983,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976275" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32977462" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32897863" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32897863" />
@@ -5204,27 +5033,27 @@
     <layout-to-restore>
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.93357056" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289941" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6163896" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32977462" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32977462" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32897863" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32897863" />
       <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28239742" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289941" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29211664" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Web" order="6" side_tool="true" />
@@ -5232,7 +5061,7 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39976275" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32991362" />
     </layout-to-restore>
   </component>
@@ -5246,46 +5075,7 @@
     <MESSAGE value="a" />
     <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="15" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_chekorderdetailMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_clothcompontentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> lxy
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_colormatchMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_costbudgetMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -5314,16 +5104,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_finecodeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_accessories.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
@@ -5359,30 +5139,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_admissionMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="228" selection-start-line="228" selection-end-line="228" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_samplelistMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
@@ -5408,16 +5164,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="187" column="10" selection-start-line="187" selection-start-column="10" selection-end-line="187" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_sampletype.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -5432,16 +5178,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="191" column="39" selection-start-line="191" selection-start-column="39" selection-end-line="191" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_samplelist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -5470,70 +5206,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lxy_queryCustomer.jsp" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lxy_queryCustomer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="188">
-          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-=======
-        <state relative-caret-position="504">
-          <caret line="124" column="11" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
->>>>>>> lxy
-        </state>
-      </provider>
-    </entry>
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="307" column="14" selection-start-line="307" selection-start-column="14" selection-end-line="307" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="459">
-          <caret line="297" column="24" selection-start-line="297" selection-start-column="24" selection-end-line="297" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index2.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="125" column="11" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
-=======
-        <state relative-caret-position="-3113">
-          <caret line="221" column="24" selection-start-line="221" selection-start-column="24" selection-end-line="221" selection-end-column="24" />
+          <caret line="124" column="11" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/lxy_queryCustomer.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/Tab_customerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/Tab_customerController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
@@ -5566,55 +5248,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
->>>>>>> lxy
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/util/PageEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="517">
-<<<<<<< HEAD
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="470">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_brandMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_checkorderinputMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="294" column="23" selection-start-line="294" selection-start-column="23" selection-end-line="294" selection-end-column="23" />
-=======
-        <state relative-caret-position="588">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-=======
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
@@ -5622,55 +5261,102 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_finecodeMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#890#891#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1623#1624#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_customerMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        <state relative-caret-position="-575">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="228" selection-start-line="228" selection-end-line="228" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="187" column="10" lean-forward="true" selection-start-line="187" selection-start-column="10" selection-end-line="187" selection-end-column="10" />
+        <state relative-caret-position="17943">
+          <caret line="5386" column="10" lean-forward="true" selection-start-line="5386" selection-start-column="10" selection-end-line="5386" selection-end-column="10" />
+          <folding>
+            <element signature="e#549516#549522#0" expanded="true" />
+            <element signature="e#550280#550286#0" expanded="true" />
+            <element signature="e#550317#550323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_customerMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1446">
-          <caret line="211" column="1" lean-forward="true" selection-start-line="211" selection-start-column="1" selection-end-line="211" selection-end-column="1" />
->>>>>>> lxy
->>>>>>> f4631678c89387b5030df40c8a715fa8250336c4
+        <state relative-caret-position="480">
+          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7520">
+          <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="211" column="9" lean-forward="true" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="278" column="30" selection-start-line="278" selection-start-column="30" selection-end-line="278" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="307" column="14" selection-start-line="307" selection-start-column="14" selection-end-line="307" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
