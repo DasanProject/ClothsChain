@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_purchaseMapper" >
+  <resultMap id="BaseResultMap" type="Tab_purchase" >
+    <id column="purchaseid" property="purchaseid" jdbcType="INTEGER" />
+    <result column="superlierid" property="superlierid" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="purchaseno" property="purchaseno" jdbcType="VARCHAR" />
+    <result column="developmentid" property="developmentid" jdbcType="VARCHAR" />
+    <result column="billdate" property="billdate" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="salesman" property="salesman" jdbcType="VARCHAR" />
+    <result column="purpose" property="purpose" jdbcType="VARCHAR" />
+    <result column="direction" property="direction" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    purchaseid, superlierid, customerid, styleid, purchaseno, developmentid, billdate, 
+    brand, quarter, salesman, purpose, direction
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_purchaseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_purchase
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_purchase
+    where purchaseid = #{purchaseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_purchase
+    where purchaseid = #{purchaseid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_purchaseExample" >
+    delete from tab_purchase
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_purchase" >
+    insert into tab_purchase (purchaseid, superlierid, customerid, 
+      styleid, purchaseno, developmentid, 
+      billdate, brand, quarter, 
+      salesman, purpose, direction
+      )
+    values (#{purchaseid,jdbcType=INTEGER}, #{superlierid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, 
+      #{styleid,jdbcType=INTEGER}, #{purchaseno,jdbcType=VARCHAR}, #{developmentid,jdbcType=VARCHAR}, 
+      #{billdate,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
+      #{salesman,jdbcType=VARCHAR}, #{purpose,jdbcType=VARCHAR}, #{direction,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_purchase" >
+    insert into tab_purchase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="purchaseid != null" >
+        purchaseid,
+      </if>
+      <if test="superlierid != null" >
+        superlierid,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="purchaseno != null" >
+        purchaseno,
+      </if>
+      <if test="developmentid != null" >
+        developmentid,
+      </if>
+      <if test="billdate != null" >
+        billdate,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="salesman != null" >
+        salesman,
+      </if>
+      <if test="purpose != null" >
+        purpose,
+      </if>
+      <if test="direction != null" >
+        direction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="purchaseid != null" >
+        #{purchaseid,jdbcType=INTEGER},
+      </if>
+      <if test="superlierid != null" >
+        #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseno != null" >
+        #{purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="developmentid != null" >
+        #{developmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null" >
+        #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="direction != null" >
+        #{direction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_purchaseExample" resultType="java.lang.Integer" >
+    select count(*) from tab_purchase
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_purchase
+    <set >
+      <if test="record.purchaseid != null" >
+        purchaseid = #{record.purchaseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.superlierid != null" >
+        superlierid = #{record.superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaseno != null" >
+        purchaseno = #{record.purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.developmentid != null" >
+        developmentid = #{record.developmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billdate != null" >
+        billdate = #{record.billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brand != null" >
+        brand = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesman != null" >
+        salesman = #{record.salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purpose != null" >
+        purpose = #{record.purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.direction != null" >
+        direction = #{record.direction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_purchase
+    set purchaseid = #{record.purchaseid,jdbcType=INTEGER},
+      superlierid = #{record.superlierid,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      purchaseno = #{record.purchaseno,jdbcType=VARCHAR},
+      developmentid = #{record.developmentid,jdbcType=VARCHAR},
+      billdate = #{record.billdate,jdbcType=VARCHAR},
+      brand = #{record.brand,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      salesman = #{record.salesman,jdbcType=VARCHAR},
+      purpose = #{record.purpose,jdbcType=VARCHAR},
+      direction = #{record.direction,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_purchase" >
+    update tab_purchase
+    <set >
+      <if test="superlierid != null" >
+        superlierid = #{superlierid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseno != null" >
+        purchaseno = #{purchaseno,jdbcType=VARCHAR},
+      </if>
+      <if test="developmentid != null" >
+        developmentid = #{developmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null" >
+        billdate = #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        salesman = #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        purpose = #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="direction != null" >
+        direction = #{direction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where purchaseid = #{purchaseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_purchase" >
+    update tab_purchase
+    set superlierid = #{superlierid,jdbcType=INTEGER},
+      customerid = #{customerid,jdbcType=INTEGER},
+      styleid = #{styleid,jdbcType=INTEGER},
+      purchaseno = #{purchaseno,jdbcType=VARCHAR},
+      developmentid = #{developmentid,jdbcType=VARCHAR},
+      billdate = #{billdate,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      salesman = #{salesman,jdbcType=VARCHAR},
+      purpose = #{purpose,jdbcType=VARCHAR},
+      direction = #{direction,jdbcType=VARCHAR}
+    where purchaseid = #{purchaseid,jdbcType=INTEGER}
+  </update>
+</mapper>

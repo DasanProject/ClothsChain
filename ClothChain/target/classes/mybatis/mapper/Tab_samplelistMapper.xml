@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_samplelistMapper" >
+  <resultMap id="BaseResultMap" type="Tab_samplelist" >
+    <id column="sampleid" property="sampleid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+    <result column="brandid" property="brandid" jdbcType="INTEGER" />
+    <result column="sampletypeid" property="sampletypeid" jdbcType="INTEGER" />
+    <result column="quarterlyid" property="quarterlyid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
+    <result column="customerno" property="customerno" jdbcType="VARCHAR" />
+    <result column="stylename" property="stylename" jdbcType="VARCHAR" />
+    <result column="styleno" property="styleno" jdbcType="VARCHAR" />
+    <result column="opendate" property="opendate" jdbcType="VARCHAR" />
+    <result column="edationdate" property="edationdate" jdbcType="VARCHAR" />
+    <result column="samplemul" property="samplemul" jdbcType="DECIMAL" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="auditdate" property="auditdate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="receptnum" property="receptnum" jdbcType="INTEGER" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+    <result column="prostate" property="prostate" jdbcType="INTEGER" />
+    <result column="ensurestate" property="ensurestate" jdbcType="INTEGER" />
+    <result column="worktime" property="worktime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sampleid, styleid, customerid, brandid, sampletypeid, quarterlyid, userid, sampleno, 
+    customerno, stylename, styleno, opendate, edationdate, samplemul, auditor, auditdate, 
+    remark, receptnum, describle, prostate, ensurestate, worktime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_samplelistExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_samplelist
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_samplelist
+    where sampleid = #{sampleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_samplelist
+    where sampleid = #{sampleid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_samplelistExample" >
+    delete from tab_samplelist
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_samplelist" >
+    insert into tab_samplelist (sampleid, styleid, customerid, 
+      brandid, sampletypeid, quarterlyid, 
+      userid, sampleno, customerno, 
+      stylename, styleno, opendate, 
+      edationdate, samplemul, auditor, 
+      auditdate, remark, receptnum, 
+      describle, prostate, ensurestate, 
+      worktime)
+    values (#{sampleid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, 
+      #{brandid,jdbcType=INTEGER}, #{sampletypeid,jdbcType=INTEGER}, #{quarterlyid,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{sampleno,jdbcType=VARCHAR}, #{customerno,jdbcType=VARCHAR}, 
+      #{stylename,jdbcType=VARCHAR}, #{styleno,jdbcType=VARCHAR}, #{opendate,jdbcType=VARCHAR}, 
+      #{edationdate,jdbcType=VARCHAR}, #{samplemul,jdbcType=DECIMAL}, #{auditor,jdbcType=VARCHAR}, 
+      #{auditdate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{receptnum,jdbcType=INTEGER}, 
+      #{describle,jdbcType=VARCHAR}, #{prostate,jdbcType=INTEGER}, #{ensurestate,jdbcType=INTEGER}, 
+      #{worktime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_samplelist" >
+    insert into tab_samplelist
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sampleid != null" >
+        sampleid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+      <if test="brandid != null" >
+        brandid,
+      </if>
+      <if test="sampletypeid != null" >
+        sampletypeid,
+      </if>
+      <if test="quarterlyid != null" >
+        quarterlyid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="sampleno != null" >
+        sampleno,
+      </if>
+      <if test="customerno != null" >
+        customerno,
+      </if>
+      <if test="stylename != null" >
+        stylename,
+      </if>
+      <if test="styleno != null" >
+        styleno,
+      </if>
+      <if test="opendate != null" >
+        opendate,
+      </if>
+      <if test="edationdate != null" >
+        edationdate,
+      </if>
+      <if test="samplemul != null" >
+        samplemul,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="auditdate != null" >
+        auditdate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="receptnum != null" >
+        receptnum,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+      <if test="prostate != null" >
+        prostate,
+      </if>
+      <if test="ensurestate != null" >
+        ensurestate,
+      </if>
+      <if test="worktime != null" >
+        worktime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sampleid != null" >
+        #{sampleid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null" >
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="sampletypeid != null" >
+        #{sampletypeid,jdbcType=INTEGER},
+      </if>
+      <if test="quarterlyid != null" >
+        #{quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sampleno != null" >
+        #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null" >
+        #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="opendate != null" >
+        #{opendate,jdbcType=VARCHAR},
+      </if>
+      <if test="edationdate != null" >
+        #{edationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="samplemul != null" >
+        #{samplemul,jdbcType=DECIMAL},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdate != null" >
+        #{auditdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="receptnum != null" >
+        #{receptnum,jdbcType=INTEGER},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="prostate != null" >
+        #{prostate,jdbcType=INTEGER},
+      </if>
+      <if test="ensurestate != null" >
+        #{ensurestate,jdbcType=INTEGER},
+      </if>
+      <if test="worktime != null" >
+        #{worktime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_samplelistExample" resultType="java.lang.Integer" >
+    select count(*) from tab_samplelist
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_samplelist
+    <set >
+      <if test="record.sampleid != null" >
+        sampleid = #{record.sampleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.brandid != null" >
+        brandid = #{record.brandid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sampletypeid != null" >
+        sampletypeid = #{record.sampletypeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.quarterlyid != null" >
+        quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sampleno != null" >
+        sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerno != null" >
+        customerno = #{record.customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylename != null" >
+        stylename = #{record.stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.styleno != null" >
+        styleno = #{record.styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opendate != null" >
+        opendate = #{record.opendate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edationdate != null" >
+        edationdate = #{record.edationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.samplemul != null" >
+        samplemul = #{record.samplemul,jdbcType=DECIMAL},
+      </if>
+      <if test="record.auditor != null" >
+        auditor = #{record.auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditdate != null" >
+        auditdate = #{record.auditdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receptnum != null" >
+        receptnum = #{record.receptnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prostate != null" >
+        prostate = #{record.prostate,jdbcType=INTEGER},
+      </if>
+      <if test="record.ensurestate != null" >
+        ensurestate = #{record.ensurestate,jdbcType=INTEGER},
+      </if>
+      <if test="record.worktime != null" >
+        worktime = #{record.worktime,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_samplelist
+    set sampleid = #{record.sampleid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER},
+      brandid = #{record.brandid,jdbcType=INTEGER},
+      sampletypeid = #{record.sampletypeid,jdbcType=INTEGER},
+      quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      customerno = #{record.customerno,jdbcType=VARCHAR},
+      stylename = #{record.stylename,jdbcType=VARCHAR},
+      styleno = #{record.styleno,jdbcType=VARCHAR},
+      opendate = #{record.opendate,jdbcType=VARCHAR},
+      edationdate = #{record.edationdate,jdbcType=VARCHAR},
+      samplemul = #{record.samplemul,jdbcType=DECIMAL},
+      auditor = #{record.auditor,jdbcType=VARCHAR},
+      auditdate = #{record.auditdate,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      receptnum = #{record.receptnum,jdbcType=INTEGER},
+      describle = #{record.describle,jdbcType=VARCHAR},
+      prostate = #{record.prostate,jdbcType=INTEGER},
+      ensurestate = #{record.ensurestate,jdbcType=INTEGER},
+      worktime = #{record.worktime,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_samplelist" >
+    update tab_samplelist
+    <set >
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null" >
+        brandid = #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="sampletypeid != null" >
+        sampletypeid = #{sampletypeid,jdbcType=INTEGER},
+      </if>
+      <if test="quarterlyid != null" >
+        quarterlyid = #{quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sampleno != null" >
+        sampleno = #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null" >
+        customerno = #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        stylename = #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        styleno = #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="opendate != null" >
+        opendate = #{opendate,jdbcType=VARCHAR},
+      </if>
+      <if test="edationdate != null" >
+        edationdate = #{edationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="samplemul != null" >
+        samplemul = #{samplemul,jdbcType=DECIMAL},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdate != null" >
+        auditdate = #{auditdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="receptnum != null" >
+        receptnum = #{receptnum,jdbcType=INTEGER},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="prostate != null" >
+        prostate = #{prostate,jdbcType=INTEGER},
+      </if>
+      <if test="ensurestate != null" >
+        ensurestate = #{ensurestate,jdbcType=INTEGER},
+      </if>
+      <if test="worktime != null" >
+        worktime = #{worktime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sampleid = #{sampleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_samplelist" >
+    update tab_samplelist
+    set styleid = #{styleid,jdbcType=INTEGER},
+      customerid = #{customerid,jdbcType=INTEGER},
+      brandid = #{brandid,jdbcType=INTEGER},
+      sampletypeid = #{sampletypeid,jdbcType=INTEGER},
+      quarterlyid = #{quarterlyid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
+      sampleno = #{sampleno,jdbcType=VARCHAR},
+      customerno = #{customerno,jdbcType=VARCHAR},
+      stylename = #{stylename,jdbcType=VARCHAR},
+      styleno = #{styleno,jdbcType=VARCHAR},
+      opendate = #{opendate,jdbcType=VARCHAR},
+      edationdate = #{edationdate,jdbcType=VARCHAR},
+      samplemul = #{samplemul,jdbcType=DECIMAL},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      auditdate = #{auditdate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      receptnum = #{receptnum,jdbcType=INTEGER},
+      describle = #{describle,jdbcType=VARCHAR},
+      prostate = #{prostate,jdbcType=INTEGER},
+      ensurestate = #{ensurestate,jdbcType=INTEGER},
+      worktime = #{worktime,jdbcType=INTEGER}
+    where sampleid = #{sampleid,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

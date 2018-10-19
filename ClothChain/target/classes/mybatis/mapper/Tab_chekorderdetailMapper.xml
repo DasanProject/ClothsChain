@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_chekorderdetailMapper" >
+  <resultMap id="BaseResultMap" type="Tab_chekorderdetail" >
+    <id column="ordercheckid" property="ordercheckid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="accountingnumber" property="accountingnumber" jdbcType="VARCHAR" />
+    <result column="oddnumbers" property="oddnumbers" jdbcType="VARCHAR" />
+    <result column="accountingdate" property="accountingdate" jdbcType="VARCHAR" />
+    <result column="modelnumber" property="modelnumber" jdbcType="VARCHAR" />
+    <result column="customerno" property="customerno" jdbcType="VARCHAR" />
+    <result column="orderdate" property="orderdate" jdbcType="VARCHAR" />
+    <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
+    <result column="stylename" property="stylename" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="documentarypeople" property="documentarypeople" jdbcType="VARCHAR" />
+    <result column="normalhours" property="normalhours" jdbcType="INTEGER" />
+    <result column="totalnumer" property="totalnumer" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="jisuanmodel" property="jisuanmodel" jdbcType="VARCHAR" />
+    <result column="amounttotal" property="amounttotal" jdbcType="DECIMAL" />
+    <result column="usekucun" property="usekucun" jdbcType="INTEGER" />
+    <result column="materialcombined" property="materialcombined" jdbcType="INTEGER" />
+    <result column="labourcost" property="labourcost" jdbcType="DECIMAL" />
+    <result column="allcost" property="allcost" jdbcType="DECIMAL" />
+    <result column="forecastprofits" property="forecastprofits" jdbcType="DECIMAL" />
+    <result column="oredermoney" property="oredermoney" jdbcType="DECIMAL" />
+    <result column="inputmoney" property="inputmoney" jdbcType="DECIMAL" />
+    <result column="outmoney" property="outmoney" jdbcType="DECIMAL" />
+    <result column="accpetmoney" property="accpetmoney" jdbcType="DECIMAL" />
+    <result column="accpetstatus" property="accpetstatus" jdbcType="INTEGER" />
+    <result column="paydate" property="paydate" jdbcType="VARCHAR" />
+    <result column="accpetbeforedate" property="accpetbeforedate" jdbcType="VARCHAR" />
+    <result column="accpetafterdate" property="accpetafterdate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ordercheckid, styleid, accountingnumber, oddnumbers, accountingdate, modelnumber, 
+    customerno, orderdate, stylenumber, stylename, customer, quarter, brand, documentarypeople, 
+    normalhours, totalnumer, price, amount, jisuanmodel, amounttotal, usekucun, materialcombined, 
+    labourcost, allcost, forecastprofits, oredermoney, inputmoney, outmoney, accpetmoney, 
+    accpetstatus, paydate, accpetbeforedate, accpetafterdate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_chekorderdetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_chekorderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_chekorderdetail
+    where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_chekorderdetail
+    where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_chekorderdetailExample" >
+    delete from tab_chekorderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_chekorderdetail" >
+    insert into tab_chekorderdetail (ordercheckid, styleid, accountingnumber, 
+      oddnumbers, accountingdate, modelnumber, 
+      customerno, orderdate, stylenumber, 
+      stylename, customer, quarter, 
+      brand, documentarypeople, normalhours, 
+      totalnumer, price, amount, 
+      jisuanmodel, amounttotal, usekucun, 
+      materialcombined, labourcost, allcost, 
+      forecastprofits, oredermoney, inputmoney, 
+      outmoney, accpetmoney, accpetstatus, 
+      paydate, accpetbeforedate, accpetafterdate
+      )
+    values (#{ordercheckid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, #{accountingnumber,jdbcType=VARCHAR}, 
+      #{oddnumbers,jdbcType=VARCHAR}, #{accountingdate,jdbcType=VARCHAR}, #{modelnumber,jdbcType=VARCHAR}, 
+      #{customerno,jdbcType=VARCHAR}, #{orderdate,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, 
+      #{stylename,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{documentarypeople,jdbcType=VARCHAR}, #{normalhours,jdbcType=INTEGER}, 
+      #{totalnumer,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{jisuanmodel,jdbcType=VARCHAR}, #{amounttotal,jdbcType=DECIMAL}, #{usekucun,jdbcType=INTEGER}, 
+      #{materialcombined,jdbcType=INTEGER}, #{labourcost,jdbcType=DECIMAL}, #{allcost,jdbcType=DECIMAL}, 
+      #{forecastprofits,jdbcType=DECIMAL}, #{oredermoney,jdbcType=DECIMAL}, #{inputmoney,jdbcType=DECIMAL}, 
+      #{outmoney,jdbcType=DECIMAL}, #{accpetmoney,jdbcType=DECIMAL}, #{accpetstatus,jdbcType=INTEGER}, 
+      #{paydate,jdbcType=VARCHAR}, #{accpetbeforedate,jdbcType=VARCHAR}, #{accpetafterdate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_chekorderdetail" >
+    insert into tab_chekorderdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordercheckid != null" >
+        ordercheckid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="accountingnumber != null" >
+        accountingnumber,
+      </if>
+      <if test="oddnumbers != null" >
+        oddnumbers,
+      </if>
+      <if test="accountingdate != null" >
+        accountingdate,
+      </if>
+      <if test="modelnumber != null" >
+        modelnumber,
+      </if>
+      <if test="customerno != null" >
+        customerno,
+      </if>
+      <if test="orderdate != null" >
+        orderdate,
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber,
+      </if>
+      <if test="stylename != null" >
+        stylename,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="documentarypeople != null" >
+        documentarypeople,
+      </if>
+      <if test="normalhours != null" >
+        normalhours,
+      </if>
+      <if test="totalnumer != null" >
+        totalnumer,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="jisuanmodel != null" >
+        jisuanmodel,
+      </if>
+      <if test="amounttotal != null" >
+        amounttotal,
+      </if>
+      <if test="usekucun != null" >
+        usekucun,
+      </if>
+      <if test="materialcombined != null" >
+        materialcombined,
+      </if>
+      <if test="labourcost != null" >
+        labourcost,
+      </if>
+      <if test="allcost != null" >
+        allcost,
+      </if>
+      <if test="forecastprofits != null" >
+        forecastprofits,
+      </if>
+      <if test="oredermoney != null" >
+        oredermoney,
+      </if>
+      <if test="inputmoney != null" >
+        inputmoney,
+      </if>
+      <if test="outmoney != null" >
+        outmoney,
+      </if>
+      <if test="accpetmoney != null" >
+        accpetmoney,
+      </if>
+      <if test="accpetstatus != null" >
+        accpetstatus,
+      </if>
+      <if test="paydate != null" >
+        paydate,
+      </if>
+      <if test="accpetbeforedate != null" >
+        accpetbeforedate,
+      </if>
+      <if test="accpetafterdate != null" >
+        accpetafterdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordercheckid != null" >
+        #{ordercheckid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="accountingnumber != null" >
+        #{accountingnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="oddnumbers != null" >
+        #{oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingdate != null" >
+        #{accountingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="modelnumber != null" >
+        #{modelnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null" >
+        #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="documentarypeople != null" >
+        #{documentarypeople,jdbcType=VARCHAR},
+      </if>
+      <if test="normalhours != null" >
+        #{normalhours,jdbcType=INTEGER},
+      </if>
+      <if test="totalnumer != null" >
+        #{totalnumer,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="jisuanmodel != null" >
+        #{jisuanmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="amounttotal != null" >
+        #{amounttotal,jdbcType=DECIMAL},
+      </if>
+      <if test="usekucun != null" >
+        #{usekucun,jdbcType=INTEGER},
+      </if>
+      <if test="materialcombined != null" >
+        #{materialcombined,jdbcType=INTEGER},
+      </if>
+      <if test="labourcost != null" >
+        #{labourcost,jdbcType=DECIMAL},
+      </if>
+      <if test="allcost != null" >
+        #{allcost,jdbcType=DECIMAL},
+      </if>
+      <if test="forecastprofits != null" >
+        #{forecastprofits,jdbcType=DECIMAL},
+      </if>
+      <if test="oredermoney != null" >
+        #{oredermoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inputmoney != null" >
+        #{inputmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="outmoney != null" >
+        #{outmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="accpetmoney != null" >
+        #{accpetmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="accpetstatus != null" >
+        #{accpetstatus,jdbcType=INTEGER},
+      </if>
+      <if test="paydate != null" >
+        #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetbeforedate != null" >
+        #{accpetbeforedate,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetafterdate != null" >
+        #{accpetafterdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_chekorderdetailExample" resultType="java.lang.Integer" >
+    select count(*) from tab_chekorderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_chekorderdetail
+    <set >
+      <if test="record.ordercheckid != null" >
+        ordercheckid = #{record.ordercheckid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountingnumber != null" >
+        accountingnumber = #{record.accountingnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oddnumbers != null" >
+        oddnumbers = #{record.oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountingdate != null" >
+        accountingdate = #{record.accountingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modelnumber != null" >
+        modelnumber = #{record.modelnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerno != null" >
+        customerno = #{record.customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderdate != null" >
+        orderdate = #{record.orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylenumber != null" >
+        stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylename != null" >
+        stylename = #{record.stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brand != null" >
+        brand = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.documentarypeople != null" >
+        documentarypeople = #{record.documentarypeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.normalhours != null" >
+        normalhours = #{record.normalhours,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalnumer != null" >
+        totalnumer = #{record.totalnumer,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jisuanmodel != null" >
+        jisuanmodel = #{record.jisuanmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.amounttotal != null" >
+        amounttotal = #{record.amounttotal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.usekucun != null" >
+        usekucun = #{record.usekucun,jdbcType=INTEGER},
+      </if>
+      <if test="record.materialcombined != null" >
+        materialcombined = #{record.materialcombined,jdbcType=INTEGER},
+      </if>
+      <if test="record.labourcost != null" >
+        labourcost = #{record.labourcost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.allcost != null" >
+        allcost = #{record.allcost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.forecastprofits != null" >
+        forecastprofits = #{record.forecastprofits,jdbcType=DECIMAL},
+      </if>
+      <if test="record.oredermoney != null" >
+        oredermoney = #{record.oredermoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.inputmoney != null" >
+        inputmoney = #{record.inputmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.outmoney != null" >
+        outmoney = #{record.outmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accpetmoney != null" >
+        accpetmoney = #{record.accpetmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accpetstatus != null" >
+        accpetstatus = #{record.accpetstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.paydate != null" >
+        paydate = #{record.paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accpetbeforedate != null" >
+        accpetbeforedate = #{record.accpetbeforedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accpetafterdate != null" >
+        accpetafterdate = #{record.accpetafterdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_chekorderdetail
+    set ordercheckid = #{record.ordercheckid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      accountingnumber = #{record.accountingnumber,jdbcType=VARCHAR},
+      oddnumbers = #{record.oddnumbers,jdbcType=VARCHAR},
+      accountingdate = #{record.accountingdate,jdbcType=VARCHAR},
+      modelnumber = #{record.modelnumber,jdbcType=VARCHAR},
+      customerno = #{record.customerno,jdbcType=VARCHAR},
+      orderdate = #{record.orderdate,jdbcType=VARCHAR},
+      stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      stylename = #{record.stylename,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      brand = #{record.brand,jdbcType=VARCHAR},
+      documentarypeople = #{record.documentarypeople,jdbcType=VARCHAR},
+      normalhours = #{record.normalhours,jdbcType=INTEGER},
+      totalnumer = #{record.totalnumer,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=DECIMAL},
+      jisuanmodel = #{record.jisuanmodel,jdbcType=VARCHAR},
+      amounttotal = #{record.amounttotal,jdbcType=DECIMAL},
+      usekucun = #{record.usekucun,jdbcType=INTEGER},
+      materialcombined = #{record.materialcombined,jdbcType=INTEGER},
+      labourcost = #{record.labourcost,jdbcType=DECIMAL},
+      allcost = #{record.allcost,jdbcType=DECIMAL},
+      forecastprofits = #{record.forecastprofits,jdbcType=DECIMAL},
+      oredermoney = #{record.oredermoney,jdbcType=DECIMAL},
+      inputmoney = #{record.inputmoney,jdbcType=DECIMAL},
+      outmoney = #{record.outmoney,jdbcType=DECIMAL},
+      accpetmoney = #{record.accpetmoney,jdbcType=DECIMAL},
+      accpetstatus = #{record.accpetstatus,jdbcType=INTEGER},
+      paydate = #{record.paydate,jdbcType=VARCHAR},
+      accpetbeforedate = #{record.accpetbeforedate,jdbcType=VARCHAR},
+      accpetafterdate = #{record.accpetafterdate,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_chekorderdetail" >
+    update tab_chekorderdetail
+    <set >
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="accountingnumber != null" >
+        accountingnumber = #{accountingnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="oddnumbers != null" >
+        oddnumbers = #{oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingdate != null" >
+        accountingdate = #{accountingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="modelnumber != null" >
+        modelnumber = #{modelnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null" >
+        customerno = #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdate != null" >
+        orderdate = #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        stylename = #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="documentarypeople != null" >
+        documentarypeople = #{documentarypeople,jdbcType=VARCHAR},
+      </if>
+      <if test="normalhours != null" >
+        normalhours = #{normalhours,jdbcType=INTEGER},
+      </if>
+      <if test="totalnumer != null" >
+        totalnumer = #{totalnumer,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="jisuanmodel != null" >
+        jisuanmodel = #{jisuanmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="amounttotal != null" >
+        amounttotal = #{amounttotal,jdbcType=DECIMAL},
+      </if>
+      <if test="usekucun != null" >
+        usekucun = #{usekucun,jdbcType=INTEGER},
+      </if>
+      <if test="materialcombined != null" >
+        materialcombined = #{materialcombined,jdbcType=INTEGER},
+      </if>
+      <if test="labourcost != null" >
+        labourcost = #{labourcost,jdbcType=DECIMAL},
+      </if>
+      <if test="allcost != null" >
+        allcost = #{allcost,jdbcType=DECIMAL},
+      </if>
+      <if test="forecastprofits != null" >
+        forecastprofits = #{forecastprofits,jdbcType=DECIMAL},
+      </if>
+      <if test="oredermoney != null" >
+        oredermoney = #{oredermoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inputmoney != null" >
+        inputmoney = #{inputmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="outmoney != null" >
+        outmoney = #{outmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="accpetmoney != null" >
+        accpetmoney = #{accpetmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="accpetstatus != null" >
+        accpetstatus = #{accpetstatus,jdbcType=INTEGER},
+      </if>
+      <if test="paydate != null" >
+        paydate = #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetbeforedate != null" >
+        accpetbeforedate = #{accpetbeforedate,jdbcType=VARCHAR},
+      </if>
+      <if test="accpetafterdate != null" >
+        accpetafterdate = #{accpetafterdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_chekorderdetail" >
+    update tab_chekorderdetail
+    set styleid = #{styleid,jdbcType=INTEGER},
+      accountingnumber = #{accountingnumber,jdbcType=VARCHAR},
+      oddnumbers = #{oddnumbers,jdbcType=VARCHAR},
+      accountingdate = #{accountingdate,jdbcType=VARCHAR},
+      modelnumber = #{modelnumber,jdbcType=VARCHAR},
+      customerno = #{customerno,jdbcType=VARCHAR},
+      orderdate = #{orderdate,jdbcType=VARCHAR},
+      stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      stylename = #{stylename,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      documentarypeople = #{documentarypeople,jdbcType=VARCHAR},
+      normalhours = #{normalhours,jdbcType=INTEGER},
+      totalnumer = #{totalnumer,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
+      jisuanmodel = #{jisuanmodel,jdbcType=VARCHAR},
+      amounttotal = #{amounttotal,jdbcType=DECIMAL},
+      usekucun = #{usekucun,jdbcType=INTEGER},
+      materialcombined = #{materialcombined,jdbcType=INTEGER},
+      labourcost = #{labourcost,jdbcType=DECIMAL},
+      allcost = #{allcost,jdbcType=DECIMAL},
+      forecastprofits = #{forecastprofits,jdbcType=DECIMAL},
+      oredermoney = #{oredermoney,jdbcType=DECIMAL},
+      inputmoney = #{inputmoney,jdbcType=DECIMAL},
+      outmoney = #{outmoney,jdbcType=DECIMAL},
+      accpetmoney = #{accpetmoney,jdbcType=DECIMAL},
+      accpetstatus = #{accpetstatus,jdbcType=INTEGER},
+      paydate = #{paydate,jdbcType=VARCHAR},
+      accpetbeforedate = #{accpetbeforedate,jdbcType=VARCHAR},
+      accpetafterdate = #{accpetafterdate,jdbcType=VARCHAR}
+    where ordercheckid = #{ordercheckid,jdbcType=INTEGER}
+  </update>
+</mapper>

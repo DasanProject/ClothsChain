@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_quarterlyMapper" >
+  <resultMap id="BaseResultMap" type="Tab_quarterly" >
+    <id column="quarterlyid" property="quarterlyid" jdbcType="INTEGER" />
+    <result column="quarterlyno" property="quarterlyno" jdbcType="VARCHAR" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    quarterlyid, quarterlyno, describle
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_quarterlyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_quarterly
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_quarterly
+    where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_quarterly
+    where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_quarterlyExample" >
+    delete from tab_quarterly
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_quarterly" >
+    insert into tab_quarterly (quarterlyid, quarterlyno, describle
+      )
+    values (#{quarterlyid,jdbcType=INTEGER}, #{quarterlyno,jdbcType=VARCHAR}, #{describle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_quarterly" >
+    insert into tab_quarterly
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="quarterlyid != null" >
+        quarterlyid,
+      </if>
+      <if test="quarterlyno != null" >
+        quarterlyno,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="quarterlyid != null" >
+        #{quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="quarterlyno != null" >
+        #{quarterlyno,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_quarterlyExample" resultType="java.lang.Integer" >
+    select count(*) from tab_quarterly
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_quarterly
+    <set >
+      <if test="record.quarterlyid != null" >
+        quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.quarterlyno != null" >
+        quarterlyno = #{record.quarterlyno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_quarterly
+    set quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      quarterlyno = #{record.quarterlyno,jdbcType=VARCHAR},
+      describle = #{record.describle,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_quarterly" >
+    update tab_quarterly
+    <set >
+      <if test="quarterlyno != null" >
+        quarterlyno = #{quarterlyno,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_quarterly" >
+    update tab_quarterly
+    set quarterlyno = #{quarterlyno,jdbcType=VARCHAR},
+      describle = #{describle,jdbcType=VARCHAR}
+    where quarterlyid = #{quarterlyid,jdbcType=INTEGER}
+  </update>
+</mapper>

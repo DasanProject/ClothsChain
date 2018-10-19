@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_checkorderinputMapper" >
+  <resultMap id="BaseResultMap" type="Tab_checkorderinput" >
+    <id column="checkmessageid" property="checkmessageid" jdbcType="INTEGER" />
+    <result column="typeinid" property="typeinid" jdbcType="INTEGER" />
+    <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="checkpeople" property="checkpeople" jdbcType="VARCHAR" />
+    <result column="checkdate" property="checkdate" jdbcType="VARCHAR" />
+    <result column="salesorder" property="salesorder" jdbcType="VARCHAR" />
+    <result column="clipid" property="clipid" jdbcType="INTEGER" />
+    <result column="depetname" property="depetname" jdbcType="VARCHAR" />
+    <result column="po" property="po" jdbcType="VARCHAR" />
+    <result column="clothid" property="clothid" jdbcType="VARCHAR" />
+    <result column="goodstatus" property="goodstatus" jdbcType="INTEGER" />
+    <result column="grouptype" property="grouptype" jdbcType="VARCHAR" />
+    <result column="oddnumbers" property="oddnumbers" jdbcType="VARCHAR" />
+    <result column="packingno" property="packingno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    checkmessageid, typeinid, stylenumber, color, size, status, checkpeople, checkdate, 
+    salesorder, clipid, depetname, po, clothid, goodstatus, grouptype, oddnumbers, packingno
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_checkorderinputExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_checkorderinput
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_checkorderinput
+    where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_checkorderinput
+    where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_checkorderinputExample" >
+    delete from tab_checkorderinput
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_checkorderinput" >
+    insert into tab_checkorderinput (checkmessageid, typeinid, stylenumber, 
+      color, size, status, 
+      checkpeople, checkdate, salesorder, 
+      clipid, depetname, po, 
+      clothid, goodstatus, grouptype, 
+      oddnumbers, packingno)
+    values (#{checkmessageid,jdbcType=INTEGER}, #{typeinid,jdbcType=INTEGER}, #{stylenumber,jdbcType=VARCHAR}, 
+      #{color,jdbcType=VARCHAR}, #{size,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
+      #{checkpeople,jdbcType=VARCHAR}, #{checkdate,jdbcType=VARCHAR}, #{salesorder,jdbcType=VARCHAR}, 
+      #{clipid,jdbcType=INTEGER}, #{depetname,jdbcType=VARCHAR}, #{po,jdbcType=VARCHAR}, 
+      #{clothid,jdbcType=VARCHAR}, #{goodstatus,jdbcType=INTEGER}, #{grouptype,jdbcType=VARCHAR}, 
+      #{oddnumbers,jdbcType=VARCHAR}, #{packingno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_checkorderinput" >
+    insert into tab_checkorderinput
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="checkmessageid != null" >
+        checkmessageid,
+      </if>
+      <if test="typeinid != null" >
+        typeinid,
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="checkpeople != null" >
+        checkpeople,
+      </if>
+      <if test="checkdate != null" >
+        checkdate,
+      </if>
+      <if test="salesorder != null" >
+        salesorder,
+      </if>
+      <if test="clipid != null" >
+        clipid,
+      </if>
+      <if test="depetname != null" >
+        depetname,
+      </if>
+      <if test="po != null" >
+        po,
+      </if>
+      <if test="clothid != null" >
+        clothid,
+      </if>
+      <if test="goodstatus != null" >
+        goodstatus,
+      </if>
+      <if test="grouptype != null" >
+        grouptype,
+      </if>
+      <if test="oddnumbers != null" >
+        oddnumbers,
+      </if>
+      <if test="packingno != null" >
+        packingno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="checkmessageid != null" >
+        #{checkmessageid,jdbcType=INTEGER},
+      </if>
+      <if test="typeinid != null" >
+        #{typeinid,jdbcType=INTEGER},
+      </if>
+      <if test="stylenumber != null" >
+        #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="checkpeople != null" >
+        #{checkpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null" >
+        #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="salesorder != null" >
+        #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="clipid != null" >
+        #{clipid,jdbcType=INTEGER},
+      </if>
+      <if test="depetname != null" >
+        #{depetname,jdbcType=VARCHAR},
+      </if>
+      <if test="po != null" >
+        #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="clothid != null" >
+        #{clothid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodstatus != null" >
+        #{goodstatus,jdbcType=INTEGER},
+      </if>
+      <if test="grouptype != null" >
+        #{grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="oddnumbers != null" >
+        #{oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="packingno != null" >
+        #{packingno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_checkorderinputExample" resultType="java.lang.Integer" >
+    select count(*) from tab_checkorderinput
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_checkorderinput
+    <set >
+      <if test="record.checkmessageid != null" >
+        checkmessageid = #{record.checkmessageid,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeinid != null" >
+        typeinid = #{record.typeinid,jdbcType=INTEGER},
+      </if>
+      <if test="record.stylenumber != null" >
+        stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=DECIMAL},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkpeople != null" >
+        checkpeople = #{record.checkpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkdate != null" >
+        checkdate = #{record.checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesorder != null" >
+        salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clipid != null" >
+        clipid = #{record.clipid,jdbcType=INTEGER},
+      </if>
+      <if test="record.depetname != null" >
+        depetname = #{record.depetname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.po != null" >
+        po = #{record.po,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clothid != null" >
+        clothid = #{record.clothid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodstatus != null" >
+        goodstatus = #{record.goodstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.grouptype != null" >
+        grouptype = #{record.grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oddnumbers != null" >
+        oddnumbers = #{record.oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packingno != null" >
+        packingno = #{record.packingno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_checkorderinput
+    set checkmessageid = #{record.checkmessageid,jdbcType=INTEGER},
+      typeinid = #{record.typeinid,jdbcType=INTEGER},
+      stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=DECIMAL},
+      status = #{record.status,jdbcType=INTEGER},
+      checkpeople = #{record.checkpeople,jdbcType=VARCHAR},
+      checkdate = #{record.checkdate,jdbcType=VARCHAR},
+      salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      clipid = #{record.clipid,jdbcType=INTEGER},
+      depetname = #{record.depetname,jdbcType=VARCHAR},
+      po = #{record.po,jdbcType=VARCHAR},
+      clothid = #{record.clothid,jdbcType=VARCHAR},
+      goodstatus = #{record.goodstatus,jdbcType=INTEGER},
+      grouptype = #{record.grouptype,jdbcType=VARCHAR},
+      oddnumbers = #{record.oddnumbers,jdbcType=VARCHAR},
+      packingno = #{record.packingno,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_checkorderinput" >
+    update tab_checkorderinput
+    <set >
+      <if test="typeinid != null" >
+        typeinid = #{typeinid,jdbcType=INTEGER},
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="checkpeople != null" >
+        checkpeople = #{checkpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null" >
+        checkdate = #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="salesorder != null" >
+        salesorder = #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="clipid != null" >
+        clipid = #{clipid,jdbcType=INTEGER},
+      </if>
+      <if test="depetname != null" >
+        depetname = #{depetname,jdbcType=VARCHAR},
+      </if>
+      <if test="po != null" >
+        po = #{po,jdbcType=VARCHAR},
+      </if>
+      <if test="clothid != null" >
+        clothid = #{clothid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodstatus != null" >
+        goodstatus = #{goodstatus,jdbcType=INTEGER},
+      </if>
+      <if test="grouptype != null" >
+        grouptype = #{grouptype,jdbcType=VARCHAR},
+      </if>
+      <if test="oddnumbers != null" >
+        oddnumbers = #{oddnumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="packingno != null" >
+        packingno = #{packingno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_checkorderinput" >
+    update tab_checkorderinput
+    set typeinid = #{typeinid,jdbcType=INTEGER},
+      stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      size = #{size,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      checkpeople = #{checkpeople,jdbcType=VARCHAR},
+      checkdate = #{checkdate,jdbcType=VARCHAR},
+      salesorder = #{salesorder,jdbcType=VARCHAR},
+      clipid = #{clipid,jdbcType=INTEGER},
+      depetname = #{depetname,jdbcType=VARCHAR},
+      po = #{po,jdbcType=VARCHAR},
+      clothid = #{clothid,jdbcType=VARCHAR},
+      goodstatus = #{goodstatus,jdbcType=INTEGER},
+      grouptype = #{grouptype,jdbcType=VARCHAR},
+      oddnumbers = #{oddnumbers,jdbcType=VARCHAR},
+      packingno = #{packingno,jdbcType=VARCHAR}
+    where checkmessageid = #{checkmessageid,jdbcType=INTEGER}
+  </update>
+</mapper>
