@@ -469,6 +469,7 @@
                    type:"get",
                    success:function(data){
                        sels.Sampleno=data;
+                       alert(1);
                    }
                 });
             },
