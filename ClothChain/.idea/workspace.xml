@@ -3,23 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c6876cc1-93a8-4691-89c2-13e0b3b50a5d" name="Default" comment="a">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClothChain.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_accessoriesMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_admissionMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_badproblemMapper.java" afterDir="false" />
@@ -187,7 +176,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_warningExample.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/util/PageEntity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_accessoriesMapper.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_admissionMapper.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Tab_badproblemMapper.xml" afterDir="false" />
@@ -272,7 +260,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/build/js/custom.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/build/js/custom.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/css/maps/jquery-jvectormap-2.0.3.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/images/aaa.jpg" afterDir="false" />
@@ -300,12 +287,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/js/moment/moment.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/js/vue-resource.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/js/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/theme/default/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/theme/default/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/theme/default/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/theme/default/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/laydate/theme/default/laydate.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/Chart.js/.bower.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/Chart.js/.codeclimate.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/Chart.js/.editorconfig" afterDir="false" />
@@ -4551,400 +4532,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/validator/validator.jquery.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/validator/validator.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/DemoApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/biz/CmyBiz.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/biz/bizimpl/CmyBizImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/CmyController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/CmyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_accessoriesMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_admissionMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_badproblemMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_brandMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_checkorderinputMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_chekorderdetailMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_cliprecordMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_clothcompontentMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_colorMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_colormatchMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_costbudgetMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_customerMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_deliveryrecordMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_detailedMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_finecodeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_finishedproductMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_functionMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_groupefficiencyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_materialMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_materialcategoryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_materialinforMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_oldnumberMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_orderdetailMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_orderinfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_otherplanMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_pickingMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_planmatterMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_planremarkMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_plantypeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_proMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_procurentplanMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_productplanMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_purchaseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_quarterlyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_reachMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_roleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_rolefunctionMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_samplelistMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_samplesizeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_sampletypeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_settlementMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_shipnoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_singlerowMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_sizeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_sizetemplateMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_storageMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_stylelibraryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_superlierMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_timeinfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_timesetMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_usematerialMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_userMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_userroleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_warehouseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/dao/Tab_warningMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_accessories.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_accessoriesExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_accessoriesExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_accessoriesExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_accessoriesExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_admission.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_admissionExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_admissionExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_admissionExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_admissionExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_badproblem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_badproblemExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_badproblemExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_badproblemExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_badproblemExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_brand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_brandExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_brandExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_brandExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_brandExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_checkorderinput.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_checkorderinputExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_checkorderinputExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_checkorderinputExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_checkorderinputExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_chekorderdetail.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_chekorderdetailExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_chekorderdetailExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_chekorderdetailExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_chekorderdetailExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_cliprecord.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_cliprecordExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_cliprecordExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_cliprecordExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_cliprecordExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_clothcompontent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_clothcompontentExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_clothcompontentExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_clothcompontentExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_clothcompontentExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colorExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colorExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colorExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colorExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colormatch.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colormatchExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colormatchExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colormatchExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_colormatchExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_costbudget.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_costbudgetExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_costbudgetExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_costbudgetExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_costbudgetExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_customerExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_customerExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_customerExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_customerExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_deliveryrecord.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_deliveryrecordExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_deliveryrecordExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_deliveryrecordExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_deliveryrecordExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_detailed.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_detailedExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_detailedExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_detailedExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_detailedExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finecode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finecodeExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finecodeExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finecodeExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finecodeExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finishedproduct.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finishedproductExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finishedproductExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finishedproductExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_finishedproductExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_function.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_functionExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_functionExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_functionExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_functionExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_groupefficiency.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_groupefficiencyExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_groupefficiencyExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_groupefficiencyExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_groupefficiencyExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_material.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialcategory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialcategoryExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialcategoryExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialcategoryExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialcategoryExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialinfor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialinforExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialinforExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialinforExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_materialinforExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_oldnumber.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_oldnumberExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_oldnumberExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_oldnumberExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_oldnumberExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderdetail.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderdetailExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderdetailExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderdetailExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderdetailExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderinfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderinfoExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderinfoExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderinfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_orderinfoExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_otherplan.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_otherplanExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_otherplanExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_otherplanExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_otherplanExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_picking.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_pickingExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_pickingExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_pickingExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_pickingExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planmatter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planmatterExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planmatterExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planmatterExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planmatterExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planremark.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planremarkExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planremarkExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planremarkExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_planremarkExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_plantype.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_plantypeExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_plantypeExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_plantypeExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_plantypeExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_pro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_proExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_proExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_proExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_proExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_procurentplan.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_procurentplanExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_procurentplanExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_procurentplanExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_procurentplanExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_productplan.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_productplanExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_productplanExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_productplanExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_productplanExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_purchase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_purchaseExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_purchaseExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_purchaseExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_purchaseExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_quarterly.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_quarterlyExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_quarterlyExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_quarterlyExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_quarterlyExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_reach.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_reachExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_reachExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_reachExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_reachExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_roleExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_roleExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_roleExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_roleExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_rolefunction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_rolefunctionExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_rolefunctionExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_rolefunctionExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_rolefunctionExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplelist.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplelistExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplelistExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplelistExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplelistExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplesize.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplesizeExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplesizeExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplesizeExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_samplesizeExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sampletype.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sampletypeExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sampletypeExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sampletypeExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sampletypeExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_settlement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_settlementExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_settlementExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_settlementExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_settlementExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_shipno.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_shipnoExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_shipnoExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_shipnoExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_shipnoExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_singlerow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_singlerowExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_singlerowExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_singlerowExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_singlerowExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_size.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizeExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizeExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizeExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizeExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizetemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizetemplateExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizetemplateExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizetemplateExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_sizetemplateExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_storage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_storageExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_storageExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_storageExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_storageExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_stylelibrary.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_stylelibraryExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_stylelibraryExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_stylelibraryExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_stylelibraryExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_superlier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_superlierExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_superlierExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_superlierExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_superlierExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeinfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeinfoExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeinfoExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeinfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeinfoExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timeset.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timesetExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timesetExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timesetExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_timesetExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_usematerial.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_usematerialExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_usematerialExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_usematerialExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_usematerialExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_user.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userrole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userroleExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userroleExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userroleExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_userroleExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warehouse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warehouseExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warehouseExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warehouseExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warehouseExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warning.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warningExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warningExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warningExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/entity/Tab_warningExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/demo/util/PageEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CmyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_accessoriesMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_admissionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_badproblemMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_brandMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_checkorderinputMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_chekorderdetailMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_cliprecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_clothcompontentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_colorMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_colormatchMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_costbudgetMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_customerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_deliveryrecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_detailedMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_finecodeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_finishedproductMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_functionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_groupefficiencyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_materialMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_materialcategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_materialinforMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_oldnumberMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_orderdetailMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_orderinfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_otherplanMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_pickingMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_planmatterMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_planremarkMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_plantypeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_proMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_procurentplanMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_productplanMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_purchaseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_quarterlyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_reachMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_roleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_rolefunctionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_samplelistMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_samplesizeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_sampletypeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_settlementMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_shipnoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_singlerowMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_sizeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_sizetemplateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_storageMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_stylelibraryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_superlierMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_timeinfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_timesetMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_usematerialMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_userMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_userroleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_warehouseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/Tab_warningMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/demo/DemoApplicationTests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -4997,8 +4584,8 @@
       <find>sizename</find>
       <find>size</find>
       <find>changeAllChecked</find>
-      <find>alert(1)</find>
       <find>尺寸</find>
+      <find>alert(1)</find>
     </findStrings>
     <replaceStrings>
       <replace>Double</replace>
@@ -5065,9 +4652,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
       </list>
     </option>
   </component>
@@ -5158,15 +4745,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClothChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ClothChain" type="b2602c69:ProjectViewProjectNode" />
@@ -5305,12 +4883,12 @@
       <workItem from="1539735112808" duration="12872000" />
       <workItem from="1539760827262" duration="60944000" />
       <workItem from="1539871689582" duration="16578000" />
-      <workItem from="1539914078608" duration="29709000" />
+      <workItem from="1539914078608" duration="29428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196011000" />
+    <option name="totallyTimeSpent" value="195764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
@@ -5341,20 +4919,45 @@
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6163896" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29211664" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32897863" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Bean Validation" order="8" weight="0.32991362" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32897863" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289941" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39976275" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32977462" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Designer" order="2" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.93357056" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289941" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.93357056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -5379,8 +4982,9 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289941" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32991362" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -5399,13 +5003,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_brandMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/Tab_checkorderinputMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -5621,46 +5218,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="461" column="24" lean-forward="true" selection-start-line="461" selection-start-column="24" selection-end-line="461" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selectSamplelist.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index2.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -5668,32 +5229,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -5703,8 +5240,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="485" selection-start-line="477" selection-end-line="485" />
+        <state relative-caret-position="301">
+          <caret line="472" column="20" lean-forward="true" selection-start-line="472" selection-start-column="20" selection-end-line="472" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/lxy_queryCustomer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
         </state>
       </provider>
     </entry>
