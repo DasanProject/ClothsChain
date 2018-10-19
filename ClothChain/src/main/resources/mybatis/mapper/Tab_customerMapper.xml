@@ -209,5 +209,9 @@
       remark = #{remark,jdbcType=VARCHAR}
     where customerid = #{customerid,jdbcType=INTEGER}
   </update>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> lxy
 </mapper>
