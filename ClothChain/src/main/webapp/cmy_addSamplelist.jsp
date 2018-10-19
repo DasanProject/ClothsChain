@@ -287,6 +287,7 @@
                    success:function(data){
                        alert(data);
                        sels.Sampleno=data;
+                       alert(1);
                    }
                 });
             }
