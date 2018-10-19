@@ -227,8 +227,4 @@
     where admissionid = #{admissionid,jdbcType=INTEGER}
   </update>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> lxy
 </mapper>
