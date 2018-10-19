@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_planmatterMapper" >
+  <resultMap id="BaseResultMap" type="Tab_planmatter" >
+    <id column="planmatterid" property="planmatterid" jdbcType="INTEGER" />
+    <result column="plantypeid" property="plantypeid" jdbcType="INTEGER" />
+    <result column="planmatter" property="planmatter" jdbcType="VARCHAR" />
+    <result column="plantype" property="plantype" jdbcType="INTEGER" />
+    <result column="warnday" property="warnday" jdbcType="INTEGER" />
+    <result column="transday" property="transday" jdbcType="INTEGER" />
+    <result column="plandate" property="plandate" jdbcType="VARCHAR" />
+    <result column="nodesday" property="nodesday" jdbcType="INTEGER" />
+    <result column="warnstate" property="warnstate" jdbcType="INTEGER" />
+    <result column="imports" property="imports" jdbcType="INTEGER" />
+    <result column="materialnode" property="materialnode" jdbcType="VARCHAR" />
+    <result column="purchsingnode" property="purchsingnode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    planmatterid, plantypeid, planmatter, plantype, warnday, transday, plandate, nodesday, 
+    warnstate, imports, materialnode, purchsingnode
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_planmatterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_planmatter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_planmatter
+    where planmatterid = #{planmatterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_planmatter
+    where planmatterid = #{planmatterid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_planmatterExample" >
+    delete from tab_planmatter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_planmatter" >
+    insert into tab_planmatter (planmatterid, plantypeid, planmatter, 
+      plantype, warnday, transday, 
+      plandate, nodesday, warnstate, 
+      imports, materialnode, purchsingnode
+      )
+    values (#{planmatterid,jdbcType=INTEGER}, #{plantypeid,jdbcType=INTEGER}, #{planmatter,jdbcType=VARCHAR}, 
+      #{plantype,jdbcType=INTEGER}, #{warnday,jdbcType=INTEGER}, #{transday,jdbcType=INTEGER}, 
+      #{plandate,jdbcType=VARCHAR}, #{nodesday,jdbcType=INTEGER}, #{warnstate,jdbcType=INTEGER}, 
+      #{imports,jdbcType=INTEGER}, #{materialnode,jdbcType=VARCHAR}, #{purchsingnode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_planmatter" >
+    insert into tab_planmatter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="planmatterid != null" >
+        planmatterid,
+      </if>
+      <if test="plantypeid != null" >
+        plantypeid,
+      </if>
+      <if test="planmatter != null" >
+        planmatter,
+      </if>
+      <if test="plantype != null" >
+        plantype,
+      </if>
+      <if test="warnday != null" >
+        warnday,
+      </if>
+      <if test="transday != null" >
+        transday,
+      </if>
+      <if test="plandate != null" >
+        plandate,
+      </if>
+      <if test="nodesday != null" >
+        nodesday,
+      </if>
+      <if test="warnstate != null" >
+        warnstate,
+      </if>
+      <if test="imports != null" >
+        imports,
+      </if>
+      <if test="materialnode != null" >
+        materialnode,
+      </if>
+      <if test="purchsingnode != null" >
+        purchsingnode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="planmatterid != null" >
+        #{planmatterid,jdbcType=INTEGER},
+      </if>
+      <if test="plantypeid != null" >
+        #{plantypeid,jdbcType=INTEGER},
+      </if>
+      <if test="planmatter != null" >
+        #{planmatter,jdbcType=VARCHAR},
+      </if>
+      <if test="plantype != null" >
+        #{plantype,jdbcType=INTEGER},
+      </if>
+      <if test="warnday != null" >
+        #{warnday,jdbcType=INTEGER},
+      </if>
+      <if test="transday != null" >
+        #{transday,jdbcType=INTEGER},
+      </if>
+      <if test="plandate != null" >
+        #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesday != null" >
+        #{nodesday,jdbcType=INTEGER},
+      </if>
+      <if test="warnstate != null" >
+        #{warnstate,jdbcType=INTEGER},
+      </if>
+      <if test="imports != null" >
+        #{imports,jdbcType=INTEGER},
+      </if>
+      <if test="materialnode != null" >
+        #{materialnode,jdbcType=VARCHAR},
+      </if>
+      <if test="purchsingnode != null" >
+        #{purchsingnode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_planmatterExample" resultType="java.lang.Integer" >
+    select count(*) from tab_planmatter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_planmatter
+    <set >
+      <if test="record.planmatterid != null" >
+        planmatterid = #{record.planmatterid,jdbcType=INTEGER},
+      </if>
+      <if test="record.plantypeid != null" >
+        plantypeid = #{record.plantypeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.planmatter != null" >
+        planmatter = #{record.planmatter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plantype != null" >
+        plantype = #{record.plantype,jdbcType=INTEGER},
+      </if>
+      <if test="record.warnday != null" >
+        warnday = #{record.warnday,jdbcType=INTEGER},
+      </if>
+      <if test="record.transday != null" >
+        transday = #{record.transday,jdbcType=INTEGER},
+      </if>
+      <if test="record.plandate != null" >
+        plandate = #{record.plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodesday != null" >
+        nodesday = #{record.nodesday,jdbcType=INTEGER},
+      </if>
+      <if test="record.warnstate != null" >
+        warnstate = #{record.warnstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.imports != null" >
+        imports = #{record.imports,jdbcType=INTEGER},
+      </if>
+      <if test="record.materialnode != null" >
+        materialnode = #{record.materialnode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchsingnode != null" >
+        purchsingnode = #{record.purchsingnode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_planmatter
+    set planmatterid = #{record.planmatterid,jdbcType=INTEGER},
+      plantypeid = #{record.plantypeid,jdbcType=INTEGER},
+      planmatter = #{record.planmatter,jdbcType=VARCHAR},
+      plantype = #{record.plantype,jdbcType=INTEGER},
+      warnday = #{record.warnday,jdbcType=INTEGER},
+      transday = #{record.transday,jdbcType=INTEGER},
+      plandate = #{record.plandate,jdbcType=VARCHAR},
+      nodesday = #{record.nodesday,jdbcType=INTEGER},
+      warnstate = #{record.warnstate,jdbcType=INTEGER},
+      imports = #{record.imports,jdbcType=INTEGER},
+      materialnode = #{record.materialnode,jdbcType=VARCHAR},
+      purchsingnode = #{record.purchsingnode,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_planmatter" >
+    update tab_planmatter
+    <set >
+      <if test="plantypeid != null" >
+        plantypeid = #{plantypeid,jdbcType=INTEGER},
+      </if>
+      <if test="planmatter != null" >
+        planmatter = #{planmatter,jdbcType=VARCHAR},
+      </if>
+      <if test="plantype != null" >
+        plantype = #{plantype,jdbcType=INTEGER},
+      </if>
+      <if test="warnday != null" >
+        warnday = #{warnday,jdbcType=INTEGER},
+      </if>
+      <if test="transday != null" >
+        transday = #{transday,jdbcType=INTEGER},
+      </if>
+      <if test="plandate != null" >
+        plandate = #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="nodesday != null" >
+        nodesday = #{nodesday,jdbcType=INTEGER},
+      </if>
+      <if test="warnstate != null" >
+        warnstate = #{warnstate,jdbcType=INTEGER},
+      </if>
+      <if test="imports != null" >
+        imports = #{imports,jdbcType=INTEGER},
+      </if>
+      <if test="materialnode != null" >
+        materialnode = #{materialnode,jdbcType=VARCHAR},
+      </if>
+      <if test="purchsingnode != null" >
+        purchsingnode = #{purchsingnode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where planmatterid = #{planmatterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_planmatter" >
+    update tab_planmatter
+    set plantypeid = #{plantypeid,jdbcType=INTEGER},
+      planmatter = #{planmatter,jdbcType=VARCHAR},
+      plantype = #{plantype,jdbcType=INTEGER},
+      warnday = #{warnday,jdbcType=INTEGER},
+      transday = #{transday,jdbcType=INTEGER},
+      plandate = #{plandate,jdbcType=VARCHAR},
+      nodesday = #{nodesday,jdbcType=INTEGER},
+      warnstate = #{warnstate,jdbcType=INTEGER},
+      imports = #{imports,jdbcType=INTEGER},
+      materialnode = #{materialnode,jdbcType=VARCHAR},
+      purchsingnode = #{purchsingnode,jdbcType=VARCHAR}
+    where planmatterid = #{planmatterid,jdbcType=INTEGER}
+  </update>
+</mapper>

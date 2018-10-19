@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_orderdetailMapper" >
+  <resultMap id="BaseResultMap" type="Tab_orderdetail" >
+    <id column="orderdetailid" property="orderdetailid" jdbcType="INTEGER" />
+    <result column="quarterlyid" property="quarterlyid" jdbcType="INTEGER" />
+    <result column="styleid" property="styleid" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+    <result column="brandid" property="brandid" jdbcType="INTEGER" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="styleno" property="styleno" jdbcType="VARCHAR" />
+    <result column="stylename" property="stylename" jdbcType="VARCHAR" />
+    <result column="singleperson" property="singleperson" jdbcType="VARCHAR" />
+    <result column="totalnum" property="totalnum" jdbcType="INTEGER" />
+    <result column="orderdate" property="orderdate" jdbcType="VARCHAR" />
+    <result column="moneymode" property="moneymode" jdbcType="VARCHAR" />
+    <result column="settlemoney" property="settlemoney" jdbcType="VARCHAR" />
+    <result column="moneyphone" property="moneyphone" jdbcType="VARCHAR" />
+    <result column="sampleno" property="sampleno" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="totalmoney" property="totalmoney" jdbcType="DECIMAL" />
+    <result column="labortime" property="labortime" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="autidate" property="autidate" jdbcType="VARCHAR" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
+    <result column="prostate" property="prostate" jdbcType="INTEGER" />
+    <result column="duestate" property="duestate" jdbcType="INTEGER" />
+    <result column="duemoney" property="duemoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderdetailid, quarterlyid, styleid, customerid, brandid, orderno, styleno, stylename, 
+    singleperson, totalnum, orderdate, moneymode, settlemoney, moneyphone, sampleno, 
+    price, totalmoney, labortime, remark, auditor, autidate, describle, prostate, duestate, 
+    duemoney
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_orderdetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_orderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_orderdetail
+    where orderdetailid = #{orderdetailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_orderdetail
+    where orderdetailid = #{orderdetailid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_orderdetailExample" >
+    delete from tab_orderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_orderdetail" >
+    insert into tab_orderdetail (orderdetailid, quarterlyid, styleid, 
+      customerid, brandid, orderno, 
+      styleno, stylename, singleperson, 
+      totalnum, orderdate, moneymode, 
+      settlemoney, moneyphone, sampleno, 
+      price, totalmoney, labortime, 
+      remark, auditor, autidate, 
+      describle, prostate, duestate, 
+      duemoney)
+    values (#{orderdetailid,jdbcType=INTEGER}, #{quarterlyid,jdbcType=INTEGER}, #{styleid,jdbcType=INTEGER}, 
+      #{customerid,jdbcType=INTEGER}, #{brandid,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, 
+      #{styleno,jdbcType=VARCHAR}, #{stylename,jdbcType=VARCHAR}, #{singleperson,jdbcType=VARCHAR}, 
+      #{totalnum,jdbcType=INTEGER}, #{orderdate,jdbcType=VARCHAR}, #{moneymode,jdbcType=VARCHAR}, 
+      #{settlemoney,jdbcType=VARCHAR}, #{moneyphone,jdbcType=VARCHAR}, #{sampleno,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{totalmoney,jdbcType=DECIMAL}, #{labortime,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{autidate,jdbcType=VARCHAR}, 
+      #{describle,jdbcType=VARCHAR}, #{prostate,jdbcType=INTEGER}, #{duestate,jdbcType=INTEGER}, 
+      #{duemoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_orderdetail" >
+    insert into tab_orderdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderdetailid != null" >
+        orderdetailid,
+      </if>
+      <if test="quarterlyid != null" >
+        quarterlyid,
+      </if>
+      <if test="styleid != null" >
+        styleid,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+      <if test="brandid != null" >
+        brandid,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="styleno != null" >
+        styleno,
+      </if>
+      <if test="stylename != null" >
+        stylename,
+      </if>
+      <if test="singleperson != null" >
+        singleperson,
+      </if>
+      <if test="totalnum != null" >
+        totalnum,
+      </if>
+      <if test="orderdate != null" >
+        orderdate,
+      </if>
+      <if test="moneymode != null" >
+        moneymode,
+      </if>
+      <if test="settlemoney != null" >
+        settlemoney,
+      </if>
+      <if test="moneyphone != null" >
+        moneyphone,
+      </if>
+      <if test="sampleno != null" >
+        sampleno,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalmoney != null" >
+        totalmoney,
+      </if>
+      <if test="labortime != null" >
+        labortime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="autidate != null" >
+        autidate,
+      </if>
+      <if test="describle != null" >
+        describle,
+      </if>
+      <if test="prostate != null" >
+        prostate,
+      </if>
+      <if test="duestate != null" >
+        duestate,
+      </if>
+      <if test="duemoney != null" >
+        duemoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderdetailid != null" >
+        #{orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="quarterlyid != null" >
+        #{quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null" >
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="singleperson != null" >
+        #{singleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="moneymode != null" >
+        #{moneymode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlemoney != null" >
+        #{settlemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyphone != null" >
+        #{moneyphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleno != null" >
+        #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null" >
+        #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="labortime != null" >
+        #{labortime,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="autidate != null" >
+        #{autidate,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="prostate != null" >
+        #{prostate,jdbcType=INTEGER},
+      </if>
+      <if test="duestate != null" >
+        #{duestate,jdbcType=INTEGER},
+      </if>
+      <if test="duemoney != null" >
+        #{duemoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_orderdetailExample" resultType="java.lang.Integer" >
+    select count(*) from tab_orderdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_orderdetail
+    <set >
+      <if test="record.orderdetailid != null" >
+        orderdetailid = #{record.orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="record.quarterlyid != null" >
+        quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.styleid != null" >
+        styleid = #{record.styleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.brandid != null" >
+        brandid = #{record.brandid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderno != null" >
+        orderno = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.styleno != null" >
+        styleno = #{record.styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylename != null" >
+        stylename = #{record.stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.singleperson != null" >
+        singleperson = #{record.singleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalnum != null" >
+        totalnum = #{record.totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderdate != null" >
+        orderdate = #{record.orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moneymode != null" >
+        moneymode = #{record.moneymode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlemoney != null" >
+        settlemoney = #{record.settlemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moneyphone != null" >
+        moneyphone = #{record.moneyphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sampleno != null" >
+        sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalmoney != null" >
+        totalmoney = #{record.totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.labortime != null" >
+        labortime = #{record.labortime,jdbcType=DECIMAL},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditor != null" >
+        auditor = #{record.auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.autidate != null" >
+        autidate = #{record.autidate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prostate != null" >
+        prostate = #{record.prostate,jdbcType=INTEGER},
+      </if>
+      <if test="record.duestate != null" >
+        duestate = #{record.duestate,jdbcType=INTEGER},
+      </if>
+      <if test="record.duemoney != null" >
+        duemoney = #{record.duemoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_orderdetail
+    set orderdetailid = #{record.orderdetailid,jdbcType=INTEGER},
+      quarterlyid = #{record.quarterlyid,jdbcType=INTEGER},
+      styleid = #{record.styleid,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER},
+      brandid = #{record.brandid,jdbcType=INTEGER},
+      orderno = #{record.orderno,jdbcType=VARCHAR},
+      styleno = #{record.styleno,jdbcType=VARCHAR},
+      stylename = #{record.stylename,jdbcType=VARCHAR},
+      singleperson = #{record.singleperson,jdbcType=VARCHAR},
+      totalnum = #{record.totalnum,jdbcType=INTEGER},
+      orderdate = #{record.orderdate,jdbcType=VARCHAR},
+      moneymode = #{record.moneymode,jdbcType=VARCHAR},
+      settlemoney = #{record.settlemoney,jdbcType=VARCHAR},
+      moneyphone = #{record.moneyphone,jdbcType=VARCHAR},
+      sampleno = #{record.sampleno,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      totalmoney = #{record.totalmoney,jdbcType=DECIMAL},
+      labortime = #{record.labortime,jdbcType=DECIMAL},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      auditor = #{record.auditor,jdbcType=VARCHAR},
+      autidate = #{record.autidate,jdbcType=VARCHAR},
+      describle = #{record.describle,jdbcType=VARCHAR},
+      prostate = #{record.prostate,jdbcType=INTEGER},
+      duestate = #{record.duestate,jdbcType=INTEGER},
+      duemoney = #{record.duemoney,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_orderdetail" >
+    update tab_orderdetail
+    <set >
+      <if test="quarterlyid != null" >
+        quarterlyid = #{quarterlyid,jdbcType=INTEGER},
+      </if>
+      <if test="styleid != null" >
+        styleid = #{styleid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null" >
+        brandid = #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null" >
+        styleno = #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="stylename != null" >
+        stylename = #{stylename,jdbcType=VARCHAR},
+      </if>
+      <if test="singleperson != null" >
+        singleperson = #{singleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnum != null" >
+        totalnum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="orderdate != null" >
+        orderdate = #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="moneymode != null" >
+        moneymode = #{moneymode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlemoney != null" >
+        settlemoney = #{settlemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyphone != null" >
+        moneyphone = #{moneyphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleno != null" >
+        sampleno = #{sampleno,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null" >
+        totalmoney = #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="labortime != null" >
+        labortime = #{labortime,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="autidate != null" >
+        autidate = #{autidate,jdbcType=VARCHAR},
+      </if>
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
+      </if>
+      <if test="prostate != null" >
+        prostate = #{prostate,jdbcType=INTEGER},
+      </if>
+      <if test="duestate != null" >
+        duestate = #{duestate,jdbcType=INTEGER},
+      </if>
+      <if test="duemoney != null" >
+        duemoney = #{duemoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where orderdetailid = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_orderdetail" >
+    update tab_orderdetail
+    set quarterlyid = #{quarterlyid,jdbcType=INTEGER},
+      styleid = #{styleid,jdbcType=INTEGER},
+      customerid = #{customerid,jdbcType=INTEGER},
+      brandid = #{brandid,jdbcType=INTEGER},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      styleno = #{styleno,jdbcType=VARCHAR},
+      stylename = #{stylename,jdbcType=VARCHAR},
+      singleperson = #{singleperson,jdbcType=VARCHAR},
+      totalnum = #{totalnum,jdbcType=INTEGER},
+      orderdate = #{orderdate,jdbcType=VARCHAR},
+      moneymode = #{moneymode,jdbcType=VARCHAR},
+      settlemoney = #{settlemoney,jdbcType=VARCHAR},
+      moneyphone = #{moneyphone,jdbcType=VARCHAR},
+      sampleno = #{sampleno,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      totalmoney = #{totalmoney,jdbcType=DECIMAL},
+      labortime = #{labortime,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      autidate = #{autidate,jdbcType=VARCHAR},
+      describle = #{describle,jdbcType=VARCHAR},
+      prostate = #{prostate,jdbcType=INTEGER},
+      duestate = #{duestate,jdbcType=INTEGER},
+      duemoney = #{duemoney,jdbcType=DECIMAL}
+    where orderdetailid = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+</mapper>

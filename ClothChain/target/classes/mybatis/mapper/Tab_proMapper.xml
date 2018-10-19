@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_proMapper" >
+  <resultMap id="BaseResultMap" type="Tab_pro" >
+    <id column="progressid" property="progressid" jdbcType="INTEGER" />
+    <result column="salesorder" property="salesorder" jdbcType="VARCHAR" />
+    <result column="cutnumber" property="cutnumber" jdbcType="INTEGER" />
+    <result column="worknumber" property="worknumber" jdbcType="INTEGER" />
+    <result column="intputnumber" property="intputnumber" jdbcType="INTEGER" />
+    <result column="outnumber" property="outnumber" jdbcType="INTEGER" />
+    <result column="accepetnumber" property="accepetnumber" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    progressid, salesorder, cutnumber, worknumber, intputnumber, outnumber, accepetnumber
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_proExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_pro
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_pro
+    where progressid = #{progressid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_pro
+    where progressid = #{progressid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_proExample" >
+    delete from tab_pro
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_pro" >
+    insert into tab_pro (progressid, salesorder, cutnumber, 
+      worknumber, intputnumber, outnumber, 
+      accepetnumber)
+    values (#{progressid,jdbcType=INTEGER}, #{salesorder,jdbcType=VARCHAR}, #{cutnumber,jdbcType=INTEGER}, 
+      #{worknumber,jdbcType=INTEGER}, #{intputnumber,jdbcType=INTEGER}, #{outnumber,jdbcType=INTEGER}, 
+      #{accepetnumber,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_pro" >
+    insert into tab_pro
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="progressid != null" >
+        progressid,
+      </if>
+      <if test="salesorder != null" >
+        salesorder,
+      </if>
+      <if test="cutnumber != null" >
+        cutnumber,
+      </if>
+      <if test="worknumber != null" >
+        worknumber,
+      </if>
+      <if test="intputnumber != null" >
+        intputnumber,
+      </if>
+      <if test="outnumber != null" >
+        outnumber,
+      </if>
+      <if test="accepetnumber != null" >
+        accepetnumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="progressid != null" >
+        #{progressid,jdbcType=INTEGER},
+      </if>
+      <if test="salesorder != null" >
+        #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="cutnumber != null" >
+        #{cutnumber,jdbcType=INTEGER},
+      </if>
+      <if test="worknumber != null" >
+        #{worknumber,jdbcType=INTEGER},
+      </if>
+      <if test="intputnumber != null" >
+        #{intputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="outnumber != null" >
+        #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="accepetnumber != null" >
+        #{accepetnumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_proExample" resultType="java.lang.Integer" >
+    select count(*) from tab_pro
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_pro
+    <set >
+      <if test="record.progressid != null" >
+        progressid = #{record.progressid,jdbcType=INTEGER},
+      </if>
+      <if test="record.salesorder != null" >
+        salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cutnumber != null" >
+        cutnumber = #{record.cutnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.worknumber != null" >
+        worknumber = #{record.worknumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.intputnumber != null" >
+        intputnumber = #{record.intputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.outnumber != null" >
+        outnumber = #{record.outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.accepetnumber != null" >
+        accepetnumber = #{record.accepetnumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_pro
+    set progressid = #{record.progressid,jdbcType=INTEGER},
+      salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      cutnumber = #{record.cutnumber,jdbcType=INTEGER},
+      worknumber = #{record.worknumber,jdbcType=INTEGER},
+      intputnumber = #{record.intputnumber,jdbcType=INTEGER},
+      outnumber = #{record.outnumber,jdbcType=INTEGER},
+      accepetnumber = #{record.accepetnumber,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_pro" >
+    update tab_pro
+    <set >
+      <if test="salesorder != null" >
+        salesorder = #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="cutnumber != null" >
+        cutnumber = #{cutnumber,jdbcType=INTEGER},
+      </if>
+      <if test="worknumber != null" >
+        worknumber = #{worknumber,jdbcType=INTEGER},
+      </if>
+      <if test="intputnumber != null" >
+        intputnumber = #{intputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="outnumber != null" >
+        outnumber = #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="accepetnumber != null" >
+        accepetnumber = #{accepetnumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where progressid = #{progressid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_pro" >
+    update tab_pro
+    set salesorder = #{salesorder,jdbcType=VARCHAR},
+      cutnumber = #{cutnumber,jdbcType=INTEGER},
+      worknumber = #{worknumber,jdbcType=INTEGER},
+      intputnumber = #{intputnumber,jdbcType=INTEGER},
+      outnumber = #{outnumber,jdbcType=INTEGER},
+      accepetnumber = #{accepetnumber,jdbcType=INTEGER}
+    where progressid = #{progressid,jdbcType=INTEGER}
+  </update>
+</mapper>

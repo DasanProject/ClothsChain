@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_finishedproductMapper" >
+  <resultMap id="BaseResultMap" type="Tab_finishedproduct" >
+    <id column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="finishedproductsid" property="finishedproductsid" jdbcType="VARCHAR" />
+    <result column="intputwarehouse" property="intputwarehouse" jdbcType="INTEGER" />
+    <result column="salesorder" property="salesorder" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="VARCHAR" />
+    <result column="stylenumber" property="stylenumber" jdbcType="VARCHAR" />
+    <result column="destination" property="destination" jdbcType="VARCHAR" />
+    <result column="outdate" property="outdate" jdbcType="VARCHAR" />
+    <result column="totalnumber" property="totalnumber" jdbcType="INTEGER" />
+    <result column="warehouse" property="warehouse" jdbcType="VARCHAR" />
+    <result column="danjudate" property="danjudate" jdbcType="VARCHAR" />
+    <result column="isstatus" property="isstatus" jdbcType="INTEGER" />
+    <result column="inputnumber" property="inputnumber" jdbcType="INTEGER" />
+    <result column="intputdate" property="intputdate" jdbcType="VARCHAR" />
+    <result column="outnumber" property="outnumber" jdbcType="INTEGER" />
+    <result column="customerid" property="customerid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    inid, finishedproductsid, intputwarehouse, salesorder, quarter, stylenumber, destination, 
+    outdate, totalnumber, warehouse, danjudate, isstatus, inputnumber, intputdate, outnumber, 
+    customerid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_finishedproductExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_finishedproduct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_finishedproduct
+    where inid = #{inid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_finishedproduct
+    where inid = #{inid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_finishedproductExample" >
+    delete from tab_finishedproduct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_finishedproduct" >
+    insert into tab_finishedproduct (inid, finishedproductsid, intputwarehouse, 
+      salesorder, quarter, stylenumber, 
+      destination, outdate, totalnumber, 
+      warehouse, danjudate, isstatus, 
+      inputnumber, intputdate, outnumber, 
+      customerid)
+    values (#{inid,jdbcType=INTEGER}, #{finishedproductsid,jdbcType=VARCHAR}, #{intputwarehouse,jdbcType=INTEGER}, 
+      #{salesorder,jdbcType=VARCHAR}, #{quarter,jdbcType=VARCHAR}, #{stylenumber,jdbcType=VARCHAR}, 
+      #{destination,jdbcType=VARCHAR}, #{outdate,jdbcType=VARCHAR}, #{totalnumber,jdbcType=INTEGER}, 
+      #{warehouse,jdbcType=VARCHAR}, #{danjudate,jdbcType=VARCHAR}, #{isstatus,jdbcType=INTEGER}, 
+      #{inputnumber,jdbcType=INTEGER}, #{intputdate,jdbcType=VARCHAR}, #{outnumber,jdbcType=INTEGER}, 
+      #{customerid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_finishedproduct" >
+    insert into tab_finishedproduct
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        inid,
+      </if>
+      <if test="finishedproductsid != null" >
+        finishedproductsid,
+      </if>
+      <if test="intputwarehouse != null" >
+        intputwarehouse,
+      </if>
+      <if test="salesorder != null" >
+        salesorder,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber,
+      </if>
+      <if test="destination != null" >
+        destination,
+      </if>
+      <if test="outdate != null" >
+        outdate,
+      </if>
+      <if test="totalnumber != null" >
+        totalnumber,
+      </if>
+      <if test="warehouse != null" >
+        warehouse,
+      </if>
+      <if test="danjudate != null" >
+        danjudate,
+      </if>
+      <if test="isstatus != null" >
+        isstatus,
+      </if>
+      <if test="inputnumber != null" >
+        inputnumber,
+      </if>
+      <if test="intputdate != null" >
+        intputdate,
+      </if>
+      <if test="outnumber != null" >
+        outnumber,
+      </if>
+      <if test="customerid != null" >
+        customerid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="finishedproductsid != null" >
+        #{finishedproductsid,jdbcType=VARCHAR},
+      </if>
+      <if test="intputwarehouse != null" >
+        #{intputwarehouse,jdbcType=INTEGER},
+      </if>
+      <if test="salesorder != null" >
+        #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null" >
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="outdate != null" >
+        #{outdate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnumber != null" >
+        #{totalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="warehouse != null" >
+        #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="danjudate != null" >
+        #{danjudate,jdbcType=VARCHAR},
+      </if>
+      <if test="isstatus != null" >
+        #{isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="inputnumber != null" >
+        #{inputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="intputdate != null" >
+        #{intputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="outnumber != null" >
+        #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_finishedproductExample" resultType="java.lang.Integer" >
+    select count(*) from tab_finishedproduct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_finishedproduct
+    <set >
+      <if test="record.inid != null" >
+        inid = #{record.inid,jdbcType=INTEGER},
+      </if>
+      <if test="record.finishedproductsid != null" >
+        finishedproductsid = #{record.finishedproductsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intputwarehouse != null" >
+        intputwarehouse = #{record.intputwarehouse,jdbcType=INTEGER},
+      </if>
+      <if test="record.salesorder != null" >
+        salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quarter != null" >
+        quarter = #{record.quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stylenumber != null" >
+        stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.destination != null" >
+        destination = #{record.destination,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outdate != null" >
+        outdate = #{record.outdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalnumber != null" >
+        totalnumber = #{record.totalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.warehouse != null" >
+        warehouse = #{record.warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.danjudate != null" >
+        danjudate = #{record.danjudate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isstatus != null" >
+        isstatus = #{record.isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.inputnumber != null" >
+        inputnumber = #{record.inputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.intputdate != null" >
+        intputdate = #{record.intputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outnumber != null" >
+        outnumber = #{record.outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerid != null" >
+        customerid = #{record.customerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_finishedproduct
+    set inid = #{record.inid,jdbcType=INTEGER},
+      finishedproductsid = #{record.finishedproductsid,jdbcType=VARCHAR},
+      intputwarehouse = #{record.intputwarehouse,jdbcType=INTEGER},
+      salesorder = #{record.salesorder,jdbcType=VARCHAR},
+      quarter = #{record.quarter,jdbcType=VARCHAR},
+      stylenumber = #{record.stylenumber,jdbcType=VARCHAR},
+      destination = #{record.destination,jdbcType=VARCHAR},
+      outdate = #{record.outdate,jdbcType=VARCHAR},
+      totalnumber = #{record.totalnumber,jdbcType=INTEGER},
+      warehouse = #{record.warehouse,jdbcType=VARCHAR},
+      danjudate = #{record.danjudate,jdbcType=VARCHAR},
+      isstatus = #{record.isstatus,jdbcType=INTEGER},
+      inputnumber = #{record.inputnumber,jdbcType=INTEGER},
+      intputdate = #{record.intputdate,jdbcType=VARCHAR},
+      outnumber = #{record.outnumber,jdbcType=INTEGER},
+      customerid = #{record.customerid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_finishedproduct" >
+    update tab_finishedproduct
+    <set >
+      <if test="finishedproductsid != null" >
+        finishedproductsid = #{finishedproductsid,jdbcType=VARCHAR},
+      </if>
+      <if test="intputwarehouse != null" >
+        intputwarehouse = #{intputwarehouse,jdbcType=INTEGER},
+      </if>
+      <if test="salesorder != null" >
+        salesorder = #{salesorder,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=VARCHAR},
+      </if>
+      <if test="stylenumber != null" >
+        stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null" >
+        destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="outdate != null" >
+        outdate = #{outdate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnumber != null" >
+        totalnumber = #{totalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="warehouse != null" >
+        warehouse = #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="danjudate != null" >
+        danjudate = #{danjudate,jdbcType=VARCHAR},
+      </if>
+      <if test="isstatus != null" >
+        isstatus = #{isstatus,jdbcType=INTEGER},
+      </if>
+      <if test="inputnumber != null" >
+        inputnumber = #{inputnumber,jdbcType=INTEGER},
+      </if>
+      <if test="intputdate != null" >
+        intputdate = #{intputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="outnumber != null" >
+        outnumber = #{outnumber,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        customerid = #{customerid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where inid = #{inid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_finishedproduct" >
+    update tab_finishedproduct
+    set finishedproductsid = #{finishedproductsid,jdbcType=VARCHAR},
+      intputwarehouse = #{intputwarehouse,jdbcType=INTEGER},
+      salesorder = #{salesorder,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=VARCHAR},
+      stylenumber = #{stylenumber,jdbcType=VARCHAR},
+      destination = #{destination,jdbcType=VARCHAR},
+      outdate = #{outdate,jdbcType=VARCHAR},
+      totalnumber = #{totalnumber,jdbcType=INTEGER},
+      warehouse = #{warehouse,jdbcType=VARCHAR},
+      danjudate = #{danjudate,jdbcType=VARCHAR},
+      isstatus = #{isstatus,jdbcType=INTEGER},
+      inputnumber = #{inputnumber,jdbcType=INTEGER},
+      intputdate = #{intputdate,jdbcType=VARCHAR},
+      outnumber = #{outnumber,jdbcType=INTEGER},
+      customerid = #{customerid,jdbcType=INTEGER}
+    where inid = #{inid,jdbcType=INTEGER}
+  </update>
+</mapper>

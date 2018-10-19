@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_planremarkMapper" >
+  <resultMap id="BaseResultMap" type="Tab_planremark" >
+    <id column="planremarkid" property="planremarkid" jdbcType="INTEGER" />
+    <result column="procurentid" property="procurentid" jdbcType="INTEGER" />
+    <result column="reachid" property="reachid" jdbcType="INTEGER" />
+    <result column="productplanid" property="productplanid" jdbcType="INTEGER" />
+    <result column="otherplanid" property="otherplanid" jdbcType="INTEGER" />
+    <result column="saleno" property="saleno" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="operater" property="operater" jdbcType="VARCHAR" />
+    <result column="operdate" property="operdate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    planremarkid, procurentid, reachid, productplanid, otherplanid, saleno, remark, operater, 
+    operdate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="Tab_planremarkExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tab_planremark
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_planremark
+    where planremarkid = #{planremarkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tab_planremark
+    where planremarkid = #{planremarkid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="Tab_planremarkExample" >
+    delete from tab_planremark
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="Tab_planremark" >
+    insert into tab_planremark (planremarkid, procurentid, reachid, 
+      productplanid, otherplanid, saleno, 
+      remark, operater, operdate
+      )
+    values (#{planremarkid,jdbcType=INTEGER}, #{procurentid,jdbcType=INTEGER}, #{reachid,jdbcType=INTEGER}, 
+      #{productplanid,jdbcType=INTEGER}, #{otherplanid,jdbcType=INTEGER}, #{saleno,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{operater,jdbcType=VARCHAR}, #{operdate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Tab_planremark" >
+    insert into tab_planremark
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="planremarkid != null" >
+        planremarkid,
+      </if>
+      <if test="procurentid != null" >
+        procurentid,
+      </if>
+      <if test="reachid != null" >
+        reachid,
+      </if>
+      <if test="productplanid != null" >
+        productplanid,
+      </if>
+      <if test="otherplanid != null" >
+        otherplanid,
+      </if>
+      <if test="saleno != null" >
+        saleno,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="operater != null" >
+        operater,
+      </if>
+      <if test="operdate != null" >
+        operdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="planremarkid != null" >
+        #{planremarkid,jdbcType=INTEGER},
+      </if>
+      <if test="procurentid != null" >
+        #{procurentid,jdbcType=INTEGER},
+      </if>
+      <if test="reachid != null" >
+        #{reachid,jdbcType=INTEGER},
+      </if>
+      <if test="productplanid != null" >
+        #{productplanid,jdbcType=INTEGER},
+      </if>
+      <if test="otherplanid != null" >
+        #{otherplanid,jdbcType=INTEGER},
+      </if>
+      <if test="saleno != null" >
+        #{saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null" >
+        #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="operdate != null" >
+        #{operdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="Tab_planremarkExample" resultType="java.lang.Integer" >
+    select count(*) from tab_planremark
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tab_planremark
+    <set >
+      <if test="record.planremarkid != null" >
+        planremarkid = #{record.planremarkid,jdbcType=INTEGER},
+      </if>
+      <if test="record.procurentid != null" >
+        procurentid = #{record.procurentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.reachid != null" >
+        reachid = #{record.reachid,jdbcType=INTEGER},
+      </if>
+      <if test="record.productplanid != null" >
+        productplanid = #{record.productplanid,jdbcType=INTEGER},
+      </if>
+      <if test="record.otherplanid != null" >
+        otherplanid = #{record.otherplanid,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleno != null" >
+        saleno = #{record.saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operater != null" >
+        operater = #{record.operater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operdate != null" >
+        operdate = #{record.operdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tab_planremark
+    set planremarkid = #{record.planremarkid,jdbcType=INTEGER},
+      procurentid = #{record.procurentid,jdbcType=INTEGER},
+      reachid = #{record.reachid,jdbcType=INTEGER},
+      productplanid = #{record.productplanid,jdbcType=INTEGER},
+      otherplanid = #{record.otherplanid,jdbcType=INTEGER},
+      saleno = #{record.saleno,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      operater = #{record.operater,jdbcType=VARCHAR},
+      operdate = #{record.operdate,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="Tab_planremark" >
+    update tab_planremark
+    <set >
+      <if test="procurentid != null" >
+        procurentid = #{procurentid,jdbcType=INTEGER},
+      </if>
+      <if test="reachid != null" >
+        reachid = #{reachid,jdbcType=INTEGER},
+      </if>
+      <if test="productplanid != null" >
+        productplanid = #{productplanid,jdbcType=INTEGER},
+      </if>
+      <if test="otherplanid != null" >
+        otherplanid = #{otherplanid,jdbcType=INTEGER},
+      </if>
+      <if test="saleno != null" >
+        saleno = #{saleno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null" >
+        operater = #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="operdate != null" >
+        operdate = #{operdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where planremarkid = #{planremarkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Tab_planremark" >
+    update tab_planremark
+    set procurentid = #{procurentid,jdbcType=INTEGER},
+      reachid = #{reachid,jdbcType=INTEGER},
+      productplanid = #{productplanid,jdbcType=INTEGER},
+      otherplanid = #{otherplanid,jdbcType=INTEGER},
+      saleno = #{saleno,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      operater = #{operater,jdbcType=VARCHAR},
+      operdate = #{operdate,jdbcType=VARCHAR}
+    where planremarkid = #{planremarkid,jdbcType=INTEGER}
+  </update>
+</mapper>
