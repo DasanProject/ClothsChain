@@ -11,6 +11,8 @@ import java.util.Map;
 
 
 public interface CmyBiz {
+    //查询颜色库
+    public PageInfo<Tab_color> getColors_cmy(Tab_color color,PageEntity pageEntity);
     //查询尺寸表
     public List<Tab_size> getSize_cmy();
     //查新品牌表
@@ -20,7 +22,7 @@ public interface CmyBiz {
     //查询季度表
     public List<Tab_quarterly> getQuarterly_cmy();
     //查询款式表
-    public List<Tab_stylelibrary> getStylelibrary_cmy();
+    public List<Tab_stylelibrary> getStylelibrary_cmy(Integer customer);
     //陈梦月分页查询所有
     public PageInfo<Map> getAlladmission_cmy(PageEntity pageEntity);
     //客户管理

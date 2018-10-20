@@ -18,6 +18,13 @@ import java.util.Map;
 public class CmyController {
     @Resource
     private CmyBiz biz;
+    //查询颜色库
+    @RequestMapping("/getColors_cmy")
+    @ResponseBody
+    public PageInfo<Tab_color> getColors_cmy(Tab_color color,PageEntity pageEntity){
+        System.out.println(color+"zaaa"+pageEntity);
+        return biz.getColors_cmy(color,pageEntity);
+    }
 //查询尺寸表
     @RequestMapping("/getSize_cmy")
     @ResponseBody
@@ -34,8 +41,8 @@ public class CmyController {
     //查询款式表
     @RequestMapping("getStylelibrary_cmy")
     @ResponseBody
-    public List<Tab_stylelibrary> getStylelibrary_cmy(){
-        return biz.getStylelibrary_cmy();
+    public List<Tab_stylelibrary> getStylelibrary_cmy(Integer customerid){
+        return biz.getStylelibrary_cmy(customerid);
     }
     //查询季度表
     @RequestMapping("getQuarterly_cmy")

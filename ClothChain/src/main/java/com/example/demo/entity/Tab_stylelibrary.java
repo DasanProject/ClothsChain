@@ -8,6 +8,15 @@ public class Tab_stylelibrary {
     private String stylename;
 
     private String describle;
+    private Integer customerid;
+
+    public Integer getCustomerid() {
+        return customerid;
+    }
+
+    public void setCustomerid(Integer customerid) {
+        this.customerid = customerid;
+    }
 
     public Integer getStyleid() {
         return styleid;
