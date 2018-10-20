@@ -10,7 +10,6 @@
         select * from tab_brand
         <where>
 <if test="customerid !=null">
-
     customerid=#{customerid}
 </if>
         </where>
