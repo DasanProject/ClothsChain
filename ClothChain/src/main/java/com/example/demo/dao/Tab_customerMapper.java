@@ -29,9 +29,4 @@ public interface Tab_customerMapper {
     int updateByPrimaryKeySelective(Tab_customer record);
 
     int updateByPrimaryKey(Tab_customer record);
-<<<<<<< HEAD
-
-
-=======
->>>>>>> lxy
 }

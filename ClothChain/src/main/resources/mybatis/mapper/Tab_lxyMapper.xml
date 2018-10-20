@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Tab_lxyMapper" >
+<!--***********************客户管理************************-->
+    <!--查询客户-->
+    <select id="queryCustomer" resultType="java.util.Map" parameterType="java.lang.String">
+    select * from tab_customer
+    <where>
+            <if test="_parameter !=null or _parameter !=''">
+                 customername like '%${_parameter}%'
+            </if>
+    </where>
+  </select>
+    <!--添加客户-->
+    <insert id="addCustomer" parameterType="tab_customer">
+     insert into tab_customer(customername,abbreviation,state,remark) values (#{customername},#{abbreviation},#{state},#{remark})
+   </insert>
+    <!--  根据id查询-->
+    <select id="getOne" parameterType="int" resultType="tab_customer">
+     select * from tab_customer where customerid=#{id}
+  </select>
+    <!--客户修改-->
+    <update id="updateCustomer" parameterType="tab_customer">
+        update tab_customer
+        <trim prefix="set" suffixOverrides=",">
+            <!-- suffixOverrides 覆盖后缀为其值的内容
+                  prefixOverrides="and | or 覆盖前缀的内容"
+             -->
+            <if test="customername !=null">
+                customername=#{customername},
+            </if>
+            <if test="abbreviation !=null and abbreviation !=''">
+                abbreviation =#{abbreviation },
+            </if>
+            <if test="remark!=null and remark !=''">
+                remark =#{remark},
+            </if>
+        </trim>
+        <where>
+            customerid=#{customerid}
+        </where>
+    </update>
+<!--   ************************************<品牌管理**************- -->
+    <!--  查询品牌-->
+    <select id="getbrand" resultType="java.util.Map" parameterType="java.lang.String">
+        select * from tab_brand b join tab_customer c on b.customerid=c.customerid
+        <where>
+            <if test="_parameter!=null and _parameter!=''">
+                b.brandname like "%"#{_parameter}"%"
+            </if>
+        </where>
+        order by b.brandid
+    </select>
+    <!-- 查询客户-->
+    <select id="getCustomer" resultType="java.util.Map">
+    select * from tab_customer
+  </select>
+    <!--添加品牌-->
+    <insert id="addbrand" parameterType="tab_brand">
+      insert into tab_brand(customerid,brandnum,brandname,brandfullname,samplemultiple, remark)
+      values(#{customerid},#{brandnum},#{brandname},#{brandfullname},#{samplemultiple},#{remark})
+  </insert>
+    <!--根据id查询-->
+    <select id="queryOne" parameterType="int" resultType="java.util.Map">
+          select * from tab_brand  b  join tab_customer c on c.customerid=b.customerid where b.brandid=#{id}
+  </select>
+    <!-- 修改品牌-->
+    <update id="updatebrand" parameterType="tab_brand">
+        update tab_brand
+        <trim prefix="set" suffixOverrides=",">
+            <!-- suffixOverrides 覆盖后缀为其值的内容
+                  prefixOverrides="and | or 覆盖前缀的内容"
+             -->
+            <if test="brandname !=null">
+                brandname=#{brandname},
+            </if>
+            <if test="brandnum !=null and brandnum !=''">
+                brandnum =#{brandnum },
+            </if>
+            <if test="brandfullname!=null and brandfullname !=''">
+                brandfullname=#{brandfullname},
+            </if>
+            <if test="samplemultiple!=null and samplemultiple !=''">
+                samplemultiple=#{samplemultiple},
+            </if>
+            <if test="remark!=null and remark !=''">
+                remark =#{remark},
+            </if>
+        </trim>
+        <where>
+            brandid=#{brandid}
+        </where>
+    </update>
+<!--*******************************供应商管理********************-->
+    <!-- 查询所有供应商-->
+    <select id="getsuperlier" resultType="java.util.Map" parameterType="java.lang.String">
+    select * from tab_superlier
+  </select>
+<!--新增供应商-->
+    <insert id="addsuperlier" parameterType="tab_superlier">
+ insert into tab_superlier(superliername,remark,state,people,phone,address,websute,bank,bankaccount,day,contecttitle,fax,postalcode,email)
+  values (#{superliername},#{remark},#{state},#{people},#{phone},#{address},#{websute},#{bank},#{bankaccount},#{day},#{contecttitle},#{fax},#{postalcode},#{email})
+
+    </insert>
+   <!-- 根据id查询供应商-->
+      <select id="oneSuperlier" parameterType="int" resultType="java.util.Map">
+           select * from tab_superlier where superlierid=#{id}
+      </select>
+ <!-- 修改供应商信息-->
+     <update id="updateSuperlier" parameterType="tab_superlier">
+         update tab_superlier
+         <trim prefix="set" suffixOverrides=",">
+             <!-- suffixOverrides 覆盖后缀为其值的内容
+                   prefixOverrides="and | or 覆盖前缀的内容"
+              -->
+             <if test="superliername !=null">
+                 superliername=#{superliername},
+             </if>
+             <if test="remark!=null and remark !=''">
+                 remark=#{remark},
+             </if>
+             <if test="people!=null and people !=''">
+                 people=#{people},
+             </if>
+             <if test="phone!=null and phone !=''">
+                 phone =#{phone},
+             </if>
+             <if test="address!=null and address !=''">
+                 address =#{address},
+             </if>
+             <if test="websute!=null and websute !=''">
+                websute =#{websute},
+             </if>
+             <if test="day!=null and day !=''">
+                 day =#{day},
+             </if>
+             <if test="bank!=null and bank !=''">
+                 bank=#{bank},
+             </if>
+             <if test="bankaccount!=null and bankaccount !=''">
+                 bankaccount =#{bankaccount},
+             </if>
+
+             <if test="contecttitle!=null and contecttitle !=''">
+                 contecttitle =#{contecttitle},
+             </if>
+             <if test="postalcode!=null and postalcode !=''">
+                 postalcode =#{postalcode},
+             </if>
+             <if test="email!=null and email !=''">
+                 email =#{email},
+             </if>
+             <if test="fax!=null and fax !=''">
+             fax =#{fax},
+         </if>
+         </trim>
+         <where>
+             superlierid=#{superlierid}
+         </where>
+     </update>
+
+ <!--  *************** 物料类别管理getMaterialcategory****************-->
+   <!-- 查询物料类别-->
+    <select id="getMaterialcategory" resultType="java.util.Map">
+    select * from  tab_materialcategory
+  </select>
+    <!--物料类别详情-->
+    <select id="getMaterial"  resultType="java.util.Map">
+select * from tab_material a inner join  tab_materialcategory b on a.categoryid=b.categoryid inner join tab_superlier s on a.superlierid=s.superlierid
+    </select>
+   <!-- 查询供应商-->
+    <select id="findsuperlier" resultType="java.util.Map">
+        select * from tab_superlier
+    </select>
+    <!--添加物料-->
+    <insert id="addMaterial" parameterType="tab_material">
+        insert into tab_material(superlierid,categoryid,materialnum,materialname,modal,state,auditstatu,remark,basis,shrinkage,weight,num,price,unit,startnum,color,size) values
+        (#{superlierid},#{categoryid},#{materialnum},#{materialname},#{modal},#{state},#{auditstatu},#{remark},#{basis},#{shrinkage},#{weight},#{num},#{price},#{unit},#{startnum},#{color},#{size})
+    </insert>
+  <!-- 根据id查询物料信息-->
+    <select id="findOneMaterial" parameterType="java.lang.Integer" resultType="java.util.Map">
+
+     select * from tab_material a  join  tab_materialcategory b on a.categoryid=b.categoryid  join tab_superlier s on a.superlierid=s.superlierid where a.materialid=#{id}
+
+    </select>
+   <!-- 修改物料信息-->
+    <update id="updateMaterial" parameterType="tab_material">
+        update tab_material
+        <trim prefix="set" suffixOverrides=",">
+            <!-- suffixOverrides 覆盖后缀为其值的内容
+                  prefixOverrides="and | or 覆盖前缀的内容"
+             -->
+            <if test="superlierid !=null">
+                superlierid=#{superlierid},
+            </if>
+            <if test="categoryid !=null">
+                categoryid=#{categoryid},
+            </if>
+            <if test="materialnum !=null">
+                materialnum=#{materialnum},
+            </if>
+            <if test="materialname!=null and materialname !=''">
+                materialname=#{materialname},
+            </if>
+            <if test="modal!=null and modal !=''">
+                modal=#{modal},
+            </if>
+            <if test="remark!=null and remark !=''">
+                remark =#{remark},
+            </if>
+            <if test="basis!=null and basis !=''">
+                basis =#{basis},
+            </if>
+            <if test="shrinkage!=null and shrinkage !=''">
+                shrinkage =#{shrinkage},
+            </if>
+            <if test="weight!=null and weight !=''">
+                weight=#{weight},
+            </if>
+            <if test="num!=null and num !=''">
+                num=#{num},
+            </if>
+            <if test="price!=null and price !=''">
+                price =#{price},
+            </if>
+
+            <if test="unit!=null and unit !=''">
+                unit =#{unit},
+            </if>
+            <if test="startnum!=null and startnum !=''">
+                startnum =#{startnum},
+            </if>
+            <if test="color!=null and color !=''">
+                color=#{color},
+            </if>
+            <if test="size!=null and size !=''">
+                size =#{size},
+            </if>
+        </trim>
+        <where>
+            materialid=#{materialid}
+        </where>
+
+    </update>
+    <!--************************辅料管理********************-->
+    <select id="getAccessories" resultType="java.util.Map">
+        select * from tab_accessories
+    </select>
+   <!-- 新增辅料-->
+    <insert id="addAccessories" parameterType="tab_accessories">
+        insert into (accessoriesnum,accessoriesname,describle,type )values(#{accessoriesnum},#{accessoriesname},#{describle},#{type})
+    </insert>
+   <!-- 根据id查询辅料-->
+    <select id="getOneAccessiries" parameterType="int" resultType="Map">
+          select * from  tab_accessories where accessoriesid=#{id}
+    </select>
+  <!--  修改-->
+    <update id="updateAccessiries" parameterType="tab_accessories">
+        update  tab_accessories
+        <trim prefix="set" suffixOverrides=",">
+            <!-- suffixOverrides 覆盖后缀为其值的内容
+                  prefixOverrides="and | or 覆盖前缀的内容"
+             -->
+            <if test="accessoriesnum !=null">
+                accessoriesnum=#{accessoriesnum},
+            </if>
+            <if test="accessoriesname!=null and accessoriesname !=''">
+                accessoriesname=#{accessoriesname},
+            </if>
+            <if test="describle!=null and describle !=''">
+                describle =#{describle},
+            </if>
+            <if test="type!=null and type !=''">
+                type =#{type},
+            </if>
+        </trim>
+        <where>
+            accessoriesid=#{accessoriesid}
+        </where>
+    </update>
+    <!--颜色管理-->
+    <select id="getColor" resultType="java.util.Map" parameterType="java.lang.String">
+         select * from tab_color
+    </select>
+</mapper>
