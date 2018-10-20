@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6876cc1-93a8-4691-89c2-13e0b3b50a5d" name="Default" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/testcmy.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/CmyBiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/biz/bizimpl/CmyBizImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/CmyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dao/CmyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_clothcompontent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_clothcompontent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_samplesize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_samplesize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_stylelibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entity/Tab_stylelibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CmyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cmy_addSamplelist.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cmy_selecttest.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/CmyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/CmyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/CmyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CmyMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c6876cc1-93a8-4691-89c2-13e0b3b50a5d" name="Default" comment="a" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -312,7 +296,7 @@
       <path value="$PROJECT_DIR$/src/main/webapp/vendors/transitionize/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
     <option name="width" value="1400" />
@@ -540,15 +524,16 @@
       <workItem from="1539871689582" duration="16578000" />
       <workItem from="1539914078608" duration="29428000" />
       <workItem from="1539999375965" duration="8035000" />
-      <workItem from="1540008217451" duration="21768000" />
+      <workItem from="1540008217451" duration="22050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234232000" />
+    <option name="totallyTimeSpent" value="234514000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1046" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
