@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>供应链管理系统 | </title>
-
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
