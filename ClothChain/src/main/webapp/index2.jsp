@@ -129,18 +129,6 @@
                             <li><a><i class="fa fa-clone"></i>基础数据<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="lxy_queryCustomer.jsp" target="aaa">客户管理</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">品牌管理</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">供应商管理</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">辅料设置</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">物料信息</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">款式库</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">颜色库</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">服装部件库</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">仓库信息</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">尺码设置</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">尺寸模板</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">物料类别</a></li>
-                                    <li><a href="fixed_footer.html" target="aaa">样板类型</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>系统设置<span class="fa fa-chevron-down"></span></a>
