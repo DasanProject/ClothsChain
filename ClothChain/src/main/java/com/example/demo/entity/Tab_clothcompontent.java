@@ -8,6 +8,24 @@ public class Tab_clothcompontent {
     private String compontentname;
 
     private String describle;
+    private Double positive;
+    private Double negative;
+
+    public Double getPositive() {
+        return positive;
+    }
+
+    public void setPositive(Double positive) {
+        this.positive = positive;
+    }
+
+    public Double getNegative() {
+        return negative;
+    }
+
+    public void setNegative(Double negative) {
+        this.negative = negative;
+    }
 
     public Integer getCompontentid() {
         return compontentid;

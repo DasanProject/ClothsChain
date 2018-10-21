@@ -21,7 +21,15 @@ public class CmyBizImpl implements CmyBiz {
     private CmyMapper mappers;
     @Resource
     private Tab_oldnumberMapper oldnumberMapper;
-
+   //查询颜色库
+    public  PageInfo<Tab_color> getColors_cmy(Tab_color color,PageEntity pageEntity){
+        System.out.println(pageEntity.getPageNum()+"num"+pageEntity.getPageSize());
+        PageHelper.startPage(pageEntity.getPageNum(),pageEntity.getPageSize());
+        List<Tab_color> list=mappers.getColors_cmy(color);
+        System.out.println(list+"list");
+        PageInfo<Tab_color> info=new PageInfo<Tab_color>(list);
+        return info;
+    }
     //查询尺寸表
     public List<Tab_size> getSize_cmy(){
         return mappers.getSize_cmy();
@@ -42,8 +50,8 @@ public class CmyBizImpl implements CmyBiz {
     }
 
     @Override
-    public List<Tab_stylelibrary> getStylelibrary_cmy() {
-        return mappers.getStylelibrary_cmy();
+    public List<Tab_stylelibrary> getStylelibrary_cmy(Integer customer) {
+        return mappers.getStylelibrary_cmy(customer);
     }
 
     public PageInfo<Map> getAlladmission_cmy(PageEntity pageEntity) {
