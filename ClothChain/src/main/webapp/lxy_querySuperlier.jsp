@@ -142,17 +142,7 @@
 </style>
 <body style="background-color: #FFFFFF">
 <div class="" role="tabpanel" data-example-id="togglable-tabs">
-    <div>
-        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">首页</a>
-            </li>
-            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">查看详情</a>
-            </li>
-        </ul>
-    </div>
-    <div id="myTabContent" class="tab-content">
-        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-            <div class="col-xs-12">
+            <div class="col-xs-12" >
                 <div class="x_panel">
 
                     <div class="x_title row">
@@ -162,7 +152,7 @@
                         <!--------------------------------------->
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input type="text"  v-model="super"  class="form-control" placeholder="Search for...">
                                 <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
         </span>
@@ -172,8 +162,8 @@
                         <!----------------------------------------------------->
                     </div>
 
-                    <div class=" col-xs-12">
-                        <div id="app">
+                    <div class=" col-xs-12" id="app">
+                        <div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <tr> <a data-toggle="modal" data-target="#myModal" style="font-size:20px">添加 </a></tr>
                                 <tr class="bgprimary"></tr>
@@ -419,11 +409,6 @@
 
         </div>
 
-        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                booth letterpress, commodo enim craft beer mlkshk aliquip</p>
-        </div>
-
     </div>
 </div>
 
@@ -444,7 +429,8 @@
             pageSize:5,//每页显示的条数
             pages: 50, //总页数
             changePage:'',//跳转页
-            nowIndex:0
+            nowIndex:0,
+            super:'',
         },
         computed:{
             show:function(){
@@ -484,7 +470,7 @@
         methods: {
             getList:function(obj){
                 this.nowPage=obj;
-                var parames={"pageSize":this.pageSize,"pageNum":obj}
+                var parames={"pageSize":this.pageSize,"pageNum":obj,"superliername":this.super}
                 this.$http.post("lxy/getsuperlier_lxy",parames,{emulateJSON:true}).then(
                     function(res){
                         this.superlier=res.data.list;
@@ -509,6 +495,9 @@
         watch:{ //监听每页显示条数的变化
             "pageSize":function(){
                 this.getList(this.nowPage);
+            },
+            "super":function(){
+                this.getList(1);
             }
         }
     });

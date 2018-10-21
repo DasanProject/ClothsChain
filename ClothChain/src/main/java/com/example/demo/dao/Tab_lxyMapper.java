@@ -32,7 +32,7 @@ public interface Tab_lxyMapper {
     public void updatebrand(Tab_brand brand);
 
 /* **************供应商管理查询所有供上******************/
-    public List<Map> getsuperlier();
+    public List<Map> getsuperlier(String superliername);
 //新增供应商
      public void addsuperlier(Tab_superlier superlier);
      //根据id查询供应商
@@ -42,7 +42,7 @@ public interface Tab_lxyMapper {
   /*******************物料信息tab_materialcategory*********************/
     public List<Map> getMaterialcategory();//查询物料类别
     //物料类别and信息
-    public List<Map> getMaterial();//物料信息
+    public List<Map> getMaterial(String materialname);//物料信息
     //查询供应商
     public List<Map> findsuperlier();//查询供应商
     //添加物料
@@ -53,7 +53,7 @@ public interface Tab_lxyMapper {
     public void updateMaterial(Tab_material material);
     /*********************辅料管理*******************/
     //查询辅料
-     public List<Map> getAccessories();
+     public List<Map> getAccessories(String accessoriesname);
       //新增辅料
     public void addAccessories(Tab_accessories a);
     //根据id查询
@@ -61,11 +61,13 @@ public interface Tab_lxyMapper {
     //修改
     public  void updateAccessiries(Tab_accessories a);
    /* *************颜色管理***************/
-    public List<Map> getColor();
+    public List<Map> getColor(String colorname);
     //循环新增颜色
-    public void addGoods(List<Tab_color> list);
+   /* public void addColor(List<Tab_color> list);*/
+    public void addColor(Tab_color color);
     //根据id查询
     public  Map getOneColor(int id);
     //修改
     public void updateColor(Tab_color color);
+
 }

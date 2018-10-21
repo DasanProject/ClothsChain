@@ -9,7 +9,11 @@ import java.util.Map;
 
 
 public interface Tab_lxyBiz {
-  /*  *************************客户管理**************************/
+    //自动生成单号
+    //  biz
+    public String selectByPrimaryKey(int typeid);
+
+    /*  *************************客户管理**************************/
     //查询客户
     public PageInfo<Map> queryCustomer(PageEntity page, String customername);
     //添加客户
@@ -31,7 +35,7 @@ public interface Tab_lxyBiz {
     public void updatebrand(Tab_brand brand);
    /* *********************供应上管理*******************/
    //供应商管理
-   public PageInfo<Map> getsuperlier(PageEntity page);
+   public PageInfo<Map> getsuperlier(PageEntity page,String superliername);
    //新增供应商
     public void addsuperlier(Tab_superlier superlier);
     //根据id 查询供应商
@@ -41,7 +45,7 @@ public interface Tab_lxyBiz {
     /************************物料类别管理******************/
     public List<Map> getMaterialcategory();//查询物料类别
     //查询物料信息
-    public PageInfo<Map> getMaterial(PageEntity page);
+    public PageInfo<Map> getMaterial(PageEntity page,String materialname);
     //查询供应商
    public List<Map> findsuperlier();
    //添加物料信息
@@ -52,11 +56,22 @@ public interface Tab_lxyBiz {
     public void updateMaterial(Tab_material material);
     /*******************辅料管理*****************/
     /**************查询辅料*************/
-    public PageInfo<Map> getAccessories(PageEntity page);
+    public PageInfo<Map> getAccessories(PageEntity page,String accessoriesname);
     //新增辅料
     public void addAccessories(Tab_accessories a);
     //根据id查询辅料
     public Map getOneAccessiries(int id);
     //修改
     public  void updateAccessiries(Tab_accessories a);
+    /*******************颜色管理*******************/
+    //颜色查询
+    public PageInfo<Map> getColor(PageEntity page,String colorname);
+    //新增颜色
+   /* public void addColor(List<Tab_color> list);*/
+    public void addColor(Tab_color color);
+    //根据id查询
+    public Map getOneColor(int id);
+    //修改
+    public void updateColor(Tab_color color);
+
 }

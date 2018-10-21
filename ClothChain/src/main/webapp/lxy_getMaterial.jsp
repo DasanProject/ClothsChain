@@ -159,6 +159,14 @@
                     <div class="title_left col-xs-6" >
                         <h3>物料信息</h3>
                     </div>
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" v-model="mname" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                   </span>
+                        </div>
+                    </div>
                 </div>
                 <div class=" col-xs-12">
                     <div>
@@ -268,14 +276,14 @@
                   <tr>
                       <td>类别</td>
                       <td><select id="lb" name="categoryid"></select></td>
-                      <td>是否可用</td>
-                      <td><input name="state" type="radio" value="1">可用 <input name="state" type="radio" value="2">不可用</td>
+                      <td>基本单位</td>
+                      <td><input name="unit"></td>
                   </tr>
                   <tr>
                       <td>主要成分</td>
                       <td><input name="basis"></td>
-                      <td>审核状态</td>
-                      <td><input name="auditstatu" type="radio" value="1">可用 <input name="auditstatu" type="radio" value="2">不可用</td>
+                      <td>物料编号</td>
+                      <td><input name="materialnum"></td>
                   </tr>
                   <tr>
                       <td>缩率</td>
@@ -301,12 +309,7 @@
                       <td>规格型号</td>
                       <td><input name="modal"></td>
                   </tr>
-                  <tr>
-                      <td>基本单位</td>
-                      <td><input name="unit"></td>
-                      <td>物料编号</td>
-                      <td><input name="materialnum"></td>
-                  </tr>
+                
                   <tr>
                       <td>备注</td>
                       <td><input name="remark"></td>
@@ -321,99 +324,7 @@
     </div>
 
     <!------------------------------------------------------------->
-    <!-- 模态框2（Modal） -->
-<%--
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:80%">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:80%">
-                <div class="modal-header" style="background-color:#428BCA;color:#fff">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabe2">
-                        修改
-                    </h4>
-                </div>
-                <div class="modal-body" style="width:80%">
-                    <form id="myform">
-                        <table>
-                            <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">编号：{{mat.materialid}}</td>
-                                <td><input name="materialid" :value="mat.materialid" readonly="readonly"/></td>
-                            </tr>
-                            <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">供应商名称：</td>
-                                <td><input name="superlierid":value="mat.superlierid"/></td>
-                            </tr>
-                            <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">类别编号：</td>
-                                <td><input name="categoryid" :value="mat.categoryid"/></td>
-                            </tr>
-                            <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">物料编号：</td>
-                                <td><input name="materialnum" :value="mat.materialnum"></td>
-                            </tr>
-                            <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">物料名称：</td>
-                                <td><input name="materialname" :value="mat.materialname"/></td>
-                            </tr>
-                            <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">规格型号：</td>
-                                <td><input name="modal" :value="mat.modal"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">备注：</td>
-                                <td><input name="remark" :value="mat.remark"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">主要成分：</td>
-                                <td><input name="basis":value="mat.basis"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">缩率：</td>
-                                <td><input name="shrinkage":value="mat.shrinkage"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">克重：</td>
-                                <td><input name="weight":value="mat.weight"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">支数：</td>
-                                <td><input name="num" :value="mat.num"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">参考价格：</td>
-                                <td><input name="price" :value="mat.price"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">基本单位：</td>
-                                <td><input name="unit" :value="mat.unit"/></td>
-                            </tr>
-                            <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">每单起订量：</td>
-                                <td><input name="startnum" :value="mat.startnum"/></td>
-                            </tr>
-                            <tr>
-                             <td style="line-height:20px;color:#428BCA;margin-right:2px">颜色编号</td>
-                                <td><input name="color" :value="mat.color"/></td>
-                            </tr>
-                              <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">尺码：</td>
-                                <td><input name="size" :value="mat.size"/></td>
-                            </tr>
-                        </table>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                        </button>
-                        <button type="button" class="btn btn-primary" onclick="updatebtn(this)">
-                            确认修改
-                        </button>
-                    </div>
-                </div>
-            </div><!-- /.modal-content -->
-        </div></div></div>
---%>
+
 </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:80%">
         <div class="modal-dialog">
@@ -430,67 +341,67 @@
                     <form id="myform">
                         <table>
                             <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">编号：{{mat.materialid}}</td>
+                                <td   style="line-height:30px;color:#428BCA;margin-right:2px">编号：</td>
                                 <td><input name="materialid" :value="mat.materialid" readonly="readonly"/></td>
                             </tr>
                             <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">供应商名称：</td>
+                                <td   style="line-height:30px;color:#428BCA;margin-right:2px">供应商名称：</td>
                                 <td><input name="superlierid":value="mat.superliername"/></td>
                             </tr>
                             <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">类别编号：</td>
+                                <td  style="line-height:30px;color:#428BCA;margin-right:2px">类别编号：</td>
                                 <td><input name="categoryid" :value="mat.categoryname"/></td>
                             </tr>
                             <tr>
-                                <td   style="line-height:20px;color:#428BCA;margin-right:2px">物料编号：</td>
+                                <td   style="line-height:30px;color:#428BCA;margin-right:2px">物料编号：</td>
                                 <td><input name="materialnum" :value="mat.materialnum"></td>
                             </tr>
                             <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">物料名称：</td>
+                                <td  style="line-height:30px;color:#428BCA;margin-right:2px">物料名称：</td>
                                 <td><input name="materialname" :value="mat.materialname"/></td>
                             </tr>
                             <tr>
-                                <td  style="line-height:20px;color:#428BCA;margin-right:2px">规格型号：</td>
+                                <td  style="line-height:30px;color:#428BCA;margin-right:2px">规格型号：</td>
                                 <td><input name="modal" :value="mat.modal"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">备注：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">备注：</td>
                                 <td><input name="remark" :value="mat.remark"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">主要成分：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">主要成分：</td>
                                 <td><input name="basis":value="mat.basis"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">缩率：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">缩率：</td>
                                 <td><input name="shrinkage":value="mat.shrinkage"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">克重：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">克重：</td>
                                 <td><input name="weight":value="mat.weight"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">支数：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">支数：</td>
                                 <td><input name="num" :value="mat.num"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">参考价格：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">参考价格：</td>
                                 <td><input name="price" :value="mat.price"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">基本单位：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">基本单位：</td>
                                 <td><input name="unit" :value="mat.unit"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">每单起订量：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">每单起订量：</td>
                                 <td><input name="startnum" :value="mat.startnum"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">颜色编号</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">颜色编号</td>
                                 <td><input name="color" :value="mat.color"/></td>
                             </tr>
                             <tr>
-                                <td style="line-height:20px;color:#428BCA;margin-right:2px">尺码：</td>
+                                <td style="line-height:30px;color:#428BCA;margin-right:2px">尺码：</td>
                                 <td><input name="size" :value="mat.size"/></td>
                             </tr>
                         </table>
@@ -522,7 +433,9 @@
             pages: 50, //总页数
             changePage:'',//跳转页
             nowIndex:0,
-            mat:""
+            mat:"",
+            mname:''
+
         },
         computed:{
             show:function(){
@@ -562,7 +475,7 @@
         methods: {
             getList:function(obj){
                 this.nowPage=obj;
-                var parames={"pageSize":this.pageSize,"pageNum":obj}
+                var parames={"pageSize":this.pageSize,"pageNum":obj,"materialname":this.mname}
                 this.$http.post("lxy/getMaterial",parames,{emulateJSON:true}).then(
                     function(res){
                         this.material=res.data.list;
@@ -600,6 +513,9 @@
         },
         watch:{ //监听每页显示条数的变化
             "pageSize":function(){
+                this.getList(1);
+            },
+            "mname":function(){
                 this.getList(1);
             }
         }

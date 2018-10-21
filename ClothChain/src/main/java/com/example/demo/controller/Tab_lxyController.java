@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.demo.biz.Tab_lxyBiz;
 import com.example.demo.entity.*;
 import com.example.demo.util.PageEntity;
@@ -17,6 +18,15 @@ import java.util.Map;
 public class Tab_lxyController {
     @Resource
     private Tab_lxyBiz biz;
+
+    //自动生成id编号
+    //controller
+    @RequestMapping("/selectByPrimaryKey_lxy")//使用异步传过来一个ID，
+    @ResponseBody
+    public String selectByPrimaryKey(Integer number){
+        String nu=biz.selectByPrimaryKey(number);
+        return nu;
+    }
 
 /*************************客户管理*************************/
     @RequestMapping("/queryCustomer")
@@ -83,9 +93,9 @@ public PageInfo<Map> lxy_getbrand(PageEntity page, String brandname) {
    /* **********************供应商管理***********************/
    @RequestMapping("/getsuperlier_lxy")
    @ResponseBody
-   public PageInfo<Map> lxy_getsuperlier(PageEntity page){
-       System.out.println("aa"+biz.getsuperlier(page));
-       return biz.getsuperlier(page);
+   public PageInfo<Map> lxy_getsuperlier(PageEntity page,String superliername){
+      System.out.println("aa"+biz.getsuperlier(page,superliername));
+       return biz.getsuperlier(page,superliername);
 
    }
    //新增供应商
@@ -119,8 +129,8 @@ public List<Map> lxy_getMaterialcategory(){//查询物料类别
 //查询物料信息
     @RequestMapping("/getMaterial")
     @ResponseBody
-    public PageInfo<Map> lxy_getMaterial(PageEntity page){
-     return biz.getMaterial(page);
+    public PageInfo<Map> lxy_getMaterial(PageEntity page,String materialname){
+     return biz.getMaterial(page,materialname);
     }
 //查询供应商
     @RequestMapping("/findsuperlier")
@@ -134,6 +144,8 @@ public List<Map> lxy_getMaterialcategory(){//查询物料类别
     @ResponseBody
     public void lxy_addMaterial(Tab_material material){
      System.out.println(material.getMaterialname()+material.getColor()+"aa");
+     material.setState(1);//是否可用 1.可用2.不可用
+        material.setAuditstatu(2);//审核状态1.未审2.已审
     biz.addMaterial(material);
     }
 //根据id查询一条物料信息
@@ -153,9 +165,9 @@ public List<Map> lxy_getMaterialcategory(){//查询物料类别
     //查询辅料
     @RequestMapping("/getAccessories")
     @ResponseBody
-    public PageInfo<Map> lxy_getAccessories(PageEntity page){
-        System.out.println(biz.getAccessories(page)+"sssss");
-       return biz.getAccessories(page);
+    public PageInfo<Map> lxy_getAccessories(PageEntity page,String accessoriesname){
+       /* System.out.println(biz.getAccessories(page)+"sssss");*/
+       return biz.getAccessories(page,accessoriesname);
     }
     @RequestMapping("/addAccessories")
     @ResponseBody
@@ -175,5 +187,31 @@ public List<Map> lxy_getMaterialcategory(){//查询物料类别
     @ResponseBody
     public void lxy_updateAccessories(Tab_accessories a){
         biz.updateAccessiries(a);
+    }
+   /* *************************颜色管理******************************/
+    @RequestMapping("/getColor")
+    @ResponseBody
+    public PageInfo<Map> lxy_getColor(PageEntity page,String colorname){
+        return biz.getColor(page,colorname);
+    }
+    //新增颜色
+    @RequestMapping("/addColor")
+    @ResponseBody
+    public void lxy_addColor(Tab_color color){
+         biz.addColor(color);
+    }
+    //根据id查询颜色
+    @RequestMapping("/getOneColor")
+    @ResponseBody
+    public Map lxy_getOneColor(int id){
+         Map m=biz.getOneColor(id);
+         System.out.println(m+"aa");
+         return  m;
+    }
+    //修改
+    @RequestMapping("/updateColor")
+    @ResponseBody
+    public  void updateColor(Tab_color color){
+        biz.updateColor(color);
     }
 }

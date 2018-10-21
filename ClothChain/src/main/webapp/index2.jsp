@@ -134,7 +134,7 @@
                                     <li><a href="lxy_getAccessories.jsp" target="aaa">辅料设置</a></li>
                                     <li><a href="lxy_getMaterial.jsp" target="aaa">物料信息</a></li>
                                     <li><a href="lxy_getKuanshi.jsp" target="aaa">款式库</a></li>
-                                    <li><a href="lxy_getcolor.jsp" target="aaa">颜色库</a></li>
+                                    <li><a href="lxy_Color.jsp" target="aaa">颜色库</a></li>
                                     <li><a href="lxy_getfuzhang.jsp" target="aaa">服装部件库</a></li>
                                     <li><a href="lxy_getCangku.jsp" target="aaa">仓库信息</a></li>
                                     <li><a href="lxy_getsize.jsp" target="aaa">尺码设置</a></li>

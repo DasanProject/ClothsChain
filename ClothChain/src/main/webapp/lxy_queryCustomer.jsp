@@ -152,7 +152,7 @@
                     <input type="text" v-model="cusname" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
-        </span>
+                   </span>
                 </div>
             </div>
         </div>

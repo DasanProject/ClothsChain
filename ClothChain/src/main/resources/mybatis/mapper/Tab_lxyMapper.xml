@@ -46,7 +46,7 @@
         select * from tab_brand b join tab_customer c on b.customerid=c.customerid
         <where>
             <if test="_parameter!=null and _parameter!=''">
-                b.brandname like "%"#{_parameter}"%"
+                b.brandname like '%${_parameter}%'
             </if>
         </where>
         order by b.brandid
@@ -95,6 +95,11 @@
     <!-- 查询所有供应商-->
     <select id="getsuperlier" resultType="java.util.Map" parameterType="java.lang.String">
     select * from tab_superlier
+        <where>
+            <if test="_parameter !=null or _parameter !=''">
+                superliername like '%${_parameter}%'
+            </if>
+        </where>
   </select>
 <!--新增供应商-->
     <insert id="addsuperlier" parameterType="tab_superlier">
@@ -161,12 +166,17 @@
 
  <!--  *************** 物料类别管理getMaterialcategory****************-->
    <!-- 查询物料类别-->
-    <select id="getMaterialcategory" resultType="java.util.Map">
+    <select id="getMaterialcategory" resultType="java.util.Map" >
     select * from  tab_materialcategory
   </select>
     <!--物料类别详情-->
-    <select id="getMaterial"  resultType="java.util.Map">
+    <select id="getMaterial"  resultType="java.util.Map" parameterType="java.lang.String">
 select * from tab_material a inner join  tab_materialcategory b on a.categoryid=b.categoryid inner join tab_superlier s on a.superlierid=s.superlierid
+        <where>
+            <if test="_parameter !=null or _parameter !=''">
+               a. materialname like '%${_parameter}%'
+            </if>
+        </where>
     </select>
    <!-- 查询供应商-->
     <select id="findsuperlier" resultType="java.util.Map">
@@ -243,8 +253,13 @@ select * from tab_material a inner join  tab_materialcategory b on a.categoryid=
 
     </update>
     <!--************************辅料管理********************-->
-    <select id="getAccessories" resultType="java.util.Map">
+    <select id="getAccessories" resultType="java.util.Map" parameterType="java.lang.String">
         select * from tab_accessories
+        <where>
+            <if test="_parameter !=null or _parameter !=''">
+                accessoriesname like '%${_parameter}%'
+            </if>
+        </where>
     </select>
    <!-- 新增辅料-->
     <insert id="addAccessories" parameterType="tab_accessories">
@@ -279,7 +294,49 @@ select * from tab_material a inner join  tab_materialcategory b on a.categoryid=
         </where>
     </update>
     <!--颜色管理-->
+   <!-- 查询颜色-->
     <select id="getColor" resultType="java.util.Map" parameterType="java.lang.String">
          select * from tab_color
+        <where>
+            <if test="_parameter !=null or _parameter !=''">
+                colorname like '%${_parameter}%'
+            </if>
+        </where>
     </select>
+   <!-- 新增颜色-->
+    <insert id="addColor" parameterType="tab_color">
+        insert into tab_color(colorno,colorname ,colorstr,url,state)values
+            (#{colorno},#{colorname},#{colorstr},#{url},#{state})
+    </insert>
+   <!-- 根据id查询颜色-->
+<select id="getOneColor" parameterType="int" resultType="java.util.Map">
+       select * from tab_color where colorid=#{id}
+</select>
+  <!--  修改-->
+    <update id="updateColor" parameterType="tab_color">
+        update  tab_color
+        <trim prefix="set" suffixOverrides=",">
+            <!-- suffixOverrides 覆盖后缀为其值的内容
+                  prefixOverrides="and | or 覆盖前缀的内容"
+             -->
+            <if test="colorid !=null">
+                colorid=#{colorid},
+            </if>
+            <if test="colorno!=null and colorno !=''">
+                colorno=#{colorno},
+            </if>
+            <if test="colorname!=null and colorname !=''">
+                colorname =#{colorname},
+            </if>
+            <if test="colorstr!=null and colorstr !=''">
+                colorstr =#{colorstr},
+            </if>
+            <if test="url!=null and url !=''">
+                url =#{url},
+            </if>
+        </trim>
+        <where>
+            colorid=#{colorid}
+        </where>
+    </update>
 </mapper>

@@ -139,7 +139,7 @@
 
 </style>
 <body style="background-color: #FFFFFF">
-<div class="col-xs-12">
+<div class="col-xs-12" id="app">
     <div class="x_panel">
 
         <div class="x_title row">
@@ -149,15 +149,15 @@
             <!------------------------------------>
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..."   v-model="ppm">
+                    <input type="text" class="form-control" placeholder="Search for by brandName ..."   v-model="ppm">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button" @click="getList(this)" >Go!</button>
+                      <button class="btn btn-default" type="button"  >Go!</button>
         </span>
                 </div>
             </div>
         </div>
-        <div class=" col-xs-12">
-            <div id="app">
+        <div class="col-xs-12">
+            <div >
 
 
                 <table class="table table-bordered table-condensed table-hover ">
@@ -352,7 +352,7 @@
             pages: 50, //总页数
             changePage:'',//跳转页
             nowIndex:0,
-            ppm:'',
+            ppm:"",
         },
         computed:{
             show:function(){
@@ -443,7 +443,7 @@
                  op+="<option value='"+data[i].customerid+"'>"+data[i].customername+"</option>"
              }
 
-             $("#sskh").append(op);
+             $("#sskh").end(op);
           }
 
       });

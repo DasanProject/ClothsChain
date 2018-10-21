@@ -2,6 +2,7 @@ package com.example.demo.biz.bizimpl;
 
 import com.example.demo.biz.Tab_lxyBiz;
 import com.example.demo.dao.Tab_lxyMapper;
+import com.example.demo.dao.Tab_oldnumberMapper;
 import com.example.demo.entity.*;
 import com.example.demo.util.PageEntity;
 import com.github.pagehelper.PageHelper;
@@ -9,6 +10,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +19,34 @@ import java.util.Map;
 public class Tab_lxyBizImpl implements Tab_lxyBiz {
 @Resource
 private Tab_lxyMapper mappers;
-/*****************客户管理******************/
+   //自动生成编号代码
+   @Resource
+    private Tab_oldnumberMapper oldnumberMapper;
+
+    @Override
+    public String selectByPrimaryKey(int typeid) {
+        //获得单号returnnum
+        Tab_oldnumber tab_oldnumber=oldnumberMapper.selectByPrimaryKey(typeid);
+        String prefix=tab_oldnumber.getPrefix();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+        Date date=new Date();
+        String datenum=sdf.format(date);
+        String number=tab_oldnumber.getNumber().toString();
+        String middle="";
+        for (int i=0;i<6-number.length();i++){
+            middle="0"+middle;
+        }
+        String returnnum=""+prefix+datenum+middle+number;
+        //将数据库中的数据自增1
+        Tab_oldnumber t=new Tab_oldnumber();
+        int aa= tab_oldnumber.getNumber()+1;
+        t.setNumber(tab_oldnumber.getNumber()+1);
+        t.setOldnumber(typeid);
+        Integer a=oldnumberMapper.updateByPrimaryKeySelective(t);
+        return returnnum;
+    }
+
+    /*****************客户管理******************/
     //查询客户
     public PageInfo<Map> queryCustomer(PageEntity page, String customername) {
         List<Map> list=mappers.queryCustomer(customername);
@@ -74,8 +104,8 @@ private Tab_lxyMapper mappers;
     }
 /*************************供应商管理**************************/
     //查询供应商
-    public PageInfo<Map> getsuperlier(PageEntity page){
-        List<Map> list=mappers.getsuperlier();
+    public PageInfo<Map> getsuperlier(PageEntity page,String superliername){
+        List<Map> list=mappers.getsuperlier(superliername);
         PageHelper.startPage(page.getPageNum(),page.getPageSize());
         PageInfo<Map> info=new PageInfo<Map>(list);
         return info;
@@ -107,8 +137,8 @@ private Tab_lxyMapper mappers;
 
     //查询物料信息
     @Override
-    public PageInfo<Map> getMaterial(PageEntity page) {
-        List<Map> list=mappers.getMaterial();
+    public PageInfo<Map> getMaterial(PageEntity page,String materialname) {
+        List<Map> list=mappers.getMaterial(materialname);
         PageHelper.startPage(page.getPageNum(),page.getPageSize());
         PageInfo<Map> info=new PageInfo<Map>(list);
         return info;
@@ -140,8 +170,8 @@ private Tab_lxyMapper mappers;
 
     /*查询辅料*/
     @Override
-    public PageInfo<Map> getAccessories(PageEntity page) {
-        List<Map> list=mappers.getAccessories();
+    public PageInfo<Map> getAccessories(PageEntity page,String accessoriesname) {
+        List<Map> list=mappers.getAccessories(accessoriesname);
         PageHelper.startPage(page.getPageNum(),page.getPageSize());
         PageInfo<Map> info=new PageInfo<Map>(list);
         return info;
@@ -160,5 +190,29 @@ private Tab_lxyMapper mappers;
     @Override
     public void updateAccessiries(Tab_accessories a) {
         mappers.updateAccessiries(a);
+    }
+    /********************颜色管理***********************/
+    //查询颜色
+    @Override
+    public PageInfo<Map> getColor(PageEntity page,String colorname) {
+        List<Map> list=mappers.getColor(colorname);
+        PageHelper.startPage(page.getPageNum(),page.getPageSize());
+        PageInfo<Map> info=new PageInfo<Map>(list);
+        return info;
+    }
+    //新增颜色
+    @Override
+    public void addColor(Tab_color color) {
+        mappers.addColor(color);
+    }
+    //根据id查询颜色
+    @Override
+    public Map getOneColor(int id) {
+        return mappers.getOneColor(id);
+    }
+    //修改
+    @Override
+    public void updateColor(Tab_color color) {
+        mappers.updateColor(color);
     }
 }
