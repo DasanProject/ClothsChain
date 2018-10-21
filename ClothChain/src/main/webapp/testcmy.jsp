@@ -83,6 +83,7 @@
             <p>
                 <button class="btn btn-success btn-sm submit" @click="editSubmit">提交</button>
             </p>
+            添加数据
         </div>
     </fieldset>
 </div>
