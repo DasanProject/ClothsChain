@@ -21,7 +21,7 @@ public class Tab_samplesize {
 
     private Double negative;
 
-    private Integer size;
+    private String size;
 
     public Integer getSamplesizeid() {
         return samplesizeid;
@@ -95,11 +95,11 @@ public class Tab_samplesize {
         this.negative = negative;
     }
 
-    public Integer getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(String size) {
         this.size = size;
     }
 }

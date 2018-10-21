@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.CmyMapper" >
+    <!--查询颜色库-->
+    <select id="getColors_cmy" parameterType="Tab_color" resultType="Tab_color">
+            select * from tab_color
+            <trim prefixOverrides="and" prefix="where">
+                <if test="colorname !=null and colorname !=''">
+                    colorname like '%${colorname}%'
+                </if>
+                <if test="colorstr !=null and colorstr !=''">
+                     and colorstr like '%${colorstr}%'
+                </if>
+            </trim>
+    </select>
    <!--查询尺寸表-->
     <select id="getSize_cmy" resultType="Tab_size">
             select * from tab_size
@@ -23,8 +35,13 @@
         select * from tab_quarterly
 </select>
     <!--查询款式表-->
-    <select id="getStylelibrary_cmy" resultType="Tab_stylelibrary">
+    <select id="getStylelibrary_cmy" resultType="Tab_stylelibrary" parameterType="java.lang.Integer">
         select * from tab_stylelibrary
+        <where>
+                <if test="customer !=null">
+                customerid=#{customer}
+                </if>
+        </where>
 </select>
     <select id="getAlladmission_cmy" resultType="java.util.Map">
             select * from tab_admission
@@ -34,30 +51,31 @@
            select * from tab_customer
   </select>
     <!--  陈梦月查询样衣信息表-->
-    <select id="getAllSampleListByPage_cmy" resultType="java.util.Map" parameterType="Tab_samplelist">
-     select * from tab_samplelist s join tab_stylelibrary sl on s.styleid=sl.styleid join tab_customer c on s.customerid=c.customerid join tab_brand b on s.brandid=b.brandid join tab_quarterly q on s.quarterlyid=q.quarterlyid
-     <trim prefix="where" prefixOverrides="and | or">
-      <if test="styleid !=null and styleid >0">
-      s.styleid=#{styleid}
-        </if>
-       <if test="customerid !=null and customerid >0">
-         and s.customerid=#{customerid}
-     </if>
-         <if test="brandid !=null and brandid >0">
-             and  s.brandid=#{brandid}
-         </if>
-         <if test="sampletypeid !=null and sampletypeid >0">
-             and   s.sampletypeid=#{sampletypeid}
-         </if>
-         <if test="quarterlyid !=null and quarterlyid >0">
-             and s.quarterlyid=#{quarterlyid}
-         </if>
-        <if test="sampleno !=null">
-             and s.sampleno like '%${sampleno}%'
-         </if>
-      <if test="opendate !=null and opendate !=''">
-             and  date_format(s.opendate, '%Y-%m-%d')=date_format(#{opendate},'%Y-%m-%d')
-         </if>
-     </trim>
-  </select>
+
+<select id="getAllSampleListByPage_cmy" resultType="java.util.Map" parameterType="Tab_samplelist">
+select * from tab_samplelist s join tab_stylelibrary sl on s.styleid=sl.styleid join tab_customer c on s.customerid=c.customerid join tab_brand b on s.brandid=b.brandid join tab_quarterly q on s.quarterlyid=q.quarterlyid
+<trim prefix="where" prefixOverrides="and | or">
+    <if test="styleid !=null and styleid >0">
+        s.styleid=#{styleid}
+    </if>
+    <if test="customerid !=null and customerid >0">
+        and s.customerid=#{customerid}
+    </if>
+    <if test="brandid !=null and brandid >0">
+        and  s.brandid=#{brandid}
+    </if>
+    <if test="sampletypeid !=null and sampletypeid >0">
+        and   s.sampletypeid=#{sampletypeid}
+    </if>
+    <if test="quarterlyid !=null and quarterlyid >0">
+        and s.quarterlyid=#{quarterlyid}
+    </if>
+    <if test="sampleno !=null">
+        and s.sampleno like '%${sampleno}%'
+    </if>
+    <if test="opendate !=null and opendate !=''">
+        and  date_format(s.opendate, '%Y-%m-%d')=date_format(#{opendate},'%Y-%m-%d')
+    </if>
+</trim>
+</select>
 </mapper>

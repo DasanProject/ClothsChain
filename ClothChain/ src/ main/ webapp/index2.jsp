@@ -129,7 +129,10 @@
                             <li><a><i class="fa fa-clone"></i>基础数据<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="lxy_queryCustomer.jsp" target="aaa">客户管理</a></li>
+<<<<<<< HEAD:ClothChain/src/main/webapp/index2.jsp
                                 </ul>
+=======
+>>>>>>> e17fa02c1a93973a6771849b5f995239e91ffe71:ClothChain/ src/ main/ webapp/index2.jsp
                             </li>
                             <li><a><i class="fa fa-clone"></i>系统设置<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -176,7 +179,7 @@
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <img src="images/img.jpg" alt="">John Doe
-                                <span class=" fa fa-angle-down"></span>
+                                <span class=" fa fa-angle-down"></span>ongfu
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="javascript:;" target="aaa"> 消息</a></li>
@@ -249,7 +252,6 @@
 <script src="build/js/custom.min.js"></script>
 </body>
 </html>
-
 <script>
     // document.domain = "caibaojian.com";
     function setIframeHeight(iframe) {
@@ -280,6 +282,7 @@
 
     window.onresize=function(){
         changeWH();
+
 
     }
 
