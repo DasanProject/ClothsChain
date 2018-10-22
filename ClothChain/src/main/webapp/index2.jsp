@@ -248,7 +248,6 @@
 <script src="build/js/custom.min.js"></script>
 </body>
 </html>
-
 <script>
     // document.domain = "caibaojian.com";
     function setIframeHeight(iframe) {
