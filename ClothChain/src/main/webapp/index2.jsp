@@ -129,7 +129,6 @@
                             <li><a><i class="fa fa-clone"></i>基础数据<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="lxy_queryCustomer.jsp" target="aaa">客户管理</a></li>
-                                   
                             </li>
                             <li><a><i class="fa fa-clone"></i>系统设置<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -176,7 +175,7 @@
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <img src="images/img.jpg" alt="">John Doe
-                                <span class=" fa fa-angle-down"></span>
+                                <span class=" fa fa-angle-down"></span>ongfu
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="javascript:;" target="aaa"> 消息</a></li>
