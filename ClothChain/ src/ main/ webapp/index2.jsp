@@ -279,6 +279,7 @@
     window.onresize=function(){
         changeWH();
 
+
     }
 
 </script>
